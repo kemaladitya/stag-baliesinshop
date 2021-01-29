@@ -1,0 +1,166 @@
+// Global styling
+
+
+html {
+  .basket-background-shadow {
+    -webkit-box-shadow: 0px -1px 17px 19px rgba(255,255,255,1) !important;
+    -moz-box-shadow: 0px -1px 17px 19px rgba(255,255,255,1) !important;
+    box-shadow: 0px -1px 17px 19px rgba(255,255,255,1) !important;
+  }
+
+  #b-snackbar > div {
+    width: inherit;
+  }
+
+  scrollbar-width: none;
+  overflow: hidden;
+
+  .b-font {
+    font-family: Poppins, sans-serif;
+  }
+
+  .lz-load {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: #babbbc;
+  }
+
+  .lz-stripe {
+    border: none;
+    height: 20%;
+    background-color: #babbbc;
+  }
+
+  .small-stripe {
+    width: 40%;
+  }
+
+  .medium-stripe {
+    width: 70%;
+  }
+
+  .long-stripe {
+    width: 100%;
+  }
+
+  .lz-load, .lz-stripe {
+    animation: hintloading 1.5s ease-in-out 0s infinite reverse;
+    -webkit-animation: hintloading 1.5s ease-in-out 0s infinite reverse;
+  }
+
+  @keyframes hintloading {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  @-webkit-keyframes hintloading {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  .v-toolbar__content, .v-toolbar__extension {
+    padding: 4px 16px;
+    padding-right: 10px;
+    padding-left: 0;
+  }
+
+  .v-date-picker-title__date {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    padding-bottom: 8px;
+    margin-bottom: -8px;
+
+    div {
+      width: 100%;
+      text-align: center !important;
+    }
+
+    div.picker-transition-leave-active {
+      width: 100%;
+      text-align: center !important;
+    }
+
+    div.picker-transition-enter-leave-active {
+      width: 100%;
+      text-align: center !important;
+    }
+
+    div.picker-reverse-transition-leave-active {
+      width: 100%;
+      text-align: center !important;
+    }
+
+    div.picker-reverse-transition-enter-leave-active {
+      width: 100%;
+      text-align: center !important;
+    }
+
+    div.date-picker-header-value-transition {
+      text-align: center !important;
+    }
+  }
+
+  div.v-date-picker-header.theme--light > button:nth-child(1) {
+    display: none;
+  }
+
+  div.v-date-picker-header.theme--light > button:nth-child(3) {
+    display: none;
+  }
+
+  .v-date-picker-title__year {
+    display: none;
+  }
+
+  #b-rp-date-items {
+    div > hr {
+      background-color: transparent !important;
+      display: none !important;
+      color: transparent !important;
+    }
+  }
+
+  #b-checkbox-subs-product > div {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  .pulse-button {
+    position: relative;
+    border: none;
+    box-shadow: 0 0 0 0 rgba(255, 221, 0, 0.7);
+    background-size:cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+  .pulse-button:hover {
+    -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+  }
+
+  @-webkit-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 76, 61, 0);}}
+  @-moz-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 76, 61, 0);}}
+  @-ms-keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 76, 61, 0);}}
+  @keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 76, 61, 0);}}
+}

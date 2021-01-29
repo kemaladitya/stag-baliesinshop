@@ -1,0 +1,137 @@
+#b-products-detail {
+  #desktop {
+    .name {
+      font-weight: 600;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+
+    .variant {
+      min-width: 50%;
+      max-width: 50%;
+
+      .label {
+        font-size: 11px;
+      }
+    }
+
+    .qty {
+      min-width: 50%;
+      max-width: 50%;
+
+      .label {
+        font-size: 11px;
+      }
+    }
+
+    .size {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .description {
+      .label {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .detail {
+        font-size: 12px;
+      }
+    }
+
+    .action {
+      .content {
+        min-width: 100% !important;
+
+        .continue-shop {
+          text-transform: capitalize;
+          color: black !important;
+          border: 1px solid #ccc !important;
+          letter-spacing: initial;
+          min-width: 49.5%;
+          width: 49.5%;
+          height: 45;
+        }
+
+        .add-to-cart {
+          text-transform: capitalize;
+          letter-spacing: initial;
+          min-width: 49.5%;
+          width: 49.5%;
+          height: 45;
+        }
+      }
+    }
+  }
+
+  #mobile {
+    .name {
+      font-weight: 600;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+
+    .variant {
+      min-width: 50%;
+      max-width: 50%;
+
+      .label {
+        font-size: 11px;
+      }
+    }
+
+    .qty {
+      min-width: 50%;
+      max-width: 50%;
+
+      .label {
+        font-size: 11px;
+      }
+    }
+
+    .size {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .description {
+      .label {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .detail {
+        font-size: 12px;
+      }
+    }
+
+    .action {
+      .content {
+        min-width: 100% !important;
+
+        .continue-shop {
+          text-transform: capitalize;
+          color: black !important;
+          border: 1px solid #ccc !important;
+          letter-spacing: initial;
+          min-width: 49.5%;
+          width: 49.5%;
+          height: 45;
+        }
+
+        .add-to-cart {
+          text-transform: capitalize;
+          letter-spacing: initial;
+          min-width: 49.5%;
+          width: 49.5%;
+          height: 45;
+        }
+      }
+    }
+  }
+}

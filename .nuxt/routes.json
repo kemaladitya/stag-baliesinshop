@@ -1,0 +1,72 @@
+[
+  {
+    "name": "success-checkout",
+    "path": "/success/checkout",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/success/checkout.vue",
+    "chunkName": "pages/success/checkout",
+    "_name": "_06441552"
+  },
+  {
+    "name": "success-register",
+    "path": "/success/register",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/success/register.vue",
+    "chunkName": "pages/success/register",
+    "_name": "_3fe4e034"
+  },
+  {
+    "name": "error-link-expired",
+    "path": "/error/link/expired",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/error/link/expired.vue",
+    "chunkName": "pages/error/link/expired",
+    "_name": "_674f4f08"
+  },
+  {
+    "name": "error-link-invalid",
+    "path": "/error/link/invalid",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/error/link/invalid.vue",
+    "chunkName": "pages/error/link/invalid",
+    "_name": "_cde82b64"
+  },
+  {
+    "name": "site-store",
+    "path": "/site/:store",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/site/_store/index.vue",
+    "chunkName": "pages/site/_store/index",
+    "_name": "_35c96410"
+  },
+  {
+    "name": "site-store-cart",
+    "path": "/site/:store?/cart",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/site/_store/cart/index.vue",
+    "chunkName": "pages/site/_store/cart/index",
+    "_name": "_b6d65126"
+  },
+  {
+    "name": "site-store-checkout",
+    "path": "/site/:store?/checkout",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/site/_store/checkout/index.vue",
+    "chunkName": "pages/site/_store/checkout/index",
+    "_name": "_4ec06dda"
+  },
+  {
+    "name": "site-store-userprofile",
+    "path": "/site/:store?/userprofile",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/site/_store/userprofile/index.vue",
+    "chunkName": "pages/site/_store/userprofile/index",
+    "_name": "_f04f88b2"
+  },
+  {
+    "name": "site-store-pid",
+    "path": "/site/:store?/:pid",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",
+    "chunkName": "pages/site/_store/_pid/index",
+    "_name": "_f97dd3ce"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/Balesin-Shop-FE/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_6d385a9d"
+  }
+]

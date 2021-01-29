@@ -1,0 +1,31 @@
+{
+  "payment_type": {
+    "cod": {
+      "name": "cod",
+      "img": null,
+      "desc": "Pastikan anda sudah menyiapkan uang cash sesuai dengan pembelian atau orderan anda.",
+      "width": 55,
+      "height": 15,
+      "pt": 2,
+      "pl": 1
+    },
+    "ovo": {
+      "name": "ovo",
+      "img": "https://cdn.clipart.email/1babd0f5ed57c219f04cb44e0988a0d4_ovo-indonesia-logo-png_1026-464.png",
+      "desc": "Pembayaran dilakukan di bawah 55 detik dan pastikan saldo mencukupi.",
+      "width": 55,
+      "height": 15,
+      "pt": 2,
+      "pl": 1
+    },
+    "dana": {
+      "name": "dana",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png",
+      "desc": "Pembayaran dilakukan di bawah 60 menit dan pastikan saldo mencukupi.",
+      "width": 75,
+      "height": 21,
+      "pt": 0,
+      "pl": 2
+    }
+  }
+}

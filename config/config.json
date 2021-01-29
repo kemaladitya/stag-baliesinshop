@@ -1,0 +1,9 @@
+{
+  "baseURL": "http://0.0.0.0:8080",
+  "API_KEY": "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
+  "SOCKET": "https://faq.balesin.id/chat",
+  "ADONIS": "https://faq.balesin.id/adn",
+  "LOGGER": false,
+  "HOST": "0.0.0.0",
+  "PORT": "8080"
+}

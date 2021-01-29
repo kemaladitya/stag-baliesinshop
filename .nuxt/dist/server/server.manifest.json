@@ -1,0 +1,29 @@
+{
+  "entry": "server.js",
+  "files": {
+    "pages/error/link/expired.js": "pages/error/link/expired.js",
+    "pages/error/link/invalid.js": "pages/error/link/invalid.js",
+    "pages/index.js": "pages/index.js",
+    "pages/site/_store/_pid/index.js": "pages/site/_store/_pid/index.js",
+    "pages/site/_store/cart/index.js": "pages/site/_store/cart/index.js",
+    "pages/site/_store/checkout/index.js": "pages/site/_store/checkout/index.js",
+    "pages/site/_store/index.js": "pages/site/_store/index.js",
+    "pages/site/_store/userprofile/index.js": "pages/site/_store/userprofile/index.js",
+    "pages/success/checkout.js": "pages/success/checkout.js",
+    "pages/success/register.js": "pages/success/register.js",
+    "server.js": "server.js"
+  },
+  "maps": {
+    "pages/error/link/expired.js": "pages/error/link/expired.js.map",
+    "pages/error/link/invalid.js": "pages/error/link/invalid.js.map",
+    "pages/index.js": "pages/index.js.map",
+    "pages/site/_store/_pid/index.js": "pages/site/_store/_pid/index.js.map",
+    "pages/site/_store/cart/index.js": "pages/site/_store/cart/index.js.map",
+    "pages/site/_store/checkout/index.js": "pages/site/_store/checkout/index.js.map",
+    "pages/site/_store/index.js": "pages/site/_store/index.js.map",
+    "pages/site/_store/userprofile/index.js": "pages/site/_store/userprofile/index.js.map",
+    "pages/success/checkout.js": "pages/success/checkout.js.map",
+    "pages/success/register.js": "pages/success/register.js.map",
+    "server.js": "server.js.map"
+  }
+}
