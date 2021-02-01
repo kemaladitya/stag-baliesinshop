@@ -691,6 +691,7 @@ export default {
           data: dates
         }
       })
+      this.update_cache('rp-order')
     },
 
     change_handler (key, value) {
