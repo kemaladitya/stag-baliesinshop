@@ -3689,7 +3689,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
               const list_items = el.items.map(item => {
                 const search_product = self.state.products.filter(prod => {
                   console.log(prod, ' prod get cart');
-                  console.log(el.variant, ' variant get cart');
+                  console.log(el, ' variant get cart');
 
                   if (prod.id === item.id) {
                     return prod;
@@ -3736,6 +3736,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
                 items: merge_items
               };
             });
+            console.log(list_dates, ' list_dates');
             self.dispatch('setState', {
               payload: {
                 key: 'dates',
@@ -11241,12 +11242,12 @@ module.exports = JSON.parse("{\"payment_type\":{\"cod\":{\"name\":\"cod\",\"img\
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/checkout/index.vue?vue&type=template&id=ebfd867a&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',{staticClass:"b-font pt-12 pl-1 pr-1",staticStyle:{"overflow-x":"hidden"}},[_c('v-dialog',{attrs:{"persistent":"","max-width":"100%"},model:{value:(_vm.voucher_form),callback:function ($$v) {_vm.voucher_form=$$v},expression:"voucher_form"}},[_c('InsertVoucherCode',{attrs:{"changehandler":_vm.change_handler}})],1),_vm._v(" "),(!_vm.cart.length)?_c('div',{staticClass:"mt-12"},[_c('center',[_c('div',{staticClass:"pa-12 pb-6"},[_c('v-img',{attrs:{"src":"https://shop.balesin.id/static/plugins/img/cart-empty-icon.png","width":"300"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"18px","font-weight":"600"}},[_vm._v("\n        Keranjang belanja kosong\n      ")]),_vm._v(" "),_c('div',{staticClass:"mt-2",staticStyle:{"font-size":"16px","color":"#999"}},[_vm._v("\n        Kamu belum memilih produk yang diinginkan\n      ")]),_vm._v(" "),_c('div',{staticClass:"pa-2 mt-4"},[_c('v-btn',{attrs:{"color":"#ffdd00","block":"","to":("/site/" + (_vm.site.store) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_vm._v("\n          Mulai Belanja\n        ")])],1)])],1):_vm._e(),_vm._v(" "),(_vm.cart.length)?_c('Checkout',{attrs:{"date":_vm.date,"customer":_vm.customer,"changehandler":_vm.change_handler,"appliedvoucher":_vm.applied_voucher,"parsedate":_vm.parse_date,"parseprice":_vm.parse_price,"expansion":_vm.expansion,"grandtotal":_vm.grand_total,"selectedpayment":_vm.selected_payment,"selectedcourier":_vm.selected_courier,"applyingvoucher":_vm.applying_voucher,"shippingcostloading":_vm.shipping_cost_loading}}):_vm._e(),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.voucher},on:{"click:outside":function($event){return _vm.change_handler('voucher', false)}}},[_c('Voucher',{attrs:{"changehandler":_vm.change_handler,"listvouchers":_vm.list_vouchers,"usevoucher":_vm.use_voucher,"customvoucher":_vm.custom_voucher}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.courier},on:{"click:outside":function($event){return _vm.change_handler('courier', false)}}},[_c('Courier',{attrs:{"changehandler":_vm.change_handler,"getcour":_vm.get_cour}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.payment},on:{"click:outside":function($event){return _vm.change_handler('payment', false)}}},[_c('Payment',{attrs:{"changehandler":_vm.change_handler,"paymentdetail":_vm.payment_detail,"selectedpayment":_vm.selected_payment,"selectpayment":_vm.select_payment}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._v(" "),(_vm.cart.length)?_c('v-footer',{attrs:{"fixed":"","padless":"","color":"grey lighten-3"}},[_c('Footer',{attrs:{"grandtotal":_vm.grand_total,"processbtn":_vm.process_btn,"executeorder":_vm.execute_order}})],1):_vm._e()],1)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/checkout/index.vue?vue&type=template&id=28406370&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',{staticClass:"b-font pt-12 pl-1 pr-1",staticStyle:{"overflow-x":"hidden"}},[_c('v-dialog',{attrs:{"persistent":"","max-width":"100%"},model:{value:(_vm.voucher_form),callback:function ($$v) {_vm.voucher_form=$$v},expression:"voucher_form"}},[_c('InsertVoucherCode',{attrs:{"changehandler":_vm.change_handler}})],1),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('Checkout',{attrs:{"date":_vm.date,"customer":_vm.customer,"changehandler":_vm.change_handler,"appliedvoucher":_vm.applied_voucher,"parsedate":_vm.parse_date,"parseprice":_vm.parse_price,"expansion":_vm.expansion,"grandtotal":_vm.grand_total,"selectedpayment":_vm.selected_payment,"selectedcourier":_vm.selected_courier,"applyingvoucher":_vm.applying_voucher,"shippingcostloading":_vm.shipping_cost_loading}}):_c('div',{staticClass:"mt-12"},[_c('center',[_c('div',{staticClass:"pa-12 pb-6"},[_c('v-img',{attrs:{"src":"https://shop.balesin.id/static/plugins/img/cart-empty-icon.png","width":"300"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"18px","font-weight":"600"}},[_vm._v("\n        Keranjang belanja kosong\n      ")]),_vm._v(" "),_c('div',{staticClass:"mt-2",staticStyle:{"font-size":"16px","color":"#999"}},[_vm._v("\n        Kamu belum memilih produk yang diinginkan\n      ")]),_vm._v(" "),_c('div',{staticClass:"pa-2 mt-4"},[_c('v-btn',{attrs:{"color":"#ffdd00","block":"","to":("/site/" + (_vm.site.store) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_vm._v("\n          Mulai Belanja\n        ")])],1)])],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.voucher},on:{"click:outside":function($event){return _vm.change_handler('voucher', false)}}},[_c('Voucher',{attrs:{"changehandler":_vm.change_handler,"listvouchers":_vm.list_vouchers,"usevoucher":_vm.use_voucher,"customvoucher":_vm.custom_voucher}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.courier},on:{"click:outside":function($event){return _vm.change_handler('courier', false)}}},[_c('Courier',{attrs:{"changehandler":_vm.change_handler,"getcour":_vm.get_cour}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.payment},on:{"click:outside":function($event){return _vm.change_handler('payment', false)}}},[_c('Payment',{attrs:{"changehandler":_vm.change_handler,"paymentdetail":_vm.payment_detail,"selectedpayment":_vm.selected_payment,"selectpayment":_vm.select_payment}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('v-footer',{attrs:{"fixed":"","padless":"","color":"grey lighten-3"}},[_c('Footer',{attrs:{"grandtotal":_vm.grand_total,"processbtn":_vm.process_btn,"executeorder":_vm.execute_order}})],1):_vm._e()],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/checkout/index.vue?vue&type=template&id=ebfd867a&
+// CONCATENATED MODULE: ./pages/site/_store/checkout/index.vue?vue&type=template&id=28406370&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(167);
@@ -11796,6 +11797,7 @@ var components_General = __webpack_require__(224);
     async use_voucher(params) {
       console.log(params, 'use params');
       const total = this.grand_total;
+      console.log(total, ' total');
       this.voucher = false;
       this.applying_voucher = true;
 
@@ -11844,28 +11846,38 @@ var components_General = __webpack_require__(224);
             const mapped_dates = dates.map(order => {
               const merged_orders = execute_voucher.data.result.merged_orders;
               const find_result = merged_orders.filter(el => el.delivery_date === order.date);
-              order.items = order.items.map(order_item => {
-                if (order_item.select_date) {
-                  const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id);
-                  order_item.discount_price = combine_detail[0].discount_price;
-                  order_item.normal_price = combine_detail[0].normal_price;
-                }
 
-                return order_item;
-              });
+              if (find_result.length) {
+                order.items = order.items.map(order_item => {
+                  if (order_item.select_date) {
+                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id);
+
+                    if (combine_detail.length) {
+                      order_item.discount_price = combine_detail[0].discount_price;
+                      order_item.normal_price = combine_detail[0].normal_price;
+                    }
+                  }
+
+                  return order_item;
+                });
+              }
+
               return order;
             });
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'dates',
-                data: mapped_dates
-              }
-            });
+            console.log(mapped_dates); // this.$store.dispatch('setState', {
+            //   payload: {
+            //     key: 'dates',
+            //     data: mapped_dates
+            //   }
+            // })
           }
 
+          console.log(execute_voucher.data.result, ' execute_voucher.data.result');
+          const new_total = this.grand_total;
+          console.log(new_total, ' new_total');
           this.applied_voucher = {
             name: params.value.name,
-            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total ? execute_voucher.data.result.old_total - (this.rp_order ? this.subs_order() : this.normal_order()) : 0
+            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total ? Math.abs(total - new_total) : 0
           }; // console.log(execute_voucher)
           // this.update_cache('single-order', params.value.name)
         } else {

@@ -3661,7 +3661,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
               const list_items = el.items.map(item => {
                 const search_product = self.state.products.filter(prod => {
                   console.log(prod, ' prod get cart');
-                  console.log(el.variant, ' variant get cart');
+                  console.log(el, ' variant get cart');
 
                   if (prod.id === item.id) {
                     return prod;
@@ -3708,6 +3708,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
                 items: merge_items
               };
             });
+            console.log(list_dates, ' list_dates');
             self.dispatch('setState', {
               payload: {
                 key: 'dates',
@@ -7014,18 +7015,18 @@ var staticRenderFns = []
 
 // CONCATENATED MODULE: ./components/Products/index.vue?vue&type=template&id=60b39d02&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Products/Platforms/mobile.vue?vue&type=template&id=62b2e3a1&
-var mobilevue_type_template_id_62b2e3a1_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.listproduct && _vm.listproduct.length)?_c('v-row',{attrs:{"no-gutters":""}},_vm._l((_vm.listproduct),function(item,index){return _c('v-col',{key:index,attrs:{"cols":"6"}},[_c('v-card',{staticClass:"ma-1 mt-5 mb-0",attrs:{"outlined":""}},[(item.detail.length)?_c('div',[_c('v-img',{staticClass:"image",attrs:{"src":item.detail[0].main_image}},[(item.detail[0].discount_price)?_c('div',{staticClass:"promo-badge"},[_vm._v("\n              PROMO\n            ")]):_vm._e()])],1):_vm._e(),_vm._v(" "),_c('div',{staticClass:"pa-2"},[_c('div',{staticClass:"name pt-2"},[_vm._v(_vm._s(item.name))]),_vm._v(" "),(item.detail[0].discount_price)?_c('div',{staticClass:"discount-price"},[_c('div',[_vm._v("\n              Rp. "+_vm._s(item.detail[0].discount_price
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Products/Platforms/mobile.vue?vue&type=template&id=12d8dce2&
+var mobilevue_type_template_id_12d8dce2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.listproduct && _vm.listproduct.length)?_c('v-row',{attrs:{"no-gutters":""}},_vm._l((_vm.listproduct),function(item,index){return _c('v-col',{key:index,attrs:{"cols":"6"}},[(item.detail.length)?_c('v-card',{staticClass:"ma-1 mt-5 mb-0",attrs:{"outlined":""}},[(item.detail.length)?_c('div',[_c('v-img',{staticClass:"image",attrs:{"src":item.detail[0].main_image}},[(item.detail[0].discount_price)?_c('div',{staticClass:"promo-badge"},[_vm._v("\n              PROMO\n            ")]):_vm._e()])],1):_vm._e(),_vm._v(" "),_c('div',{staticClass:"pa-2"},[_c('div',{staticClass:"name pt-2"},[_vm._v(_vm._s(item.name))]),_vm._v(" "),(item.detail[0].discount_price)?_c('div',{staticClass:"discount-price"},[_c('div',[_vm._v("\n              Rp. "+_vm._s(item.detail[0].discount_price
                   .toLocaleString()
                   .replace(/,/g, '.'))+", -\n            ")]),_vm._v(" "),_c('div',{staticClass:"lined"},[_vm._v("\n              Rp. "+_vm._s(item.detail[0].normal_price
                   .toLocaleString()
                   .replace(/,/g, '.'))+", -\n            ")])]):_c('div',{staticClass:"normal-price"},[_vm._v("\n            Rp. "+_vm._s(item.detail[0].normal_price
                 .toLocaleString()
-                .replace(/,/g, '.'))+", -\n          ")]),_vm._v(" "),(item.detail.length === 1)?_c('div',{staticClass:"d-flex flex-row pt-3"},[_c('v-btn',{staticClass:"show-detail",attrs:{"depressed":"","dense":"","text":"","small":""},on:{"click":function($event){return _vm.productdetail(item)}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-eye")]),_vm._v("  Lihat\n            ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticClass:"add-to-cart",staticStyle:{"color":"black","border":"1px solid #cccccc !important"},attrs:{"color":"#fffbbb","depressed":"","dense":"","small":""},on:{"click":function($event){return _vm.addtocart([item])}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-cart-plus")]),_vm._v("  Tambah\n            ")],1)],1):(item.detail.length > 1)?_c('div',{staticClass:"d-flex flex-row pt-3"},[_c('v-btn',{staticClass:"select-variant",attrs:{"color":"#FD0","depressed":"","dense":"","small":"","to":("/site/" + (_vm.site.store) + "/" + (item.id) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_c('v-icon',{staticStyle:{}},[_vm._v("mdi-checkbox-multiple-marked-outline")]),_vm._v("\n               Pilih Variant\n            ")],1)],1):_vm._e()])])],1)}),1):(!_vm.loadingproduct && _vm.listproduct.length)?_c('div',[_c('center',{staticClass:"pt-12"},[_c('v-img',{staticClass:"empty-image",attrs:{"src":__webpack_require__(174)}}),_vm._v(" "),_c('div',{staticClass:"empty-info pa-3 pr-4 pl-4 mt-4"},[_vm._v("\n        This store have no product yet.\n      ")])],1)],1):_vm._e()],1)}
-var mobilevue_type_template_id_62b2e3a1_staticRenderFns = []
+                .replace(/,/g, '.'))+", -\n          ")]),_vm._v(" "),(item.detail.length === 1)?_c('div',{staticClass:"d-flex flex-row pt-3"},[_c('v-btn',{staticClass:"show-detail",attrs:{"depressed":"","dense":"","text":"","small":""},on:{"click":function($event){return _vm.productdetail(item)}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-eye")]),_vm._v("  Lihat\n            ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticClass:"add-to-cart",staticStyle:{"color":"black","border":"1px solid #cccccc !important"},attrs:{"color":"#fffbbb","depressed":"","dense":"","small":""},on:{"click":function($event){return _vm.addtocart([item])}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-cart-plus")]),_vm._v("  Tambah\n            ")],1)],1):(item.detail.length > 1)?_c('div',{staticClass:"d-flex flex-row pt-3"},[_c('v-btn',{staticClass:"select-variant",attrs:{"color":"#FD0","depressed":"","dense":"","small":"","to":("/site/" + (_vm.site.store) + "/" + (item.id) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_c('v-icon',{staticStyle:{}},[_vm._v("mdi-checkbox-multiple-marked-outline")]),_vm._v("\n               Pilih Variant\n            ")],1)],1):_vm._e()])]):_vm._e()],1)}),1):(!_vm.loadingproduct && _vm.listproduct.length)?_c('div',[_c('center',{staticClass:"pt-12"},[_c('v-img',{staticClass:"empty-image",attrs:{"src":__webpack_require__(174)}}),_vm._v(" "),_c('div',{staticClass:"empty-info pa-3 pr-4 pl-4 mt-4"},[_vm._v("\n        This store have no product yet.\n      ")])],1)],1):_vm._e()],1)}
+var mobilevue_type_template_id_12d8dce2_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Products/Platforms/mobile.vue?vue&type=template&id=62b2e3a1&
+// CONCATENATED MODULE: ./components/Products/Platforms/mobile.vue?vue&type=template&id=12d8dce2&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Products/Platforms/mobile.vue?vue&type=script&lang=js&
 //
@@ -7194,8 +7195,8 @@ var VSpacer = __webpack_require__(102);
 
 var component = Object(componentNormalizer["a" /* default */])(
   Platforms_mobilevue_type_script_lang_js_,
-  mobilevue_type_template_id_62b2e3a1_render,
-  mobilevue_type_template_id_62b2e3a1_staticRenderFns,
+  mobilevue_type_template_id_12d8dce2_render,
+  mobilevue_type_template_id_12d8dce2_staticRenderFns,
   false,
   null,
   null,

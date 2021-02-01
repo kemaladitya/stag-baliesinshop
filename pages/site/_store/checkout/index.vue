@@ -4,7 +4,23 @@
       <InsertVoucherCode :changehandler="change_handler" />
     </v-dialog>
 
-    <div class="mt-12" v-if="!cart.length">
+    <Checkout
+      v-if="cart.length || dates.length"
+      :date="date"
+      :customer="customer"
+      :changehandler="change_handler"
+      :appliedvoucher="applied_voucher"
+      :parsedate="parse_date"
+      :parseprice="parse_price"
+      :expansion="expansion"
+      :grandtotal="grand_total"
+      :selectedpayment="selected_payment"
+      :selectedcourier="selected_courier"
+      :applyingvoucher="applying_voucher"
+      :shippingcostloading="shipping_cost_loading"
+    />
+
+    <div class="mt-12" v-else>
       <center>
         <div class="pa-12 pb-6">
           <v-img
@@ -29,22 +45,6 @@
         </div>
       </center>
     </div>
-
-    <Checkout
-      v-if="cart.length"
-      :date="date"
-      :customer="customer"
-      :changehandler="change_handler"
-      :appliedvoucher="applied_voucher"
-      :parsedate="parse_date"
-      :parseprice="parse_price"
-      :expansion="expansion"
-      :grandtotal="grand_total"
-      :selectedpayment="selected_payment"
-      :selectedcourier="selected_courier"
-      :applyingvoucher="applying_voucher"
-      :shippingcostloading="shipping_cost_loading"
-    />
 
     <v-bottom-sheet
       :value="voucher"
@@ -97,7 +97,7 @@
       </v-sheet>
     </v-bottom-sheet>
 
-    <v-footer v-if="cart.length" fixed padless color="grey lighten-3">
+    <v-footer v-if="cart.length || dates.length" fixed padless color="grey lighten-3">
       <Footer
         :grandtotal="grand_total"
         :processbtn="process_btn"
@@ -459,6 +459,7 @@ export default {
     async use_voucher(params) {
       console.log(params, 'use params')
       const total = this.grand_total
+      console.log(total, ' total')
 
       this.voucher = false
       this.applying_voucher = true
@@ -512,32 +513,44 @@ export default {
               const merged_orders = execute_voucher.data.result.merged_orders
               const find_result = merged_orders.filter(el => el.delivery_date === order.date)
 
-              order.items = order.items.map(order_item => {
-                if (order_item.select_date) {
-                  const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
+              if (find_result.length) {
+                order.items = order.items.map(order_item => {
+                  if (order_item.select_date) {
+                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
 
-                  order_item.discount_price = combine_detail[0].discount_price
-                  order_item.normal_price = combine_detail[0].normal_price
-                }
+                    if (combine_detail.length) {
+                      order_item.discount_price = combine_detail[0].discount_price
+                      order_item.normal_price = combine_detail[0].normal_price
+                    }
+                  }
 
-                return order_item
-              })
+                  return order_item
+                })
+              }
+
               
               return order
             })
 
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'dates',
-                data: mapped_dates
-              }
-            })
+            console.log(mapped_dates)
+
+            // this.$store.dispatch('setState', {
+            //   payload: {
+            //     key: 'dates',
+            //     data: mapped_dates
+            //   }
+            // })
           }
+
+          console.log(execute_voucher.data.result, ' execute_voucher.data.result')
+          const new_total = this.grand_total
+          console.log(new_total, ' new_total')
+
 
           this.applied_voucher = {
             name: params.value.name,
             value: execute_voucher.data.result.old_total != execute_voucher.data.result.total
-              ? execute_voucher.data.result.old_total - (this.rp_order ? this.subs_order() : this.normal_order())
+              ? Math.abs(total - new_total)
               : 0
           }
 

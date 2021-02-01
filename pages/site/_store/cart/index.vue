@@ -34,7 +34,7 @@
       <Maximum />
     </v-dialog>
 
-    <v-card v-if="cart.length" class="pa-2 mt-2 pr-0" color="#dfdfdf" flat tile>
+    <v-card v-if="cart.length || dates.length" class="pa-2 mt-2 pr-0" color="#dfdfdf" flat tile>
       <div class="d-flex flex-row">
         <div style="font-size: 12px; padding-top: 1px; font-weight: 600">
           MODE LANGGANAN
@@ -54,7 +54,26 @@
       </div>
     </v-card>
 
-    <div class="mt-12" v-if="!cart.length">
+    <CartDetail
+      v-if="cart.length || dates.length"
+      :expansion="expansion"
+      :subsorder="subs_order"
+      :normalorder="normal_order"
+      :changeqty="change_qty"
+      :parsedate="parse_date"
+      :parseprice="parse_price"
+      :changeqtysubsitem="change_qty_subs_item"
+      :deleterp="delete_rp"
+      :selectsubsdate="select_subs_date"
+      :changehandler="change_handler"
+      :changenotes="change_notes"
+      :expanddetail="expand_detail"
+      :changedeliverytime="change_delivery_time"
+      :changedeliverysingletime="change_delivery_single_time"
+      :updatecache="update_cache"
+    />
+
+    <div class="mt-12" v-else>
       <center>
         <div class="pa-12 pb-6">
           <v-img
@@ -80,27 +99,7 @@
       </center>
     </div>
 
-    <CartDetail
-      v-if="cart.length"
-      :expansion="expansion"
-      :subsorder="subs_order"
-      :normalorder="normal_order"
-      :changeqty="change_qty"
-      :parsedate="parse_date"
-      :parseprice="parse_price"
-      :changeqtysubsitem="change_qty_subs_item"
-      :deleterp="delete_rp"
-      :selectsubsdate="select_subs_date"
-      :changehandler="change_handler"
-      :changenotes="change_notes"
-      :expanddetail="expand_detail"
-      :changedeliverytime="change_delivery_time"
-      :changedeliverysingletime="change_delivery_single_time"
-      :updatecache="update_cache"
-    />
-
     <v-bottom-sheet
-      v-if="cart.length"
       :value="products"
       @click:outside="change_handler('products', false)"
     >
@@ -112,7 +111,7 @@
       />
     </v-bottom-sheet>
 
-    <v-footer v-if="cart.length" fixed padless color="white">
+    <v-footer fixed padless color="white">
       <Footer :checkout="checkout" />
     </v-footer>
   </v-card>
@@ -499,7 +498,7 @@ export default {
                 const list_items = el.items.map(item => {
                   const search_product = self.state.products.filter(prod => {
                     console.log(prod, ' prod get cart')
-                    console.log(el.variant, ' variant get cart')
+                    console.log(el.variant, ' variant get cart --')
                     if (prod.id === item.id) {
                       return prod
                     }

@@ -85,7 +85,7 @@ export default {
               const list_items = el.items.map(item => {
                 const search_product = self.state.products.filter(prod => {
                   console.log(prod, ' prod get cart')
-                  console.log(el.variant, ' variant get cart')
+                  console.log(el, ' variant get cart')
                   if (prod.id === item.id) {
                     return prod
                   }
@@ -137,6 +137,8 @@ export default {
                   items: merge_items
                 }
             })
+
+            console.log(list_dates, ' list_dates')
 
             self.dispatch('setState', {
               payload: {
