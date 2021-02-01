@@ -8942,12 +8942,12 @@ module.exports = exports;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=template&id=14b6eef7&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=template&id=de8145b8&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{staticClass:"pt-12"},[_c('v-dialog',{ref:"dialog",attrs:{"return-value":_vm.date,"persistent":"","width":"290px"},on:{"update:returnValue":function($event){_vm.date=$event},"update:return-value":function($event){_vm.date=$event}},model:{value:(_vm.select_date),callback:function ($$v) {_vm.select_date=$$v},expression:"select_date"}},[_c('v-date-picker',{attrs:{"min":_vm.min_rp,"max":_vm.max_rp,"events":_vm.selected_dates,"show-current":_vm.min_rp,"event-color":"green lighten-1","scrollable":""},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){_vm.select_date = false}}},[_vm._v("Cancel")]),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":_vm.push_date}},[_vm._v("OK")])],1)],1),_vm._v(" "),_c('v-dialog',{attrs:{"persistent":"","max-width":"80%"},model:{value:(_vm.dialog_delete_rp),callback:function ($$v) {_vm.dialog_delete_rp=$$v},expression:"dialog_delete_rp"}},[_c('RemoveConfirmation',{attrs:{"confirmdeleterp":_vm.confirm_delete_rp}})],1),_vm._v(" "),_c('v-dialog',{model:{value:(_vm.min_order),callback:function ($$v) {_vm.min_order=$$v},expression:"min_order"}},[_c('Minimum')],1),_vm._v(" "),_c('v-dialog',{model:{value:(_vm.max_order),callback:function ($$v) {_vm.max_order=$$v},expression:"max_order"}},[_c('Maximum')],1),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('v-card',{staticClass:"pa-2 mt-2 pr-0",attrs:{"color":"#dfdfdf","flat":"","tile":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"12px","padding-top":"1px","font-weight":"600"}},[_vm._v("\n        MODE LANGGANAN\n      ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-switch',{staticClass:"pt-0 mt-0",attrs:{"hide-details":"","dense":""},on:{"change":_vm.subs_controller},model:{value:(_vm.switch_rp),callback:function ($$v) {_vm.switch_rp=$$v},expression:"switch_rp"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"10px"}},[_vm._v("\n      Anda dapat mengatur waktu pengiriman roti pesanan Anda, "),_c('br'),_vm._v("\n      untuk dijadwalkan hingga 2 minggu kedepan.\n    ")])]):_vm._e(),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('CartDetail',{attrs:{"expansion":_vm.expansion,"subsorder":_vm.subs_order,"normalorder":_vm.normal_order,"changeqty":_vm.change_qty,"parsedate":_vm.parse_date,"parseprice":_vm.parse_price,"changeqtysubsitem":_vm.change_qty_subs_item,"deleterp":_vm.delete_rp,"selectsubsdate":_vm.select_subs_date,"changehandler":_vm.change_handler,"changenotes":_vm.change_notes,"expanddetail":_vm.expand_detail,"changedeliverytime":_vm.change_delivery_time,"changedeliverysingletime":_vm.change_delivery_single_time,"updatecache":_vm.update_cache}}):_c('div',{staticClass:"mt-12"},[_c('center',[_c('div',{staticClass:"pa-12 pb-6"},[_c('v-img',{attrs:{"src":"https://shop.balesin.id/static/plugins/img/cart-empty-icon.png","width":"300"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"18px","font-weight":"600"}},[_vm._v("\n        Keranjang belanja kosong\n      ")]),_vm._v(" "),_c('div',{staticClass:"mt-2",staticStyle:{"font-size":"16px","color":"#999"}},[_vm._v("\n        Kamu belum memilih produk yang diinginkan\n      ")]),_vm._v(" "),_c('div',{staticClass:"pa-2 mt-4"},[_c('v-btn',{attrs:{"color":"#ffdd00","block":"","to":("/site/" + (_vm.site.store) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_vm._v("\n          Mulai Belanja\n        ")])],1)])],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.products},on:{"click:outside":function($event){return _vm.change_handler('products', false)}}},[_c('Products',{attrs:{"selectatsubs":_vm.select_at_subs,"selectedsubsdate":_vm.selected_subs_date,"selecteddate":_vm.selected_date,"changehandler":_vm.change_handler}})],1),_vm._v(" "),_c('v-footer',{attrs:{"fixed":"","padless":"","color":"white"}},[_c('Footer',{attrs:{"checkout":_vm.checkout}})],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/cart/index.vue?vue&type=template&id=14b6eef7&
+// CONCATENATED MODULE: ./pages/site/_store/cart/index.vue?vue&type=template&id=de8145b8&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(167);
@@ -11737,34 +11737,62 @@ installComponents_default()(cart_component, {VBtn: VBtn["a" /* default */],VCard
         const month = date.getMonth();
         let years = date.getFullYear();
         var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-        var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-        console.log(firstDay, ' firstDay');
-        console.log(lastDay, ' lastDay');
-        date.setDate(date.getDate() - 30 + 1);
-        date.setMonth(month + 1);
+        var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0); // console.log(firstDay, ' firstDay')
+        // console.log(lastDay, ' lastDay')
+
+        const build_min_rp = (() => {
+          const min_date = firstDay.getDate() + 3;
+          const min_month = firstDay.getMonth() + 1;
+          const min_year = firstDay.getFullYear();
+          console.log(min_date, ' min_date');
+          console.log(min_month, ' min_month');
+          console.log(min_year, ' min_year');
+          return `${min_year}-${min_month < 10 ? '0' + String(min_month) : min_month}-${min_date < 10 ? '0' + String(min_date) : min_date}`;
+        })();
+
+        const build_max_rp = (() => {
+          firstDay.setDate(firstDay.getDate() + 30);
+          console.log(firstDay, ' at firstDay');
+          const max_date = firstDay.getDate();
+          const max_month = firstDay.getMonth() + 1;
+          const max_year = firstDay.getFullYear();
+          console.log(max_date, ' max_date');
+          console.log(max_month, ' max_month');
+          console.log(max_year, ' max_year');
+          return `${max_year}-${max_month < 10 ? '0' + String(max_month) : max_month}-${max_date < 10 ? '0' + String(max_date) : max_date}`;
+        })();
+
+        console.log(build_min_rp, ' build_min_rp');
+        console.log(build_max_rp, ' build_max_rp'); // date.setDate((date.getDate() - 30) + 1); 
+        // console.log(date, ' date 0')
+        // date.setMonth(month + 1)
+        // console.log(date, ' date 1')
+
         const parsed_date = date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate();
         const parsed_month = date.getMonth() < 10 ? '0' + String(date.getMonth()) : date.getMonth();
         console.log(`${years}-${!+parsed_month ? '12' : parsed_month}-${parsed_date}`, ' parsed_date');
         this.$store.dispatch('setState', {
           payload: {
             key: 'min_rp',
-            data: `${years}-${!+parsed_month ? '12' : parsed_month}-${parsed_date}`
+            data: build_min_rp
           }
         });
-        date.setDate(day + 14);
-        date.setMonth(month + 1);
+        date.setDate(day + 14); // date.setMonth(month + 1)
+
         const parsed_date2 = date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate();
-        let parsed_month2 = date.getMonth() < 10 ? '0' + String(date.getMonth() + 1) : date.getMonth() + 1;
+        let parsed_month2 = lastDay.getMonth() < 10 ? '0' + String(lastDay.getMonth() + 1) : lastDay.getMonth() + 1;
 
         if (parsed_month2 === '00') {
           parsed_month2 = '01';
           years += 1;
-        }
+        } // console.log(date, ' date 01')
+        // console.log(date, ' date 11')
+
 
         this.$store.dispatch('setState', {
           payload: {
             key: 'max_rp',
-            data: `${years}-${!+parsed_month2 ? '12' : parsed_month2}-${parsed_date2}`
+            data: build_max_rp
           }
         });
         this.update_cache('rp-order');

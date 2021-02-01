@@ -731,11 +731,42 @@ export default {
         var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
         var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-        console.log(firstDay, ' firstDay')
-        console.log(lastDay, ' lastDay')
+        // console.log(firstDay, ' firstDay')
+        // console.log(lastDay, ' lastDay')
+        const build_min_rp = (() => {
+          const min_date = firstDay.getDate() + 3
+          const min_month = firstDay.getMonth() + 1
+          const min_year = firstDay.getFullYear()
 
-        date.setDate((date.getDate() - 30) + 1); 
-        date.setMonth(month + 1)
+          console.log(min_date, ' min_date')
+          console.log(min_month, ' min_month')
+          console.log(min_year, ' min_year')
+
+          return `${min_year}-${min_month < 10 ? '0'+String(min_month) : min_month}-${min_date < 10 ? '0'+String(min_date) : min_date}`
+        })()
+        const build_max_rp = (() => {
+          firstDay.setDate(firstDay.getDate() + 30)
+
+          console.log(firstDay, ' at firstDay')
+
+          const max_date = firstDay.getDate()
+          const max_month = firstDay.getMonth() + 1
+          const max_year = firstDay.getFullYear()
+
+          console.log(max_date, ' max_date')
+          console.log(max_month, ' max_month')
+          console.log(max_year, ' max_year')
+
+          return `${max_year}-${max_month < 10 ? '0'+String(max_month) : max_month}-${max_date < 10 ? '0'+String(max_date) : max_date}`
+        })()
+        console.log(build_min_rp, ' build_min_rp')
+        console.log(build_max_rp, ' build_max_rp')
+
+        // date.setDate((date.getDate() - 30) + 1); 
+        // console.log(date, ' date 0')
+        // date.setMonth(month + 1)
+
+        // console.log(date, ' date 1')
 
         const parsed_date =
           date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate()
@@ -748,32 +779,32 @@ export default {
         this.$store.dispatch('setState', {
           payload: {
             key: 'min_rp',
-            data: `${years}-${
-              !+parsed_month ? '12' : parsed_month
-            }-${parsed_date}`
+            data: build_min_rp
           }
         })
 
         date.setDate(day + 14)
-        date.setMonth(month + 1)
+        // date.setMonth(month + 1)
 
         const parsed_date2 =
           date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate()
 
         let parsed_month2 =
-          date.getMonth() < 10 ? '0' + String(date.getMonth() + 1) : date.getMonth() + 1
+          lastDay.getMonth() < 10 ? '0' + String(lastDay.getMonth() + 1) : lastDay.getMonth() + 1
 
         if (parsed_month2 === '00') {
           parsed_month2 = '01'
           years += 1
         }
 
+        // console.log(date, ' date 01')
+        // console.log(date, ' date 11')
+
+
         this.$store.dispatch('setState', {
           payload: {
             key: 'max_rp',
-            data: `${years}-${
-              !+parsed_month2 ? '12' : parsed_month2
-            }-${parsed_date2}`
+            data: build_max_rp
           }
         })
         this.update_cache('rp-order')
