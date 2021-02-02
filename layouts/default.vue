@@ -29,8 +29,20 @@
             :ripple="false"
             class="ml-2 pa-2"
             color="white"
-            :disabled="rp_order"
           >
+            <v-btn
+              v-if="$route.name == 'site-store-checkout'"
+              class="ml-4"
+              style="color: black !important"
+              x-small
+              fab
+              text
+              depressed
+              :ripple="false"
+              :to="gotocart"
+            >
+              <v-icon small>mdi-arrow-left</v-icon>
+            </v-btn>
             <v-img
               v-if="store"
               :src="store.image"
@@ -191,7 +203,11 @@ export default {
       }
     })
 
-    // console.log(store, ' store1')
+    if (store.status != 200) {
+      this.$router.replace('/error/link/invalid')
+
+      return false
+    }
 
     this.$store.dispatch('setState', {
       payload: {

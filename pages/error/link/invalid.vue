@@ -2,12 +2,12 @@
   <div class="b-font">
     <center>
       <v-card width="380" style="margin-top: 50%">
-        <!-- <div v-if="store"> -->
+        <div class="pa-4 pt-8">
           <v-img
-            :src="'https://repo-platform.s3.amazonaws.com/8466-sarirotiwagmail.com-sarirotiwa%402142020.jpeg'"
+            src="https://faq.balesin.id/icon.ico"
             width="200"
           />
-        <!-- </div> -->
+        </div>
         <div style="font-size: 18px; font-weight: 600">
           Invalid URL
         </div>

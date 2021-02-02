@@ -8,7 +8,7 @@
         flat
       >
         <v-card flat style="font-size: 12px; font-weight: 600">
-          Delivery time :
+          Waktu Pengiriman :
         </v-card>
         <v-card
           v-if="delivery_time_normal == 'day'"
@@ -93,7 +93,7 @@
         <div
           v-show="!rp_order"
           class="pa-2 pt-2"
-          style="font-size: 9px; font-weight: 600; color: #d3d3d3; padding-top: 2px"
+          style="font-size: 9px; font-weight: 600; padding-top: 2px; color: rgb(255 111 111); font-style: italic;"
         >
           min. 30k - max. 300k
         </div>
@@ -204,7 +204,7 @@ export default {
     },
 
     notes () {
-      return this.$store.state.notes
+      return this.$store.state.user_notes
     },
 
     dates () {

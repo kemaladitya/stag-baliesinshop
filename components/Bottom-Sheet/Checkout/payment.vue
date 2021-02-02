@@ -25,28 +25,59 @@
       class="pa-2 pl-0 pb-2"
       flat
     >
-      <v-card
-        class="ml-2 pa-2"
-        outlined
-        :disabled="
-          selectedpayment === paymentdetail[pm.toLowerCase()].name
-        "
-        @click="selectpayment(paymentdetail[pm.toLowerCase()].name)"
-      >
-        <div :class="'pt-1 pl-' + paymentdetail[pm.toLowerCase()].pl">
-          <div v-if="paymentdetail[pm.toLowerCase()].img">
-            <v-img
-              :src="paymentdetail[pm.toLowerCase()].img"
-              :height="paymentdetail[pm.toLowerCase()].height"
-              :width="paymentdetail[pm.toLowerCase()].width"
-            />
+      <div v-if="rp_order == true">
+        <v-card
+          v-if="pm != 'COD'"
+          class="ml-2 pa-2"
+          outlined
+          :disabled="
+            selectedpayment === paymentdetail[pm.toLowerCase()].name
+          "
+          @click="selectpayment(paymentdetail[pm.toLowerCase()].name)"
+        >
+          <div
+            :class="'pt-1 pl-' + paymentdetail[pm.toLowerCase()].pl"
+          >
+            <div v-if="paymentdetail[pm.toLowerCase()].img">
+              <v-img
+                :src="paymentdetail[pm.toLowerCase()].img"
+                :height="paymentdetail[pm.toLowerCase()].height"
+                :width="paymentdetail[pm.toLowerCase()].width"
+              />
+            </div>
+            <div v-else class="pl-1">{{ pm.toUpperCase() }}</div>
           </div>
-          <div v-else class="pl-1">{{ pm.toUpperCase() }}</div>
-        </div>
-        <div class="pt-2 pl-2" style="font-size: 12px">
-          {{ paymentdetail[pm.toLowerCase()].desc }}
-        </div>
-      </v-card>
+          <div class="pt-2 pl-2" style="font-size: 12px">
+            {{ paymentdetail[pm.toLowerCase()].desc }}
+          </div>
+        </v-card>
+      </div>
+      <div v-else>
+        <v-card
+          class="ml-2 pa-2"
+          outlined
+          :disabled="
+            selectedpayment === paymentdetail[pm.toLowerCase()].name
+          "
+          @click="selectpayment(paymentdetail[pm.toLowerCase()].name)"
+        >
+          <div
+            :class="'pt-1 pl-' + paymentdetail[pm.toLowerCase()].pl"
+          >
+            <div v-if="paymentdetail[pm.toLowerCase()].img">
+              <v-img
+                :src="paymentdetail[pm.toLowerCase()].img"
+                :height="paymentdetail[pm.toLowerCase()].height"
+                :width="paymentdetail[pm.toLowerCase()].width"
+              />
+            </div>
+            <div v-else class="pl-1">{{ pm.toUpperCase() }}</div>
+          </div>
+          <div class="pt-2 pl-2" style="font-size: 12px">
+            {{ paymentdetail[pm.toLowerCase()].desc }}
+          </div>
+        </v-card>
+      </div>
     </v-card>
   </v-sheet>
 </template>
@@ -78,6 +109,10 @@ export default {
   computed: {
     store () {
       return this.$store.state.store
+    },
+
+    rp_order () {
+      return this.$store.state.rp_order
     }
   }
 }

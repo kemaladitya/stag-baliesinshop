@@ -112,7 +112,7 @@
     </v-bottom-sheet>
 
     <v-footer fixed padless color="white">
-      <Footer :checkout="checkout" />
+      <Footer :checkout="checkout" :total="normal_order" />
     </v-footer>
   </v-card>
 </template>
@@ -203,7 +203,7 @@ export default {
     },
     
     notes () {
-      return this.$store.state.notes
+      return this.$store.state.user_notes
     },
 
     single_order_date() {
@@ -701,8 +701,10 @@ export default {
     subs_controller (e) {
       if (!e) {
         this.subs_mode = false
+        this.update_cache('single-order')
       } else {
         this.subs_mode = e
+        this.update_cache('rp-order')
       }
     },
 
@@ -1028,7 +1030,10 @@ export default {
     change_qty_subs_item (parent, item, op) {
       const dates = this.dates
 
-      if (op === '+') {
+      if (op === '!!') {
+        dates[parent].items[item].qty = 0
+        this.update_cache('rp-order')
+      } else if (op === '+') {
         dates[parent].items[item].qty += 1
         this.update_cache('rp-order')
       } else {

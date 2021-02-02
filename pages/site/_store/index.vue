@@ -3,9 +3,39 @@
     <v-container id="b-list-products" class="pt-12 pl-1 pr-1 mb-12">
       <v-card flat tile>
         <Loading v-show="loading_product" />
+        <div class="ma-1 mt-4 mb-0 d-flex flex-row">
+          <div class="mr-1" style="width: 90%">
+            <v-text-field
+              append-icon="mdi-magnify"
+              placeholder="Cari Produk"
+              hide-details
+              dense
+              outlined
+              v-model="search_value"
+            />
+          </div>
+          <div style="width: 47px;">
+            <v-select
+              id="b-search-product-by"
+              :items="select_search_type"
+              placeholder="Search by"
+              width="80"
+              max-width="80"
+              min-width="80"
+              append-icon="mdi-cog"
+              hide-details
+              dense
+              outlined
+              v-model="search_type"
+            />
+          </div>
+        </div>
+        <div class="ml-2" style="font-size: 8px; color: #999; padding-top: 2px">
+          Cari Produk berdasarkan : <span style="color: #0D47A1">"{{ search_type }}"</span>
+        </div>
         <div v-show="!loading_product">
           <Products
-            :listproduct="list_product"
+            :listproduct="search_value.length ? find_product : list_product"
             :productdetail="product_detail"
             :addtocart="add_to_cart"
             :loadingproduct="loading_product"
@@ -43,7 +73,7 @@
             style="font-size: 14px; font-weight: 600"
             flat
           >
-            View Basket
+            Ke Keranjang
           </v-card>
           <v-spacer />
           <v-card
@@ -94,10 +124,31 @@ export default {
   data: () => ({
     page: 1,
     snackbar: false,
-    loading_product: false
+    loading_product: false,
+    select_search_type: ['Nama', 'Varian'],
+    search_type: 'Nama',
+    search_value: ''
   }),
 
   computed: {
+    find_product() {
+      let results = this.list_product.map(el => el)
+
+      if (this.search_type === 'Varian') {
+        results = results.filter(el => {
+          const list_variant = el.detail.map(detail_item => detail_item.variant)
+
+          if (list_variant.join(',').toLowerCase().includes(this.search_value.toLowerCase())) {
+            return el
+          }
+        })
+      } else {
+        results = results.filter(el => el.name.toLowerCase().includes(this.search_value.toLowerCase()))
+      }
+
+      return results
+    },
+
     gotocart() {
       const { store, uuid, source, category } = this.site
 
@@ -467,3 +518,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  #b-search-product-by {
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+  }
+  #b-list-products > div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mt-4.mb-0.d-flex.flex-row > div:nth-child(2) > div > div > div > div.v-select__slot {
+    height: 40px !important;
+
+    div.v-input__append-inner {
+      padding-left: 0 !important;
+    } 
+  }
+</style>

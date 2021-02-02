@@ -2,7 +2,7 @@
   <div>
     <v-row v-if="listproduct && listproduct.length" no-gutters>
       <v-col v-for="(item, index) in listproduct" :key="index" cols="6">
-        <v-card v-if="item.detail.length" class="ma-1 mt-5 mb-0" outlined>
+        <v-card v-if="item.detail.length" class="ma-1 mt-2 mb-0" outlined>
           <div v-if="item.detail.length">
             <v-img class="image" :src="item.detail[0].main_image">
               <div v-if="item.detail[0].discount_price" class="promo-badge">

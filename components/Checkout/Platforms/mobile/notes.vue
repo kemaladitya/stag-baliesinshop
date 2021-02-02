@@ -21,7 +21,7 @@
 export default {
   computed: {
     notes () {
-      return this.$store.state.notes
+      return this.$store.state.user_notes
     }
   }
 }

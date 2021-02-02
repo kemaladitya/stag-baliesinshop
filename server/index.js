@@ -20,7 +20,7 @@ const pub_k   =
   'BE69JI3gO0JyQd-vHazu1zHNSZjqvHZzVQlKK5j0vMSsh2rCIknqdarnhBZhU8pYmEHpYZR5vDzu8xRL9jlU1j4'
 const asyncRedis = require('async-redis')
 const client = asyncRedis.createClient({
-  host: '10.140.0.21',
+  host: '127.0.0.1',
   port: 6379
 })
 
@@ -41,12 +41,12 @@ async function cache({ url, headers, method, body, _qs, params }, res) {
       uuid,
       detail
     } = body
-    console.log(JSON.stringify(body, null, 2), ' body')
+    // console.log(JSON.stringify(body, null, 2), ' body')
 
     // console.log(JSON.stringify(body, null, 2))
     const middleware = Cart[method](body)
 
-    console.log(middleware)
+    // console.log(middleware)
 
     if (middleware) {
       if (method === 'set') {
@@ -99,12 +99,12 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
 
       body.order.items.items = list_items
     } else if (get_redis.type == 'rp-order') {
-      console.log('kesini kan')
+      // console.log('kesini kan')
       body.order.items = get_redis
     }
 
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev/order',
+      url: 'http://0.0.0.0:3088/dev/order',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -155,12 +155,12 @@ async function applyVoucherHanlder({ url, headers, method, body, _qs, params }, 
 
       body.items.items = list_items
     } else if (get_redis.type == 'rp-order') {
-      console.log('kesini kan')
+      // console.log('kesini kan')
       body.items = get_redis
     }
 
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev/voucher/apply',
+      url: 'http://0.0.0.0:3088/dev/voucher/apply',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -188,11 +188,11 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
   try {
     let get_redis = await client.get(`${body.uuid}/${body.store_name}`)
 
-    console.log('kesini kan')
+    // console.log('kesini kan')
     body.items = get_redis
 
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev/deliverycost/check',
+      url: 'http://0.0.0.0:3088/dev/deliverycost/check',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -214,11 +214,11 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
 
 async function apiHandler({ url, headers, method, body, _qs, params }, res) {
   try {
-    console.log('kesini', 'http://10.140.0.22:3088/dev' + url, body)
+    // console.log('kesini', 'http://0.0.0.0:3088/dev' + url, body)
     // return res.json({ status: true, results: JSON.parse(get_redis) })
-    // console.log('http://10.140.0.22:3088/dev' + url, ' url')
+    // console.log('http://0.0.0.0:3088/dev' + url, ' url')
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev' + url,
+      url: 'http://0.0.0.0:3088/dev' + url,
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -227,7 +227,7 @@ async function apiHandler({ url, headers, method, body, _qs, params }, res) {
       data: body,
     })
 
-    console.log(request, '; request')
+    // console.log(request, '; request')
 
     return res.json(
       request.data.hasOwnProperty('data') ? request.data.data : request.data
@@ -264,11 +264,11 @@ async function start() {
   app.use(bodyParser.json({ limit: '100mb' }))
   app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }))
 
+  app.use('/api', apiHandler)
   app.use('/cache', cache)
   app.use('/deliverycost/check', deliverycostCheckHanlder)
   app.use('/voucher/apply', applyVoucherHanlder)
-  app.use('/order', orderHanlder)
-  app.use('/api', apiHandler)
+  app.use('/transaction/order', orderHanlder)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

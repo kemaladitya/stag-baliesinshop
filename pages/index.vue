@@ -37,6 +37,7 @@ export default {
       if (find_user.data.status) {
         this.$router.replace(`/site/${bot_name}?u=${uuid}&src=${find_user.data.source}&c=${find_user.data.category}`)
       } else {
+        this.$router.replace(`/site/${bot_name}?u=${uuid}&src=web-url&c=all`)
         console.log('access danied.')
       }
     }

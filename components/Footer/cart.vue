@@ -26,7 +26,7 @@
       :disabled="checkout_btn"
       @click="checkout"
     >
-      Check out order
+      Checkout
     </v-btn>
   </div>
 </template>
@@ -36,6 +36,11 @@ export default {
   props: {
     checkout: {
       type: Function,
+      required: true
+    },
+
+    total: {
+      type: Number,
       required: true
     }
   },
@@ -52,6 +57,10 @@ export default {
     dates () {
       return this.$store.state.dates
     },
+
+    store () {
+      return this.$store.state.store
+    },
     
     back() {
       const site = this.$store.state.site
@@ -65,16 +74,52 @@ export default {
 
     checkout_btn () {
       let status = true
+      const list_validate = []
+      let total
 
       if (this.rp_order && this.dates.length) {
-        status = false
-      } else if (!this.rp_order && this.cart.length) {
-        status = false
+        this.dates.forEach(el => {
+          total = 0
+
+          el.items.forEach(item => {
+            if (item.select_date) {
+              if (item.discount_price > 0) {
+                total += item.discount_price * item.qty
+              } else {
+                total += item.normal_price * item.qty
+              }
+            }
+          })
+
+          const validator = total >= this.store.min_order && total <= this.store.max_order
+
+          list_validate.push(validator)
+        })
       } else {
-        status = true
+        list_validate.push(false)
       }
 
-      return status
+      if (this.rp_order && list_validate.indexOf(false) != -1) {
+        status = true
+
+        console.log(total, '  validate price per date 3')
+
+        return status
+      } else {
+        if (this.rp_order && this.dates.length) {
+          status = false
+        } else if (!this.rp_order && this.cart.length) {
+          if (+this.total > this.store.min_order && +this.total < this.store.max_order) {
+            return false
+          } else {
+            return true
+          }
+        } else {
+          status = true
+        }
+
+        return status
+      }
     }
   }
 }

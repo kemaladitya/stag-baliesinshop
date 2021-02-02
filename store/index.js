@@ -14,7 +14,7 @@ export default () => {
       fullpath: '',
       store: null,
       customer: null,
-      notes: '',
+      user_notes: '',
       dates: [],
       delivery_time_normal: 'day',
       cart: [],

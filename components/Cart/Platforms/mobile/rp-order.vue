@@ -23,8 +23,15 @@
                   <v-spacer />
                   {{ parseprice(item) }}
                 </div>
-                <div style="font-size: 9px; font-weight: 600; color: #d3d3d3; padding-top: 2px">
-                  min. 30k - max. 300k
+                <div
+                  style="font-size: 9px; font-weight: 600; padding-top: 2px; font-style: italic;"
+                  :style="
+                    +parseprice(item).match(/[^\D]/g).join('') < store.min_order || +parseprice(item).match(/[^\D]/g).join('') > store.max_order ?
+                      'color: rgb(255 111 111);'
+                      : 'color: rgb(222 222 222)'
+                  "
+                >
+                  min. {{ store.min_order / 1000 }}k - max. {{ store.max_order / 1000 }}k
                 </div>
               </div>
               <v-btn
@@ -52,7 +59,7 @@
                   flat
                 >
                   <v-card flat style="font-size: 12px; font-weight: 600">
-                    Pilih Jam Pengiriman :
+                    Waktu Pengiriman :
                   </v-card>
                   <v-card
                     v-if="item.delivery_time == 'day'"
@@ -124,6 +131,32 @@
                   outlined
                 >
                   <v-card class="d-flex flex-row" flat width="100%">
+                    <v-card flat tile>
+                      <center>
+                        <v-card
+                          class="pt-5"
+                          small
+                          style="
+                            padding: 0;
+                            border-color: #4caf50 !important;
+                            color: red !important;
+                          "
+                          max-width="26"
+                          width="26"
+                          min-width="26"
+                          max-height="70"
+                          height="70"
+                          min-height="70"
+                          depressed
+                          rounded
+                          text
+                          flat
+                          @click="changeqtysubsitem(index, idx, '!!')"
+                        >
+                          <v-icon small>mdi-close</v-icon>
+                        </v-card>
+                      </center>
+                    </v-card>
                     <v-card class="ma-2 mt-3" flat>
                       <v-img
                         :src="cart_item.main_image"
@@ -156,7 +189,7 @@
                           color: grey;
                         "
                       >
-                        {{ cart_item.name }}
+                        {{ cart_item.variant }}
                       </div>
                       <div style="font-size: 12px; font-weight: 600">
                         {{ cart_item.qty }} x
@@ -344,6 +377,10 @@ export default {
 
     dates () {
       return this.$store.state.dates
+    },
+
+    store () {
+      return this.$store.state.store
     }
   },
 
