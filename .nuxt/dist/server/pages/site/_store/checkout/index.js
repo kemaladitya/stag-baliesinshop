@@ -9453,12 +9453,12 @@ var notes_component = Object(componentNormalizer["a" /* default */])(
 
 installComponents_default()(notes_component, {VDivider: VDivider["a" /* default */]})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/subtotal.vue?vue&type=template&id=480ddb55&
-var subtotalvue_type_template_id_480ddb55_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row mt-4 mb-1 pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-size: 12px\"></div> "),_c('v-spacer'),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600\">Subtotal:</div>\n       \n      "),_c('v-spacer'),_vm._ssrNode(" <div style=\"font-weight: 600; color: #2196f3\">"+_vm._ssrEscape("\n        Rp.\n        "+_vm._s(_vm.grandtotal.toLocaleString().replace(/,/g, '.'))+"\n      ")+"</div>")],2)],2),_vm._ssrNode(" "+((_vm.grandtotal < _vm.store.min_order)?("<div style=\"font-size: 9px; color: red; text-align: center\">"+_vm._ssrEscape("\n    "+_vm._s(JSON.parse(_vm.store.response.min_order).message[0])+"\n  ")+"</div>"):"<!---->")+" "+((_vm.grandtotal > _vm.store.max_order)?("<div style=\"font-size: 9px; color: red; text-align: center\">"+_vm._ssrEscape("\n    "+_vm._s(JSON.parse(_vm.store.response.max_order).message[0])+"\n  ")+"</div>"):"<!---->")+" "),_c('v-divider')],2)}
-var subtotalvue_type_template_id_480ddb55_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/subtotal.vue?vue&type=template&id=07cc912a&
+var subtotalvue_type_template_id_07cc912a_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row mt-4 mb-1 pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-size: 12px\"></div> "),_c('v-spacer'),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600\">Subtotal:</div>\n       \n      "),_c('v-spacer'),_vm._ssrNode(" <div style=\"font-weight: 600; color: #2196f3\">"+_vm._ssrEscape("\n        Rp.\n        "+_vm._s(_vm.grandtotal.toLocaleString().replace(/,/g, '.'))+"\n      ")+"</div>")],2)],2),_vm._ssrNode(" "+((!this.rp_order && _vm.grandtotal < _vm.store.min_order)?("<div style=\"font-size: 9px; color: red; text-align: center\">"+_vm._ssrEscape("\n    "+_vm._s(JSON.parse(_vm.store.response.min_order).message[0])+"\n  ")+"</div>"):"<!---->")+" "+((!this.rp_order && _vm.grandtotal > _vm.store.max_order)?("<div style=\"font-size: 9px; color: red; text-align: center\">"+_vm._ssrEscape("\n    "+_vm._s(JSON.parse(_vm.store.response.max_order).message[0])+"\n  ")+"</div>"):"<!---->")+" "),_c('v-divider')],2)}
+var subtotalvue_type_template_id_07cc912a_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/subtotal.vue?vue&type=template&id=480ddb55&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/subtotal.vue?vue&type=template&id=07cc912a&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/subtotal.vue?vue&type=script&lang=js&
 //
@@ -9497,6 +9497,10 @@ var subtotalvue_type_template_id_480ddb55_staticRenderFns = []
   computed: {
     store() {
       return this.$store.state.store;
+    },
+
+    rp_order() {
+      return this.$store.state.rp_order;
     }
 
   }
@@ -9513,8 +9517,8 @@ var subtotalvue_type_template_id_480ddb55_staticRenderFns = []
 
 var subtotal_component = Object(componentNormalizer["a" /* default */])(
   mobile_subtotalvue_type_script_lang_js_,
-  subtotalvue_type_template_id_480ddb55_render,
-  subtotalvue_type_template_id_480ddb55_staticRenderFns,
+  subtotalvue_type_template_id_07cc912a_render,
+  subtotalvue_type_template_id_07cc912a_staticRenderFns,
   false,
   null,
   null,

@@ -851,56 +851,60 @@ export default {
       const self = this
       console.log(this.grand_total, ' grand_total')
 
-      if (this.grand_total > this.store.max_order) {
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'alert',
-            data: {
-              status: true,
-              text: JSON.parse(this.store.response.max_order).message[0]
-            }
-          }
-        })
+      console.log(this.rp_order)
 
-        setTimeout(() => {
-          self.$store.dispatch('setState', {
+      if (!this.rp_order) {
+        if (this.grand_total > this.store.max_order) {
+          this.$store.dispatch('setState', {
             payload: {
               key: 'alert',
               data: {
-                status: false,
-                text: ''
+                status: true,
+                text: JSON.parse(this.store.response.max_order).message[0]
               }
             }
           })
-        }, 3000)
 
-        return false
-      }
+          setTimeout(() => {
+            self.$store.dispatch('setState', {
+              payload: {
+                key: 'alert',
+                data: {
+                  status: false,
+                  text: ''
+                }
+              }
+            })
+          }, 3000)
 
-      if (this.grand_total < this.store.min_order) {
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'alert',
-            data: {
-              status: true,
-              text: JSON.parse(this.store.response.min_order).message[0]
-            }
-          }
-        })
+          return false
+        }
 
-        setTimeout(() => {
-          self.$store.dispatch('setState', {
+        if (this.grand_total < this.store.min_order) {
+          this.$store.dispatch('setState', {
             payload: {
               key: 'alert',
               data: {
-                status: false,
-                text: ''
+                status: true,
+                text: JSON.parse(this.store.response.min_order).message[0]
               }
             }
           })
-        }, 3000)
 
-        return false
+          setTimeout(() => {
+            self.$store.dispatch('setState', {
+              payload: {
+                key: 'alert',
+                data: {
+                  status: false,
+                  text: ''
+                }
+              }
+            })
+          }, 3000)
+
+          return false
+        }
       }
 
       console.log(this.customer, ' this.customer')

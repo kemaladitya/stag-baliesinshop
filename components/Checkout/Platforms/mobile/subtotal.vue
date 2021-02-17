@@ -13,10 +13,10 @@
         </div>
       </div>
     </div>
-    <div v-if="grandtotal < store.min_order" style="font-size: 9px; color: red; text-align: center">
+    <div v-if="!this.rp_order && grandtotal < store.min_order" style="font-size: 9px; color: red; text-align: center">
       {{ JSON.parse(store.response.min_order).message[0] }}
     </div>
-    <div v-if="grandtotal > store.max_order" style="font-size: 9px; color: red; text-align: center">
+    <div v-if="!this.rp_order && grandtotal > store.max_order" style="font-size: 9px; color: red; text-align: center">
       {{ JSON.parse(store.response.max_order).message[0] }}
     </div>
 
@@ -37,6 +37,10 @@ export default {
     store() {
       return this.$store.state.store
     },
+
+    rp_order() {
+      return this.$store.state.rp_order
+    }
   }
 }
 </script>
