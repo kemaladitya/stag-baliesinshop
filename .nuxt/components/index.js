@@ -1,8 +1,8 @@
 export { default as General } from '../../components/General.js'
 export { default as Logo } from '../../components/Logo.vue'
 export { default as VuetifyLogo } from '../../components/VuetifyLogo.vue'
-export { default as Cart } from '../../components/Cart/index.vue'
 export { default as RegLoading } from '../../components/Bottom-Sheet/reg_loading.vue'
+export { default as Cart } from '../../components/Cart/index.vue'
 export { default as Checkout } from '../../components/Checkout/index.vue'
 export { default as ListProduct } from '../../components/Loading/list_product.vue'
 export { default as ProductDetail } from '../../components/Product-Detail/index.vue'
@@ -29,8 +29,8 @@ export { default as Subscription } from '../../components/Checkout/Platforms/des
 export const LazyGeneral = import('../../components/General.js' /* webpackChunkName: "components/general" */).then(c => c.default || c)
 export const LazyLogo = import('../../components/Logo.vue' /* webpackChunkName: "components/logo" */).then(c => c.default || c)
 export const LazyVuetifyLogo = import('../../components/VuetifyLogo.vue' /* webpackChunkName: "components/vuetify-logo" */).then(c => c.default || c)
-export const LazyCart = import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => c.default || c)
 export const LazyRegLoading = import('../../components/Bottom-Sheet/reg_loading.vue' /* webpackChunkName: "components/reg-loading" */).then(c => c.default || c)
+export const LazyCart = import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => c.default || c)
 export const LazyCheckout = import('../../components/Checkout/index.vue' /* webpackChunkName: "components/checkout" */).then(c => c.default || c)
 export const LazyListProduct = import('../../components/Loading/list_product.vue' /* webpackChunkName: "components/list-product" */).then(c => c.default || c)
 export const LazyProductDetail = import('../../components/Product-Detail/index.vue' /* webpackChunkName: "components/product-detail" */).then(c => c.default || c)

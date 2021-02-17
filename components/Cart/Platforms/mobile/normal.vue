@@ -23,20 +23,17 @@
             </v-card>
             <div class="pa-2">
               <div
-                class="mb-1"
                 style="
                   font-size: 13px;
+                  max-width: 150px;
+                  display: inline-block;
+                  min-width: 150px;
+                  white-space: nowrap;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
                 "
               >
                 {{ item.name }}
-              </div>
-              <div
-                class="mb-1"
-                style="
-                  font-size: 12px; color: grey;
-                "
-              >
-                {{ item.detail[0].variant }}
               </div>
               <div v-if="item.detail[0].discount_price">
                 <div style="font-size: 13px; font-weight: 600; text-decoration: line-through; color: #999">

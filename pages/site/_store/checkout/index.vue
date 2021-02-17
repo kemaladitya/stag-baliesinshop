@@ -283,6 +283,19 @@ export default {
       bot_id: this.$route.params.store
     })
 
+    console.log(this.store.courier, ' this.store.courier')
+    if (this.store.courier.length == 1) {
+      const cour_name = this.store.courier[0].split('|').slice(1, 3).join('|')
+      await this.select_courier({
+        name: cour_name,
+        store_id: this.store.id,
+        store_name: this.site.store,
+        uuid: this.site.uuid,
+        customer_city: this.customer.city,
+        customer_urban: this.customer.urban,
+        customer_sub_district: this.customer.sub_district
+      })
+    }
     
     if (!get_product.status) {
       if (get_product.message == 'Expired.') {
@@ -293,8 +306,6 @@ export default {
         this.$router.replace('/error/link/invalid')
       }
     }
-
-
 
     const cart_detail = await API.cart_detail(this.$store, {
       bot_id: this.store.bot_id,
@@ -338,6 +349,19 @@ export default {
   },
 
   methods: {
+    async select_courier(data) {
+      this.courier = false
+      const pricing = await this.$store.dispatch('request', {
+        url: '/deliverycost/check',
+        method: 'post',
+        data
+      })
+
+      if (pricing.status == 200) {
+        this.selected_courier = pricing.data
+      }
+    },
+
     change_handler (key, value) {
       this[key] = value
     },
@@ -713,7 +737,7 @@ export default {
       }
 
       const request = await this.$store.dispatch('request', {
-        url: '/order',
+        url: '/transaction/order',
         method: 'post',
         data
       })

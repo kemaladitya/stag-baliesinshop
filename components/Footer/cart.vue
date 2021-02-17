@@ -14,7 +14,7 @@
       :disabled="rp_order"
       height="45"
     >
-      Lanjut Belanja
+      Kembali Belanja
     </v-btn>
     <v-card v-show="!rp_order" flat min-width="1%" />
     <v-btn
@@ -26,7 +26,7 @@
       :disabled="checkout_btn"
       @click="checkout"
     >
-      Checkout
+      Lanjut Pembayaran
     </v-btn>
   </div>
 </template>

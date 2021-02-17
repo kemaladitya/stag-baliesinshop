@@ -731,7 +731,7 @@ export default {
         const month = date.getMonth()
         let years = date.getFullYear()
 
-        var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        var firstDay = new Date(date.getFullYear(), date.getMonth(), day);
         var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
         // console.log(firstDay, ' firstDay')

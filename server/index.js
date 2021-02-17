@@ -104,7 +104,7 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
     }
 
     const request = await axios({
-      url: 'http://0.0.0.0:3088/dev/order',
+      url: 'http://10.140.0.22:3088/dev/order',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -160,7 +160,7 @@ async function applyVoucherHanlder({ url, headers, method, body, _qs, params }, 
     }
 
     const request = await axios({
-      url: 'http://0.0.0.0:3088/dev/voucher/apply',
+      url: 'http://10.140.0.22:3088/dev/voucher/apply',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -192,7 +192,7 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
     body.items = get_redis
 
     const request = await axios({
-      url: 'http://0.0.0.0:3088/dev/deliverycost/check',
+      url: 'http://10.140.0.22:3088/dev/deliverycost/check',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -214,11 +214,11 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
 
 async function apiHandler({ url, headers, method, body, _qs, params }, res) {
   try {
-    // console.log('kesini', 'http://0.0.0.0:3088/dev' + url, body)
+    // console.log('kesini', 'http://10.140.0.22:3088/dev' + url, body)
     // return res.json({ status: true, results: JSON.parse(get_redis) })
-    // console.log('http://0.0.0.0:3088/dev' + url, ' url')
+    // console.log('http://10.140.0.22:3088/dev' + url, ' url')
     const request = await axios({
-      url: 'http://0.0.0.0:3088/dev' + url,
+      url: 'http://10.140.0.22:3088/dev' + url,
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,

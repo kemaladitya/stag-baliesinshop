@@ -8,7 +8,7 @@
         flat
       >
         <v-card flat style="font-size: 12px; font-weight: 600">
-          Waktu Pengiriman :
+          Waktu Pengantaran :
         </v-card>
         <v-card
           v-if="delivery_time_normal == 'day'"
@@ -21,7 +21,7 @@
             padding-top: 2px;
           "
         >
-          between 08.00 - 17.00
+          mulai pukul 08.00 - 17.00
         </v-card>
         <v-card
           v-else
@@ -34,7 +34,7 @@
             padding-top: 2px;
           "
         >
-          between 16.00 - 20.00
+          mulai pukul 16.00 - 20.00
         </v-card>
 
         <v-spacer />

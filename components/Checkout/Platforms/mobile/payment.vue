@@ -2,10 +2,10 @@
   <div class="d-flex flex-row mt-4 pa-1" style="height: 100px">
     <div style="font-weight: 600; width: 50%">
       <v-btn
-        class="pulse-button"
+        :class="selectedpayment == '' ? 'pulse-button' : null"
         block
         color="#fd0"
-        style="text-transform: none"
+        :style="selectedpayment ? 'box-shadow: none; text-transform: none' : 'text-transform: none'"
         @click="changehandler('payment', true)"
       >
         Pilih Pembayaran

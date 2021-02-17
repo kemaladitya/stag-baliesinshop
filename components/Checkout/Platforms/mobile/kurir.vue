@@ -3,10 +3,10 @@
     <div class="d-flex flex-row mt-4 mb-4 pa-1">
       <div style="font-weight: 600; width: 50%">
         <v-btn
-          class="pulse-button"
+          :class="!selectedcourier.status ? 'pulse-button' : null"
           block
           color="#fd0"
-          style="text-transform: none"
+          :style="selectedcourier.status ? 'box-shadow: none; text-transform: none' : 'text-transform: none'"
           :disabled="shippingcostloading"
           @click="changehandler('courier', true)"
         >

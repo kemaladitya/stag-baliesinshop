@@ -44,7 +44,7 @@
                     flat
                   >
                     <v-card flat style="font-size: 12px; font-weight: 600">
-                      Waktu Pengiriman :
+                      Waktu Pengantaran :
                     </v-card>
                     <v-spacer />
                     <v-card

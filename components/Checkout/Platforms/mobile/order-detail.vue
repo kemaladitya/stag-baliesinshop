@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pt-3 pl-1 mb-2" style="font-size: 12px">
-      DETAIL PESANAN & WAKTU PENGIRIMAN
+      DETAIL PESANAN & WAKTU PENGANTARAN
     </div>
 
     <Normal :date="date" />
