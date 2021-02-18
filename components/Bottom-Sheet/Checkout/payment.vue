@@ -29,6 +29,7 @@
         <v-card
           v-if="pm != 'COD'"
           class="ml-2 pa-2"
+          style="text-align:left"
           outlined
           :disabled="
             selectedpayment === paymentdetail[pm.toLowerCase()].name
@@ -55,6 +56,7 @@
       <div v-else>
         <v-card
           class="ml-2 pa-2"
+          style="text-align:left"
           outlined
           :disabled="
             selectedpayment === paymentdetail[pm.toLowerCase()].name

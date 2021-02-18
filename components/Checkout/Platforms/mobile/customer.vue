@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align:left">
     <v-card class="pt-1" color="#f8f8f8" flat tile>
       <v-card v-if="customer" class="pt-1 pb-1" color="white" flat tile>
         <div class="ma-1">

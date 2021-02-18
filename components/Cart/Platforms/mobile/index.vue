@@ -75,7 +75,7 @@
         :changedeliverytime="changedeliverytime"
       />
       <!-- customer notes -->
-      <div class="mt-4 pa-2">
+      <div class="mt-4 pa-2" style="text-align:left">
         <div style="font-size: 12px">Catatan untuk penjual (optional):</div>
         <v-textarea
           id="b-customer-notes"

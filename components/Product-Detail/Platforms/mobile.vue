@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align: left">
     <div v-if="productdetail">
       <v-card class="pa-12 pt-3 pb-0" flat tile>
         <v-img class="ma-8" :src="selectedvariant.main_image" />
@@ -18,7 +18,7 @@
       <v-divider />
 
       <v-card class="d-flex flex-row pa-1 pt-4" flat tile>
-        <div class="variant pr-2">
+        <div class="variant pr-2" style="text-align: left">
           <div class="label mb-1">Variant</div>
           <v-select
             :items="productdetail.detail.map(el => el.variant)"
@@ -30,7 +30,7 @@
             @change="selectvariant"
           />
         </div>
-        <div class="qty pl-2">
+        <div class="qty pl-2" style="text-align: left">
           <div class="label mb-1">Qty.</div>
           <v-select
             :items="
@@ -69,8 +69,24 @@
         <v-card height="50" flat tile />
       </div>
 
-      <v-footer class="action" fixed padless color="white">
-        <div class="content d-flex flex-row pa-1">
+      <v-footer
+        class="action"
+        fixed
+        padless
+        color="transparent"
+        style="
+          width: 100%;
+          justify-content: center;
+        "
+      >
+        <div
+          class="content d-flex flex-row pa-1"
+          style="
+            max-width: 600px !important;
+          "
+        >
+          <!-- width: 600px !important;
+          min-width: 600px !important; -->
           <v-btn
             class="continue-shop"
             depressed
@@ -131,3 +147,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#app > div.v-menu__content.theme--light {
+  text-align: left !important;
+}
+</style>

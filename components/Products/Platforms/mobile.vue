@@ -10,7 +10,7 @@
               </div>
             </v-img>
           </div>
-          <div class="pa-2">
+          <div class="pa-2" style="text-align: left">
             <div class="name pt-2">{{ item.name }}</div>
             <div
               v-if="item.detail[0].discount_price"

@@ -1,100 +1,117 @@
 <template>
-  <v-app class="b-font overflow-hidden">
-    <!-- timeout="3000" -->
-    <v-snackbar
-      id="b-snackbar"
-      v-model="alert.status"
-      width="100%"
-      fixed
-      top
+  <div
+    style="
+      background-color: rgb(253 251 238);
+      text-align: center;
+      text-align: -moz-center;
+      text-align: -webkit-center;
+    "
+  >
+    <v-app
+      class="b-font overflow-hidden"
+      style="
+        max-width: 650px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+      "
     >
-      <div class="d-flex flex-row">
-        <div>
-          <v-icon color="#fd0" small>mdi-alert</v-icon>
+      <!-- timeout="3000" -->
+      <v-snackbar
+        id="b-snackbar"
+        v-model="alert.status"
+        width="100%"
+        fixed
+        top
+      >
+        <div class="d-flex flex-row">
+          <div>
+            <v-icon color="#fd0" small>mdi-alert</v-icon>
+          </div>
+          <div style="padding-top: 1px; margin-left: 8px; font-weight: 600">{{ alert.text }}</div>
         </div>
-        <div style="padding-top: 1px; margin-left: 8px; font-weight: 600">{{ alert.text }}</div>
-      </div>
-    </v-snackbar>
-    <div class="pb-12">
-      <div>
-        <v-app-bar
-          absolute
-          color="white"
-          elevate-on-scroll
-          scroll-target="#scrolling-techniques-7"
-          style="border-bottom: 1px solid #ccc !important; z-index: 9"
-        >
-          <v-app-bar-nav-icon
-            depressed
-            :ripple="false"
-            class="ml-2 pa-2"
+      </v-snackbar>
+      <div class="pb-12">
+        <div>
+          <v-app-bar
+            absolute
             color="white"
+            elevate-on-scroll
+            scroll-target="#scrolling-techniques-7"
+            style="border-bottom: 1px solid #ccc !important; z-index: 9; height: 55px"
           >
-            <v-btn
-              v-if="$route.name == 'site-store-checkout'"
-              class="ml-4"
-              style="color: black !important"
-              x-small
-              fab
-              text
+            <v-app-bar-nav-icon
               depressed
               :ripple="false"
-              :to="gotocart"
+              class="ml-2 pa-2"
+              color="white"
             >
-              <v-icon small>mdi-arrow-left</v-icon>
-            </v-btn>
-            <v-img
-              v-if="store"
-              :src="store.image"
-              width="40"
-              height="40"
-              max-width="53"
-              max-height="53"
-            />
-            <v-icon v-else>mdi-store</v-icon>
-          </v-app-bar-nav-icon>
-          <v-spacer />
-          <v-badge
-            v-if="cart_btn && $route.name == 'site-store-checkout'"
-            id="b-shop-cart-badge"
-            top="-5px"
-            color="red darken-1"
-            style="font-size: 10px"
-            min-width="16px"
-            height="16px"
-            :icon="String(cart.length)"
-            bordered
-            overlap
+              <v-btn
+                v-if="$route.name == 'site-store-checkout'"
+                class="ml-4"
+                style="color: black !important"
+                x-small
+                fab
+                text
+                depressed
+                :ripple="false"
+                :to="gotocart"
+              >
+                <v-icon small>mdi-arrow-left</v-icon>
+              </v-btn>
+              <v-img
+                v-if="store"
+                :src="store.image"
+                width="40"
+                height="40"
+                max-width="53"
+                max-height="53"
+              />
+              <v-icon v-else>mdi-store</v-icon>
+            </v-app-bar-nav-icon>
+            <v-spacer />
+            <v-badge
+              v-if="cart_btn && $route.name == 'site-store-checkout'"
+              id="b-shop-cart-badge"
+              top="-5px"
+              color="red darken-1"
+              style="font-size: 10px"
+              min-width="16px"
+              height="16px"
+              :icon="String(cart.length)"
+              bordered
+              overlap
+            >
+              <v-btn
+                v-if="cart_btn"
+                rounded
+                depressed
+                :ripple="false"
+                max-width="38"
+                min-width="38"
+                :to="gotocart"
+                color="#fcfcfc"
+                style="
+                  color: black !important;
+                  border: 1px solid #fcfcfc !important;
+                "
+              >
+                <v-icon>mdi-cart-outline</v-icon>
+              </v-btn>
+            </v-badge>
+          </v-app-bar>
+          <v-sheet
+            id="scrolling-techniques-7"
+            class="overflow-y-auto"
+            max-height="100vh"
+            v-if="store"
           >
-            <v-btn
-              v-if="cart_btn"
-              rounded
-              depressed
-              :ripple="false"
-              max-width="38"
-              min-width="38"
-              :to="gotocart"
-              color="#fcfcfc"
-              style="
-                color: black !important;
-                border: 1px solid #fcfcfc !important;
-              "
-            >
-              <v-icon>mdi-cart-outline</v-icon>
-            </v-btn>
-          </v-badge>
-        </v-app-bar>
-        <v-sheet
-          id="scrolling-techniques-7"
-          class="overflow-y-auto"
-          max-height="100vh"
-          v-if="store"
-        >
-          <nuxt />
-        </v-sheet>
+            <nuxt />
+          </v-sheet>
+        </div>
       </div>
-    </div>
-  </v-app>
+    </v-app>
+  </div>
 </template>
 
 <script>
@@ -296,6 +313,10 @@ export default {
 <style lang="scss">
 html {
   scrollbar-width: none;
+
+  #app > div > div.pb-12 > div > header > div {
+    height: 55px !important;
+  }
 }
 
 #b-shop-cart-badge > span > span {

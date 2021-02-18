@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align:left">
     <v-card class="pa-1" flat>
       <div class="mb-2" style="font-size: 12px; font-weight: 600">
         VOUCHER

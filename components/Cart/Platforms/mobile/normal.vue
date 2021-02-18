@@ -11,7 +11,7 @@
         <v-card class="d-flex flex-row ma-1 mb-2 pr-1" outlined>
           <v-card class="ma-1 pt-6" width="25" flat depressed @click="confirm_remove_from_cart(item.id)">
             <center>
-              <v-icon color="red" x-small>mdi-close</v-icon>
+              <v-icon color="red" small>mdi-close</v-icon>
             </center>
           </v-card>
           <!-- <v-btn :ripple="false" class="mt-6" depressed color="transparent" style="max-width: 25px !important; width: 25px !important; min-width: 25px !important">
@@ -21,7 +21,7 @@
             <v-card class="ma-2 ml-0" outlined>
               <v-img :src="item.detail[0].main_image" width="65" height="65" />
             </v-card>
-            <div class="pa-2">
+            <div class="pa-2" style="text-align:left">
               <div
                 style="
                   font-size: 13px;

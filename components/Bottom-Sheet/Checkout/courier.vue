@@ -25,6 +25,7 @@
         :class="!idx ? 'pb-0' : null"
         class="pa-2 pl-0"
         flat
+        style="text-align:left"
       >
         <v-card
           class="ml-2 pa-2"

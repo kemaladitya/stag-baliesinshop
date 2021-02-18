@@ -134,7 +134,7 @@
                     <v-card flat tile>
                       <center>
                         <v-card
-                          class="pt-5"
+                          class="pt-6 pl-2"
                           small
                           style="
                             padding: 0;
@@ -153,18 +153,18 @@
                           flat
                           @click="changeqtysubsitem(index, idx, '!!')"
                         >
-                          <v-icon small>mdi-close</v-icon>
+                          <v-icon color="red" small>mdi-close</v-icon>
                         </v-card>
                       </center>
                     </v-card>
-                    <v-card class="ma-2 mt-3" flat>
+                    <v-card class="ma-2 mt-3" outlined>
                       <v-img
                         :src="cart_item.main_image"
-                        width="45"
-                        height="45"
+                        width="50"
+                        height="50"
                       />
                     </v-card>
-                    <div class="pa-2" style="width: 100%">
+                    <div class="pa-2 pt-3" style="width: 100%; text-align:left">
                       <div
                         style="
                           font-size: 12px;

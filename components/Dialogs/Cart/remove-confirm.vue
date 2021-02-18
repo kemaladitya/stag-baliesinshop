@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card style="text-align: left">
     <v-card-title class="headline">
       Hapus Tanggal?
     </v-card-title>

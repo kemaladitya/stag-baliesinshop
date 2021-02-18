@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card style="text-align: left">
     <center v-if="store">
       <div class="pt-3">
         <v-icon style="font-size: 80px; color: #facea8">

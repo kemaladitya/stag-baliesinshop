@@ -48,7 +48,7 @@
           @change="subs_controller"
         />
       </div>
-      <div style="font-size: 10px">
+      <div style="font-size: 10px; text-align:left">
         Anda dapat mengatur waktu pengiriman roti pesanan Anda, <br />
         untuk dijadwalkan hingga 2 minggu kedepan.
       </div>

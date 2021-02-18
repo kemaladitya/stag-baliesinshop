@@ -3,14 +3,15 @@
     <v-container id="b-list-products" class="pt-12 pl-1 pr-1 mb-12">
       <v-card flat tile>
         <Loading v-show="loading_product" />
-        <div class="ma-1 mt-4 mb-0 d-flex flex-row">
-          <div class="mr-1" style="width: 90%">
+        <div class="ma-1 mb-0 d-flex flex-row" style="margin-top: 17px !important">
+          <div class="mr-1" style="width: 100%">
             <v-text-field
               append-icon="mdi-magnify"
-              placeholder="Cari Produk"
+              placeholder="Mau cari apa hari ini?"
               hide-details
               dense
               outlined
+              style="font-size: 13px"
               v-model="search_value"
             />
           </div>
@@ -30,7 +31,7 @@
             />
           </div>
         </div>
-        <div class="ml-2" style="font-size: 8px; color: #999; padding-top: 2px">
+        <div class="ml-2" style="font-size: 8px; color: #999; padding-top: 2px; text-align: left">
           Cari Produk berdasarkan : <span style="color: #0D47A1">"{{ search_type }}"</span>
         </div>
         <div v-show="!loading_product">
@@ -58,10 +59,10 @@
       <!-- <v-img src="data:image/jpeg;base64,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" /> -->
       <!-- <v-img width="100%" height="100px" src="https://png2.cleanpng.com/dy/8f0e4c5a6345ceadd4a04d00c513e245/L0KzQYq3VcA4N6l9epH0aYP2gLBuTgBweqVmet5uLX7ohMj2kvsub6NmiNpyY4Owc73wkL1ieqUyjORqboPzccPsjvN6NZVqRadsZEK0dIGBg8QyP5U3RqQANkm6RoaAUcU2P2M8S6oBNEizQ4O1kP5o/kisspng-portable-network-graphics-clip-art-transparency-de-5cd21d08c417d2.2569765715572738648032.png" /> -->
     <!-- </div> -->
-    <transition name="scroll-y-reverse-transition" mode="out-in" appear>
+    <transition name="scroll-y-reverse-transition" mode="out-in" appear style="max-width: 785px;">
       <div
         v-show="(!rp_order && cart.length) || rp_order && dates.length"
-        style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9"
+        style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9; max-width: 635px;"
       >
         <v-card
           class="d-flex flex-row pa-3 pr-3 pl-3"
@@ -370,7 +371,7 @@ export default {
     },
 
     add_to_cart(item) {
-      if (this.rp_order) {
+      if (this.rp_order && this.dates.length) {
         this.dialog_list_dates = true
         this.temp_product = item[0]
 
@@ -619,11 +620,25 @@ export default {
     min-width: 0 !important;
     max-width: 0 !important;
   }
-  #b-list-products > div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mt-4.mb-0.d-flex.flex-row > div:nth-child(2) > div > div > div > div.v-select__slot {
+  #b-list-products > div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mt-4.mb-0.d-flex.flex-row > div:nth-child(2) > div > div > div {
+    div.v-select__slot {
+      height: 40px !important;
+
+      div.v-input__append-inner {
+        padding-left: 0 !important;
+      }
+    }
+  }
+
+  #b-list-products > div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mb-0.d-flex.flex-row > div:nth-child(2) > div > div {
     height: 40px !important;
 
-    div.v-input__append-inner {
-      padding-left: 0 !important;
-    } 
+    div {
+      padding-left: 2px !important;
+    }
+  }
+
+  #scrolling-techniques-7 > div > div.basket-background-shadow.v-card.v-sheet.theme--light.rounded-0 {
+    max-width: 640px !important;
   }
 </style>
