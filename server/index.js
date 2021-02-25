@@ -5,7 +5,7 @@
 /* eslint-disable no-prototype-builtins */
 
 const { Nuxt, Builder } = require('nuxt')
-const { API_KEY } = require('../config/config.json')
+const { API_KEY, SHOP_API } = require('../config/config.json')
 const express = require('express')
 const consola = require('consola')
 const webPush = require('web-push')
@@ -104,7 +104,7 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
     }
 
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev/order',
+      url: SHOP_API + '/dev/order',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -160,7 +160,7 @@ async function applyVoucherHanlder({ url, headers, method, body, _qs, params }, 
     }
 
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev/voucher/apply',
+      url: SHOP_API + '/dev/voucher/apply',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -192,7 +192,7 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
     body.items = get_redis
 
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev/deliverycost/check',
+      url: SHOP_API + '/dev/deliverycost/check',
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,
@@ -213,12 +213,22 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
 }
 
 async function apiHandler({ url, headers, method, body, _qs, params }, res) {
+  console.log('kesini jan')
+  console.log({
+      url: SHOP_API + '/dev' + url,
+      method: method.toLowerCase(),
+      headers: {
+        'x-api-key': API_KEY,
+        // token: headers.token,
+      },
+      data: body,
+    })
   try {
-    // console.log('kesini', 'http://10.140.0.22:3088/dev' + url, body)
+    // console.log('kesini', SHOP_API + '/dev' + url, body)
     // return res.json({ status: true, results: JSON.parse(get_redis) })
-    // console.log('http://10.140.0.22:3088/dev' + url, ' url')
+    // console.log(SHOP_API + '/dev' + url, ' url')
     const request = await axios({
-      url: 'http://10.140.0.22:3088/dev' + url,
+      url: SHOP_API + '/dev' + url,
       method: method.toLowerCase(),
       headers: {
         'x-api-key': API_KEY,

@@ -111,7 +111,7 @@
       />
     </v-bottom-sheet>
 
-    <v-footer fixed padless color="white">
+    <v-footer fixed padless color="white" style="justify-content: center;">
       <Footer :checkout="checkout" :total="normal_order" />
     </v-footer>
   </v-card>
@@ -642,7 +642,7 @@ export default {
 
       dates.push({
         date: this.date,
-        delivery_time: 'day',
+        delivery_time: null,
         items: []
       })
       this.date = new Date().toISOString().substr(0, 10)
@@ -1132,3 +1132,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @media (min-width: 481px) {
+    /* CSS */
+    #b-footer {
+      min-width: 650px !important;
+    }
+  }
+
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    /* CSS */
+    #b-footer {
+      min-width: 100% !important;
+    }
+  }
+</style>

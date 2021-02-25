@@ -166,8 +166,12 @@ html {
 
   @media only screen and (min-width: 400px) {
     #scrolling-techniques-7 > div > div.basket-background-shadow.v-card.v-sheet.theme--light.rounded-0 {
-      max-width: 560px !important;
-      margin-left: 40px;
+      max-width: 600px !important;
+      margin-left: 20px;
     }
+  }
+
+  #scrolling-techniques-7 > div > footer {
+    background-color: transparent !important;
   }
 }

@@ -80,10 +80,8 @@
         "
       >
         <div
+          id="footer-product-detail"
           class="content d-flex flex-row pa-1"
-          style="
-            max-width: 600px !important;
-          "
         >
           <!-- width: 600px !important;
           min-width: 600px !important; -->
@@ -151,5 +149,26 @@ export default {
 <style lang="scss">
 #app > div.v-menu__content.theme--light {
   text-align: left !important;
+}
+
+@media (min-width: 481px) {
+  
+  /* CSS */
+  #footer-product-detail {
+    min-width: 635px !important;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  /* CSS */
+  #footer-product-detail {
+    min-width: 100% !important;
+  }
 }
 </style>

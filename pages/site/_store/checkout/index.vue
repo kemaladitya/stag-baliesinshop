@@ -97,7 +97,13 @@
       </v-sheet>
     </v-bottom-sheet>
 
-    <v-footer v-if="cart.length || dates.length" fixed padless color="grey lighten-3">
+    <v-footer
+      v-if="cart.length || dates.length"
+      fixed
+      padless
+      color="grey lighten-3"
+      style="justify-content: center;"
+    >
       <Footer
         :grandtotal="grand_total"
         :processbtn="process_btn"
@@ -765,3 +771,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @media (min-width: 481px) {
+    /* CSS */
+    #b-footer {
+      min-width: 650px !important;
+    }
+  }
+
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    /* CSS */
+    #b-footer {
+      min-width: 100% !important;
+    }
+  }
+</style>

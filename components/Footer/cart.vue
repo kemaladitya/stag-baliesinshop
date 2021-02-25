@@ -1,5 +1,5 @@
 <template>
-  <div class="pa-1 d-flex flex-row" style="width: 100%">
+  <div id="b-footer" class="pa-1 d-flex flex-row">
     <v-btn
       v-show="!rp_order"
       depressed
@@ -72,9 +72,13 @@ export default {
       return this.$store.state.cart
     },
 
+    delivery_time_normal () {
+      return this.$store.state.delivery_time_normal
+    },
+
     checkout_btn () {
-      let status = true
       const list_validate = []
+      let status = true
       let total
 
       if (this.rp_order && this.dates.length) {
@@ -99,6 +103,15 @@ export default {
         list_validate.push(false)
       }
 
+      if (this.rp_order) {
+        const validate_delivery_time = this.dates.filter(el => !el.delivery_time)
+
+        if (validate_delivery_time.length) {
+          return true
+        }
+      }
+
+
       if (this.rp_order && list_validate.indexOf(false) != -1) {
         status = true
 
@@ -108,7 +121,7 @@ export default {
       } else {
         if (this.rp_order && this.dates.length) {
           status = false
-        } else if (!this.rp_order && this.cart.length) {
+        } else if (!this.rp_order && this.cart.length && this.delivery_time_normal) {
           if (+this.total > this.store.min_order && +this.total < this.store.max_order) {
             return false
           } else {

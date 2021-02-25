@@ -59,7 +59,7 @@
                       "
                     >
                       <v-icon x-small>mdi-white-balance-sunny</v-icon>
-                      mulai pukul 08.00 - 17.00
+                      Pagi (jam 08.00 - 13.00)
                     </v-card>
                     <v-card
                       v-else
@@ -73,7 +73,7 @@
                       "
                     >
                       <v-icon x-small>mdi-weather-night</v-icon>
-                      mulai pukul 16.00 - 20.00
+                      Sore (jam 14.00 - 18.00)
                     </v-card>
                   </v-card>
                   <v-spacer />

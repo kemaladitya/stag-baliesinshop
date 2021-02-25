@@ -1,5 +1,5 @@
 <template>
-  <v-sheet>
+  <v-sheet style="text-align: left">
     <div class="d-flex flex-row">
       <div
         class="pl-2"

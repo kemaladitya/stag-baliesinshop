@@ -44,9 +44,7 @@ export default {
       if (self.site.source === 'Whatsapp') {
         window.location.replace(`https://wa.me/${self.store.whatsapp}`)
       } else {
-        this.$router.replace(
-          `/site/${self.site.store}/checkout?src=${self.site.source}&u=${self.site.uuid}&c=${self.site.category}`
-        )
+        this.$router.replace(`https://faq.balesin.id/bot/${self.site.store}`)
       }
     }, 3000)
   }

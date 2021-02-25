@@ -62,6 +62,19 @@
                     Waktu Pengantaran :
                   </v-card>
                   <v-card
+                    v-if="!item.delivery_time"
+                    class="ml-2"
+                    flat
+                    style="
+                      color: red;
+                      font-size: 10px;
+                      font-weight: 500;
+                      padding-top: 2px;
+                    "
+                  >
+                    Pilih waktu pengantaran
+                  </v-card>
+                  <v-card
                     v-if="item.delivery_time == 'day'"
                     class="ml-2"
                     flat
@@ -72,10 +85,10 @@
                       padding-top: 2px;
                     "
                   >
-                    mulai pukul 08.00 - 17.00
+                    Pagi (jam 08.00 - 13.00)
                   </v-card>
                   <v-card
-                    v-else
+                    v-else-if="item.delivery_time == 'night'"
                     class="ml-2"
                     flat
                     style="
@@ -85,7 +98,7 @@
                       padding-top: 2px;
                     "
                   >
-                    mulai pukul 16.00 - 20.00
+                    Sore (jam 14.00 - 18.00)
                   </v-card>
                 </v-card>
                 <v-spacer />
@@ -95,8 +108,10 @@
                     depressed
                     :color="item.delivery_time == 'day' ? 'primary' : null"
                     @click="changedeliverytime(index, item.date, 'day')"
+                    style="font-weight: 600; text-transform: capitalize"
                   >
-                    <v-icon x-small>mdi-white-balance-sunny</v-icon>
+                    <!-- <v-icon x-small>mdi-white-balance-sunny</v-icon> -->
+                    Pagi
                   </v-btn>
                   <v-btn
                     class="ml-1"
@@ -104,8 +119,10 @@
                     depressed
                     :color="item.delivery_time == 'night' ? 'primary' : null"
                     @click="changedeliverytime(index, item.date, 'night')"
+                    style="font-weight: 600; text-transform: capitalize"
                   >
-                    <v-icon x-small>mdi-weather-night</v-icon>
+                    <!-- <v-icon x-small>mdi-weather-night</v-icon> -->
+                    Sore
                   </v-btn>
                 </v-card>
               </v-card>

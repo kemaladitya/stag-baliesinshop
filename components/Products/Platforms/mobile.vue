@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="text-align: left">
     <v-row v-if="listproduct && listproduct.length" no-gutters>
       <v-col v-for="(item, index) in listproduct" :key="index" cols="6">
         <v-card v-if="item.detail.length" class="ma-1 mt-2 mb-0" outlined>

@@ -61,8 +61,9 @@
     <!-- </div> -->
     <transition name="scroll-y-reverse-transition" mode="out-in" appear style="max-width: 785px;">
       <div
+        id="b-footer"
         v-show="(!rp_order && cart.length) || rp_order && dates.length"
-        style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9; max-width: 635px;"
+        style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9; max-width: 635px !important;"
       >
         <v-card
           class="d-flex flex-row pa-3 pr-3 pl-3"
@@ -640,5 +641,24 @@ export default {
 
   #scrolling-techniques-7 > div > div.basket-background-shadow.v-card.v-sheet.theme--light.rounded-0 {
     max-width: 640px !important;
+  }
+
+  @media (min-width: 481px) {
+    /* CSS */
+    #b-footer {
+      min-width: 635px !important;
+    }
+  }
+
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    /* CSS */
+    #b-footer {
+      min-width: 100% !important;
+    }
   }
 </style>

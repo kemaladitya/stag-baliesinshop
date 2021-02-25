@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-12 pt-6">
+  <div class="mt-12 pt-6" style="text-align: left">
     <div v-if="customer && customer.hasOwnProperty('status')" class="mb-6">
       <center style="font-weight: 600">Yuk isi data terlebih dahulu</center>
     </div>
@@ -37,8 +37,9 @@
       </div>
       <div class="mt-6">
         <v-select
-          :items="province.map(el => el.name)"
           label="Provinsi"
+          style="text-align: left"
+          :items="province.map(el => el.name)"
           :rules="[rules.required]"
           :value="selected_province ? selected_province.name : 'Provinsi'"
           @change="get_city"
@@ -46,8 +47,9 @@
       </div>
       <div class="mt-2">
         <v-select
-          :items="city.map(el => el.name)"
           label="Kota"
+          style="text-align: left"
+          :items="city.map(el => el.name)"
           :rules="[rules.required]"
           :value="selected_city ? selected_city.name : 'Kota'"
           @change="get_sub_district"
@@ -55,8 +57,9 @@
       </div>
       <div class="mt-2">
         <v-select
-          :items="sub_district.map(el => el.name)"
           label="Kecamatan"
+          style="text-align: left"
+          :items="sub_district.map(el => el.name)"
           :rules="[rules.required]"
           :value="selected_sub_district ? selected_sub_district.name : 'Kecamatan'"
           @change="get_urban"
@@ -64,8 +67,9 @@
       </div>
       <div class="mt-2">
         <v-select
-          :items="urban.map(el => el.name)"
           label="Kelurahan"
+          style="text-align: left"
+          :items="urban.map(el => el.name)"
           :value="selected_urban ? selected_urban.name : 'Kelurahan'"
           :rules="[rules.required]"
           @change="select_postalcode"
@@ -332,33 +336,35 @@ export default {
         }
       })
 
-      if (submit_user.status === 200) {
-        this.$router.push('/success/register')
+      console.log(submit_user)
 
-        return true
-      }
+      // if (submit_user.status === 200) {
+      //   this.$router.push('/success/register')
 
-      this.$store.dispatch('setState', {
-        payload: {
-          key: 'alert',
-          data: {
-            status: true,
-            text: 'Failed update your data.'
-          }
-        }
-      })
+      //   return true
+      // }
 
-      setTimeout(() => {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'alert',
-            data: {
-              status: false,
-              text: ''
-            }
-          }
-        })
-      }, 3000);
+      // this.$store.dispatch('setState', {
+      //   payload: {
+      //     key: 'alert',
+      //     data: {
+      //       status: true,
+      //       text: 'Failed update your data.'
+      //     }
+      //   }
+      // })
+
+      // setTimeout(() => {
+      //   self.$store.dispatch('setState', {
+      //     payload: {
+      //       key: 'alert',
+      //       data: {
+      //         status: false,
+      //         text: ''
+      //       }
+      //     }
+      //   })
+      // }, 3000);
     }
   }
 }

@@ -302,7 +302,26 @@ export default {
 </script>
 
 <style lang="scss">
-#b-shop-cart-badge > span > span {
-  padding-top: 3px;
-}
+  #b-shop-cart-badge > span > span {
+    padding-top: 3px;
+  }
+
+  @media (min-width: 481px) {
+    /* CSS */
+    #b-footer {
+      min-width: 650px !important;
+    }
+  }
+
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+  @media (min-width: 320px) and (max-width: 480px) {
+    /* CSS */
+    #b-footer {
+      min-width: 100% !important;
+    }
+  }
 </style>

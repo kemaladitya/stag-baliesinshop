@@ -11,6 +11,19 @@
           Waktu Pengantaran :
         </v-card>
         <v-card
+          v-if="!delivery_time_normal"
+          class="ml-2"
+          flat
+          style="
+            color: red;
+            font-size: 10px;
+            font-weight: 500;
+            padding-top: 2px;
+          "
+        >
+          Pilih waktu pengantaran
+        </v-card>
+        <v-card
           v-if="delivery_time_normal == 'day'"
           class="ml-2"
           flat
@@ -21,10 +34,10 @@
             padding-top: 2px;
           "
         >
-          mulai pukul 08.00 - 17.00
+          Pagi (jam 08.00 - 13.00)
         </v-card>
         <v-card
-          v-else
+          v-else-if="delivery_time_normal == 'night'"
           class="ml-2"
           flat
           style="
@@ -34,7 +47,7 @@
             padding-top: 2px;
           "
         >
-          mulai pukul 16.00 - 20.00
+          Sore (jam 14.00 - 18.00)
         </v-card>
 
         <v-spacer />
@@ -44,8 +57,10 @@
             depressed
             @click="changedeliverysingletime('day')"
             :color="delivery_time_normal == 'day' ? 'primary' : null"
+            style="font-weight: 600; text-transform: capitalize"
           >
-            <v-icon x-small>mdi-white-balance-sunny</v-icon>
+            Pagi
+            <!-- <v-icon x-small>mdi-white-balance-sunny</v-icon> -->
           </v-btn>
           <v-btn
             class="ml-1"
@@ -53,8 +68,10 @@
             depressed
             @click="changedeliverysingletime('night')"
             :color="delivery_time_normal == 'night' ? 'primary' : null"
+            style="font-weight: 600; text-transform: capitalize"
           >
-            <v-icon x-small>mdi-weather-night</v-icon>
+            Sore
+            <!-- <v-icon x-small>mdi-weather-night</v-icon> -->
           </v-btn>
         </v-card>
       </v-card>
