@@ -20,7 +20,7 @@ const pub_k   =
   'BE69JI3gO0JyQd-vHazu1zHNSZjqvHZzVQlKK5j0vMSsh2rCIknqdarnhBZhU8pYmEHpYZR5vDzu8xRL9jlU1j4'
 const asyncRedis = require('async-redis')
 const client = asyncRedis.createClient({
-  host: '127.0.0.1',
+  host: '10.140.0.17',
   port: 6379
 })
 

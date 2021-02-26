@@ -7930,7 +7930,7 @@ var VBtn = __webpack_require__(42);
 var VCard = __webpack_require__(128);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VCol.js
-var VCol = __webpack_require__(209);
+var VCol = __webpack_require__(210);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(17);
@@ -7939,7 +7939,7 @@ var VIcon = __webpack_require__(17);
 var VImg = __webpack_require__(52);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
-var VRow = __webpack_require__(210);
+var VRow = __webpack_require__(211);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(102);
@@ -8342,7 +8342,7 @@ installComponents(Products_component, {Mobile: __webpack_require__(166).default}
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(212);
+var content = __webpack_require__(213);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
@@ -8360,7 +8360,8 @@ module.exports.__inject__ = function (context) {
 /* 203 */,
 /* 204 */,
 /* 205 */,
-/* 206 */
+/* 206 */,
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8501,9 +8502,9 @@ var mergeData = __webpack_require__(33);
 }));
 
 /***/ }),
-/* 207 */,
 /* 208 */,
-/* 209 */
+/* 209 */,
+/* 210 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8660,7 +8661,7 @@ const cache = new Map();
 }));
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8814,7 +8815,7 @@ const cache = new Map();
 }));
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8825,7 +8826,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -8838,7 +8839,7 @@ module.exports = exports;
 
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8864,7 +8865,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
-/* 214 */,
 /* 215 */,
 /* 216 */,
 /* 217 */,
@@ -8895,7 +8895,10 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 /* 242 */,
 /* 243 */,
 /* 244 */,
-/* 245 */
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8937,10 +8940,10 @@ var installComponents_default = /*#__PURE__*/__webpack_require__.n(installCompon
 var VCard = __webpack_require__(128);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VCol.js
-var VCol = __webpack_require__(209);
+var VCol = __webpack_require__(210);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
-var VRow = __webpack_require__(210);
+var VRow = __webpack_require__(211);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(102);
@@ -9554,7 +9557,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VCol: VC
 // CONCATENATED MODULE: ./pages/site/_store/index.vue?vue&type=script&lang=js&
  /* harmony default export */ var site_storevue_type_script_lang_js_ = (_storevue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js + 1 modules
-var VContainer = __webpack_require__(206);
+var VContainer = __webpack_require__(207);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js + 3 modules
 var VDialog = __webpack_require__(182);
@@ -9577,7 +9580,7 @@ var VTextField = __webpack_require__(139);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(211)
+  var style0 = __webpack_require__(212)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -9598,7 +9601,7 @@ var _store_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var _store = __webpack_exports__["default"] = (_store_component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(_store_component, {Loading: __webpack_require__(213).default,Products: __webpack_require__(185).default})
+installComponents_default()(_store_component, {Loading: __webpack_require__(214).default,Products: __webpack_require__(185).default})
 
 
 /* vuetify-loader */

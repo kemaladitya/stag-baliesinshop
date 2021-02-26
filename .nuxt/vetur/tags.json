@@ -23,29 +23,29 @@
   "LazyRegLoading": {
     "description": "Auto imported from /components/Bottom-Sheet/reg_loading.vue"
   },
-  "Checkout": {
-    "description": "Auto imported from /components/Checkout/index.vue"
-  },
-  "LazyCheckout": {
-    "description": "Auto imported from /components/Checkout/index.vue"
-  },
   "Cart": {
     "description": "Auto imported from /components/Cart/index.vue"
   },
   "LazyCart": {
     "description": "Auto imported from /components/Cart/index.vue"
   },
-  "ListProduct": {
-    "description": "Auto imported from /components/Loading/list_product.vue"
+  "Checkout": {
+    "description": "Auto imported from /components/Checkout/index.vue"
   },
-  "LazyListProduct": {
-    "description": "Auto imported from /components/Loading/list_product.vue"
+  "LazyCheckout": {
+    "description": "Auto imported from /components/Checkout/index.vue"
   },
   "ProductDetail": {
     "description": "Auto imported from /components/Product-Detail/index.vue"
   },
   "LazyProductDetail": {
     "description": "Auto imported from /components/Product-Detail/index.vue"
+  },
+  "ListProduct": {
+    "description": "Auto imported from /components/Loading/list_product.vue"
+  },
+  "LazyListProduct": {
+    "description": "Auto imported from /components/Loading/list_product.vue"
   },
   "Products": {
     "description": "Auto imported from /components/Products/index.vue"
@@ -113,6 +113,18 @@
   "LazyMobile": {
     "description": "Auto imported from /components/Product-Detail/Platforms/mobile.vue"
   },
+  "Normal": {
+    "description": "Auto imported from /components/Cart/Platforms/desktop/normal.vue"
+  },
+  "LazyNormal": {
+    "description": "Auto imported from /components/Cart/Platforms/desktop/normal.vue"
+  },
+  "RpOrder": {
+    "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
+  },
+  "LazyRpOrder": {
+    "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
+  },
   "Customer": {
     "description": "Auto imported from /components/Checkout/Platforms/desktop/customer.vue"
   },
@@ -142,18 +154,6 @@
   },
   "LazySubtotal": {
     "description": "Auto imported from /components/Checkout/Platforms/desktop/subtotal.vue"
-  },
-  "Normal": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/normal.vue"
-  },
-  "LazyNormal": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/normal.vue"
-  },
-  "RpOrder": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
-  },
-  "LazyRpOrder": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
   },
   "Subscription": {
     "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"

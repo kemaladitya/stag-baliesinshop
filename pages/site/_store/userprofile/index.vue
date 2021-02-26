@@ -221,7 +221,7 @@ export default {
 
     await this.get_province()
 
-    if (String(typeof this.customer) == 'object' && this.customer.hasOwnProperty('name')) {
+    if (this.customer && String(typeof this.customer) == 'object' && this.customer.hasOwnProperty('name')) {
       const selected_province = this.province.filter(el => el.name === this.customer.province)
       this.selected_province = selected_province[0]
 
@@ -369,3 +369,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#app > div.v-menu__content.theme--light {
+  text-align: left;
+}
+</style>

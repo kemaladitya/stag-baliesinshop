@@ -6836,25 +6836,25 @@ if (false) {}
 
 
 
-const _06441552 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout */ 9).then(__webpack_require__.bind(null, 246)));
+const _06441552 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout */ 9).then(__webpack_require__.bind(null, 249)));
 
-const _3fe4e034 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register */ 10).then(__webpack_require__.bind(null, 247)));
+const _3fe4e034 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register */ 10).then(__webpack_require__.bind(null, 250)));
 
-const _674f4f08 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 1).then(__webpack_require__.bind(null, 248)));
+const _674f4f08 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 1).then(__webpack_require__.bind(null, 251)));
 
-const _cde82b64 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 2).then(__webpack_require__.bind(null, 249)));
+const _cde82b64 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 2).then(__webpack_require__.bind(null, 252)));
 
-const _35c96410 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 7).then(__webpack_require__.bind(null, 245)));
+const _35c96410 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 7).then(__webpack_require__.bind(null, 248)));
 
-const _b6d65126 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 5).then(__webpack_require__.bind(null, 242)));
+const _b6d65126 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 5).then(__webpack_require__.bind(null, 245)));
 
-const _4ec06dda = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 6).then(__webpack_require__.bind(null, 244)));
+const _4ec06dda = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 6).then(__webpack_require__.bind(null, 247)));
 
-const _f04f88b2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 8).then(__webpack_require__.bind(null, 250)));
+const _f04f88b2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 8).then(__webpack_require__.bind(null, 253)));
 
-const _f97dd3ce = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 4).then(__webpack_require__.bind(null, 243)));
+const _f97dd3ce = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 4).then(__webpack_require__.bind(null, 246)));
 
-const _6d385a9d = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 3).then(__webpack_require__.bind(null, 251))); // TODO: remove in Nuxt 3
+const _6d385a9d = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 3).then(__webpack_require__.bind(null, 254))); // TODO: remove in Nuxt 3
 
 
 const emptyFn = () => {};

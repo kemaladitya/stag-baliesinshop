@@ -8730,7 +8730,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(236);
+var content = __webpack_require__(237);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
@@ -8741,7 +8741,8 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 /* 201 */,
-/* 202 */
+/* 202 */,
+/* 203 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9466,7 +9467,7 @@ var order_detail_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var order_detail = (order_detail_component.exports);
 
 /* nuxt-component-imports */
-installComponents(order_detail_component, {Normal: __webpack_require__(205).default,Subscription: __webpack_require__(196).default})
+installComponents(order_detail_component, {Normal: __webpack_require__(206).default,Subscription: __webpack_require__(196).default})
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/notes.vue?vue&type=template&id=3a4e6046&
 var notesvue_type_template_id_3a4e6046_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1 pa-1 pl-2\" style=\"border: 1px solid #e0e0e0; border-radius: 3px; font-size: 13px\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
@@ -10327,7 +10328,7 @@ var desktop_order_detail_component = Object(componentNormalizer["a" /* default *
 /* harmony default export */ var desktop_order_detail = (desktop_order_detail_component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(desktop_order_detail_component, {Normal: __webpack_require__(205).default,Subscription: __webpack_require__(196).default})
+installComponents_default()(desktop_order_detail_component, {Normal: __webpack_require__(206).default,Subscription: __webpack_require__(196).default})
 
 
 /* vuetify-loader */
@@ -10658,7 +10659,7 @@ installComponents(Checkout_component, {Mobile: __webpack_require__(166).default}
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10786,7 +10787,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10965,7 +10966,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11151,7 +11152,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11292,7 +11293,6 @@ var mergeData = __webpack_require__(33);
 }));
 
 /***/ }),
-/* 207 */,
 /* 208 */,
 /* 209 */,
 /* 210 */,
@@ -11306,7 +11306,8 @@ var mergeData = __webpack_require__(33);
 /* 218 */,
 /* 219 */,
 /* 220 */,
-/* 221 */
+/* 221 */,
+/* 222 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11343,7 +11344,6 @@ var mergeData = __webpack_require__(33);
 }));
 
 /***/ }),
-/* 222 */,
 /* 223 */,
 /* 224 */,
 /* 225 */,
@@ -11355,13 +11355,14 @@ var mergeData = __webpack_require__(33);
 /* 231 */,
 /* 232 */,
 /* 233 */,
-/* 234 */
+/* 234 */,
+/* 235 */
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"payment_type\":{\"cod\":{\"name\":\"cod\",\"img\":null,\"desc\":\"Pastikan anda sudah menyiapkan uang cash sesuai dengan pembelian atau orderan anda.\",\"width\":55,\"height\":15,\"pt\":2,\"pl\":1},\"ovo\":{\"name\":\"ovo\",\"img\":\"https://cdn.clipart.email/1babd0f5ed57c219f04cb44e0988a0d4_ovo-indonesia-logo-png_1026-464.png\",\"desc\":\"Pembayaran dilakukan di bawah 55 detik dan pastikan saldo mencukupi.\",\"width\":55,\"height\":15,\"pt\":2,\"pl\":1},\"dana\":{\"name\":\"dana\",\"img\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png\",\"desc\":\"Pembayaran dilakukan di bawah 60 menit dan pastikan saldo mencukupi.\",\"width\":75,\"height\":21,\"pt\":0,\"pl\":2}}}");
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11372,7 +11373,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -11385,14 +11386,16 @@ module.exports = exports;
 
 
 /***/ }),
-/* 237 */,
 /* 238 */,
 /* 239 */,
 /* 240 */,
 /* 241 */,
 /* 242 */,
 /* 243 */,
-/* 244 */
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11410,13 +11413,13 @@ var staticRenderFns = []
 var General = __webpack_require__(168);
 
 // EXTERNAL MODULE: ./components/Checkout/index.vue + 84 modules
-var Checkout = __webpack_require__(202);
+var Checkout = __webpack_require__(203);
 
 // EXTERNAL MODULE: ./components/Dialogs/Checkout/insert-voucher-code.vue + 4 modules
-var insert_voucher_code = __webpack_require__(203);
+var insert_voucher_code = __webpack_require__(204);
 
 // EXTERNAL MODULE: ./components/Bottom-Sheet/Checkout/courier.vue + 4 modules
-var courier = __webpack_require__(204);
+var courier = __webpack_require__(205);
 
 // EXTERNAL MODULE: ./components/Bottom-Sheet/Checkout/voucher.vue + 4 modules
 var voucher = __webpack_require__(186);
@@ -11519,7 +11522,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 installComponents_default()(component, {VBtn: VBtn["a" /* default */],VSpacer: VSpacer["a" /* default */]})
 
 // EXTERNAL MODULE: ./components/General.json
-var components_General = __webpack_require__(234);
+var components_General = __webpack_require__(235);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/checkout/index.vue?vue&type=script&lang=js&
 //
@@ -12255,10 +12258,10 @@ var components_General = __webpack_require__(234);
 // CONCATENATED MODULE: ./pages/site/_store/checkout/index.vue?vue&type=script&lang=js&
  /* harmony default export */ var site_store_checkoutvue_type_script_lang_js_ = (_store_checkoutvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBottomSheet/VBottomSheet.js
-var VBottomSheet = __webpack_require__(221);
+var VBottomSheet = __webpack_require__(222);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VContainer.js + 1 modules
-var VContainer = __webpack_require__(206);
+var VContainer = __webpack_require__(207);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js + 3 modules
 var VDialog = __webpack_require__(182);
@@ -12278,7 +12281,7 @@ var VSheet = __webpack_require__(9);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(235)
+  var style0 = __webpack_require__(236)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -12299,7 +12302,7 @@ var checkout_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var _store_checkout = __webpack_exports__["default"] = (checkout_component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(checkout_component, {InsertVoucherCode: __webpack_require__(203).default,Checkout: __webpack_require__(202).default,Voucher: __webpack_require__(186).default,Courier: __webpack_require__(204).default,Payment: __webpack_require__(187).default})
+installComponents_default()(checkout_component, {InsertVoucherCode: __webpack_require__(204).default,Checkout: __webpack_require__(203).default,Voucher: __webpack_require__(186).default,Courier: __webpack_require__(205).default,Payment: __webpack_require__(187).default})
 
 
 /* vuetify-loader */
