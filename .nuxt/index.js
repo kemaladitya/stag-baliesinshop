@@ -18,7 +18,6 @@ import nuxt_plugin_workbox_71f0023d from 'nuxt_plugin_workbox_71f0023d' // Sourc
 import nuxt_plugin_plugin_a9301bfa from 'nuxt_plugin_plugin_a9301bfa' // Source: ./vuetify/plugin.js (mode: 'all')
 import nuxt_plugin_templatesplugin67fd027c_59d510c4 from 'nuxt_plugin_templatesplugin67fd027c_59d510c4' // Source: ./templates.plugin.67fd027c.js (mode: 'all')
 import nuxt_plugin_metaplugin_2075bc50 from 'nuxt_plugin_metaplugin_2075bc50' // Source: ./pwa/meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_251d61c4 from 'nuxt_plugin_iconplugin_251d61c4' // Source: ./pwa/icon.plugin.js (mode: 'all')
 import nuxt_plugin_axios_199b3d3e from 'nuxt_plugin_axios_199b3d3e' // Source: ./axios.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -79,7 +78,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"","title":"balesin - Shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"balesin - shop"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"https:\u002F\u002Ffaq.balesin.id\u002Ficon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.3c2a10a6.json"}],"script":[],"style":[]},
+    head: {"titleTemplate":"","title":"balesin - Shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"balesin - shop"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"https:\u002F\u002Ffaq.balesin.id\u002Ficon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.77929a16.json"}],"script":[],"style":[]},
 
     store,
     router,
@@ -226,10 +225,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_metaplugin_2075bc50 === 'function') {
     await nuxt_plugin_metaplugin_2075bc50(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_iconplugin_251d61c4 === 'function') {
-    await nuxt_plugin_iconplugin_251d61c4(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_199b3d3e === 'function') {

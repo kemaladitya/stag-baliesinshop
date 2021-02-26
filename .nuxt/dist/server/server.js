@@ -4974,7 +4974,7 @@ module.exports = require("@fortawesome/free-brands-svg-icons");
 /* 50 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"/icon/android-icon-192x192-dunplab-manifest-11523.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"/_nuxt/icons/icon_512x512.5f6a36.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.a52a3670.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
+module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"/icon/android-icon-192x192-dunplab-manifest-11523.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"/icon/favicon-16x16-dunplab-manifest-11523.png\",\"sizes\":\"16x16\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.4aedd624.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
 
 /***/ }),
 /* 51 */
@@ -8706,32 +8706,6 @@ var meta = __webpack_require__(50);
 }) {
   mergeMeta(app.head, meta);
 });
-// CONCATENATED MODULE: ./.nuxt/pwa/icon.plugin.js
-/* harmony default export */ var icon_plugin = (async function (ctx, inject) {
-  const icons = {
-    "64x64": "/_nuxt/icons/icon_64x64.5f6a36.png",
-    "120x120": "/_nuxt/icons/icon_120x120.5f6a36.png",
-    "144x144": "/_nuxt/icons/icon_144x144.5f6a36.png",
-    "152x152": "/_nuxt/icons/icon_152x152.5f6a36.png",
-    "192x192": "/_nuxt/icons/icon_192x192.5f6a36.png",
-    "384x384": "/_nuxt/icons/icon_384x384.5f6a36.png",
-    "512x512": "/_nuxt/icons/icon_512x512.5f6a36.png",
-    "ipad_1536x2048": "/_nuxt/icons/splash_ipad_1536x2048.5f6a36.png",
-    "ipadpro9_1536x2048": "/_nuxt/icons/splash_ipadpro9_1536x2048.5f6a36.png",
-    "ipadpro10_1668x2224": "/_nuxt/icons/splash_ipadpro10_1668x2224.5f6a36.png",
-    "ipadpro12_2048x2732": "/_nuxt/icons/splash_ipadpro12_2048x2732.5f6a36.png",
-    "iphonese_640x1136": "/_nuxt/icons/splash_iphonese_640x1136.5f6a36.png",
-    "iphone6_50x1334": "/_nuxt/icons/splash_iphone6_50x1334.5f6a36.png",
-    "iphoneplus_1080x1920": "/_nuxt/icons/splash_iphoneplus_1080x1920.5f6a36.png",
-    "iphonex_1125x2436": "/_nuxt/icons/splash_iphonex_1125x2436.5f6a36.png",
-    "iphonexr_828x1792": "/_nuxt/icons/splash_iphonexr_828x1792.5f6a36.png",
-    "iphonexsmax_1242x2688": "/_nuxt/icons/splash_iphonexsmax_1242x2688.5f6a36.png"
-  };
-
-  const getIcon = size => icons[size + 'x' + size] || '';
-
-  inject('icon', getIcon);
-});
 // EXTERNAL MODULE: external "axios"
 var external_axios_ = __webpack_require__(20);
 var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
@@ -8965,8 +8939,6 @@ const setupProgress = axios => {
 
  // Source: ./pwa/meta.plugin.js (mode: 'all')
 
- // Source: ./pwa/icon.plugin.js (mode: 'all')
-
  // Source: ./axios.js (mode: 'all')
 // Component: <ClientOnly>
 
@@ -9060,7 +9032,7 @@ async function createApp(ssrContext, config = {}) {
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
       }, {
         "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.3c2a10a6.json"
+        "href": "\u002F_nuxt\u002Fmanifest.77929a16.json"
       }],
       "script": [],
       "style": []
@@ -9210,10 +9182,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof meta_plugin === 'function') {
     await meta_plugin(app.context, inject);
-  }
-
-  if (typeof icon_plugin === 'function') {
-    await icon_plugin(app.context, inject);
   }
 
   if (typeof _nuxt_axios === 'function') {

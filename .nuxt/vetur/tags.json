@@ -35,17 +35,17 @@
   "LazyCheckout": {
     "description": "Auto imported from /components/Checkout/index.vue"
   },
-  "ProductDetail": {
-    "description": "Auto imported from /components/Product-Detail/index.vue"
-  },
-  "LazyProductDetail": {
-    "description": "Auto imported from /components/Product-Detail/index.vue"
-  },
   "ListProduct": {
     "description": "Auto imported from /components/Loading/list_product.vue"
   },
   "LazyListProduct": {
     "description": "Auto imported from /components/Loading/list_product.vue"
+  },
+  "ProductDetail": {
+    "description": "Auto imported from /components/Product-Detail/index.vue"
+  },
+  "LazyProductDetail": {
+    "description": "Auto imported from /components/Product-Detail/index.vue"
   },
   "Products": {
     "description": "Auto imported from /components/Products/index.vue"

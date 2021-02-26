@@ -69,12 +69,12 @@
     {
       "hid": "apple-touch-icon",
       "rel": "apple-touch-icon",
-      "href": "/_nuxt/icons/icon_512x512.5f6a36.png",
-      "sizes": "512x512"
+      "href": "/icon/favicon-16x16-dunplab-manifest-11523.png",
+      "sizes": "16x16"
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.a52a3670.json",
+      "href": "/_nuxt/manifest.4aedd624.json",
       "hid": "manifest"
     }
   ],
