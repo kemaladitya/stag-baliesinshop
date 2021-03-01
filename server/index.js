@@ -21,7 +21,8 @@ const pub_k   =
 const asyncRedis = require('async-redis')
 const client = asyncRedis.createClient({
   host: '10.140.0.17',
-  port: 6379
+  port: 6379,
+  password: 'e3b09b99b954eafe552c71635a03de6fb49ae93f'
 })
 
 client.on('error', err => {
