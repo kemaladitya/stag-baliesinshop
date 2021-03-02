@@ -5,7 +5,8 @@
 /* eslint-disable no-prototype-builtins */
 
 const { Nuxt, Builder } = require('nuxt')
-const { API_KEY, SHOP_API } = require('../config/config.json')
+const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/local.config.json')
+// const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/config.json')
 const express = require('express')
 const consola = require('consola')
 const webPush = require('web-push')
@@ -19,11 +20,7 @@ const priv_k  = 'XzKL0pU0EX3lCP5E1GrwnLxM5D4R2S5LfTlgYTmHRIs'
 const pub_k   =
   'BE69JI3gO0JyQd-vHazu1zHNSZjqvHZzVQlKK5j0vMSsh2rCIknqdarnhBZhU8pYmEHpYZR5vDzu8xRL9jlU1j4'
 const asyncRedis = require('async-redis')
-const client = asyncRedis.createClient({
-  host: '10.140.0.17',
-  port: 6379,
-  password: 'e3b09b99b954eafe552c71635a03de6fb49ae93f'
-})
+const client = asyncRedis.createClient(REDIS_CONFIG)
 
 client.on('error', err => {
   // console.log('Error ' + err)
@@ -32,6 +29,29 @@ client.on('error', err => {
 config.dev    = process.env.NODE_ENV !== 'production'
 
 webPush.setVapidDetails('mailto:test@example.com', pub_k, priv_k)
+
+async function product_search({ url, headers, method, body, _qs, params }, res) {
+  try {
+    const request = await axios({
+      url: SHOP_API + '/product/search',
+      method: method.toLowerCase(),
+      headers: {
+        'x-api-key': API_KEY,
+        // token: headers.token,
+      },
+      data: body,
+    })
+
+    return res.json(
+      request.data.hasOwnProperty('data') ? request.data.data : request.data
+    )
+  } catch (error) {
+    return res.status(404).json({
+      status: false,
+      error,
+    })
+  }
+}
 
 async function cache({ url, headers, method, body, _qs, params }, res) {
   try {
@@ -280,6 +300,7 @@ async function start() {
   app.use('/deliverycost/check', deliverycostCheckHanlder)
   app.use('/voucher/apply', applyVoucherHanlder)
   app.use('/transaction/order', orderHanlder)
+  app.use('/product/search', product_search)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

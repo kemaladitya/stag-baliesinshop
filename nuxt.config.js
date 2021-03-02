@@ -1,6 +1,7 @@
 /* eslint-disable nuxt/no-cjs-in-config */
 // const pkg = require('./package')
-const { baseURL, HOST, SOCKET, PORT } = require('./config/config.json')
+const { baseURL, HOST, SOCKET, PORT } = require('./config/local.config.json')
+// const { baseURL, HOST, SOCKET, PORT } = require('./config/config.json')
 
 module.exports = {
   /*
