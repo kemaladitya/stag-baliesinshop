@@ -208,6 +208,31 @@ export default {
           self.phone = newval.replace(/\D+/g, '')
         }
       }, 5)
+    },
+
+    async customer(newval, oldval) {
+      if (newval && String(typeof newval) == 'object' && newval.hasOwnProperty('name')) {
+        const selected_province = this.province.filter(el => el.name === this.customer.province)
+        this.selected_province = selected_province[0]
+
+        this.name = this.customer.name
+        this.phone = this.customer.phone
+        this.email = this.customer.email
+        this.address = this.customer.address
+
+        await this.get_city(selected_province[0].name)
+
+        this.selected_city = { name: this.customer.city, provcode: selected_province[0].code }
+        
+        await this.get_sub_district(this.customer.city)
+        
+        this.selected_sub_district = { name: this.customer.sub_district, provcode: selected_province[0].code }
+
+        await this.get_urban(this.customer.sub_district)
+
+        this.selected_urban = { name: this.customer.urban, postalcode: this.customer.postal_code }
+        this.postal_code = this.customer.zip_code
+      }
     }
   },
 
@@ -220,6 +245,8 @@ export default {
     })
 
     await this.get_province()
+
+    console.log(this.customer)
 
     if (this.customer && String(typeof this.customer) == 'object' && this.customer.hasOwnProperty('name')) {
       const selected_province = this.province.filter(el => el.name === this.customer.province)
@@ -338,33 +365,33 @@ export default {
 
       console.log(submit_user)
 
-      // if (submit_user.status === 200) {
-      //   this.$router.push('/success/register')
+      if (submit_user.status === 200) {
+        this.$router.push('/success/register')
 
-      //   return true
-      // }
+        return true
+      }
 
-      // this.$store.dispatch('setState', {
-      //   payload: {
-      //     key: 'alert',
-      //     data: {
-      //       status: true,
-      //       text: 'Failed update your data.'
-      //     }
-      //   }
-      // })
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'alert',
+          data: {
+            status: true,
+            text: 'Failed update your data.'
+          }
+        }
+      })
 
-      // setTimeout(() => {
-      //   self.$store.dispatch('setState', {
-      //     payload: {
-      //       key: 'alert',
-      //       data: {
-      //         status: false,
-      //         text: ''
-      //       }
-      //     }
-      //   })
-      // }, 3000);
+      setTimeout(() => {
+        self.$store.dispatch('setState', {
+          payload: {
+            key: 'alert',
+            data: {
+              status: false,
+              text: ''
+            }
+          }
+        })
+      }, 3000);
     }
   }
 }

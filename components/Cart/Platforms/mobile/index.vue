@@ -112,7 +112,7 @@
           class="pa-2 pt-2"
           style="font-size: 9px; font-weight: 600; padding-top: 2px; color: rgb(255 111 111); font-style: italic;"
         >
-          min. 30k - max. 300k
+          min. {{ store.min_order / 1000 }}k - max. {{ store.max_order / 1000 }}k
         </div>
         <v-spacer />
         <div v-if="rp_order" style="font-weight: 600">
@@ -210,6 +210,10 @@ export default {
   computed: {
     delivery_time_normal() {
       return this.$store.state.delivery_time_normal
+    },
+
+    store() {
+      return this.$store.state.store
     },
 
     rp_order () {

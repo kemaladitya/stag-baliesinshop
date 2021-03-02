@@ -32,6 +32,15 @@ webPush.setVapidDetails('mailto:test@example.com', pub_k, priv_k)
 
 async function product_search({ url, headers, method, body, _qs, params }, res) {
   try {
+    console.log({
+      url: SHOP_API + '/product/search',
+      method: method.toLowerCase(),
+      headers: {
+        'x-api-key': API_KEY,
+        // token: headers.token,
+      },
+      data: body,
+    })
     const request = await axios({
       url: SHOP_API + '/product/search',
       method: method.toLowerCase(),
