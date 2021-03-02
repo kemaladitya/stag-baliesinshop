@@ -5,8 +5,8 @@
 /* eslint-disable no-prototype-builtins */
 
 const { Nuxt, Builder } = require('nuxt')
-const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/local.config.json')
-// const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/config.json')
+// const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/local.config.json')
+const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/config.json')
 const express = require('express')
 const consola = require('consola')
 const webPush = require('web-push')
