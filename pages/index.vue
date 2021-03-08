@@ -12,7 +12,10 @@
     <v-card flat>
       <v-text-field label="Bot Name" placeholder="sarirotiwa" v-model="bot_name" outlined />
     </v-card>
-    <v-btn color="#FD0" block @click="find_user">start</v-btn>
+    <v-btn color="#FD0" block @click="find_user">shop</v-btn>
+    <div class="mt-4">
+      <v-btn color="#FD0" block @click="reg_user">register</v-btn>
+    </div>
   </div>
 </template>
 
@@ -40,6 +43,17 @@ export default {
         this.$router.replace(`/site/${bot_name}?u=${uuid}&src=web-url&c=all`)
         console.log('access danied.')
       }
+    },
+
+    async reg_user() {
+      const { uuid, bot_name } = this
+      const find_user = await this.$store.dispatch('request', {
+        url: '/api/balesin/user',
+        method: 'post',
+        data: { uuid, bot_name }
+      })
+
+      this.$router.replace(`/site/${bot_name}/userprofile?u=${uuid}&src=${find_user.data.source}&mtd=reg`)
     }
   }
 }
