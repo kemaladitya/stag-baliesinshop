@@ -11,12 +11,12 @@
     },
     "ovo": {
       "name": "ovo",
-      "img": "https://cdn.clipart.email/1babd0f5ed57c219f04cb44e0988a0d4_ovo-indonesia-logo-png_1026-464.png",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/1200px-Logo_ovo_purple.svg.png",
       "desc": "Pembayaran dilakukan di bawah 55 detik dan pastikan saldo mencukupi.",
-      "width": 55,
+      "width": 48,
       "height": 15,
       "pt": 2,
-      "pl": 1
+      "pl": 2
     },
     "dana": {
       "name": "dana",

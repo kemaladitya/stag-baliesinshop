@@ -63,17 +63,19 @@
           "
           @click="selectpayment(paymentdetail[pm.toLowerCase()].name)"
         >
-          <div
-            :class="'pt-1 pl-' + paymentdetail[pm.toLowerCase()].pl"
-          >
-            <div v-if="paymentdetail[pm.toLowerCase()].img">
-              <v-img
-                :src="paymentdetail[pm.toLowerCase()].img"
-                :height="paymentdetail[pm.toLowerCase()].height"
-                :width="paymentdetail[pm.toLowerCase()].width"
-              />
+          <div style="padding: 1px 1px 0px 0px">
+            <div
+              :class="'pt-1 pl-' + paymentdetail[pm.toLowerCase()].pl"
+            >
+              <div v-if="paymentdetail[pm.toLowerCase()].img">
+                <v-img
+                  :src="paymentdetail[pm.toLowerCase()].img"
+                  :height="paymentdetail[pm.toLowerCase()].height"
+                  :width="paymentdetail[pm.toLowerCase()].width"
+                />
+              </div>
+              <div v-else class="pl-1">{{ pm.toUpperCase() }}</div>
             </div>
-            <div v-else class="pl-1">{{ pm.toUpperCase() }}</div>
           </div>
           <div class="pt-2 pl-2" style="font-size: 12px">
             {{ paymentdetail[pm.toLowerCase()].desc }}

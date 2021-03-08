@@ -363,8 +363,6 @@ export default {
         }
       })
 
-      console.log(submit_user)
-
       if (submit_user.status === 200) {
         this.$router.push('/success/register')
 
