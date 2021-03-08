@@ -51,8 +51,10 @@
         </v-card>
 
         <v-spacer />
-        <!-- <v-card class="d-flex flex-row" flat>
-          <v-btn
+        <v-card class="d-flex flex-row" flat>
+          <div></div>
+          <div></div>
+          <!-- <v-btn
             x-small
             depressed
             @click="changedeliverysingletime('day')"
@@ -70,9 +72,9 @@
             style="font-weight: 600; text-transform: capitalize"
           >
             Sore
-          </v-btn>
+          </v-btn> -->
         </v-card>
-      </v-card> -->
+      </v-card>
 
       <!-- normal cart order -->
       <NormalOrder :changeqty="changeqty" :updatecache="updatecache" />

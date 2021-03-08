@@ -71,7 +71,7 @@
             </v-app-bar-nav-icon>
             <v-spacer />
             <v-badge
-              v-if="cart_btn && $route.name == 'site-store-checkout'"
+              v-if="(cart_btn && $route.name == 'site-store-checkout') || ($route.name == 'site-store-pid')"
               id="b-shop-cart-badge"
               top="-5px"
               color="red darken-1"
