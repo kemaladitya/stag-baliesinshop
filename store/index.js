@@ -16,7 +16,7 @@ export default () => {
       customer: null,
       user_notes: '',
       dates: [],
-      delivery_time_normal: false,
+      delivery_time_normal: "day",
       cart: [],
       products: [],
       month: [

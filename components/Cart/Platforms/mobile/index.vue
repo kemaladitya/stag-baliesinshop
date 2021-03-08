@@ -34,7 +34,7 @@
             padding-top: 2px;
           "
         >
-          Pagi (jam 08.00 - 13.00)
+          (jam 08.00 - 17.00)
         </v-card>
         <v-card
           v-else-if="delivery_time_normal == 'night'"

@@ -353,7 +353,7 @@ export default {
 
         return {
           delivery_date: el.date,
-          delivery_time: el.delivery_time,
+          delivery_time: 'day',// el.delivery_time,
           items: cut
         }
       })

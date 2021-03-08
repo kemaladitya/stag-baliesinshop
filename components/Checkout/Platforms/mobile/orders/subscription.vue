@@ -59,7 +59,7 @@
                       "
                     >
                       <v-icon x-small>mdi-white-balance-sunny</v-icon>
-                      Pagi (jam 08.00 - 13.00)
+                      (jam 08.00 - 17.00)
                     </v-card>
                     <v-card
                       v-else
