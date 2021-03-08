@@ -51,7 +51,7 @@
         </v-card>
 
         <v-spacer />
-        <v-card class="d-flex flex-row" flat>
+        <!-- <v-card class="d-flex flex-row" flat>
           <v-btn
             x-small
             depressed
@@ -60,7 +60,6 @@
             style="font-weight: 600; text-transform: capitalize"
           >
             Pagi
-            <!-- <v-icon x-small>mdi-white-balance-sunny</v-icon> -->
           </v-btn>
           <v-btn
             class="ml-1"
@@ -71,10 +70,9 @@
             style="font-weight: 600; text-transform: capitalize"
           >
             Sore
-            <!-- <v-icon x-small>mdi-weather-night</v-icon> -->
           </v-btn>
         </v-card>
-      </v-card>
+      </v-card> -->
 
       <!-- normal cart order -->
       <NormalOrder :changeqty="changeqty" :updatecache="updatecache" />
