@@ -1,5 +1,5 @@
 <template>
-  <div id="b-footer" class="pa-1 d-flex flex-row">
+  <div class="pa-1 d-flex flex-row" style="width: 100%;">
     <v-btn
       v-show="!rp_order"
       depressed

@@ -61,7 +61,6 @@
     <!-- </div> -->
     <transition name="scroll-y-reverse-transition" mode="out-in" appear style="max-width: 785px;">
       <div
-        id="b-footer"
         v-show="(!rp_order && cart.length) || rp_order && dates.length"
         style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9; max-width: 635px !important;"
       >

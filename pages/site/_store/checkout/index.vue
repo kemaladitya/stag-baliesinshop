@@ -102,7 +102,7 @@
       fixed
       padless
       color="grey lighten-3"
-      style="justify-content: center;"
+      style="width: 100%;"
     >
       <Footer
         :grandtotal="grand_total"

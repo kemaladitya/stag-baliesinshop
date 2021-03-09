@@ -70,34 +70,30 @@
       </div>
 
       <v-footer
-        class="action"
         fixed
         padless
         color="transparent"
-        style="
-          width: 100%;
-          justify-content: center;
-        "
+        style="width: 100%"
       >
         <div
-          id="footer-product-detail"
           class="content d-flex flex-row pa-1"
+          style="width: 100%"
         >
           <!-- width: 600px !important;
           min-width: 600px !important; -->
           <v-btn
-            class="continue-shop"
             depressed
             :to="back"
+            style="width: 49.5%"
           >
             Lanjut Belanja
           </v-btn>
           <v-card flat min-width="1%" />
           <v-btn
             depressed
-            class="add-to-cart"
             color="#FD0"
             @click="addtocart(productdetail)"
+            style="width: 49.5%"
           >
             Tambah ke keranjang
           </v-btn>

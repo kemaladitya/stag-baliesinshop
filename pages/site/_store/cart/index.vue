@@ -111,7 +111,7 @@
       />
     </v-bottom-sheet>
 
-    <v-footer fixed padless color="white" style="justify-content: center;">
+    <v-footer fixed padless color="white" style="width: 100%;">
       <Footer :checkout="checkout" :total="normal_order" />
     </v-footer>
   </v-card>

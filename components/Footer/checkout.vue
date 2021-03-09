@@ -1,8 +1,7 @@
 <template>
   <div
-    id="b-footer"
     class="pa-1"
-    style="background-color: white !important;"
+    style="background-color: white !important; width: 100%;"
   >
     <div class="d-flex flex-row pa-1">
       <div style="font-weight: 600">TOTAL HARGA</div>
