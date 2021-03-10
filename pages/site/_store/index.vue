@@ -82,7 +82,7 @@
             style="font-size: 14px; font-weight: 600; color: grey"
             flat
           >
-            {{ cart.length }} item
+            {{ total_qty_item }} item
           </v-card>
           <v-spacer />
           <v-card
@@ -258,6 +258,18 @@ export default {
       return this.$store.state.dates
     },
 
+    total_qty_item() {
+      if (this.rp_order) {
+        const rp_qty = this.get_rp_qty_item()
+
+        return rp_qty
+      }
+
+      const so_qty = this.get_so_qty_item()
+
+      return so_qty
+    },
+
     single_order_date() {
       const date = new Date()
       const day = date.getDate()
@@ -307,6 +319,30 @@ export default {
   },
 
   methods: {
+    get_so_qty_item() {
+      let total = 0
+
+      this.cart.forEach(el => {
+        total += el.qty
+      })
+
+      return total
+    },
+
+    get_rp_qty_item() {
+      let total = 0
+
+      this.dates.forEach(el => {
+        el.items.forEach(item => {
+          if (item.qty) {
+            total += item.qty
+          }
+        })
+      })
+
+      return total
+    },
+
     product_detail(item) {
       console.log('*** product_detail method ***')
 

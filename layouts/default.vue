@@ -95,7 +95,7 @@
               style="font-size: 10px"
               min-width="16px"
               height="16px"
-              :icon="String(cart.length)"
+              :icon="String(total_qty_item)"
               bordered
               overlap
             >
@@ -157,6 +157,18 @@ export default {
   },
 
   computed: {
+    total_qty_item() {
+      if (this.rp_order) {
+        const rp_qty = this.get_rp_qty_item()
+
+        return rp_qty
+      }
+
+      const so_qty = this.get_so_qty_item()
+
+      return so_qty
+    },
+
     gotocart() {
       const { store, uuid, source, category } = this.$store.state.site
 
@@ -308,6 +320,30 @@ export default {
   },
 
   methods: {
+    get_so_qty_item() {
+      let total = 0
+
+      this.cart.forEach(el => {
+        total += el.qty
+      })
+
+      return total
+    },
+
+    get_rp_qty_item() {
+      let total = 0
+
+      this.dates.forEach(el => {
+        el.items.forEach(item => {
+          if (item.qty) {
+            total += item.qty
+          }
+        })
+      })
+
+      return total
+    },
+
     async get_customer_detail(bot_id) {
       try {
         const request = await this.$store.dispatch('request', {
@@ -364,6 +400,14 @@ export default {
 
     getWindowHeight(event) {
       this.windowHeight = document.documentElement.clientHeight
+    },
+
+    get_rp_total_qty() {
+
+    },
+
+    get_so_total_qty() {
+
     }
   }
 }
