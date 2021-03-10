@@ -336,7 +336,7 @@ export default {
 
       console.log(this.windowWidth, ' this.windowWidth')
 
-      if (this.windowWidth <= 320) {
+      if (this.windowWidth <= 390) {
         console.log('mini')
         self.$store.dispatch('setState', {
           payload: {
