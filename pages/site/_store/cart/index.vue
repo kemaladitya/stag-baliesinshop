@@ -61,7 +61,7 @@
       </div>
       <div style="text-align:left" :style="'font-size: ' + (screen == 'mini' ? '8px;' : '10px;')">
         Anda dapat mengatur waktu pengiriman roti pesanan Anda, <br />
-        untuk dijadwalkan hingga 2 minggu kedepan.
+        untuk dijadwalkan hingga 30 hari kedepan.
       </div>
     </v-card>
 
