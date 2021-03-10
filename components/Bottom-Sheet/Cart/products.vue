@@ -23,11 +23,11 @@
     </div>
     <v-divider />
     <div class="pa-2" style="overflow-y: scroll; max-height: 70vh">
-      <div v-for="(l_prod, idx) in selecteddate" :key="idx">
+      <div v-for="(product, idx) in catalog" :key="idx">
         <v-card class="d-flex flex-row mb-2 pr-1" outlined>
           <v-card class="d-flex flex-row" flat width="100%">
             <v-card class="ma-2 mt-3" flat>
-              <v-img :src="l_prod.main_image" width="45" height="45" />
+              <v-img :src="product.main_image" width="45" height="45" />
             </v-card>
             <div class="pa-2" style="width: 100%">
               <div
@@ -41,7 +41,7 @@
                   font-weight: 600;
                 "
               >
-                {{ l_prod.name }}
+                {{ product.name }}
               </div>
               <div
                 style="
@@ -54,12 +54,12 @@
                   color: grey;
                 "
               >
-                {{ l_prod.name }}
+                {{ product.variant }}
               </div>
               <div style="font-size: 12px; font-weight: 600">
                 Rp.
                 {{
-                  l_prod.normal_price.toLocaleString().replace(/,/g, '.')
+                  product.normal_price.toLocaleString().replace(/,/g, '.')
                 }}, -
               </div>
             </div>
@@ -69,7 +69,7 @@
               style="align-self: center"
             >
               <v-checkbox
-                v-model="l_prod.select_date"
+                v-model="product.select_date"
                 color="primary"
                 hide-details
                 dense
@@ -104,6 +104,54 @@ export default {
     selecteddate: {
       type: Array,
       required: true
+    },
+
+    products: {
+      type: Boolean,
+      required: true
+    }
+  },
+
+  data: () => ({
+    catalog: []
+  }),
+
+  watch: {
+    products (newval, oldval) {
+      this.merge_items()
+    }
+  },
+
+  mounted() {
+    this.merge_items()
+  },
+
+  methods: {
+    merge_items() {
+      const list_product = this.$store.state.products
+      const merged_items = list_product.map(item => {
+        const filtered = this.selecteddate.filter(f_item => f_item.qty > 0 && item.id == f_item.id)
+
+        if (filtered.length) {
+          return filtered[0]
+        }
+
+        return {
+          SKU: item.SKU,
+          detail_id: item.detail[0].detail_id,
+          discount_price: item.detail[0].discount_price,
+          id: item.id,
+          main_image: item.detail[0].main_image,
+          name: item.name,
+          normal_price: item.detail[0].normal_price,
+          product_id: item.id,
+          qty: item.qty,
+          select_date: false,
+          variant: item.detail[0].variant
+        }
+      })
+
+      this.catalog = merged_items
     }
   }
 }

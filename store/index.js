@@ -5,6 +5,7 @@ export default () => {
     /* Initial State */
     state: {
       uuid: null,
+      added_to_cart: false,
       alert: {
         status: false,
         text: ''
@@ -16,7 +17,7 @@ export default () => {
       customer: null,
       user_notes: '',
       dates: [],
-      delivery_time_normal: "day",
+      delivery_time_normal: false,
       cart: [],
       products: [],
       month: [

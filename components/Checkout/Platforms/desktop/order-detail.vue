@@ -1,10 +1,8 @@
 <template>
-  <div>
+  <div style="text-align:left">
     <div class="pt-3 pl-1 mb-2" style="font-size: 12px">
       DETAIL PESANAN & WAKTU PENGANTARAN
     </div>
-
-    <v-divider />
 
     <Normal :date="date" />
 

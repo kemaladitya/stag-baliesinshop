@@ -10,9 +10,11 @@
         letter-spacing: initial;
       "
       min-width="49.5%"
+      max-width="49.5%"
       :to="back"
       :disabled="rp_order"
-      height="45"
+      :style="screen == 'mini' ? 'font-size: 11px' : null"
+      :height="screen == 'mini' ? 35 : 45"
     >
       Kembali Belanja
     </v-btn>
@@ -22,7 +24,9 @@
       style="text-transform: capitalize; letter-spacing: initial"
       color="#FD0"
       :min-width="!rp_order ? '49.5%' : '100%'"
-      height="45"
+      max-width="!rp_order ? '49.5%' : '100%'"
+      :height="screen == 'mini' ? 35 : 45"
+      :style="screen == 'mini' ? 'font-size: 11px' : null"
       :disabled="checkout_btn"
       @click="checkout"
     >
@@ -60,6 +64,10 @@ export default {
 
     store () {
       return this.$store.state.store
+    },
+
+    screen () {
+      return this.$store.state.screen
     },
     
     back() {

@@ -11,7 +11,7 @@
         style="font-weight: 600"
         @click="changehandler('voucher', true)"
       >
-        LIHAT VOUCHER DISINI
+        GUNAKAN VOUCHER
       </v-btn>
     </v-card>
     <center class="ma-1">

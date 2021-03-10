@@ -5,6 +5,7 @@
     <v-card class="mt-2 pt-1 pb-1" color="white" flat tile>
       <Voucher
         :changehandler="changehandler"
+        :applyingvoucher="applyingvoucher"
         :appliedvoucher="appliedvoucher"
       />
 
@@ -19,7 +20,7 @@
 
       <Subtotal :grandtotal="grandtotal" />
 
-      <Kurir :changehandler="changehandler" />
+      <Kurir :changehandler="changehandler" :selectedcourier="selectedcourier" :shippingcostloading="shippingcostloading" />
 
       <Payment
         :selectedpayment="selectedpayment"
@@ -57,6 +58,16 @@ export default {
       required: true
     },
 
+    applyingvoucher: {
+      type: Boolean,
+      required: true
+    },
+
+    shippingcostloading: {
+      type: Boolean,
+      required: true
+    },
+
     appliedvoucher: {
       type: Object,
       required: true
@@ -64,6 +75,11 @@ export default {
 
     date: {
       type: String,
+      required: true
+    },
+
+    selectedcourier: {
+      type: Object,
       required: true
     },
 
@@ -91,6 +107,6 @@ export default {
       type: String,
       required: true
     }
-  }
+  },
 }
 </script>

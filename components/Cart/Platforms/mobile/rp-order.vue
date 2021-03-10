@@ -85,7 +85,7 @@
                       padding-top: 2px;
                     "
                   >
-                    (jam 08.00 - 17.00)
+                    Pagi (jam 08.00 - 13.00)
                   </v-card>
                   <v-card
                     v-else-if="item.delivery_time == 'night'"
@@ -102,7 +102,7 @@
                   </v-card>
                 </v-card>
                 <v-spacer />
-                <!-- <v-card class="d-flex flex-row" flat>
+                <v-card class="d-flex flex-row" flat>
                   <v-btn
                     x-small
                     depressed
@@ -122,7 +122,7 @@
                   >
                     Sore
                   </v-btn>
-                </v-card> -->
+                </v-card>
               </v-card>
             </div>
           </div>

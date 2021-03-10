@@ -107,6 +107,12 @@
   "LazyDesktop": {
     "description": "Auto imported from /components/Product-Detail/Platforms/desktop.vue"
   },
+  "Mini": {
+    "description": "Auto imported from /components/Product-Detail/Platforms/mini.vue"
+  },
+  "LazyMini": {
+    "description": "Auto imported from /components/Product-Detail/Platforms/mini.vue"
+  },
   "Mobile": {
     "description": "Auto imported from /components/Product-Detail/Platforms/mobile.vue"
   },

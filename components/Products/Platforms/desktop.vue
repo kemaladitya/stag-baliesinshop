@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div style="text-align: left">
     <v-row v-if="listproduct && listproduct.length" no-gutters>
       <v-col v-for="(item, index) in listproduct" :key="index" cols="6">
-        <v-card class="ma-1 mt-5 mb-0" outlined>
+        <v-card v-if="item.detail.length" class="ma-1 mt-2 mb-0" outlined>
           <div v-if="item.detail.length">
             <v-img class="image" :src="item.detail[0].main_image">
               <div v-if="item.detail[0].discount_price" class="promo-badge">
@@ -10,7 +10,7 @@
               </div>
             </v-img>
           </div>
-          <div class="pa-2">
+          <div class="pa-2" style="text-align: left">
             <div class="name pt-2">{{ item.name }}</div>
             <div
               v-if="item.detail[0].discount_price"
@@ -53,11 +53,12 @@
               <v-spacer />
               <v-btn
                 class="add-to-cart"
-                color="#FD0"
+                color="#fffbbb"
                 depressed
                 dense
                 small
                 @click="addtocart([item])"
+                style="color: black; border: 1px solid #cccccc !important"
               >
                 <v-icon class="product-mdi-icon">mdi-cart-plus</v-icon> &nbsp;Tambah
               </v-btn>
@@ -72,7 +73,7 @@
                 depressed
                 dense
                 small
-                :to="`/product/${item.id}`"
+                :to="`/site/${site.store}/${item.id}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
               >
                 <v-icon style="product-mdi-icon">mdi-checkbox-multiple-marked-outline</v-icon>
                 &nbsp;Pilih Variant
@@ -115,6 +116,12 @@ export default {
     loadingproduct: {
       type: Boolean,
       required: true
+    }
+  },
+
+  computed: {
+    site() {
+      return this.$store.state.site
     }
   }
 }

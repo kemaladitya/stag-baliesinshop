@@ -39,6 +39,8 @@ export default {
       })
       const cart =  request.data
 
+      console.log(cart, ' cart full')
+
       if (cart && cart.status && cart.results) {
         if (cart.results.type === 'single-order') {
           if (cart.results.items.length) {

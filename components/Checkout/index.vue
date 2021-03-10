@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <Desktop
-      v-if="screen === 'desktop'"
-      id="desktop"
+    <Mini
+      v-if="screen === 'mini'"
+      id="mini"
       :changehandler="changehandler"
       :appliedvoucher="appliedvoucher"
       :date="date"
@@ -11,11 +11,28 @@
       :expansion="expansion"
       :grandtotal="grandtotal"
       :selectedpayment="selectedpayment"
+      :selectedcourier="selectedcourier"
       :applyingvoucher="applyingvoucher"
+      :shippingcostloading="shippingcostloading"
     />
-    v-else -->
     <Mobile
+      v-if="screen === 'mobile'"
       id="mobile"
+      :changehandler="changehandler"
+      :appliedvoucher="appliedvoucher"
+      :date="date"
+      :parsedate="parsedate"
+      :parseprice="parseprice"
+      :expansion="expansion"
+      :grandtotal="grandtotal"
+      :selectedpayment="selectedpayment"
+      :selectedcourier="selectedcourier"
+      :applyingvoucher="applyingvoucher"
+      :shippingcostloading="shippingcostloading"
+    />
+    <Desktop
+      v-if="screen === 'desktop'"
+      id="desktop"
       :changehandler="changehandler"
       :appliedvoucher="appliedvoucher"
       :date="date"
@@ -32,11 +49,13 @@
 </template>
 
 <script>
+import Mini from '@/components/Checkout/Platforms/mini/index'
 import Mobile from '@/components/Checkout/Platforms/mobile/index'
 import Desktop from '@/components/Checkout/Platforms/desktop/index'
 
 export default {
   components: {
+    Mini,
     Mobile,
     Desktop
   },

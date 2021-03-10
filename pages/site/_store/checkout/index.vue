@@ -322,6 +322,8 @@ export default {
       category: this.site.category
     })
 
+    console.log(cart_detail)
+
     if (!this.$store.state.fullpath.length) {
       this.$store.dispatch('setState', {
         payload: {
@@ -681,6 +683,13 @@ export default {
           }
         })
       }
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'added_to_cart',
+          data: true
+        }
+      })
     },
 
     async validate_voucher() {

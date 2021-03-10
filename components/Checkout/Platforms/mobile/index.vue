@@ -27,7 +27,7 @@
         :changehandler="changehandler"
       />
 
-      <v-card height="50" flat />
+      <v-card height="40vh" flat />
     </v-card>
   </v-card>
 </template>

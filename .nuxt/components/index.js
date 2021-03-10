@@ -16,6 +16,7 @@ export { default as MinOrder } from '../../components/Dialogs/Cart/min-order.vue
 export { default as RemoveConfirm } from '../../components/Dialogs/Cart/remove-confirm.vue'
 export { default as InsertVoucherCode } from '../../components/Dialogs/Checkout/insert-voucher-code.vue'
 export { default as Desktop } from '../../components/Product-Detail/Platforms/desktop.vue'
+export { default as Mini } from '../../components/Product-Detail/Platforms/mini.vue'
 export { default as Mobile } from '../../components/Product-Detail/Platforms/mobile.vue'
 export { default as Normal } from '../../components/Cart/Platforms/desktop/normal.vue'
 export { default as RpOrder } from '../../components/Cart/Platforms/desktop/rp-order.vue'
@@ -44,6 +45,7 @@ export const LazyMinOrder = import('../../components/Dialogs/Cart/min-order.vue'
 export const LazyRemoveConfirm = import('../../components/Dialogs/Cart/remove-confirm.vue' /* webpackChunkName: "components/remove-confirm" */).then(c => c.default || c)
 export const LazyInsertVoucherCode = import('../../components/Dialogs/Checkout/insert-voucher-code.vue' /* webpackChunkName: "components/insert-voucher-code" */).then(c => c.default || c)
 export const LazyDesktop = import('../../components/Product-Detail/Platforms/desktop.vue' /* webpackChunkName: "components/desktop" */).then(c => c.default || c)
+export const LazyMini = import('../../components/Product-Detail/Platforms/mini.vue' /* webpackChunkName: "components/mini" */).then(c => c.default || c)
 export const LazyMobile = import('../../components/Product-Detail/Platforms/mobile.vue' /* webpackChunkName: "components/mobile" */).then(c => c.default || c)
 export const LazyNormal = import('../../components/Cart/Platforms/desktop/normal.vue' /* webpackChunkName: "components/normal" */).then(c => c.default || c)
 export const LazyRpOrder = import('../../components/Cart/Platforms/desktop/rp-order.vue' /* webpackChunkName: "components/rp-order" */).then(c => c.default || c)

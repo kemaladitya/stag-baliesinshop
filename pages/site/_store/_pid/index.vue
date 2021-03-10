@@ -230,6 +230,12 @@ export default {
         uuid: this.site.uuid,
         detail: cart
       })
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'added_to_cart',
+          data: true
+        }
+      })
     },
 
     select_variant(item) {

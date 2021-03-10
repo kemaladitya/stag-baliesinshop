@@ -1,16 +1,24 @@
 <template>
   <div>
-    <!-- <Desktop
-      v-if="screen === 'desktop'"
-      id="desktop"
+    <Mini
+      v-if="screen === 'mini'"
+      id="mini"
       :listproduct="listproduct"
       :productdetail="productdetail"
       :addtocart="addtocart"
       :loadingproduct="loadingproduct"
     />
-    v-else -->
     <Mobile
+      v-if="screen === 'mobile'"
       id="mobile"
+      :listproduct="listproduct"
+      :productdetail="productdetail"
+      :addtocart="addtocart"
+      :loadingproduct="loadingproduct"
+    />
+    <Desktop
+      v-if="screen === 'desktop'"
+      id="desktop"
       :listproduct="listproduct"
       :productdetail="productdetail"
       :addtocart="addtocart"
@@ -20,11 +28,13 @@
 </template>
 
 <script>
+import Mini from '@/components/Products/Platforms/mini'
 import Mobile from '@/components/Products/Platforms/mobile'
 import Desktop from '@/components/Products/Platforms/desktop'
 
 export default {
   components: {
+    Mini,
     Mobile,
     Desktop
   },

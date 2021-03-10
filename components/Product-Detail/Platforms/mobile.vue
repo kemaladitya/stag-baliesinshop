@@ -66,7 +66,7 @@
         <div class="detail pt-2">
           {{ productdetail.description }}
         </div>
-        <v-card height="50" flat tile />
+        <v-card height="25vh" flat tile />
       </div>
 
       <v-footer
@@ -84,7 +84,7 @@
           <v-btn
             depressed
             :to="back"
-            style="width: 49.5%"
+            style="width: 49.5%; letter-spacing: normal;"
           >
             Lanjut Belanja
           </v-btn>
@@ -93,7 +93,7 @@
             depressed
             color="#FD0"
             @click="addtocart(productdetail)"
-            style="width: 49.5%"
+            style="width: 49.5%; letter-spacing: normal;"
           >
             Tambah ke keranjang
           </v-btn>

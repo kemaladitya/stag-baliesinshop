@@ -34,7 +34,17 @@
       <Maximum />
     </v-dialog>
 
-    <v-card v-if="cart.length || dates.length" class="pa-2 mt-2 pr-0" color="#dfdfdf" flat tile>
+    <v-card
+      v-if="cart.length || dates.length"
+      id="b-subs-mode"
+      class="mt-2 pr-0"
+      :class="screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2'"
+      color="#dfdfdf"
+      min-width="100%"
+      flat
+      tile
+      :style="screen == 'mini' ? 'position: fixed; max-height: 59px !important' : null"
+    >
       <div class="d-flex flex-row">
         <div style="font-size: 12px; padding-top: 1px; font-weight: 600">
           MODE LANGGANAN
@@ -42,61 +52,64 @@
         <v-spacer />
         <v-switch
           class="pt-0 mt-0"
+          :class="screen == 'mini' ? 'ml-1 mr-0 pr-0' : null"
           hide-details
           dense
           v-model="switch_rp"
           @change="subs_controller"
         />
       </div>
-      <div style="font-size: 10px; text-align:left">
+      <div style="text-align:left" :style="'font-size: ' + (screen == 'mini' ? '8px;' : '10px;')">
         Anda dapat mengatur waktu pengiriman roti pesanan Anda, <br />
         untuk dijadwalkan hingga 2 minggu kedepan.
       </div>
     </v-card>
 
-    <CartDetail
-      v-if="cart.length || dates.length"
-      :expansion="expansion"
-      :subsorder="subs_order"
-      :normalorder="normal_order"
-      :changeqty="change_qty"
-      :parsedate="parse_date"
-      :parseprice="parse_price"
-      :changeqtysubsitem="change_qty_subs_item"
-      :deleterp="delete_rp"
-      :selectsubsdate="select_subs_date"
-      :changehandler="change_handler"
-      :changenotes="change_notes"
-      :expanddetail="expand_detail"
-      :changedeliverytime="change_delivery_time"
-      :changedeliverysingletime="change_delivery_single_time"
-      :updatecache="update_cache"
-    />
+    <div :style="screen == 'mini' ? 'margin-top: 65px' : null">
+      <CartDetail
+        v-if="cart.length || dates.length"
+        :expansion="expansion"
+        :subsorder="subs_order"
+        :normalorder="normal_order"
+        :changeqty="change_qty"
+        :parsedate="parse_date"
+        :parseprice="parse_price"
+        :changeqtysubsitem="change_qty_subs_item"
+        :deleterp="delete_rp"
+        :selectsubsdate="select_subs_date"
+        :changehandler="change_handler"
+        :changenotes="change_notes"
+        :expanddetail="expand_detail"
+        :changedeliverytime="change_delivery_time"
+        :changedeliverysingletime="change_delivery_single_time"
+        :updatecache="update_cache"
+      />
 
-    <div class="mt-12" v-else>
-      <center>
-        <div class="pa-12 pb-6">
-          <v-img
-            src="https://shop.balesin.id/static/plugins/img/cart-empty-icon.png"
-            width="300"
-          />
-        </div>
-        <div style="font-size: 18px; font-weight: 600">
-          Keranjang belanja kosong
-        </div>
-        <div class="mt-2" style="font-size: 16px; color: #999">
-          Kamu belum memilih produk yang diinginkan
-        </div>
-        <div class="pa-2 mt-4">
-          <v-btn
-            color="#ffdd00"
-            block
-            :to="`/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
-          >
-            Mulai Belanja
-          </v-btn>
-        </div>
-      </center>
+      <div class="mt-12" v-else>
+        <center>
+          <div class="pa-12 pb-6">
+            <v-img
+              src="https://shop.balesin.id/static/plugins/img/cart-empty-icon.png"
+              width="300"
+            />
+          </div>
+          <div style="font-size: 18px; font-weight: 600">
+            Keranjang belanja kosong
+          </div>
+          <div class="mt-2" style="font-size: 16px; color: #999">
+            Kamu belum memilih produk yang diinginkan
+          </div>
+          <div class="pa-2 mt-4">
+            <v-btn
+              color="#ffdd00"
+              block
+              :to="`/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
+            >
+              Mulai Belanja
+            </v-btn>
+          </div>
+        </center>
+      </div>
     </div>
 
     <v-bottom-sheet
@@ -108,6 +121,7 @@
         :selectedsubsdate="selected_subs_date"
         :selecteddate="selected_date"
         :changehandler="change_handler"
+        :products="products"
       />
     </v-bottom-sheet>
 
@@ -285,6 +299,10 @@ export default {
       } else {
         return []
       }
+    },
+
+    screen () {
+      return this.$store.state.screen
     }
   },
 
@@ -642,7 +660,7 @@ export default {
 
       dates.push({
         date: this.date,
-        delivery_time: 'day',
+        delivery_time: '',
         items: []
       })
       this.date = new Date().toISOString().substr(0, 10)
@@ -685,10 +703,14 @@ export default {
 
       dates[dates.length - 1].items = mapped
 
+      const shorted = dates
+        .sort((a,b) =>
+          (+a.date.replace(/-/g, '') > +b.date.replace(/-/g, '')) ? 1 : ((b.date > a.date) ? -1 : 0))
+
       this.$store.dispatch('setState', {
         payload: {
           key: 'dates',
-          data: dates
+          data: shorted
         }
       })
       this.update_cache('rp-order')
@@ -923,7 +945,7 @@ export default {
     change_notes (text) {
       this.$store.dispatch('setState', {
         payload: {
-          key: 'notes',
+          key: 'user_notes',
           data: text
         }
       })
@@ -1020,12 +1042,8 @@ export default {
         el => el.date.split('-')[2] === this.selected_subs_date.split(' ')[0]
       )
 
-      // console.log('select_at_subs')
-
       dates[0].items[item].select_date = e
-      dates[0].items[item].qty = 1
-
-      // console.log('select_at_subs')
+      dates[0].items[item].qty = e ? 1 : 0
 
       this.change_handler('dates', dates)
       this.update_cache('rp-order')
@@ -1054,13 +1072,12 @@ export default {
     },
 
     update_cache(mode) {
-      console.log(mode, '==')
       const self = this
 
       if (mode == 'single-order') {
         const cart = {
           type: 'single-order',
-          notes: this.notes,
+          notes: this.user_notes,
           items: this.cart.map(el => ({
             delivery_date: this.single_order_date,
             delivery_time: this.delivery_time_normal,
@@ -1107,7 +1124,7 @@ export default {
           uuid: this.site.uuid,
           detail: {
             type: 'rp-order',
-            notes: this.notes,
+            notes: this.user_notes,
             items: mapped
           }
         })
@@ -1151,5 +1168,9 @@ export default {
     #b-footer {
       min-width: 100% !important;
     }
+  }
+
+  #b-subs-mode > div.d-flex.flex-row > div.v-input.pt-0.mt-0.v-input--hide-details.v-input--dense.theme--light.v-input--selection-controls.v-input--switch.ml-1.mr-0.pr-0 > div > div > div {
+    margin-right: 0 !important;
   }
 </style>

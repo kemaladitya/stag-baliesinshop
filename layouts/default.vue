@@ -10,7 +10,6 @@
     <v-app
       class="b-font overflow-hidden"
       style="
-        max-width: 650px;
         -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
@@ -31,6 +30,24 @@
           <div style="padding-top: 1px; margin-left: 8px; font-weight: 600">{{ alert.text }}</div>
         </div>
       </v-snackbar>
+      <v-alert
+        type="success"
+        color="success"
+        border="left"
+        elevation="2"
+        dense
+        :value="added_to_cart"
+        style="
+          width: 98%;
+          margin: 1%;
+          margin-top: 8px;
+          z-index: 9999;
+          position: fixed;
+        "
+        transition="scale-transition"
+      >
+        Success add to cart.
+      </v-alert>
       <div class="pb-12">
         <div>
           <v-app-bar
@@ -101,7 +118,7 @@
             </v-badge>
           </v-app-bar>
           <v-sheet
-            id="scrolling-techniques-7"
+            id="b-page scrolling-techniques-7"
             class="overflow-y-auto"
             max-height="100vh"
             v-if="store"
@@ -121,6 +138,23 @@ export default {
     snackbar: true,
     cart_btn: null
   }),
+
+  watch: {
+    added_to_cart(newval, oldval) {
+      const self = this
+
+      if (newval) {
+        setTimeout(() => {
+          self.$store.dispatch('setState', {
+            payload: {
+              key: 'added_to_cart',
+              data: false
+            }
+          })
+        }, 1500)
+      }
+    }
+  },
 
   computed: {
     gotocart() {
@@ -167,6 +201,10 @@ export default {
 
     dates() {
       return this.$store.state.dates
+    },
+
+    added_to_cart() {
+      return this.$store.state.added_to_cart
     }
   },
 
@@ -236,7 +274,16 @@ export default {
     this.get_customer_detail(store.data.bot_id)
 
     if (process.browser) {
-      if (window.innerWidth <= 650) {
+      if (window.innerWidth <= 320) {
+        console.log('mini')
+        self.$store.dispatch('setState', {
+          payload: {
+            key: 'screen',
+            data: 'mini'
+          }
+        })
+      } else if (window.innerWidth <= 650) {
+        console.log('mobile')
         self.$store.dispatch('setState', {
           payload: {
             key: 'screen',
@@ -286,7 +333,19 @@ export default {
     getWindowWidth(event) {
       const self = this
       this.windowWidth = document.documentElement.clientWidth
-      if (this.windowWidth <= 650) {
+
+      console.log(this.windowWidth, ' this.windowWidth')
+
+      if (this.windowWidth <= 320) {
+        console.log('mini')
+        self.$store.dispatch('setState', {
+          payload: {
+            key: 'screen',
+            data: 'mini'
+          }
+        })
+      } else if (this.windowWidth <= 650) {
+        console.log('mobile')
         self.$store.dispatch('setState', {
           payload: {
             key: 'screen',

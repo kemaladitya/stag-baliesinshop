@@ -1,5 +1,5 @@
 <template>
-  <div class="pa-3 pt-12">
+  <div class="pa-3 pt-12" style="overflow-y: scroll !important; max-height: 100vh;">
     <center class="mb-8 mt-3">
       <v-img src="https://faq.balesin.id/icon.ico" width="210" />
       <div class="mt-6" style="font-weight: 600">
@@ -16,6 +16,7 @@
     <div class="mt-4">
       <v-btn color="#FD0" block @click="reg_user">register</v-btn>
     </div>
+    <v-card height="5vh" flat />
   </div>
 </template>
 

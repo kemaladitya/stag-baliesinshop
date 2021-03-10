@@ -34,7 +34,7 @@
             padding-top: 2px;
           "
         >
-          (jam 08.00 - 17.00)
+          Pagi (jam 08.00 - 13.00)
         </v-card>
         <v-card
           v-else-if="delivery_time_normal == 'night'"
@@ -52,9 +52,7 @@
 
         <v-spacer />
         <v-card class="d-flex flex-row" flat>
-          <div></div>
-          <div></div>
-          <!-- <v-btn
+          <v-btn
             x-small
             depressed
             @click="changedeliverysingletime('day')"
@@ -72,7 +70,7 @@
             style="font-weight: 600; text-transform: capitalize"
           >
             Sore
-          </v-btn> -->
+          </v-btn>
         </v-card>
       </v-card>
 
@@ -129,6 +127,7 @@
               .replace(/,/g, '.')
           }}
         </div>
+        <v-card height="20vh" flat />
       </div>
     </div>
   </v-card>
