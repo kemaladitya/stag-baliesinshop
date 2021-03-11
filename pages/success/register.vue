@@ -1,9 +1,8 @@
 <template>
   <v-app>
-    <div class="b-font" height="100vh">
+    <div class="b-font" height="100vh" style="padding-top: 30vh;">
       <center>
         <v-img
-          style="margin-top: 55%"
           width="180"
           height="180"
           src="https://s3-ap-southeast-1.amazonaws.com/alatteknikkitaassets/logos/success.gif"

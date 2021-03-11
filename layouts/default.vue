@@ -158,6 +158,10 @@ export default {
   },
 
   computed: {
+    screen() {
+      return this.$store.state.screen
+    },
+
     total_qty_item() {
       if (this.rp_order) {
         const rp_qty = this.get_rp_qty_item()
