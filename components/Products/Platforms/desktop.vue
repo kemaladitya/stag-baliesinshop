@@ -1,7 +1,7 @@
 <template>
   <div style="text-align: left">
     <v-row v-if="listproduct && listproduct.length" no-gutters>
-      <v-col v-for="(item, index) in listproduct" :key="index" cols="6">
+      <v-col v-for="(item, index) in listproduct" :key="index" cols="3">
         <v-card v-if="item.detail.length" class="ma-1 mt-2 mb-0" outlined>
           <div v-if="item.detail.length">
             <v-img class="image" :src="item.detail[0].main_image">
@@ -11,10 +11,10 @@
             </v-img>
           </div>
           <div class="pa-2" style="text-align: left">
-            <div class="name pt-2">{{ item.name }}</div>
+            <div class="name pt-2" style="font-size: 17px; font-weight: 600; max-width: 210px;">{{ item.name }}</div>
             <div
               v-if="item.detail[0].discount_price"
-              class="discount-price"
+              class="discount-price" style="font-size: 15px"
             >
               <div>
                 Rp. {{
@@ -31,7 +31,7 @@
                 }}, -
               </div>
             </div>
-            <div v-else class="normal-price">
+            <div v-else class="normal-price" style="font-size: 15px">
               Rp. {{
                 item.detail[0].normal_price
                   .toLocaleString()
@@ -126,3 +126,23 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @media (min-width: 1264px) {
+    #b-list-products {
+      max-width: fit-content !important;
+    }
+
+    #b-page > div {
+      min-width: 100% !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+
+    .container {
+      min-width: 100% !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+  }
+</style>

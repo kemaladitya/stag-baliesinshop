@@ -102,7 +102,7 @@
                   </v-card>
                 </v-card>
                 <v-spacer />
-                <!-- <v-card class="d-flex flex-row" flat>
+                <v-card class="d-flex flex-row" flat>
                   <v-btn
                     x-small
                     depressed
@@ -122,7 +122,7 @@
                   >
                     Sore
                   </v-btn>
-                </v-card> -->
+                </v-card>
               </v-card>
             </div>
           </div>

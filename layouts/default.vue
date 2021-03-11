@@ -83,6 +83,7 @@
                 height="40"
                 max-width="53"
                 max-height="53"
+                @click="back"
               />
               <v-icon v-else>mdi-store</v-icon>
             </v-app-bar-nav-icon>
@@ -118,7 +119,7 @@
             </v-badge>
           </v-app-bar>
           <v-sheet
-            id="b-page scrolling-techniques-7"
+            id="scrolling-techniques-7"
             class="overflow-y-auto"
             max-height="100vh"
             v-if="store"
@@ -320,6 +321,14 @@ export default {
   },
 
   methods: {
+    back() {
+      const { store, uuid, source, category } = this.$store.state.site
+
+      if (this.screen == 'desktop') {
+        this.$router.push(`/site/${store}?u=${uuid}&src=${source}&c=${category}`)
+      }
+    },
+
     get_so_qty_item() {
       let total = 0
 
