@@ -59,7 +59,7 @@
                       "
                     >
                       <v-icon x-small>mdi-white-balance-sunny</v-icon>
-                      Pagi (jam 08.00 - 13.00)
+                      Pagi (jam 08.00 - 12.00)
                     </v-card>
                     <v-card
                       v-else
@@ -73,7 +73,7 @@
                       "
                     >
                       <v-icon x-small>mdi-weather-night</v-icon>
-                      Sore (jam 14.00 - 18.00)
+                      Sore (jam 13.00 - 18.00)
                     </v-card>
                   </v-card>
                   <v-spacer />

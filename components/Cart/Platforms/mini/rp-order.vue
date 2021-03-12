@@ -85,7 +85,7 @@
                       text-align: left;
                     "
                   >
-                    jam 08.00 - 13.00
+                    jam 08.00 - 12.00
                   </v-card>
                   <v-card
                     v-else-if="item.delivery_time == 'night'"
@@ -99,7 +99,7 @@
                       text-align: left;
                     "
                   >
-                    jam 14.00 - 18.00
+                    jam 13.00 - 18.00
                   </v-card>
                 </v-card>
                 <v-spacer />
