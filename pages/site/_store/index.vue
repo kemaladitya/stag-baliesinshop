@@ -689,7 +689,7 @@ export default {
   }
 
   #scrolling-techniques-7 > div > div.basket-background-shadow.v-card.v-sheet.theme--light.rounded-0 {
-    max-width: 640px !important;
+    max-width: 100% !important;
   }
 
   @media (min-width: 481px) {

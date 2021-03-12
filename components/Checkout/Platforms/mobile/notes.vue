@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div style="text-align: left">
     <div  v-if="notes">
       <div class="mt-4 mb-4 pa-1">
         <div style="font-size: 12px">Catatan untuk penjual (optional):</div>
         <div
-          class="mt-1 pa-1 pl-2"
-          style="border: 1px solid #e0e0e0; border-radius: 3px; font-size: 13px"
+          class="mt-1"
+          style="font-size: 13px; color: grey; font-weight: 600"
         >
           {{ notes }}
         </div>

@@ -9091,12 +9091,12 @@ const VSelect_baseMixins = Object(mixins["a" /* default */])(VTextField_VTextFie
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/desktop/notes.vue?vue&type=template&id=48fef914&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1 pa-1 pl-2\" style=\"border: 1px solid #e0e0e0; border-radius: 3px; font-size: 13px\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/desktop/notes.vue?vue&type=template&id=c6a749f0&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"left"}},[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1\" style=\"font-size: 13px; color: grey; font-weight: 600\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/desktop/notes.vue?vue&type=template&id=48fef914&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/desktop/notes.vue?vue&type=template&id=c6a749f0&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/desktop/notes.vue?vue&type=script&lang=js&
 //
@@ -10584,12 +10584,12 @@ var order_detail_component = Object(componentNormalizer["a" /* default */])(
 /* nuxt-component-imports */
 installComponents(order_detail_component, {Normal: __webpack_require__(197).default,Subscription: __webpack_require__(205).default})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/notes.vue?vue&type=template&id=7294e38f&
-var notesvue_type_template_id_7294e38f_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"left"}},[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1 pa-1 pl-2\" style=\"border: 1px solid #e0e0e0; border-radius: 3px; font-size: 13px\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
-var notesvue_type_template_id_7294e38f_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/notes.vue?vue&type=template&id=2cd3b25d&
+var notesvue_type_template_id_2cd3b25d_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"left"}},[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1\" style=\"font-size: 13px; color: grey; font-weight: 600\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
+var notesvue_type_template_id_2cd3b25d_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/notes.vue?vue&type=template&id=7294e38f&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/notes.vue?vue&type=template&id=2cd3b25d&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/notes.vue?vue&type=script&lang=js&
 //
@@ -10631,8 +10631,8 @@ var notesvue_type_template_id_7294e38f_staticRenderFns = []
 
 var notes_component = Object(componentNormalizer["a" /* default */])(
   mini_notesvue_type_script_lang_js_,
-  notesvue_type_template_id_7294e38f_render,
-  notesvue_type_template_id_7294e38f_staticRenderFns,
+  notesvue_type_template_id_2cd3b25d_render,
+  notesvue_type_template_id_2cd3b25d_staticRenderFns,
   false,
   null,
   null,
@@ -11739,12 +11739,12 @@ var mobile_order_detail_component = Object(componentNormalizer["a" /* default */
 /* nuxt-component-imports */
 installComponents(mobile_order_detail_component, {Normal: __webpack_require__(197).default,Subscription: __webpack_require__(205).default})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/notes.vue?vue&type=template&id=3a4e6046&
-var notesvue_type_template_id_3a4e6046_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1 pa-1 pl-2\" style=\"border: 1px solid #e0e0e0; border-radius: 3px; font-size: 13px\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
-var notesvue_type_template_id_3a4e6046_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/notes.vue?vue&type=template&id=7739559c&
+var notesvue_type_template_id_7739559c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"left"}},[(_vm.notes)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"mt-4 mb-4 pa-1\"><div style=\"font-size: 12px\">Catatan untuk penjual (optional):</div> <div class=\"mt-1\" style=\"font-size: 13px; color: grey; font-weight: 600\">"+_vm._ssrEscape("\n        "+_vm._s(_vm.notes)+"\n      ")+"</div></div> "+((_vm.notes.length)?("<br>"):"<!---->")+" "),_c('v-divider')],2):_vm._e()])}
+var notesvue_type_template_id_7739559c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/notes.vue?vue&type=template&id=3a4e6046&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/notes.vue?vue&type=template&id=7739559c&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/notes.vue?vue&type=script&lang=js&
 //
@@ -11786,8 +11786,8 @@ var notesvue_type_template_id_3a4e6046_staticRenderFns = []
 
 var mobile_notes_component = Object(componentNormalizer["a" /* default */])(
   Platforms_mobile_notesvue_type_script_lang_js_,
-  notesvue_type_template_id_3a4e6046_render,
-  notesvue_type_template_id_3a4e6046_staticRenderFns,
+  notesvue_type_template_id_7739559c_render,
+  notesvue_type_template_id_7739559c_staticRenderFns,
   false,
   null,
   null,
