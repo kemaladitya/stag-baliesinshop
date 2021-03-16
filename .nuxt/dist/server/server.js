@@ -5911,7 +5911,7 @@ __webpack_require__.r(__webpack_exports__);
       customer: null,
       user_notes: '',
       dates: [],
-      delivery_time_normal: false,
+      delivery_time_normal: '08:00 - 17:00',
       cart: [],
       products: [],
       month: ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],

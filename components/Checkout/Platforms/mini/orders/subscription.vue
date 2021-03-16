@@ -46,9 +46,22 @@
                     <v-card flat style="font-size: 12px; font-weight: 600">
                       Waktu Pengantaran :
                     </v-card>
-                    <v-spacer />
                     <v-card
-                      v-if="rp_date.delivery_time == 'day'"
+                      v-if="rp_date.delivery_time == '08:00 - 17:00'"
+                      class="ml-2"
+                      flat
+                      style="
+                        color: grey;
+                        font-size: 10px;
+                        font-weight: 500;
+                        padding-top: 2px;
+                      "
+                    >
+                      <v-icon x-small>mdi-white-balance-sunny</v-icon>
+                      jam 08:00 - 17:00
+                    </v-card>
+                    <v-card
+                      v-else-if="rp_date.delivery_time == 'day'"
                       class="ml-2"
                       flat
                       style="

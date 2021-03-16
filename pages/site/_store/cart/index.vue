@@ -660,7 +660,7 @@ export default {
 
       dates.push({
         date: this.date,
-        delivery_time: '',
+        delivery_time: '08:00 - 17:00',
         items: []
       })
       this.date = new Date().toISOString().substr(0, 10)

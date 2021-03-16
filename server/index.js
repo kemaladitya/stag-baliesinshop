@@ -71,14 +71,24 @@ async function cache({ url, headers, method, body, _qs, params }, res) {
       uuid,
       detail
     } = body
+    const middleware = true
     // console.log(JSON.stringify(body, null, 2), ' body')
 
     // console.log(JSON.stringify(body, null, 2))
-    const middleware = Cart[method](body)
+    if (method != 'last_order') {
+      middleware = Cart[method](body)
+    }
 
     // console.log(middleware)
 
     if (middleware) {
+      console.log(method, 'method')
+      if (method === 'last_order') {
+        const get_redis = await client.get(`${uuid}/${store_name}/last_order`)
+
+        return res.json({ status: true, results: JSON.parse(get_redis) })
+      }
+
       if (method === 'set') {
         await client.set(`${uuid}/${store_name}`, JSON.stringify(detail))
       }
@@ -143,6 +153,7 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
       data: body,
     })
 
+    await client.set(`${body.customer.uuid}/${body.store.bot_name}/last_order`, JSON.stringify(get_redis))
     await client.del(`${body.customer.uuid}/${body.store.bot_name}/explink`)
     await client.del(`${body.customer.uuid}/${body.store.bot_name}`)
 
