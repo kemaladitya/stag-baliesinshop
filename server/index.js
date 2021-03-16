@@ -71,7 +71,7 @@ async function cache({ url, headers, method, body, _qs, params }, res) {
       uuid,
       detail
     } = body
-    const middleware = true
+    let middleware = true
     // console.log(JSON.stringify(body, null, 2), ' body')
 
     // console.log(JSON.stringify(body, null, 2))
