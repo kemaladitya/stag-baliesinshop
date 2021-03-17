@@ -253,7 +253,7 @@ export default {
 
     process_btn() {
       if (this.rp_order) {
-        if (this.dates.length && this.selected_payment && this.grand_total > this.store.min_order && this.grand_total < this.store.max_order && this.selected_courier.status) {
+        if (this.dates.length && this.selected_payment && this.selected_courier.status) {
           return false
         } else {
           return true

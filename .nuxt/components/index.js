@@ -4,8 +4,8 @@ export { default as VuetifyLogo } from '../../components/VuetifyLogo.vue'
 export { default as RegLoading } from '../../components/Bottom-Sheet/reg_loading.vue'
 export { default as Cart } from '../../components/Cart/index.vue'
 export { default as Checkout } from '../../components/Checkout/index.vue'
-export { default as ListProduct } from '../../components/Loading/list_product.vue'
 export { default as ProductDetail } from '../../components/Product-Detail/index.vue'
+export { default as ListProduct } from '../../components/Loading/list_product.vue'
 export { default as Products } from '../../components/Products/index.vue'
 export { default as Courier } from '../../components/Bottom-Sheet/Checkout/courier.vue'
 export { default as Loading } from '../../components/Bottom-Sheet/Checkout/loading.vue'
@@ -33,8 +33,8 @@ export const LazyVuetifyLogo = import('../../components/VuetifyLogo.vue' /* webp
 export const LazyRegLoading = import('../../components/Bottom-Sheet/reg_loading.vue' /* webpackChunkName: "components/reg-loading" */).then(c => c.default || c)
 export const LazyCart = import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => c.default || c)
 export const LazyCheckout = import('../../components/Checkout/index.vue' /* webpackChunkName: "components/checkout" */).then(c => c.default || c)
-export const LazyListProduct = import('../../components/Loading/list_product.vue' /* webpackChunkName: "components/list-product" */).then(c => c.default || c)
 export const LazyProductDetail = import('../../components/Product-Detail/index.vue' /* webpackChunkName: "components/product-detail" */).then(c => c.default || c)
+export const LazyListProduct = import('../../components/Loading/list_product.vue' /* webpackChunkName: "components/list-product" */).then(c => c.default || c)
 export const LazyProducts = import('../../components/Products/index.vue' /* webpackChunkName: "components/products" */).then(c => c.default || c)
 export const LazyCourier = import('../../components/Bottom-Sheet/Checkout/courier.vue' /* webpackChunkName: "components/courier" */).then(c => c.default || c)
 export const LazyLoading = import('../../components/Bottom-Sheet/Checkout/loading.vue' /* webpackChunkName: "components/loading" */).then(c => c.default || c)
