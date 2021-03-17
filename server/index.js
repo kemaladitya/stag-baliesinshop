@@ -91,6 +91,8 @@ async function cache({ url, headers, method, body, _qs, params }, res) {
 
       if (method === 'set') {
         await client.set(`${uuid}/${store_name}`, JSON.stringify(detail))
+
+        return res.json({ status: true })
       }
 
       if (method === 'get') {
@@ -98,8 +100,6 @@ async function cache({ url, headers, method, body, _qs, params }, res) {
 
         return res.json({ status: true, results: JSON.parse(get_redis) })
       }
-
-      return res.json({ status: true })
     }
 
     return res.status(404).json({ status: true, message: 'format cart is not valid!' })
@@ -153,9 +153,9 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
       data: body,
     })
 
-    await client.set(`${body.customer.uuid}/${body.store.bot_name}/last_order`, JSON.stringify(get_redis))
-    await client.del(`${body.customer.uuid}/${body.store.bot_name}/explink`)
-    await client.del(`${body.customer.uuid}/${body.store.bot_name}`)
+    // await client.set(`${body.customer.uuid}/${body.store.bot_name}/last_order`, JSON.stringify(get_redis))
+    // await client.del(`${body.customer.uuid}/${body.store.bot_name}/explink`)
+    // await client.del(`${body.customer.uuid}/${body.store.bot_name}`)
 
     return res.json(
       request.data.hasOwnProperty('data') ? request.data.data : request.data

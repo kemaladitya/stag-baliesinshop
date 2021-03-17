@@ -1,5 +1,5 @@
 <template>
-  <v-card flat tile>
+  <v-card class="pt-12" flat tile>
     <Customer-information />
 
     <v-card class="mt-2 pt-1 pb-1" color="white" flat tile>

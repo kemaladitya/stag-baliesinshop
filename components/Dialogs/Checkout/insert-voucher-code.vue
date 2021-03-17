@@ -47,6 +47,10 @@ export default {
     changehandler: {
       type: Function,
       required: true
+    },
+    usevoucher: {
+      type: Function,
+      required: true
     }
   },
 
@@ -55,8 +59,11 @@ export default {
   }),
 
   methods: {
-    submmit_code () {
+    async submmit_code () {
       this.changehandler('voucher_code', this.voucher_code)
+
+      await this.usevoucher({ is_custom_voucher: true, value: this.voucher_code })
+
       this.changehandler('voucher_form', false)
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <v-container class="b-font pt-12 pl-1 pr-1" style="overflow-x: hidden">
     <v-dialog v-model="voucher_form" persistent max-width="100%">
-      <InsertVoucherCode :changehandler="change_handler" />
+      <InsertVoucherCode :usevoucher="use_voucher" :changehandler="change_handler" />
     </v-dialog>
 
     <Checkout
@@ -499,6 +499,123 @@ export default {
       if (params.is_custom_voucher) {
         console.log('custom voucher')
         this.voucher_form = params.value
+
+        console.log('static voucher', params)
+        const body = {
+          id: this.store.id,
+          bot_id: this.store.bot_id,
+          store_name: this.store.name,
+          bot_name: this.site.store,
+          uuid: this.site.uuid,
+          voucher_code: params.value,
+          category: this.site.category
+        }
+        const execute_voucher = await this.$store.dispatch('request', {
+          url: '/voucher/apply',
+          method: 'post',
+          data: body
+        })
+
+        console.log(execute_voucher.data.status, ' execute_voucher.data.status')
+        if (execute_voucher.status == 200 && execute_voucher.data.status) {
+          if (!this.rp_order) {
+            const mapped_cart = []
+
+            this.cart.forEach(el => {
+              const filtered = execute_voucher.data.result.items.filter(item => item.id === el.id && item.SKU == item.SKU)
+
+              if (filtered.length) {
+                el.detail[0].normal_price = filtered[0].normal_price
+                el.detail[0].discount_price = filtered[0].discount_price
+              }
+
+              mapped_cart.push(el)
+            })
+
+            this.$store.dispatch('setState', {
+              payload: {
+                key: 'cart',
+                data: mapped_cart
+              }
+            })
+          } else {
+            const dates = this.dates.map(el => el)
+            const mapped_dates = dates.map(order => {
+              const merged_orders = execute_voucher.data.result.merged_orders
+              const find_result = merged_orders.filter(el => el.delivery_date === order.date)
+
+              if (find_result.length) {
+                order.items = order.items.map(order_item => {
+                  if (order_item.select_date) {
+                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
+
+                    if (combine_detail.length) {
+                      order_item.discount_price = combine_detail[0].discount_price
+                      order_item.normal_price = combine_detail[0].normal_price
+                    }
+                  }
+
+                  return order_item
+                })
+              }
+
+              
+              return order
+            })
+
+            console.log(mapped_dates)
+
+            // this.$store.dispatch('setState', {
+            //   payload: {
+            //     key: 'dates',
+            //     data: mapped_dates
+            //   }
+            // })
+          }
+
+          console.log(execute_voucher.data.result, ' execute_voucher.data.result')
+          const new_total = this.grand_total
+          console.log(new_total, ' new_total')
+
+
+          this.applied_voucher = {
+            name: params.value,
+            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total
+              ? Math.abs(total - new_total)
+              : 0
+          }
+
+          // console.log(execute_voucher)
+          // this.update_cache('single-order', params.value.name)
+        } else {
+          const self = this
+
+          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
+            this.check_voucher()
+          }
+
+          this.$store.dispatch('setState', {
+            payload: {
+              key: 'alert',
+              data: {
+                status: true,
+                text: execute_voucher.data.message
+              }
+            }
+          })
+
+          setTimeout(() => {
+            self.$store.dispatch('setState', {
+              payload: {
+                key: 'alert',
+                data: {
+                  status: true,
+                  text: execute_voucher.data.message
+                }
+              }
+            })
+          }, 3000)
+        }
       } else {
         console.log('static voucher', params)
         const body = {
