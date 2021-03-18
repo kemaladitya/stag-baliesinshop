@@ -4323,6 +4323,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
       });
 
       if (request.data.status) {
+        console.log(request.data.results, ' request.data.results');
         self.dispatch('setState', {
           payload: {
             key: 'products',
@@ -4657,12 +4658,12 @@ module.exports = exports;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=18e09418&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-sheet',{staticStyle:{"text-align":"left"}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"pl-2",staticStyle:{"align-self":"center","font-size":"13px","font-weight":"600"}},[_vm._v("\n      Voucher Tersedia\n    ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","text":"","color":"red"},on:{"click":function($event){return _vm.changehandler('voucher', false)}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('div',{staticClass:"pb-2"},[_vm._l((_vm.listvouchers),function(vc,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n          "+_vm._s(vc.name)+"\n        ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)}),_vm._v(" "),(_vm.customvoucher)?_c('v-card',{staticClass:"pa-2 pl-0",attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: true, value: true })}}},[_c('div',{staticClass:"mb-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n          Ketik Kode Voucher\n        ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("\n          Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.\n        ")])])],1):_vm._e()],2)],1)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=62bab3a9&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-sheet',{staticStyle:{"text-align":"left"}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"pl-2",staticStyle:{"align-self":"center","font-size":"13px","font-weight":"600"}},[_vm._v("\n      Voucher Tersedia\n    ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","text":"","color":"red"},on:{"click":function($event){return _vm.changehandler('voucher', false)}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('div',{staticClass:"pb-2"},[_vm._l((_vm.filtered_vhoucher),function(vc,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n          "+_vm._s(vc.name)+"\n        ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)}),_vm._v(" "),(_vm.customvoucher)?_c('v-card',{staticClass:"pa-2 pl-0",attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: true, value: true })}}},[_c('div',{staticClass:"mb-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n          Ketik Kode Voucher\n        ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("\n          Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.\n        ")])])],1):_vm._e()],2)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=18e09418&
+// CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=62bab3a9&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=script&lang=js&
 //
@@ -4741,6 +4742,29 @@ var staticRenderFns = []
       type: Boolean,
       required: true
     }
+  },
+
+  mounted() {
+    console.log(this.listvouchers, ' this.listvouchers');
+  },
+
+  computed: {
+    rp_order() {
+      return this.$store.state.rp_order;
+    },
+
+    filtered_vhoucher() {
+      try {
+        if (this.rp_order) {
+          return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "rp" || JSON.parse(el.sku_product).mode == "all");
+        } else {
+          return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "so" || JSON.parse(el.sku_product).mode == "all");
+        }
+      } catch (error) {
+        return this.listvouchers;
+      }
+    }
+
   }
 });
 // CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=script&lang=js&
@@ -11162,14 +11186,15 @@ var customer_component = Object(componentNormalizer["a" /* default */])(
 
 installComponents_default()(customer_component, {VCard: VCard["a" /* default */],VDivider: VDivider["a" /* default */]})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/voucher.vue?vue&type=template&id=15bbbcb8&
-var vouchervue_type_template_id_15bbbcb8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"left"}},[_c('v-card',{staticClass:"pa-1",attrs:{"flat":""}},[_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"12px","font-weight":"600"}},[_vm._v("\n      VOUCHER\n    ")]),_vm._v(" "),_c('v-btn',{staticStyle:{"font-weight":"600"},attrs:{"depressed":"","block":"","color":"#fd0"},on:{"click":function($event){return _vm.changehandler('voucher', true)}}},[_vm._v("\n      GUNAKAN VOUCHER\n    ")])],1),_vm._ssrNode(" "),_c('center',{staticClass:"ma-1"},[(_vm.applyingvoucher)?_c('v-progress-linear',{attrs:{"color":"#FD0","indeterminate":"","height":"3"}}):_vm._e()],1),_vm._ssrNode(" "+((!_vm.appliedvoucher.name)?("<br>"):"<!---->")+" "+((_vm.appliedvoucher.name)?("<div class=\"pa-1\"><div class=\"ma-1 ml-0 pl-1\" style=\"\\n        background-color: #3276f7;\\n        border-radius: 2px;\\n        font-size: 12px;\\n        width: fit-content;\\n        min-width: 200px;\\n        color: white;\\n      \">"+_vm._ssrEscape("\n      * "+_vm._s(_vm.appliedvoucher.name)+" Voucher applied\n    ")+"</div> <div class=\"ma-1 ml-0 pl-1\" style=\"\\n        background-color: #3276f7;\\n        border-radius: 2px;\\n        font-size: 12px;\\n        width: fit-content;\\n        min-width: 200px;\\n        color: white;\\n      \">"+_vm._ssrEscape("\n      * kamu hemat Rp. "+_vm._s(_vm.appliedvoucher.value.toLocaleString().replace(/,/g, '.'))+", -\n    ")+"</div></div>"):"<!---->")+" "),_c('v-divider')],2)}
-var vouchervue_type_template_id_15bbbcb8_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/voucher.vue?vue&type=template&id=76c57fde&
+var vouchervue_type_template_id_76c57fde_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"text-align":"left"}},[_c('v-card',{staticClass:"pa-1",attrs:{"flat":""}},[_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"12px","font-weight":"600"}},[_vm._v("\n      VOUCHER\n    ")]),_vm._v(" "),_c('v-btn',{staticStyle:{"font-weight":"600"},attrs:{"depressed":"","block":"","color":"#fd0"},on:{"click":function($event){return _vm.changehandler('voucher', true)}}},[_vm._v("\n      GUNAKAN VOUCHER\n    ")])],1),_vm._ssrNode(" "),_c('center',{staticClass:"ma-1"},[(_vm.applyingvoucher)?_c('v-progress-linear',{attrs:{"color":"#FD0","indeterminate":"","height":"3"}}):_vm._e()],1),_vm._ssrNode(" "+((!_vm.appliedvoucher.name)?("<br>"):"<!---->")+" "+((_vm.appliedvoucher.name)?("<div class=\"pa-1\"><div class=\"ma-1 ml-0 pl-1\" style=\"\\n        background-color: #3276f7;\\n        border-radius: 2px;\\n        font-size: 12px;\\n        width: fit-content;\\n        min-width: 200px;\\n        color: white;\\n        padding-right: 5px;\\n      \">"+_vm._ssrEscape("\n      * "+_vm._s(_vm.appliedvoucher.name)+" Voucher applied\n    ")+"</div> <div class=\"ma-1 ml-0 pl-1\" style=\"\\n        background-color: #3276f7;\\n        border-radius: 2px;\\n        font-size: 12px;\\n        width: fit-content;\\n        min-width: 200px;\\n        color: white;\\n      \">"+_vm._ssrEscape("\n      * kamu hemat Rp. "+_vm._s(_vm.appliedvoucher.value.toLocaleString().replace(/,/g, '.'))+", -\n    ")+"</div></div>"):"<!---->")+" "),_c('v-divider')],2)}
+var vouchervue_type_template_id_76c57fde_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/voucher.vue?vue&type=template&id=15bbbcb8&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/voucher.vue?vue&type=template&id=76c57fde&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/voucher.vue?vue&type=script&lang=js&
+//
 //
 //
 //
@@ -11255,8 +11280,8 @@ var vouchervue_type_template_id_15bbbcb8_staticRenderFns = []
 
 var mobile_voucher_component = Object(componentNormalizer["a" /* default */])(
   Platforms_mobile_vouchervue_type_script_lang_js_,
-  vouchervue_type_template_id_15bbbcb8_render,
-  vouchervue_type_template_id_15bbbcb8_staticRenderFns,
+  vouchervue_type_template_id_76c57fde_render,
+  vouchervue_type_template_id_76c57fde_staticRenderFns,
   false,
   null,
   null,
@@ -13587,12 +13612,12 @@ module.exports = exports;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/checkout/index.vue?vue&type=template&id=25d8d095&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/checkout/index.vue?vue&type=template&id=e0313494&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-container',{staticClass:"b-font pt-12 pl-1 pr-1",staticStyle:{"overflow-x":"hidden"}},[_c('v-dialog',{attrs:{"persistent":"","max-width":"100%"},model:{value:(_vm.voucher_form),callback:function ($$v) {_vm.voucher_form=$$v},expression:"voucher_form"}},[_c('InsertVoucherCode',{attrs:{"usevoucher":_vm.use_voucher,"changehandler":_vm.change_handler}})],1),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('Checkout',{attrs:{"date":_vm.date,"customer":_vm.customer,"changehandler":_vm.change_handler,"appliedvoucher":_vm.applied_voucher,"parsedate":_vm.parse_date,"parseprice":_vm.parse_price,"expansion":_vm.expansion,"grandtotal":_vm.grand_total,"selectedpayment":_vm.selected_payment,"selectedcourier":_vm.selected_courier,"applyingvoucher":_vm.applying_voucher,"shippingcostloading":_vm.shipping_cost_loading}}):_c('div',{staticClass:"mt-12"},[_c('center',[_c('div',{staticClass:"pa-12 pb-6"},[_c('v-img',{attrs:{"src":"https://shop.balesin.id/static/plugins/img/cart-empty-icon.png","width":"300"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"18px","font-weight":"600"}},[_vm._v("\n        Keranjang belanja kosong\n      ")]),_vm._v(" "),_c('div',{staticClass:"mt-2",staticStyle:{"font-size":"16px","color":"#999"}},[_vm._v("\n        Kamu belum memilih produk yang diinginkan\n      ")]),_vm._v(" "),_c('div',{staticClass:"pa-2 mt-4"},[_c('v-btn',{attrs:{"color":"#ffdd00","block":"","to":("/site/" + (_vm.site.store) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_vm._v("\n          Mulai Belanja\n        ")])],1)])],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.voucher},on:{"click:outside":function($event){return _vm.change_handler('voucher', false)}}},[_c('Voucher',{attrs:{"changehandler":_vm.change_handler,"listvouchers":_vm.list_vouchers,"usevoucher":_vm.use_voucher,"customvoucher":_vm.custom_voucher}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.courier},on:{"click:outside":function($event){return _vm.change_handler('courier', false)}}},[_c('Courier',{attrs:{"changehandler":_vm.change_handler,"getcour":_vm.get_cour}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.payment},on:{"click:outside":function($event){return _vm.change_handler('payment', false)}}},[_c('Payment',{attrs:{"changehandler":_vm.change_handler,"paymentdetail":_vm.payment_detail,"selectedpayment":_vm.selected_payment,"selectpayment":_vm.select_payment}})],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('v-footer',{staticStyle:{"width":"100%"},attrs:{"fixed":"","padless":"","color":"grey lighten-3"}},[_c('Footer',{attrs:{"grandtotal":_vm.grand_total,"processbtn":_vm.process_btn,"executeorder":_vm.execute_order}})],1):_vm._e()],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/checkout/index.vue?vue&type=template&id=25d8d095&
+// CONCATENATED MODULE: ./pages/site/_store/checkout/index.vue?vue&type=template&id=e0313494&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(177);
@@ -13985,6 +14010,10 @@ var components_General = __webpack_require__(252);
 
   },
 
+  async beforeDestroy() {
+    await this.reset_cart();
+  },
+
   async mounted() {
     const {
       c,
@@ -14096,12 +14125,15 @@ var components_General = __webpack_require__(252);
     },
 
     normal_order() {
-      let total = 0;
-      this.cart.forEach(el => {
-        const pricing = el.detail[0].discount_price ? el.detail[0].discount_price : el.detail[0].normal_price;
-        total += el.qty * pricing;
-      });
-      return total;
+      if (this.cart.length) {
+        let total = 0;
+        this.cart.forEach(el => {
+          console.log('count total ', el);
+          const pricing = el.detail[0].discount_price ? el.detail[0].discount_price : el.detail[0].normal_price;
+          total += el.qty * pricing;
+        });
+        return total;
+      }
     },
 
     subs_order() {
@@ -14176,225 +14208,207 @@ var components_General = __webpack_require__(252);
       }
     },
 
+    async implement_voucher(type, params) {
+      try {
+        const total = this.grand_total;
+        const body = {
+          id: this.store.id,
+          bot_id: this.store.bot_id,
+          store_name: this.store.name,
+          bot_name: this.site.store,
+          uuid: this.site.uuid,
+          category: this.site.category,
+          voucher_code: type == 'static' ? params.value.name : params.value
+        };
+        const execute_voucher = await this.$store.dispatch('request', {
+          url: '/voucher/apply',
+          method: 'post',
+          data: body
+        });
+
+        if (execute_voucher.status == 200 && execute_voucher.data.status) {
+          if (!this.rp_order) {
+            const mapped_cart = [];
+            this.cart.forEach(el => {
+              const filtered = execute_voucher.data.result.items.filter(item => item.id === el.id && item.SKU == item.SKU);
+
+              if (filtered.length) {
+                el.detail[0].normal_price = filtered[0].normal_price;
+                el.detail[0].discount_price = filtered[0].discount_price;
+              }
+
+              mapped_cart.push(el);
+            });
+            this.$store.dispatch('setState', {
+              payload: {
+                key: 'cart',
+                data: mapped_cart
+              }
+            });
+            const new_total = this.grand_total;
+            this.applied_voucher = {
+              name: params.value,
+              value: execute_voucher.data.result.old_total != execute_voucher.data.result.total ? Math.abs(total - new_total) : 0
+            };
+          } else {
+            const dates = this.dates.map(el => el);
+            const mapped_dates = dates.map(order => {
+              const merged_orders = execute_voucher.data.result.merged_orders;
+              const find_result = merged_orders.filter(el => el.delivery_date === order.date);
+              console.log(find_result, ' ; find_result');
+
+              if (find_result.length) {
+                order.items = order.items.map(order_item => {
+                  if (order_item.select_date) {
+                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id);
+
+                    if (combine_detail.length) {
+                      order_item.discount_price = combine_detail[0].discount_price;
+                      order_item.normal_price = combine_detail[0].normal_price;
+                    }
+                  }
+
+                  return order_item;
+                });
+              }
+
+              return order;
+            });
+            console.log(mapped_dates, ' implement voucher mapped_dates');
+            this.$store.dispatch('setState', {
+              payload: {
+                key: 'dates',
+                data: mapped_dates
+              }
+            });
+          }
+
+          const new_total = this.grand_total;
+          this.applied_voucher = {
+            name: type == 'static' ? params.value.name : params.value,
+            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total ? Math.abs(total - new_total) : 0
+          };
+          const order_type = !this.rp_order ? 'single-order' : 'rp-order';
+          this.update_cache(order_type, params.value.name);
+          return;
+        } else {
+          const self = this;
+
+          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
+            this.check_voucher();
+          }
+
+          this.$store.dispatch('setState', {
+            payload: {
+              key: 'alert',
+              data: {
+                status: true,
+                text: execute_voucher.data.message
+              }
+            }
+          });
+          setTimeout(() => {
+            self.$store.dispatch('setState', {
+              payload: {
+                key: 'alert',
+                data: {
+                  status: true,
+                  text: execute_voucher.data.message
+                }
+              }
+            });
+          }, 3000);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async reset_cart() {
+      const {
+        c,
+        u
+      } = this.$route.query;
+      await General["a" /* default */].get_list_products(this.$store, {
+        category: c,
+        uid: u,
+        bot_id: this.$route.params.store
+      });
+
+      if (!this.rp_order) {
+        console.log('reset so');
+        const cart = this.cart.slice(0);
+        const mapped_cart = cart.map(el => {
+          let filtered = this.list_products.filter(product => el.id == product.id);
+          filtered[0].qty = el.qty;
+          return filtered[0];
+        });
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'cart',
+            data: mapped_cart
+          }
+        });
+      } else {
+        console.log('reset rp dates', this.dates);
+        const dates = [];
+        this.dates.forEach(order => {
+          console.log(order, ';orders');
+          order.items = order.items.map(item => {
+            console.log(item, ' ; order - item');
+            const filtered = this.list_products.filter(product => item.select_date && item.qty && product.id == item.id);
+
+            if (filtered.length) {
+              const f_item = filtered[0];
+              const updated = {
+                SKU: f_item.SKU,
+                detail_id: f_item.detail[0].detail_id,
+                discount_price: f_item.detail[0].discount_price,
+                id: f_item.id,
+                main_image: f_item.detail[0].main_image,
+                name: f_item.name,
+                normal_price: f_item.detail[0].normal_price,
+                product_id: f_item.id,
+                qty: item.qty,
+                select_date: item.select_date,
+                variant: f_item.detail[0].variant
+              };
+              return updated;
+            } else {
+              return item;
+            }
+          });
+          dates.push(order);
+        });
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'dates',
+            data: dates
+          }
+        });
+      }
+    },
+
     async use_voucher(params) {
-      console.log(params, 'use params');
-      const total = this.grand_total;
-      console.log(total, ' total');
-      this.voucher = false;
+      this.used_voucher = false;
       this.applying_voucher = true;
 
-      if (params.is_custom_voucher) {
+      if (!params.is_custom_voucher && typeof params.value != 'boolean') {
+        this.voucher = false;
+        await this.reset_cart();
+        await this.implement_voucher('static', params);
+        console.log('static voucher');
+      } else if (params.is_custom_voucher && typeof params.value == 'boolean') {
+        this.voucher = false;
+        this.voucher_form = true;
         console.log('custom voucher');
-        this.voucher_form = params.value;
-        console.log('static voucher', params);
-        const body = {
-          id: this.store.id,
-          bot_id: this.store.bot_id,
-          store_name: this.store.name,
-          bot_name: this.site.store,
-          uuid: this.site.uuid,
-          voucher_code: params.value,
-          category: this.site.category
-        };
-        const execute_voucher = await this.$store.dispatch('request', {
-          url: '/voucher/apply',
-          method: 'post',
-          data: body
-        });
-        console.log(execute_voucher.data.status, ' execute_voucher.data.status');
-
-        if (execute_voucher.status == 200 && execute_voucher.data.status) {
-          if (!this.rp_order) {
-            const mapped_cart = [];
-            this.cart.forEach(el => {
-              const filtered = execute_voucher.data.result.items.filter(item => item.id === el.id && item.SKU == item.SKU);
-
-              if (filtered.length) {
-                el.detail[0].normal_price = filtered[0].normal_price;
-                el.detail[0].discount_price = filtered[0].discount_price;
-              }
-
-              mapped_cart.push(el);
-            });
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'cart',
-                data: mapped_cart
-              }
-            });
-          } else {
-            const dates = this.dates.map(el => el);
-            const mapped_dates = dates.map(order => {
-              const merged_orders = execute_voucher.data.result.merged_orders;
-              const find_result = merged_orders.filter(el => el.delivery_date === order.date);
-
-              if (find_result.length) {
-                order.items = order.items.map(order_item => {
-                  if (order_item.select_date) {
-                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id);
-
-                    if (combine_detail.length) {
-                      order_item.discount_price = combine_detail[0].discount_price;
-                      order_item.normal_price = combine_detail[0].normal_price;
-                    }
-                  }
-
-                  return order_item;
-                });
-              }
-
-              return order;
-            });
-            console.log(mapped_dates); // this.$store.dispatch('setState', {
-            //   payload: {
-            //     key: 'dates',
-            //     data: mapped_dates
-            //   }
-            // })
-          }
-
-          console.log(execute_voucher.data.result, ' execute_voucher.data.result');
-          const new_total = this.grand_total;
-          console.log(new_total, ' new_total');
-          this.applied_voucher = {
-            name: params.value,
-            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total ? Math.abs(total - new_total) : 0
-          }; // console.log(execute_voucher)
-          // this.update_cache('single-order', params.value.name)
-        } else {
-          const self = this;
-
-          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
-            this.check_voucher();
-          }
-
-          this.$store.dispatch('setState', {
-            payload: {
-              key: 'alert',
-              data: {
-                status: true,
-                text: execute_voucher.data.message
-              }
-            }
-          });
-          setTimeout(() => {
-            self.$store.dispatch('setState', {
-              payload: {
-                key: 'alert',
-                data: {
-                  status: true,
-                  text: execute_voucher.data.message
-                }
-              }
-            });
-          }, 3000);
-        }
-      } else {
-        console.log('static voucher', params);
-        const body = {
-          id: this.store.id,
-          bot_id: this.store.bot_id,
-          store_name: this.store.name,
-          bot_name: this.site.store,
-          uuid: this.site.uuid,
-          voucher_code: params.value.name,
-          category: this.site.category
-        };
-        const execute_voucher = await this.$store.dispatch('request', {
-          url: '/voucher/apply',
-          method: 'post',
-          data: body
-        });
-        console.log(execute_voucher.data.status, ' execute_voucher.data.status');
-
-        if (execute_voucher.status == 200 && execute_voucher.data.status) {
-          if (!this.rp_order) {
-            const mapped_cart = [];
-            this.cart.forEach(el => {
-              const filtered = execute_voucher.data.result.items.filter(item => item.id === el.id && item.SKU == item.SKU);
-
-              if (filtered.length) {
-                el.detail[0].normal_price = filtered[0].normal_price;
-                el.detail[0].discount_price = filtered[0].discount_price;
-              }
-
-              mapped_cart.push(el);
-            });
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'cart',
-                data: mapped_cart
-              }
-            });
-          } else {
-            const dates = this.dates.map(el => el);
-            const mapped_dates = dates.map(order => {
-              const merged_orders = execute_voucher.data.result.merged_orders;
-              const find_result = merged_orders.filter(el => el.delivery_date === order.date);
-
-              if (find_result.length) {
-                order.items = order.items.map(order_item => {
-                  if (order_item.select_date) {
-                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id);
-
-                    if (combine_detail.length) {
-                      order_item.discount_price = combine_detail[0].discount_price;
-                      order_item.normal_price = combine_detail[0].normal_price;
-                    }
-                  }
-
-                  return order_item;
-                });
-              }
-
-              return order;
-            });
-            console.log(mapped_dates); // this.$store.dispatch('setState', {
-            //   payload: {
-            //     key: 'dates',
-            //     data: mapped_dates
-            //   }
-            // })
-          }
-
-          console.log(execute_voucher.data.result, ' execute_voucher.data.result');
-          const new_total = this.grand_total;
-          console.log(new_total, ' new_total');
-          this.applied_voucher = {
-            name: params.value.name,
-            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total ? Math.abs(total - new_total) : 0
-          }; // console.log(execute_voucher)
-          // this.update_cache('single-order', params.value.name)
-        } else {
-          const self = this;
-
-          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
-            this.check_voucher();
-          }
-
-          this.$store.dispatch('setState', {
-            payload: {
-              key: 'alert',
-              data: {
-                status: true,
-                text: execute_voucher.data.message
-              }
-            }
-          });
-          setTimeout(() => {
-            self.$store.dispatch('setState', {
-              payload: {
-                key: 'alert',
-                data: {
-                  status: true,
-                  text: execute_voucher.data.message
-                }
-              }
-            });
-          }, 3000);
-        }
-      } // this.applied_voucher = params.value
-
+      } else if (params.is_custom_voucher && typeof params.value != 'boolean') {
+        await this.reset_cart();
+        this.voucher_form = false;
+        await this.implement_voucher('custom', params);
+        this.voucher = false;
+        console.log('use custom voucher');
+      }
 
       this.applying_voucher = false;
     },
@@ -14456,13 +14470,6 @@ var components_General = __webpack_require__(252);
           }
         });
       }
-
-      this.$store.dispatch('setState', {
-        payload: {
-          key: 'added_to_cart',
-          data: true
-        }
-      });
     },
 
     async validate_voucher() {

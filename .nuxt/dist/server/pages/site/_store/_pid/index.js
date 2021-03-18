@@ -4295,6 +4295,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
       });
 
       if (request.data.status) {
+        console.log(request.data.results, ' request.data.results');
         self.dispatch('setState', {
           payload: {
             key: 'products',

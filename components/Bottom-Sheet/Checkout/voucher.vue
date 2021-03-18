@@ -20,7 +20,7 @@
     <v-divider />
     <div class="pb-2">
       <v-card
-        v-for="(vc, idx) in listvouchers"
+        v-for="(vc, idx) in filtered_vhoucher"
         :key="idx"
         :class="!idx ? 'pb-0' : null"
         class="pa-2 pl-0"
@@ -78,6 +78,30 @@ export default {
       type: Boolean,
       required: true
     }
+  },
+
+  mounted() {
+    console.log(this.listvouchers, ' this.listvouchers')
+  },
+
+  computed: {
+    rp_order() {
+      return this.$store.state.rp_order
+    },
+
+    filtered_vhoucher() {
+      try {
+        if (this.rp_order) {
+          return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "rp" || JSON.parse(el.sku_product).mode == "all")
+        } else {
+          return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "so" || JSON.parse(el.sku_product).mode == "all")
+        }
+      } catch (error) {
+        return this.listvouchers
+      }
+    }
   }
 }
 </script>
+
+

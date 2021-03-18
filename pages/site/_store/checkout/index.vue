@@ -280,6 +280,10 @@ export default {
     },
   },
 
+  async beforeDestroy() {
+    await this.reset_cart()
+  },
+
   async mounted () {
     const { c, u } = this.$route.query
 
@@ -391,17 +395,20 @@ export default {
     },
 
     normal_order() {
-      let total = 0
+      if (this.cart.length) {
+        let total = 0
 
-      this.cart.forEach(el => {
-        const pricing = el.detail[0].discount_price
-          ? el.detail[0].discount_price
-          : el.detail[0].normal_price
+        this.cart.forEach(el => {
+          console.log('count total ', el)
+          const pricing = el.detail[0].discount_price
+            ? el.detail[0].discount_price
+            : el.detail[0].normal_price
 
-        total += el.qty * pricing
-      })
+          total += el.qty * pricing
+        })
 
-      return total
+        return total
+      }
     },
 
     subs_order() {
@@ -488,255 +495,247 @@ export default {
       }
     },
 
-    async use_voucher(params) {
-      console.log(params, 'use params')
-      const total = this.grand_total
-      console.log(total, ' total')
+    async implement_voucher(type, params) {
+      try {
+        const total = this.grand_total
+        const body  = {
+          id           : this.store.id,
+          bot_id       : this.store.bot_id,
+          store_name   : this.store.name,
+          bot_name     : this.site.store,
+          uuid         : this.site.uuid,
+          category     : this.site.category,
+          voucher_code : 
+            type == 'static'
+              ? params.value.name
+              : params.value
+        }
 
-      this.voucher = false
+        const execute_voucher = await this.$store.dispatch('request', {
+          url: '/voucher/apply',
+          method: 'post',
+          data: body
+        })
+
+        if (execute_voucher.status == 200 && execute_voucher.data.status) {
+          if (!this.rp_order) {
+            const mapped_cart = []
+
+            this.cart.forEach(el => {
+              const filtered = execute_voucher.data.result.items.filter(item => 
+                item.id === el.id && item.SKU == item.SKU
+              )
+
+              if (filtered.length) {
+                el.detail[0].normal_price   = filtered[0].normal_price
+                el.detail[0].discount_price = filtered[0].discount_price
+              }
+
+              mapped_cart.push(el)
+            })
+
+            this.$store.dispatch('setState', {
+              payload: {
+                key: 'cart',
+                data: mapped_cart
+              }
+            })
+
+            const new_total = this.grand_total
+
+            this.applied_voucher = {
+              name  : params.value,
+              value : execute_voucher.data.result.old_total != execute_voucher.data.result.total
+                ? Math.abs(total - new_total)
+                : 0
+            }
+          } else {
+            const dates        = this.dates.map(el => el)
+            const mapped_dates = dates.map(order => {
+              const merged_orders = execute_voucher.data.result.merged_orders
+              const find_result   = merged_orders.filter(el => el.delivery_date === order.date)
+
+              console.log(find_result, ' ; find_result')
+
+              if (find_result.length) {
+                order.items = order.items.map(order_item => {
+                  if (order_item.select_date) {
+                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
+
+                    if (combine_detail.length) {
+                      order_item.discount_price = combine_detail[0].discount_price
+                      order_item.normal_price   = combine_detail[0].normal_price
+                    }
+                  }
+
+                  return order_item
+                })
+              }
+
+              
+              return order
+            })
+
+            console.log(mapped_dates, ' implement voucher mapped_dates')
+
+            this.$store.dispatch('setState', {
+              payload: {
+                key: 'dates',
+                data: mapped_dates
+              }
+            })
+          }
+
+          const new_total = this.grand_total
+
+          this.applied_voucher = {
+            name  : type == 'static'
+              ? params.value.name
+              : params.value,
+            value : execute_voucher.data.result.old_total != execute_voucher.data.result.total
+              ? Math.abs(total - new_total)
+              : 0
+          }
+
+          const order_type = !this.rp_order ? 'single-order' : 'rp-order'
+
+          this.update_cache(order_type, params.value.name)
+
+          return
+        } else {
+          const self = this
+
+          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
+            this.check_voucher()
+          }
+
+          this.$store.dispatch('setState', {
+            payload: {
+              key : 'alert',
+              data: {
+                status: true,
+                text  : execute_voucher.data.message
+              }
+            }
+          })
+
+          setTimeout(() => {
+            self.$store.dispatch('setState', {
+              payload: {
+                key : 'alert',
+                data: {
+                  status: true,
+                  text  : execute_voucher.data.message
+                }
+              }
+            })
+          }, 3000)
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async reset_cart() {
+      const { c, u } = this.$route.query
+
+      await API.get_list_products(this.$store, {
+        category: c,
+        uid: u,
+        bot_id: this.$route.params.store
+      })
+
+      if (!this.rp_order) {
+        console.log('reset so')
+        const cart        = this.cart.slice(0)
+        const mapped_cart = cart.map(el => {
+          let filtered = this.list_products.filter(product => el.id == product.id)
+
+          filtered[0].qty = el.qty
+
+          return filtered[0]
+        })
+
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'cart',
+            data: mapped_cart
+          }
+        })
+      } else {
+        console.log('reset rp dates', this.dates)
+        const dates = []
+
+        this.dates.forEach(order => {
+          console.log(order, ';orders')
+          order.items = order.items.map(item => {
+            console.log(item, ' ; order - item')
+            const filtered = this.list_products.filter(product =>
+              item.select_date && item.qty && product.id == item.id
+            )
+
+            if (filtered.length) {
+              const f_item  = filtered[0]
+              const updated = {
+                SKU              : f_item.SKU,
+                detail_id        : f_item.detail[0].detail_id,
+                discount_price   : f_item.detail[0].discount_price,
+                id               : f_item.id,
+                main_image       : f_item.detail[0].main_image,
+                name             : f_item.name,
+                normal_price     : f_item.detail[0].normal_price,
+                product_id       : f_item.id,
+                qty              : item.qty,
+                select_date      : item.select_date,
+                variant          : f_item.detail[0].variant
+              }
+
+              return updated
+            } else {
+              return item
+            }
+          })
+          
+          dates.push(order)
+        })
+
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'dates',
+            data: dates
+          }
+        })
+      }
+    },
+
+    async use_voucher(params) {
+      this.used_voucher     = false
       this.applying_voucher = true
 
-      if (params.is_custom_voucher) {
+      if (!params.is_custom_voucher && typeof params.value != 'boolean') {
+        this.voucher   = false
+
+        await this.reset_cart()
+        await this.implement_voucher('static', params)
+
+        console.log('static voucher')
+      } else if (params.is_custom_voucher && typeof params.value == 'boolean') {
+        this.voucher      = false
+        this.voucher_form = true
+
         console.log('custom voucher')
-        this.voucher_form = params.value
+      } else if (params.is_custom_voucher && typeof params.value != 'boolean') {
+        await this.reset_cart()
 
-        console.log('static voucher', params)
-        const body = {
-          id: this.store.id,
-          bot_id: this.store.bot_id,
-          store_name: this.store.name,
-          bot_name: this.site.store,
-          uuid: this.site.uuid,
-          voucher_code: params.value,
-          category: this.site.category
-        }
-        const execute_voucher = await this.$store.dispatch('request', {
-          url: '/voucher/apply',
-          method: 'post',
-          data: body
-        })
+        this.voucher_form = false
 
-        console.log(execute_voucher.data.status, ' execute_voucher.data.status')
-        if (execute_voucher.status == 200 && execute_voucher.data.status) {
-          if (!this.rp_order) {
-            const mapped_cart = []
+        await this.implement_voucher('custom', params)
 
-            this.cart.forEach(el => {
-              const filtered = execute_voucher.data.result.items.filter(item => item.id === el.id && item.SKU == item.SKU)
+        this.voucher = false
 
-              if (filtered.length) {
-                el.detail[0].normal_price = filtered[0].normal_price
-                el.detail[0].discount_price = filtered[0].discount_price
-              }
-
-              mapped_cart.push(el)
-            })
-
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'cart',
-                data: mapped_cart
-              }
-            })
-          } else {
-            const dates = this.dates.map(el => el)
-            const mapped_dates = dates.map(order => {
-              const merged_orders = execute_voucher.data.result.merged_orders
-              const find_result = merged_orders.filter(el => el.delivery_date === order.date)
-
-              if (find_result.length) {
-                order.items = order.items.map(order_item => {
-                  if (order_item.select_date) {
-                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
-
-                    if (combine_detail.length) {
-                      order_item.discount_price = combine_detail[0].discount_price
-                      order_item.normal_price = combine_detail[0].normal_price
-                    }
-                  }
-
-                  return order_item
-                })
-              }
-
-              
-              return order
-            })
-
-            console.log(mapped_dates)
-
-            // this.$store.dispatch('setState', {
-            //   payload: {
-            //     key: 'dates',
-            //     data: mapped_dates
-            //   }
-            // })
-          }
-
-          console.log(execute_voucher.data.result, ' execute_voucher.data.result')
-          const new_total = this.grand_total
-          console.log(new_total, ' new_total')
-
-
-          this.applied_voucher = {
-            name: params.value,
-            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total
-              ? Math.abs(total - new_total)
-              : 0
-          }
-
-          // console.log(execute_voucher)
-          // this.update_cache('single-order', params.value.name)
-        } else {
-          const self = this
-
-          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
-            this.check_voucher()
-          }
-
-          this.$store.dispatch('setState', {
-            payload: {
-              key: 'alert',
-              data: {
-                status: true,
-                text: execute_voucher.data.message
-              }
-            }
-          })
-
-          setTimeout(() => {
-            self.$store.dispatch('setState', {
-              payload: {
-                key: 'alert',
-                data: {
-                  status: true,
-                  text: execute_voucher.data.message
-                }
-              }
-            })
-          }, 3000)
-        }
-      } else {
-        console.log('static voucher', params)
-        const body = {
-          id: this.store.id,
-          bot_id: this.store.bot_id,
-          store_name: this.store.name,
-          bot_name: this.site.store,
-          uuid: this.site.uuid,
-          voucher_code: params.value.name,
-          category: this.site.category
-        }
-        const execute_voucher = await this.$store.dispatch('request', {
-          url: '/voucher/apply',
-          method: 'post',
-          data: body
-        })
-
-        console.log(execute_voucher.data.status, ' execute_voucher.data.status')
-
-        if (execute_voucher.status == 200 && execute_voucher.data.status) {
-          if (!this.rp_order) {
-            const mapped_cart = []
-
-            this.cart.forEach(el => {
-              const filtered = execute_voucher.data.result.items.filter(item => item.id === el.id && item.SKU == item.SKU)
-
-              if (filtered.length) {
-                el.detail[0].normal_price = filtered[0].normal_price
-                el.detail[0].discount_price = filtered[0].discount_price
-              }
-
-              mapped_cart.push(el)
-            })
-
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'cart',
-                data: mapped_cart
-              }
-            })
-          } else {
-            const dates = this.dates.map(el => el)
-            const mapped_dates = dates.map(order => {
-              const merged_orders = execute_voucher.data.result.merged_orders
-              const find_result = merged_orders.filter(el => el.delivery_date === order.date)
-
-              if (find_result.length) {
-                order.items = order.items.map(order_item => {
-                  if (order_item.select_date) {
-                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
-
-                    if (combine_detail.length) {
-                      order_item.discount_price = combine_detail[0].discount_price
-                      order_item.normal_price = combine_detail[0].normal_price
-                    }
-                  }
-
-                  return order_item
-                })
-              }
-
-              
-              return order
-            })
-
-            console.log(mapped_dates)
-
-            // this.$store.dispatch('setState', {
-            //   payload: {
-            //     key: 'dates',
-            //     data: mapped_dates
-            //   }
-            // })
-          }
-
-          console.log(execute_voucher.data.result, ' execute_voucher.data.result')
-          const new_total = this.grand_total
-          console.log(new_total, ' new_total')
-
-
-          this.applied_voucher = {
-            name: params.value.name,
-            value: execute_voucher.data.result.old_total != execute_voucher.data.result.total
-              ? Math.abs(total - new_total)
-              : 0
-          }
-
-          // console.log(execute_voucher)
-          // this.update_cache('single-order', params.value.name)
-        } else {
-          const self = this
-
-          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
-            this.check_voucher()
-          }
-
-          this.$store.dispatch('setState', {
-            payload: {
-              key: 'alert',
-              data: {
-                status: true,
-                text: execute_voucher.data.message
-              }
-            }
-          })
-
-          setTimeout(() => {
-            self.$store.dispatch('setState', {
-              payload: {
-                key: 'alert',
-                data: {
-                  status: true,
-                  text: execute_voucher.data.message
-                }
-              }
-            })
-          }, 3000)
-        }
+        console.log('use custom voucher')
       }
 
-      // this.applied_voucher = params.value
       this.applying_voucher = false
     },
 
@@ -800,13 +799,6 @@ export default {
           }
         })
       }
-
-      this.$store.dispatch('setState', {
-        payload: {
-          key: 'added_to_cart',
-          data: true
-        }
-      })
     },
 
     async validate_voucher() {

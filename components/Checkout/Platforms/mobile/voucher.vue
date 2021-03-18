@@ -33,6 +33,7 @@
           width: fit-content;
           min-width: 200px;
           color: white;
+          padding-right: 5px;
         "
       >
         * {{ appliedvoucher.name }} Voucher applied

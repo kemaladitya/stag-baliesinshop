@@ -10,6 +10,7 @@ export default {
       })
 
       if (request.data.status) {
+        console.log(request.data.results, ' request.data.results')
         self.dispatch('setState', {
           payload: {
             key: 'products',
