@@ -20,8 +20,8 @@
     <v-divider />
     <div class="pb-2">
       <v-card
-        v-for="(vc, idx) in filtered_vhoucher"
-        :key="idx"
+        v-for="(vc, idx) in all_voucher"
+        :key="vc.id"
         :class="!idx ? 'pb-0' : null"
         class="pa-2 pl-0"
         flat
@@ -29,6 +29,44 @@
         <v-card
           class="ml-2 pa-2"
           outlined
+          @click="usevoucher({ is_custom_voucher: false, value: vc })"
+        >
+          <div class="pb-1" style="font-weight: 600; font-size: 13px">
+            {{ vc.name }}
+          </div>
+          <div v-html="vc.description" />
+        </v-card>
+      </v-card>
+      <v-card
+        v-for="(vc, idx) in so_voucher"
+        :key="vc.id"
+        :class="!idx ? 'pb-0' : null"
+        class="pa-2 pl-0"
+        flat
+      >
+        <v-card
+          class="ml-2 pa-2"
+          outlined
+          :disabled="rp_order"
+          @click="usevoucher({ is_custom_voucher: false, value: vc })"
+        >
+          <div class="pb-1" style="font-weight: 600; font-size: 13px">
+            {{ vc.name }}
+          </div>
+          <div v-html="vc.description" />
+        </v-card>
+      </v-card>
+      <v-card
+        v-for="(vc, idx) in rp_voucher"
+        :key="vc.id"
+        :class="!idx ? 'pb-0' : null"
+        class="pa-2 pl-0"
+        flat
+      >
+        <v-card
+          class="ml-2 pa-2"
+          outlined
+          :disabled="!rp_order"
           @click="usevoucher({ is_custom_voucher: false, value: vc })"
         >
           <div class="pb-1" style="font-weight: 600; font-size: 13px">
@@ -89,19 +127,17 @@ export default {
       return this.$store.state.rp_order
     },
 
-    filtered_vhoucher() {
-      try {
-        if (this.rp_order) {
-          return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "rp" || JSON.parse(el.sku_product).mode == "all")
-        } else {
-          return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "so" || JSON.parse(el.sku_product).mode == "all")
-        }
-      } catch (error) {
-        return this.listvouchers
-      }
+    rp_voucher() {
+      return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "rp")
+    },
+
+    so_voucher() {
+      return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "so")
+    },
+
+    all_voucher() {
+      return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "all")
     }
   }
 }
 </script>
-
-
