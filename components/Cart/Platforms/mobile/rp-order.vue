@@ -61,7 +61,7 @@
                   <v-card flat style="font-size: 12px; font-weight: 600">
                     Waktu Pengantaran :
                   </v-card>
-                  <!-- <v-card
+                  <v-card
                     v-if="!item.delivery_time"
                     class="ml-2"
                     flat
@@ -112,10 +112,10 @@
                     "
                   >
                     jam 08:00 - 17:00
-                  </v-card> -->
+                  </v-card>
                 </v-card>
                 <v-spacer />
-                <v-card
+                <!-- <v-card
                   v-if="item.delivery_time"
                   class="d-flex flex-row"
                   flat
@@ -139,7 +139,7 @@
                   >
                     Sore
                   </v-btn>
-                </v-card>
+                </v-card> -->
               </v-card>
             </div>
           </div>

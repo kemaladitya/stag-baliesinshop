@@ -26,7 +26,7 @@ export { default as Kurir } from '../../components/Checkout/Platforms/desktop/ku
 export { default as Notes } from '../../components/Checkout/Platforms/desktop/notes.vue'
 export { default as OrderDetail } from '../../components/Checkout/Platforms/desktop/order-detail.vue'
 export { default as Subtotal } from '../../components/Checkout/Platforms/desktop/subtotal.vue'
-export { default as Subscription } from '../../components/Checkout/Platforms/mini/orders/subscription.vue'
+export { default as Subscription } from '../../components/Checkout/Platforms/desktop/orders/subscription.vue'
 
 export const LazyGeneral = import('../../components/General.js' /* webpackChunkName: "components/general" */).then(c => c.default || c)
 export const LazyLogo = import('../../components/Logo.vue' /* webpackChunkName: "components/logo" */).then(c => c.default || c)
@@ -56,4 +56,4 @@ export const LazyKurir = import('../../components/Checkout/Platforms/desktop/kur
 export const LazyNotes = import('../../components/Checkout/Platforms/desktop/notes.vue' /* webpackChunkName: "components/notes" */).then(c => c.default || c)
 export const LazyOrderDetail = import('../../components/Checkout/Platforms/desktop/order-detail.vue' /* webpackChunkName: "components/order-detail" */).then(c => c.default || c)
 export const LazySubtotal = import('../../components/Checkout/Platforms/desktop/subtotal.vue' /* webpackChunkName: "components/subtotal" */).then(c => c.default || c)
-export const LazySubscription = import('../../components/Checkout/Platforms/mini/orders/subscription.vue' /* webpackChunkName: "components/subscription" */).then(c => c.default || c)
+export const LazySubscription = import('../../components/Checkout/Platforms/desktop/orders/subscription.vue' /* webpackChunkName: "components/subscription" */).then(c => c.default || c)

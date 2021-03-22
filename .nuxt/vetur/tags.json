@@ -168,9 +168,9 @@
     "description": "Auto imported from /components/Checkout/Platforms/desktop/subtotal.vue"
   },
   "Subscription": {
-    "description": "Auto imported from /components/Checkout/Platforms/mini/orders/subscription.vue"
+    "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"
   },
   "LazySubscription": {
-    "description": "Auto imported from /components/Checkout/Platforms/mini/orders/subscription.vue"
+    "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"
   }
 }
