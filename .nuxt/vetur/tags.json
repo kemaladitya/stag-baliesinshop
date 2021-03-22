@@ -1,176 +1,203 @@
 {
   "General": {
-    "description": "Auto imported from /components/General.js"
-  },
-  "LazyGeneral": {
-    "description": "Auto imported from /components/General.js"
+    "description": "Auto imported from components/General.js"
   },
   "Logo": {
-    "description": "Auto imported from /components/Logo.vue"
-  },
-  "LazyLogo": {
-    "description": "Auto imported from /components/Logo.vue"
+    "description": "Auto imported from components/Logo.vue"
   },
   "VuetifyLogo": {
-    "description": "Auto imported from /components/VuetifyLogo.vue"
+    "description": "Auto imported from components/VuetifyLogo.vue"
   },
-  "LazyVuetifyLogo": {
-    "description": "Auto imported from /components/VuetifyLogo.vue"
-  },
-  "RegLoading": {
-    "description": "Auto imported from /components/Bottom-Sheet/reg_loading.vue"
-  },
-  "LazyRegLoading": {
-    "description": "Auto imported from /components/Bottom-Sheet/reg_loading.vue"
+  "BottomSheetRegLoading": {
+    "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
   },
   "Cart": {
-    "description": "Auto imported from /components/Cart/index.vue"
-  },
-  "LazyCart": {
-    "description": "Auto imported from /components/Cart/index.vue"
+    "description": "Auto imported from components/Cart/index.vue"
   },
   "Checkout": {
-    "description": "Auto imported from /components/Checkout/index.vue"
+    "description": "Auto imported from components/Checkout/index.vue"
   },
-  "LazyCheckout": {
-    "description": "Auto imported from /components/Checkout/index.vue"
+  "FooterCart": {
+    "description": "Auto imported from components/Footer/cart.vue"
   },
-  "ListProduct": {
-    "description": "Auto imported from /components/Loading/list_product.vue"
+  "FooterCheckout": {
+    "description": "Auto imported from components/Footer/checkout.vue"
   },
-  "LazyListProduct": {
-    "description": "Auto imported from /components/Loading/list_product.vue"
+  "LoadingListProduct": {
+    "description": "Auto imported from components/Loading/list_product.vue"
   },
   "ProductDetail": {
-    "description": "Auto imported from /components/Product-Detail/index.vue"
-  },
-  "LazyProductDetail": {
-    "description": "Auto imported from /components/Product-Detail/index.vue"
+    "description": "Auto imported from components/Product-Detail/index.vue"
   },
   "Products": {
-    "description": "Auto imported from /components/Products/index.vue"
+    "description": "Auto imported from components/Products/index.vue"
   },
-  "LazyProducts": {
-    "description": "Auto imported from /components/Products/index.vue"
+  "BottomSheetCartProducts": {
+    "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
   },
-  "Courier": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/courier.vue"
+  "BottomSheetCheckoutCourier": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/courier.vue"
   },
-  "LazyCourier": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/courier.vue"
+  "BottomSheetCheckoutLoading": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/loading.vue"
   },
-  "Loading": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/loading.vue"
+  "BottomSheetCheckoutPayment": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/payment.vue"
   },
-  "LazyLoading": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/loading.vue"
+  "BottomSheetCheckoutVoucher": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/voucher.vue"
   },
-  "Payment": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/payment.vue"
+  "DialogsCartMaxOrder": {
+    "description": "Auto imported from components/Dialogs/Cart/max-order.vue"
   },
-  "LazyPayment": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/payment.vue"
+  "DialogsCartMinOrder": {
+    "description": "Auto imported from components/Dialogs/Cart/min-order.vue"
   },
-  "Voucher": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/voucher.vue"
+  "DialogsCartRemoveConfirm": {
+    "description": "Auto imported from components/Dialogs/Cart/remove-confirm.vue"
   },
-  "LazyVoucher": {
-    "description": "Auto imported from /components/Bottom-Sheet/Checkout/voucher.vue"
+  "DialogsCheckoutInsertVoucherCode": {
+    "description": "Auto imported from components/Dialogs/Checkout/insert-voucher-code.vue"
   },
-  "MaxOrder": {
-    "description": "Auto imported from /components/Dialogs/Cart/max-order.vue"
+  "ProductDetailPlatformsDesktop": {
+    "description": "Auto imported from components/Product-Detail/Platforms/desktop.vue"
   },
-  "LazyMaxOrder": {
-    "description": "Auto imported from /components/Dialogs/Cart/max-order.vue"
+  "ProductDetailPlatformsMini": {
+    "description": "Auto imported from components/Product-Detail/Platforms/mini.vue"
   },
-  "MinOrder": {
-    "description": "Auto imported from /components/Dialogs/Cart/min-order.vue"
+  "ProductDetailPlatformsMobile": {
+    "description": "Auto imported from components/Product-Detail/Platforms/mobile.vue"
   },
-  "LazyMinOrder": {
-    "description": "Auto imported from /components/Dialogs/Cart/min-order.vue"
+  "ProductsPlatformsDesktop": {
+    "description": "Auto imported from components/Products/Platforms/desktop.vue"
   },
-  "RemoveConfirm": {
-    "description": "Auto imported from /components/Dialogs/Cart/remove-confirm.vue"
+  "ProductsPlatformsMini": {
+    "description": "Auto imported from components/Products/Platforms/mini.vue"
   },
-  "LazyRemoveConfirm": {
-    "description": "Auto imported from /components/Dialogs/Cart/remove-confirm.vue"
+  "ProductsPlatformsMobile": {
+    "description": "Auto imported from components/Products/Platforms/mobile.vue"
   },
-  "InsertVoucherCode": {
-    "description": "Auto imported from /components/Dialogs/Checkout/insert-voucher-code.vue"
+  "CartPlatformsDesktop": {
+    "description": "Auto imported from components/Cart/Platforms/desktop/index.vue"
   },
-  "LazyInsertVoucherCode": {
-    "description": "Auto imported from /components/Dialogs/Checkout/insert-voucher-code.vue"
+  "CartPlatformsDesktopNormal": {
+    "description": "Auto imported from components/Cart/Platforms/desktop/normal.vue"
   },
-  "Desktop": {
-    "description": "Auto imported from /components/Product-Detail/Platforms/desktop.vue"
+  "CartPlatformsDesktopRpOrder": {
+    "description": "Auto imported from components/Cart/Platforms/desktop/rp-order.vue"
   },
-  "LazyDesktop": {
-    "description": "Auto imported from /components/Product-Detail/Platforms/desktop.vue"
+  "CartPlatformsMini": {
+    "description": "Auto imported from components/Cart/Platforms/mini/index.vue"
   },
-  "Mini": {
-    "description": "Auto imported from /components/Product-Detail/Platforms/mini.vue"
+  "CartPlatformsMiniNormal": {
+    "description": "Auto imported from components/Cart/Platforms/mini/normal.vue"
   },
-  "LazyMini": {
-    "description": "Auto imported from /components/Product-Detail/Platforms/mini.vue"
+  "CartPlatformsMiniRpOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mini/rp-order.vue"
   },
-  "Mobile": {
-    "description": "Auto imported from /components/Product-Detail/Platforms/mobile.vue"
+  "CartPlatformsMobileBundler": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/bundler.vue"
   },
-  "LazyMobile": {
-    "description": "Auto imported from /components/Product-Detail/Platforms/mobile.vue"
+  "CartPlatformsMobile": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/index.vue"
   },
-  "Normal": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/normal.vue"
+  "CartPlatformsMobileNormal": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/normal.vue"
   },
-  "LazyNormal": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/normal.vue"
+  "CartPlatformsMobileRpOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/rp-order.vue"
   },
-  "RpOrder": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
+  "CheckoutPlatformsDesktopCustomer": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/customer.vue"
   },
-  "LazyRpOrder": {
-    "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
+  "CheckoutPlatformsDesktop": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/index.vue"
   },
-  "Bundler": {
-    "description": "Auto imported from /components/Cart/Platforms/mobile/bundler.vue"
+  "CheckoutPlatformsDesktopKurir": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/kurir.vue"
   },
-  "LazyBundler": {
-    "description": "Auto imported from /components/Cart/Platforms/mobile/bundler.vue"
+  "CheckoutPlatformsDesktopNotes": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/notes.vue"
   },
-  "Customer": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/customer.vue"
+  "CheckoutPlatformsDesktopOrderDetail": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/order-detail.vue"
   },
-  "LazyCustomer": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/customer.vue"
+  "CheckoutPlatformsDesktopPayment": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/payment.vue"
   },
-  "Kurir": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/kurir.vue"
+  "CheckoutPlatformsDesktopSubtotal": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/subtotal.vue"
   },
-  "LazyKurir": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/kurir.vue"
+  "CheckoutPlatformsDesktopVoucher": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/voucher.vue"
   },
-  "Notes": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/notes.vue"
+  "CheckoutPlatformsMiniCustomer": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/customer.vue"
   },
-  "LazyNotes": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/notes.vue"
+  "CheckoutPlatformsMini": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/index.vue"
   },
-  "OrderDetail": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/order-detail.vue"
+  "CheckoutPlatformsMiniKurir": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/kurir.vue"
   },
-  "LazyOrderDetail": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/order-detail.vue"
+  "CheckoutPlatformsMiniNotes": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/notes.vue"
   },
-  "Subtotal": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/subtotal.vue"
+  "CheckoutPlatformsMiniOrderDetail": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/order-detail.vue"
   },
-  "LazySubtotal": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/subtotal.vue"
+  "CheckoutPlatformsMiniPayment": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/payment.vue"
   },
-  "Subscription": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"
+  "CheckoutPlatformsMiniSubtotal": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/subtotal.vue"
   },
-  "LazySubscription": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"
+  "CheckoutPlatformsMiniVoucher": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/voucher.vue"
+  },
+  "CheckoutPlatformsMobileCustomer": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/customer.vue"
+  },
+  "CheckoutPlatformsMobile": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/index.vue"
+  },
+  "CheckoutPlatformsMobileKurir": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/kurir.vue"
+  },
+  "CheckoutPlatformsMobileNotes": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/notes.vue"
+  },
+  "CheckoutPlatformsMobileOrderDetail": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/order-detail.vue"
+  },
+  "CheckoutPlatformsMobilePayment": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/payment.vue"
+  },
+  "CheckoutPlatformsMobileSubtotal": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/subtotal.vue"
+  },
+  "CheckoutPlatformsMobileVoucher": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/voucher.vue"
+  },
+  "CheckoutPlatformsDesktopOrdersNormal": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/orders/normal.vue"
+  },
+  "CheckoutPlatformsDesktopOrdersSubscription": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/orders/subscription.vue"
+  },
+  "CheckoutPlatformsMiniOrdersNormal": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/orders/normal.vue"
+  },
+  "CheckoutPlatformsMiniOrdersSubscription": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/orders/subscription.vue"
+  },
+  "CheckoutPlatformsMobileOrdersBundler": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/orders/bundler.vue"
+  },
+  "CheckoutPlatformsMobileOrdersNormal": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/orders/normal.vue"
+  },
+  "CheckoutPlatformsMobileOrdersSubscription": {
+    "description": "Auto imported from components/Checkout/Platforms/mobile/orders/subscription.vue"
   }
 }

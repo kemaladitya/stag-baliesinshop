@@ -30,7 +30,7 @@
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/google-tag-manager": "^2.2.1",
     "@nuxtjs/manifest": "^3.0.0-beta.16",
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/workbox": "^3.0.0-beta.16",
     "apexcharts": "^3.8.6",
     "async-redis": "^1.1.7",
