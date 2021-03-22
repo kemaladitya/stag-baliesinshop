@@ -16,7 +16,7 @@
     "prod": "cross-env NODE_ENV=production node server/index.js",
     "start": "cross-env NODE_ENV=production nodemon server/index.js --watch server",
     "buildlc": "rm -rf .nuxt; nuxt generate; nuxt build; nuxt start",
-    "generate": "nuxt generate",
+    "generate": "rm -rf /node_modules/.cache/pwa/icon && nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
