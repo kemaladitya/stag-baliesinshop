@@ -34,7 +34,7 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'https://faq.balesin.id/icon.ico'
+        href: 'https://repo-platform.s3.ap-southeast-1.amazonaws.com/62-local-docker1234%408_38_29am.gif'
       },
       {
         rel: 'stylesheet',
@@ -128,7 +128,7 @@ module.exports = {
     short_name: 'balesin - Shop',
     lang: 'en',
     description: 'balesin chat commerce.',
-    start_url: 'https://shop.balesin.id',
+    start_url: 'https://master.balesin.id',
     background_color: '#ffffdd',
     theme_color: '#ffffdd',
     dir: 'auto',

@@ -1,12 +1,12 @@
 {
-  "baseURL": "http://192.168.0.153:8081",
+  "baseURL": "https://master.balesin.id",
   "API_KEY": "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
   "SOCKET": "https://faq.balesin.id/chat",
   "ADONIS": "https://faq.balesin.id/adn",
   "LOGGER": false,
-  "HOST": "192.168.0.153",
+  "HOST": "0.0.0.0",
   "PORT": "8081",
-  "SHOP_API": "http://192.168.0.153:3098",
+  "SHOP_API": "http://10.140.0.14:3098",
   "REDIS_CONFIG": {
     "HOST": "10.140.0.17",
     "PORT": "6379",
