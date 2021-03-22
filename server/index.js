@@ -153,9 +153,9 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
       data: body,
     })
 
-    // await client.set(`${body.customer.uuid}/${body.store.bot_name}/last_order`, JSON.stringify(get_redis))
-    // await client.del(`${body.customer.uuid}/${body.store.bot_name}/explink`)
-    // await client.del(`${body.customer.uuid}/${body.store.bot_name}`)
+    await client.set(`${body.customer.uuid}/${body.store.bot_name}/last_order`, JSON.stringify(get_redis))
+    await client.del(`${body.customer.uuid}/${body.store.bot_name}/explink`)
+    await client.del(`${body.customer.uuid}/${body.store.bot_name}`)
 
     return res.json(
       request.data.hasOwnProperty('data') ? request.data.data : request.data
