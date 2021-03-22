@@ -1,8 +1,8 @@
 export { default as General } from '../../components/General.js'
 export { default as Logo } from '../../components/Logo.vue'
 export { default as VuetifyLogo } from '../../components/VuetifyLogo.vue'
-export { default as BottomSheetRegLoading } from '../../components/Bottom-Sheet/reg_loading.vue'
 export { default as Cart } from '../../components/Cart/index.vue'
+export { default as BottomSheetRegLoading } from '../../components/Bottom-Sheet/reg_loading.vue'
 export { default as Checkout } from '../../components/Checkout/index.vue'
 export { default as FooterCart } from '../../components/Footer/cart.vue'
 export { default as FooterCheckout } from '../../components/Footer/checkout.vue'
@@ -17,19 +17,16 @@ export { default as BottomSheetCheckoutVoucher } from '../../components/Bottom-S
 export { default as DialogsCartMaxOrder } from '../../components/Dialogs/Cart/max-order.vue'
 export { default as DialogsCartMinOrder } from '../../components/Dialogs/Cart/min-order.vue'
 export { default as DialogsCartRemoveConfirm } from '../../components/Dialogs/Cart/remove-confirm.vue'
-export { default as DialogsCheckoutInsertVoucherCode } from '../../components/Dialogs/Checkout/insert-voucher-code.vue'
 export { default as ProductDetailPlatformsDesktop } from '../../components/Product-Detail/Platforms/desktop.vue'
 export { default as ProductDetailPlatformsMini } from '../../components/Product-Detail/Platforms/mini.vue'
 export { default as ProductDetailPlatformsMobile } from '../../components/Product-Detail/Platforms/mobile.vue'
+export { default as DialogsCheckoutInsertVoucherCode } from '../../components/Dialogs/Checkout/insert-voucher-code.vue'
 export { default as ProductsPlatformsDesktop } from '../../components/Products/Platforms/desktop.vue'
 export { default as ProductsPlatformsMini } from '../../components/Products/Platforms/mini.vue'
 export { default as ProductsPlatformsMobile } from '../../components/Products/Platforms/mobile.vue'
 export { default as CartPlatformsDesktop } from '../../components/Cart/Platforms/desktop/index.vue'
 export { default as CartPlatformsDesktopNormal } from '../../components/Cart/Platforms/desktop/normal.vue'
 export { default as CartPlatformsDesktopRpOrder } from '../../components/Cart/Platforms/desktop/rp-order.vue'
-export { default as CartPlatformsMini } from '../../components/Cart/Platforms/mini/index.vue'
-export { default as CartPlatformsMiniNormal } from '../../components/Cart/Platforms/mini/normal.vue'
-export { default as CartPlatformsMiniRpOrder } from '../../components/Cart/Platforms/mini/rp-order.vue'
 export { default as CartPlatformsMobileBundler } from '../../components/Cart/Platforms/mobile/bundler.vue'
 export { default as CartPlatformsMobile } from '../../components/Cart/Platforms/mobile/index.vue'
 export { default as CartPlatformsMobileNormal } from '../../components/Cart/Platforms/mobile/normal.vue'
@@ -58,19 +55,22 @@ export { default as CheckoutPlatformsMobileOrderDetail } from '../../components/
 export { default as CheckoutPlatformsMobilePayment } from '../../components/Checkout/Platforms/mobile/payment.vue'
 export { default as CheckoutPlatformsMobileSubtotal } from '../../components/Checkout/Platforms/mobile/subtotal.vue'
 export { default as CheckoutPlatformsMobileVoucher } from '../../components/Checkout/Platforms/mobile/voucher.vue'
-export { default as CheckoutPlatformsDesktopOrdersNormal } from '../../components/Checkout/Platforms/desktop/orders/normal.vue'
-export { default as CheckoutPlatformsDesktopOrdersSubscription } from '../../components/Checkout/Platforms/desktop/orders/subscription.vue'
+export { default as CartPlatformsMini } from '../../components/Cart/Platforms/mini/index.vue'
+export { default as CartPlatformsMiniNormal } from '../../components/Cart/Platforms/mini/normal.vue'
+export { default as CartPlatformsMiniRpOrder } from '../../components/Cart/Platforms/mini/rp-order.vue'
 export { default as CheckoutPlatformsMiniOrdersNormal } from '../../components/Checkout/Platforms/mini/orders/normal.vue'
 export { default as CheckoutPlatformsMiniOrdersSubscription } from '../../components/Checkout/Platforms/mini/orders/subscription.vue'
 export { default as CheckoutPlatformsMobileOrdersBundler } from '../../components/Checkout/Platforms/mobile/orders/bundler.vue'
 export { default as CheckoutPlatformsMobileOrdersNormal } from '../../components/Checkout/Platforms/mobile/orders/normal.vue'
 export { default as CheckoutPlatformsMobileOrdersSubscription } from '../../components/Checkout/Platforms/mobile/orders/subscription.vue'
+export { default as CheckoutPlatformsDesktopOrdersNormal } from '../../components/Checkout/Platforms/desktop/orders/normal.vue'
+export { default as CheckoutPlatformsDesktopOrdersSubscription } from '../../components/Checkout/Platforms/desktop/orders/subscription.vue'
 
 export const LazyGeneral = import('../../components/General.js' /* webpackChunkName: "components/general" */).then(c => c.default || c)
 export const LazyLogo = import('../../components/Logo.vue' /* webpackChunkName: "components/logo" */).then(c => c.default || c)
 export const LazyVuetifyLogo = import('../../components/VuetifyLogo.vue' /* webpackChunkName: "components/vuetify-logo" */).then(c => c.default || c)
-export const LazyBottomSheetRegLoading = import('../../components/Bottom-Sheet/reg_loading.vue' /* webpackChunkName: "components/bottom-sheet-reg-loading" */).then(c => c.default || c)
 export const LazyCart = import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => c.default || c)
+export const LazyBottomSheetRegLoading = import('../../components/Bottom-Sheet/reg_loading.vue' /* webpackChunkName: "components/bottom-sheet-reg-loading" */).then(c => c.default || c)
 export const LazyCheckout = import('../../components/Checkout/index.vue' /* webpackChunkName: "components/checkout" */).then(c => c.default || c)
 export const LazyFooterCart = import('../../components/Footer/cart.vue' /* webpackChunkName: "components/footer-cart" */).then(c => c.default || c)
 export const LazyFooterCheckout = import('../../components/Footer/checkout.vue' /* webpackChunkName: "components/footer-checkout" */).then(c => c.default || c)
@@ -85,19 +85,16 @@ export const LazyBottomSheetCheckoutVoucher = import('../../components/Bottom-Sh
 export const LazyDialogsCartMaxOrder = import('../../components/Dialogs/Cart/max-order.vue' /* webpackChunkName: "components/dialogs-cart-max-order" */).then(c => c.default || c)
 export const LazyDialogsCartMinOrder = import('../../components/Dialogs/Cart/min-order.vue' /* webpackChunkName: "components/dialogs-cart-min-order" */).then(c => c.default || c)
 export const LazyDialogsCartRemoveConfirm = import('../../components/Dialogs/Cart/remove-confirm.vue' /* webpackChunkName: "components/dialogs-cart-remove-confirm" */).then(c => c.default || c)
-export const LazyDialogsCheckoutInsertVoucherCode = import('../../components/Dialogs/Checkout/insert-voucher-code.vue' /* webpackChunkName: "components/dialogs-checkout-insert-voucher-code" */).then(c => c.default || c)
 export const LazyProductDetailPlatformsDesktop = import('../../components/Product-Detail/Platforms/desktop.vue' /* webpackChunkName: "components/product-detail-platforms-desktop" */).then(c => c.default || c)
 export const LazyProductDetailPlatformsMini = import('../../components/Product-Detail/Platforms/mini.vue' /* webpackChunkName: "components/product-detail-platforms-mini" */).then(c => c.default || c)
 export const LazyProductDetailPlatformsMobile = import('../../components/Product-Detail/Platforms/mobile.vue' /* webpackChunkName: "components/product-detail-platforms-mobile" */).then(c => c.default || c)
+export const LazyDialogsCheckoutInsertVoucherCode = import('../../components/Dialogs/Checkout/insert-voucher-code.vue' /* webpackChunkName: "components/dialogs-checkout-insert-voucher-code" */).then(c => c.default || c)
 export const LazyProductsPlatformsDesktop = import('../../components/Products/Platforms/desktop.vue' /* webpackChunkName: "components/products-platforms-desktop" */).then(c => c.default || c)
 export const LazyProductsPlatformsMini = import('../../components/Products/Platforms/mini.vue' /* webpackChunkName: "components/products-platforms-mini" */).then(c => c.default || c)
 export const LazyProductsPlatformsMobile = import('../../components/Products/Platforms/mobile.vue' /* webpackChunkName: "components/products-platforms-mobile" */).then(c => c.default || c)
 export const LazyCartPlatformsDesktop = import('../../components/Cart/Platforms/desktop/index.vue' /* webpackChunkName: "components/cart-platforms-desktop" */).then(c => c.default || c)
 export const LazyCartPlatformsDesktopNormal = import('../../components/Cart/Platforms/desktop/normal.vue' /* webpackChunkName: "components/cart-platforms-desktop-normal" */).then(c => c.default || c)
 export const LazyCartPlatformsDesktopRpOrder = import('../../components/Cart/Platforms/desktop/rp-order.vue' /* webpackChunkName: "components/cart-platforms-desktop-rp-order" */).then(c => c.default || c)
-export const LazyCartPlatformsMini = import('../../components/Cart/Platforms/mini/index.vue' /* webpackChunkName: "components/cart-platforms-mini" */).then(c => c.default || c)
-export const LazyCartPlatformsMiniNormal = import('../../components/Cart/Platforms/mini/normal.vue' /* webpackChunkName: "components/cart-platforms-mini-normal" */).then(c => c.default || c)
-export const LazyCartPlatformsMiniRpOrder = import('../../components/Cart/Platforms/mini/rp-order.vue' /* webpackChunkName: "components/cart-platforms-mini-rp-order" */).then(c => c.default || c)
 export const LazyCartPlatformsMobileBundler = import('../../components/Cart/Platforms/mobile/bundler.vue' /* webpackChunkName: "components/cart-platforms-mobile-bundler" */).then(c => c.default || c)
 export const LazyCartPlatformsMobile = import('../../components/Cart/Platforms/mobile/index.vue' /* webpackChunkName: "components/cart-platforms-mobile" */).then(c => c.default || c)
 export const LazyCartPlatformsMobileNormal = import('../../components/Cart/Platforms/mobile/normal.vue' /* webpackChunkName: "components/cart-platforms-mobile-normal" */).then(c => c.default || c)
@@ -126,10 +123,13 @@ export const LazyCheckoutPlatformsMobileOrderDetail = import('../../components/C
 export const LazyCheckoutPlatformsMobilePayment = import('../../components/Checkout/Platforms/mobile/payment.vue' /* webpackChunkName: "components/checkout-platforms-mobile-payment" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMobileSubtotal = import('../../components/Checkout/Platforms/mobile/subtotal.vue' /* webpackChunkName: "components/checkout-platforms-mobile-subtotal" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMobileVoucher = import('../../components/Checkout/Platforms/mobile/voucher.vue' /* webpackChunkName: "components/checkout-platforms-mobile-voucher" */).then(c => c.default || c)
-export const LazyCheckoutPlatformsDesktopOrdersNormal = import('../../components/Checkout/Platforms/desktop/orders/normal.vue' /* webpackChunkName: "components/checkout-platforms-desktop-orders-normal" */).then(c => c.default || c)
-export const LazyCheckoutPlatformsDesktopOrdersSubscription = import('../../components/Checkout/Platforms/desktop/orders/subscription.vue' /* webpackChunkName: "components/checkout-platforms-desktop-orders-subscription" */).then(c => c.default || c)
+export const LazyCartPlatformsMini = import('../../components/Cart/Platforms/mini/index.vue' /* webpackChunkName: "components/cart-platforms-mini" */).then(c => c.default || c)
+export const LazyCartPlatformsMiniNormal = import('../../components/Cart/Platforms/mini/normal.vue' /* webpackChunkName: "components/cart-platforms-mini-normal" */).then(c => c.default || c)
+export const LazyCartPlatformsMiniRpOrder = import('../../components/Cart/Platforms/mini/rp-order.vue' /* webpackChunkName: "components/cart-platforms-mini-rp-order" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMiniOrdersNormal = import('../../components/Checkout/Platforms/mini/orders/normal.vue' /* webpackChunkName: "components/checkout-platforms-mini-orders-normal" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMiniOrdersSubscription = import('../../components/Checkout/Platforms/mini/orders/subscription.vue' /* webpackChunkName: "components/checkout-platforms-mini-orders-subscription" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMobileOrdersBundler = import('../../components/Checkout/Platforms/mobile/orders/bundler.vue' /* webpackChunkName: "components/checkout-platforms-mobile-orders-bundler" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMobileOrdersNormal = import('../../components/Checkout/Platforms/mobile/orders/normal.vue' /* webpackChunkName: "components/checkout-platforms-mobile-orders-normal" */).then(c => c.default || c)
 export const LazyCheckoutPlatformsMobileOrdersSubscription = import('../../components/Checkout/Platforms/mobile/orders/subscription.vue' /* webpackChunkName: "components/checkout-platforms-mobile-orders-subscription" */).then(c => c.default || c)
+export const LazyCheckoutPlatformsDesktopOrdersNormal = import('../../components/Checkout/Platforms/desktop/orders/normal.vue' /* webpackChunkName: "components/checkout-platforms-desktop-orders-normal" */).then(c => c.default || c)
+export const LazyCheckoutPlatformsDesktopOrdersSubscription = import('../../components/Checkout/Platforms/desktop/orders/subscription.vue' /* webpackChunkName: "components/checkout-platforms-desktop-orders-subscription" */).then(c => c.default || c)

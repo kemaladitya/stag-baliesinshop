@@ -8,11 +8,11 @@
   "VuetifyLogo": {
     "description": "Auto imported from components/VuetifyLogo.vue"
   },
-  "BottomSheetRegLoading": {
-    "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
-  },
   "Cart": {
     "description": "Auto imported from components/Cart/index.vue"
+  },
+  "BottomSheetRegLoading": {
+    "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
   },
   "Checkout": {
     "description": "Auto imported from components/Checkout/index.vue"
@@ -56,9 +56,6 @@
   "DialogsCartRemoveConfirm": {
     "description": "Auto imported from components/Dialogs/Cart/remove-confirm.vue"
   },
-  "DialogsCheckoutInsertVoucherCode": {
-    "description": "Auto imported from components/Dialogs/Checkout/insert-voucher-code.vue"
-  },
   "ProductDetailPlatformsDesktop": {
     "description": "Auto imported from components/Product-Detail/Platforms/desktop.vue"
   },
@@ -67,6 +64,9 @@
   },
   "ProductDetailPlatformsMobile": {
     "description": "Auto imported from components/Product-Detail/Platforms/mobile.vue"
+  },
+  "DialogsCheckoutInsertVoucherCode": {
+    "description": "Auto imported from components/Dialogs/Checkout/insert-voucher-code.vue"
   },
   "ProductsPlatformsDesktop": {
     "description": "Auto imported from components/Products/Platforms/desktop.vue"
@@ -85,15 +85,6 @@
   },
   "CartPlatformsDesktopRpOrder": {
     "description": "Auto imported from components/Cart/Platforms/desktop/rp-order.vue"
-  },
-  "CartPlatformsMini": {
-    "description": "Auto imported from components/Cart/Platforms/mini/index.vue"
-  },
-  "CartPlatformsMiniNormal": {
-    "description": "Auto imported from components/Cart/Platforms/mini/normal.vue"
-  },
-  "CartPlatformsMiniRpOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mini/rp-order.vue"
   },
   "CartPlatformsMobileBundler": {
     "description": "Auto imported from components/Cart/Platforms/mobile/bundler.vue"
@@ -179,11 +170,14 @@
   "CheckoutPlatformsMobileVoucher": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/voucher.vue"
   },
-  "CheckoutPlatformsDesktopOrdersNormal": {
-    "description": "Auto imported from components/Checkout/Platforms/desktop/orders/normal.vue"
+  "CartPlatformsMini": {
+    "description": "Auto imported from components/Cart/Platforms/mini/index.vue"
   },
-  "CheckoutPlatformsDesktopOrdersSubscription": {
-    "description": "Auto imported from components/Checkout/Platforms/desktop/orders/subscription.vue"
+  "CartPlatformsMiniNormal": {
+    "description": "Auto imported from components/Cart/Platforms/mini/normal.vue"
+  },
+  "CartPlatformsMiniRpOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mini/rp-order.vue"
   },
   "CheckoutPlatformsMiniOrdersNormal": {
     "description": "Auto imported from components/Checkout/Platforms/mini/orders/normal.vue"
@@ -199,5 +193,11 @@
   },
   "CheckoutPlatformsMobileOrdersSubscription": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/orders/subscription.vue"
+  },
+  "CheckoutPlatformsDesktopOrdersNormal": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/orders/normal.vue"
+  },
+  "CheckoutPlatformsDesktopOrdersSubscription": {
+    "description": "Auto imported from components/Checkout/Platforms/desktop/orders/subscription.vue"
   }
 }
