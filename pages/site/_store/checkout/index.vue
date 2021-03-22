@@ -497,6 +497,20 @@ export default {
 
     async implement_voucher(type, params) {
       try {
+        const cat_list = params.value.categories_product.split(',')
+        
+        if (!cat_list.includes(this.site.category)) {
+          this.$store.dispatch('setState', {
+            payload: {
+              key : 'alert',
+              data: {
+                status: true,
+                text  : 'Voucher tidak berlaku di area Anda.'
+              }
+            }
+          })
+        }
+
         const total = this.grand_total
         const body  = {
           id           : this.store.id,

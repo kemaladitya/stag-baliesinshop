@@ -84,7 +84,7 @@
       </div>
       <div style="text-align:left" :style="'font-size: ' + (screen == 'mini' ? '8px;' : '10px;')">
         Tentukan variasi roti yang Anda inginkan dalam bentuk pembelian paket<br />
-        Sari Roti (Box & Parcell). Min order untuk Parcell Rp. 60k
+        Sari Roti (Kemasan Box & Parcel). Min order untuk parcel 60k
       </div>
     </v-card>
 

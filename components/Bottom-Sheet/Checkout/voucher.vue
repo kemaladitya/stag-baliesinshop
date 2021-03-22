@@ -18,7 +18,10 @@
       </v-btn>
     </div>
     <v-divider />
-    <div class="pb-2">
+    <div
+      class="pb-2"
+      style="overflow-y: scroll !important; max-height: 450px !important;"
+    >
       <v-card
         v-for="(vc, idx) in all_voucher"
         :key="vc.id"
@@ -141,3 +144,5 @@ export default {
   }
 }
 </script>
+
+

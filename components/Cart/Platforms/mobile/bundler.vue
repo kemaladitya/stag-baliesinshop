@@ -19,7 +19,7 @@
           Hapus Paket?
         </div>
         <div style="font-size: 13px; color: grey; padding-bottom: 10px">
-          Paket ini akan dihapus dari mode paket kamu.
+          Paket ini akan dihapus dari mode paket Anda.
         </div>
       </v-card>
       <v-card
@@ -58,44 +58,60 @@
       max-width="90%"
     >
       <v-card>
-        <v-card class="d-flex flex-row pa-2" flat>
-          <v-card
-            width="48%"
-            style="font-size: 13px;"
-            height="22"
-            light
-            :color="type == 'box' ? 'primary' : 'white'"
-            :style="type == 'box' ? 'color: white' : 'color: grey'"
-            @click="type = 'box'"
-          >
-            Box
-          </v-card>
-          <v-card width="4%" flat tile />
-          <v-card
-            width="48%"
-            style="font-size: 13px;"
-            height="22"
-            light
-            :color="type == 'parcell' ? 'primary' : 'white'"
-            :style="type == 'parcell' ? 'color: white' : 'color: grey'"
-            @click="type = 'parcell'"
-          >
-            Parcell
-          </v-card>
-        </v-card>
         <div
-          v-if="type == 'box'"
-          style="font-size: 10px; text-align: left; padding-left: 10px; font-style: italic;"
-          :style="total < 30000 ? 'color: red;' : 'color: grey;'"
+          style="background-color: lightgray;"
         >
-          Minimum order 30k.
-        </div>
-        <div
-          v-if="type == 'parcell'"
-          style="font-size: 10px; text-align: left; padding-left: 10px; font-style: italic;"
-          :style="total < 60000 ? 'color: red;' : 'color: grey;'"
-        >
-          Minimum order 60k.
+          <div
+            class="pa-2 pb-0"
+            style="text-align: left; font-weight: 600; font-size: 12px;"
+          >
+            Pilih Tipe Paket:
+          </div>
+          <v-card class="d-flex flex-row pa-2" style="background-color: lightgray !important;" flat>
+            <v-card
+              class="pt-1"
+              width="48%"
+              style="font-size: 13px;"
+              height="28"
+              light
+              flat
+              :color="type == 'box' ? 'success' : 'white'"
+              :style="type == 'box' ? 'color: white' : 'color: grey'"
+              @click="type = 'box'"
+            >
+              Box
+            </v-card>
+            <v-card width="4%" flat tile style="background-color: lightgray !important;" />
+            <v-card
+              class="pt-1"
+              width="48%"
+              style="font-size: 13px;"
+              height="28"
+              light
+              flat
+              :color="type == 'parcel' ? 'success' : 'white'"
+              :style="type == 'parcel' ? 'color: white' : 'color: grey'"
+              @click="type = 'parcel'"
+            >
+              Parcel
+            </v-card>
+          </v-card>
+          <div
+            v-if="type == 'box'"
+            class="pb-2"
+            style="font-size: 10px; text-align: left; padding-left: 10px; font-style: italic;"
+            :style="total < 30000 ? 'color: red;' : 'color: grey;'"
+          >
+            Minimum order 30k.
+          </div>
+          <div
+            v-if="type == 'parcel'"
+            class="pb-2"
+            style="font-size: 10px; text-align: left; padding-left: 10px; font-style: italic;"
+            :style="total < 60000 ? 'color: red;' : 'color: grey;'"
+          >
+            Minimum order 60k.
+          </div>
         </div>
         <v-card v-if="list_items.length" class="pa-2" flat tile max-height="400" style="overflow-y: scroll">
           <v-card
@@ -187,7 +203,7 @@
           <v-spacer></v-spacer>
           <v-btn
             class="mr-2"
-            color="green darken-1"
+            color="black"
             depressed
             small
             text
@@ -196,8 +212,8 @@
             Kembali
           </v-btn>
           <v-btn
-            color="green darken-1"
-            style="color: white"
+            color="#fd0"
+            style="color: black"
             depressed
             small
             :disabled="create_btn"
@@ -233,21 +249,25 @@
                 <center v-if="item.type == 'box'" style="width: 25px">
                   <v-img
                     class="mr-2"
+                    max-width="15px"
+                    min-width="15px"
+                    max-height="18px"
+                    min-height="18px"
+                    height="18px"
+                    width="15px"
+                    src="https://image.freepik.com/free-icon/present-box-with-big-bow_318-9536.jpg"
+                  />
+                </center>
+                <center v-if="item.type == 'parcel'" style="width: 25px">
+                  <v-img
+                    class="mr-2"
                     max-width="18px"
                     min-width="18px"
                     max-height="18px"
                     min-height="18px"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnBV7tG8dA-CP6cR2y_s-msDWxSZFpRohWGw&usqp=CAU"
-                  />
-                </center>
-                <center v-if="item.type == 'parcell'" style="width: 25px">
-                  <v-img
-                    class="mr-2"
-                    max-width="8px"
-                    min-width="8px"
-                    max-height="18"
-                    min-height="18"
-                    src="https://www.pikpng.com/pngl/b/299-2992890_red-ribbon-png.png"
+                    height="18px"
+                    width="18px"
+                    src="https://icons-for-free.com/iconfiles/png/512/bakery+svg+line+bread+basket-1319964864467425081.png"
                   />
                 </center>
                 <div style="font-weight: 600">{{ item.type }}</div>
@@ -300,8 +320,8 @@
                 outlined
               >
                 <v-card class="d-flex flex-row" flat width="100%">
-                  <v-card class="ma-2 ml-0" flat>
-                    <v-img :src="detail_item.image" width="75" height="75" />
+                  <v-card class="ma-2 ml-0" style="padding-top: 2px" flat>
+                    <v-img :src="detail_item.image" width="70" height="70" />
                   </v-card>
                   <div class="pa-2" style="text-align:left">
                     <div
@@ -383,25 +403,50 @@
       </v-card>
     </transition>
 
-    <v-btn
-      color="primary"
-      small
-      depressed
-      @click="created_notes"
-    >
-      <v-icon small>mdi-typewriter</v-icon>
-    </v-btn>
-
-    <v-btn
-      class="mr-1"
-      color="success"
-      small
-      style="text-transform: capitalize; letter-spacing: normal"
-      depressed
-      @click="dialog = true"
-    >
-      Tambah paket
-    </v-btn>
+    <div class="d-flex flex-row">
+      <div class="pa-1 pt-0" style="text-align: left; width: 70%;">
+        <div class="d-flex flex-row">
+          <v-img
+            class="mr-2"
+            src="https://cdn.onlinewebfonts.com/svg/img_569342.png"
+            width="22"
+            height="22"
+            max-width="22"
+            max-height="22"
+            style="margin-top: 6px; border-radius: 2px"
+          />
+          <div>
+            <div
+              v-if="!customized_values"
+              style="font-size: 12px; font-weight: 600"
+            >
+              Beli Paket
+            </div>
+            <div
+              v-if="customized_values"
+              style="font-size: 12px; font-weight: 600"
+            >
+              Tambah Paket Lainnya
+            </div>
+            <div style="font-size: 10px; color: grey">
+              Pembelian roti dalam bentuk paket.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 30%;">
+        <v-btn
+          class="mt-1 mr-1"
+          color="success"
+          small
+          style="text-transform: capitalize; letter-spacing: normal"
+          depressed
+          @click="dialog = true"
+        >
+          Tambah
+        </v-btn>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -434,7 +479,7 @@ export default {
         return true
       }
 
-      if (this.type == 'parcell' && this.total < 60000) {
+      if (this.type == 'parcel' && this.total < 60000) {
         return true
       }
 
@@ -550,6 +595,7 @@ export default {
           discount_price : el.detail[0].discount_price
         })
       })
+      this.list_items = this.list_items.slice(this.cart.length)
     },
 
     change_group_qty(status, index) {
