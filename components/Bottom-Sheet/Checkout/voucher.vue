@@ -40,59 +40,116 @@
           <div v-html="vc.description" />
         </v-card>
       </v-card>
-      <v-card
-        v-for="(vc, idx) in so_voucher"
-        :key="vc.id"
-        :class="!idx ? 'pb-0' : null"
-        class="pa-2 pl-0"
-        flat
-      >
+      <div v-if="rp_order">
         <v-card
-          class="ml-2 pa-2"
-          outlined
-          :disabled="rp_order"
-          @click="usevoucher({ is_custom_voucher: false, value: vc })"
+          v-for="(vc, idx) in rp_voucher"
+          :key="vc.id"
+          :class="!idx ? 'pb-0' : null"
+          class="pa-2 pl-0"
+          flat
         >
-          <div class="pb-1" style="font-weight: 600; font-size: 13px">
-            {{ vc.name }}
-          </div>
-          <div v-html="vc.description" />
+          <v-card
+            class="ml-2 pa-2"
+            outlined
+            :disabled="!rp_order"
+            @click="usevoucher({ is_custom_voucher: false, value: vc })"
+          >
+            <div class="pb-1" style="font-weight: 600; font-size: 13px">
+              {{ vc.name }}
+            </div>
+            <div v-html="vc.description" />
+          </v-card>
         </v-card>
-      </v-card>
-      <v-card
-        v-for="(vc, idx) in rp_voucher"
-        :key="vc.id"
-        :class="!idx ? 'pb-0' : null"
-        class="pa-2 pl-0"
-        flat
-      >
-        <v-card
-          class="ml-2 pa-2"
-          outlined
-          :disabled="!rp_order"
-          @click="usevoucher({ is_custom_voucher: false, value: vc })"
-        >
-          <div class="pb-1" style="font-weight: 600; font-size: 13px">
-            {{ vc.name }}
-          </div>
-          <div v-html="vc.description" />
-        </v-card>
-      </v-card>
-      <v-card v-if="customvoucher" class="pa-2 pl-0" flat>
-        <v-card
-          class="ml-2 pa-2"
-          outlined
-          @click="usevoucher({ is_custom_voucher: true, value: true })"
-        >
-          <div class="mb-1" style="font-size: 13px; font-weight: 600">
-            Ketik Kode Voucher
-          </div>
+        <v-card v-if="customvoucher" class="pa-2 pl-0" flat>
+          <v-card
+            class="ml-2 pa-2"
+            outlined
+            @click="usevoucher({ is_custom_voucher: true, value: true })"
+          >
+            <div class="mb-1" style="font-size: 13px; font-weight: 600">
+              Ketik Kode Voucher
+            </div>
 
-          <div style="font-size: 12px">
-            Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.
-          </div>
+            <div style="font-size: 12px">
+              Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.
+            </div>
+          </v-card>
         </v-card>
-      </v-card>
+        <v-card
+          v-for="(vc, idx) in so_voucher"
+          :key="vc.id"
+          :class="!idx ? 'pb-0' : null"
+          class="pa-2 pl-0"
+          flat
+        >
+          <v-card
+            class="ml-2 pa-2"
+            outlined
+            :disabled="rp_order"
+            @click="usevoucher({ is_custom_voucher: false, value: vc })"
+          >
+            <div class="pb-1" style="font-weight: 600; font-size: 13px">
+              {{ vc.name }}
+            </div>
+            <div v-html="vc.description" />
+          </v-card>
+        </v-card>
+      </div>
+      <div v-else>
+         <v-card
+          v-for="(vc, idx) in so_voucher"
+          :key="vc.id"
+          :class="!idx ? 'pb-0' : null"
+          class="pa-2 pl-0"
+          flat
+        >
+          <v-card
+            class="ml-2 pa-2"
+            outlined
+            :disabled="rp_order"
+            @click="usevoucher({ is_custom_voucher: false, value: vc })"
+          >
+            <div class="pb-1" style="font-weight: 600; font-size: 13px">
+              {{ vc.name }}
+            </div>
+            <div v-html="vc.description" />
+          </v-card>
+        </v-card>
+        <v-card v-if="customvoucher" class="pa-2 pl-0" flat>
+          <v-card
+            class="ml-2 pa-2"
+            outlined
+            @click="usevoucher({ is_custom_voucher: true, value: true })"
+          >
+            <div class="mb-1" style="font-size: 13px; font-weight: 600">
+              Ketik Kode Voucher
+            </div>
+
+            <div style="font-size: 12px">
+              Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.
+            </div>
+          </v-card>
+        </v-card>
+        <v-card
+          v-for="(vc, idx) in rp_voucher"
+          :key="vc.id"
+          :class="!idx ? 'pb-0' : null"
+          class="pa-2 pl-0"
+          flat
+        >
+          <v-card
+            class="ml-2 pa-2"
+            outlined
+            :disabled="!rp_order"
+            @click="usevoucher({ is_custom_voucher: false, value: vc })"
+          >
+            <div class="pb-1" style="font-weight: 600; font-size: 13px">
+              {{ vc.name }}
+            </div>
+            <div v-html="vc.description" />
+          </v-card>
+        </v-card>
+      </div>
     </div>
   </v-sheet>
 </template>
@@ -126,20 +183,48 @@ export default {
   },
 
   computed: {
+    site() {
+      return this.$store.state.site
+    },
+
     rp_order() {
       return this.$store.state.rp_order
     },
 
     rp_voucher() {
-      return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "rp")
+      return this.listvouchers.filter(el => {
+        if (JSON.parse(el.sku_product).mode == "rp") {
+          const category = el.categories_product.split(',').filter(cat => cat == this.site.category)
+
+          if (category.length) {
+            return el
+          }
+        }
+      })
     },
 
     so_voucher() {
-      return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "so")
+      return this.listvouchers.filter(el => {
+        if (JSON.parse(el.sku_product).mode == "so") {
+          const category = el.categories_product.split(',').filter(cat => cat == this.site.category)
+
+          if (category.length) {
+            return el
+          }
+        }
+      })
     },
 
     all_voucher() {
-      return this.listvouchers.filter(el => JSON.parse(el.sku_product).mode == "all")
+      return this.listvouchers.filter(el => {
+        if (JSON.parse(el.sku_product).mode == "all") {
+          const category = el.categories_product.split(',').filter(cat => cat == this.site.category)
+
+          if (category.length) {
+            return el
+          }
+        }
+      })
     }
   }
 }

@@ -7,9 +7,15 @@
         <div style="font-weight: 600">Subtotal:</div>
         &nbsp;
         <v-spacer />
-        <div style="font-weight: 600; color: #2196f3">
+        <div v-if="!customized_values">
+          <div style="font-weight: 600; color: #2196f3">
+            Rp.
+            {{ grandtotal.toLocaleString().replace(/,/g, '.') }}
+          </div>
+        </div>
+        <div v-else style="font-weight: 600; color: #2196f3">
           Rp.
-          {{ grandtotal.toLocaleString().replace(/,/g, '.') }}
+          {{ customized_values_total.toLocaleString().replace(/,/g, '.') }}
         </div>
       </div>
     </div>
@@ -36,6 +42,22 @@ export default {
   computed: {
     store() {
       return this.$store.state.store
+    },
+
+    customized_values() {
+      return this.$store.state.customized_values
+    },
+
+    customized_values_total() {
+      let total = 0
+
+      if (this.customized_values) {
+        this.customized_values.forEach(el => {
+          total += el.total
+        })
+      }
+
+      return total
     },
 
     rp_order() {

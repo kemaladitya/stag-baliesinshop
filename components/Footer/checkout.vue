@@ -6,9 +6,13 @@
     <div class="d-flex flex-row pa-1">
       <div style="font-weight: 600">TOTAL HARGA</div>
       <v-spacer />
-      <div style="font-weight: 600">
+      <div v-if="!customized_values" style="font-weight: 600">
         Rp.
         {{ grandtotal.toLocaleString().replace(',', '.') }}
+      </div>
+      <div v-else style="font-weight: 600">
+        Rp.
+        {{ customized_values_total.toLocaleString().replace(',', '.') }}
       </div>
     </div>
     <v-btn
@@ -42,6 +46,24 @@ export default {
       type: Function,
       required: true
     }
+  },
+
+  computed: {
+    customized_values() {
+      return this.$store.state.customized_values
+    },
+
+    customized_values_total() {
+      let total = 0
+
+      if (this.customized_values) {
+        this.customized_values.forEach(el => {
+          total += el.total
+        })
+      }
+
+      return total
+    },
   }
 }
 </script>

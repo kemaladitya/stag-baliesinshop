@@ -4,24 +4,31 @@
       DETAIL PESANAN & WAKTU PENGANTARAN
     </div>
 
-    <Normal :date="date" />
+    <div v-if="!customized_values">
+      <Normal :date="date" />
 
-    <Subscription
-      :parsedate="parsedate"
-      :parseprice="parseprice"
-      :expansion="expansion"
-    />
+      <Subscription
+        :parsedate="parsedate"
+        :parseprice="parseprice"
+        :expansion="expansion"
+      />
+    </div>
+
+    <!-- <Bundler v-if="customized_values" :date="date" /> -->
+
   </div>
 </template>
 
 <script>
 import Normal from '@/components/Checkout/Platforms/mobile/orders/normal'
 import Subscription from '@/components/Checkout/Platforms/mobile/orders/subscription'
+import Bundler from '@/components/Checkout/Platforms/mobile/orders/bundler'
 
 export default {
   components: {
     Normal,
-    Subscription
+    Subscription,
+    Bundler
   },
 
   props: {
@@ -43,6 +50,12 @@ export default {
     expansion: {
       type: Array,
       required: true
+    }
+  },
+
+  computed: {
+    customized_values() {
+      return this.$store.state.customized_values
     }
   }
 }
