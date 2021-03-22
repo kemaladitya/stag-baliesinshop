@@ -1,5 +1,10 @@
 import Vuex from 'vuex'
 
+const date = new Date()
+
+date.setHours(date.getHours() + 7)
+date.setDate(date.getDate() + 1)
+
 export default () => {
   return new Vuex.Store({
     /* Initial State */
@@ -38,6 +43,7 @@ export default () => {
       rp_order: false,
       min_rp: '',
       max_rp: '',
+      single_delivery_date: date.toISOString(),
       customized_values: null
     },
 

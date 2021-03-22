@@ -534,6 +534,7 @@ export default {
                 data: cart.results.notes
               }
             })
+            this.rp_mode(null)
           }
 
           if (cart.results.type === 'rp-order') {
@@ -618,6 +619,7 @@ export default {
               }
             })
           }
+          this.rp_mode(true)
         }
         // const request = await self.dispatch('request', {
         //   url: '/cache/cart',
@@ -861,11 +863,11 @@ export default {
         })
         this.update_cache('rp-order')
       } else {
-        const date = new Date()
-        const day = date.getDate()
+        const date  = new Date()
+        const day   = date.getDate()
         const month = date.getMonth()
-        let years = date.getFullYear()
-        const cart = {
+        let years   = date.getFullYear()
+        const cart  = {
           type: 'single-order',
           items: this.cart.map(el => ({
             delivery_date: this.single_order_date,
@@ -881,15 +883,24 @@ export default {
         date.setDate(day + 1)
         date.setMonth(month + 1)
 
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'min_rp',
-            data: ''
-          }
-        })
+        console.log(`${years}-${!+date.getMonth() ? '12' : date.getMonth()}-${
+          date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate()
+        }`, ' date ==== 001')
+
         this.date = `${years}-${!+date.getMonth() ? '12' : date.getMonth()}-${
           date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate()
         }`
+
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'min_rp',
+            data: `${years}-${!+date.getMonth() ? '12' : date.getMonth()}-${
+              date.getDate() < 10 ? '0' + String(date.getDate()) : date.getDate()
+            }`
+          }
+        })
+
+        console.log(this.date, ' this.date ----+ dddd +')
         this.update_cache('single-order')
       }
     },

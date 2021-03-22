@@ -232,15 +232,105 @@ module.exports = {
   loading: false,
 
   pwa: {
-    // meta: {
-    //   title: 'My PWA',
-    //   author: 'Me',
-    // },
-    // manifest: {
-    //   name: 'Nuxt.js PWAs are so easy',
-    //   short_name: 'Nuxt.js PWA',
-    //   lang: 'en',
-    // }
+    meta: {
+      title: 'Balesin - Shop',
+      author: 'balesin.id',
+    },
+    manifest: {
+      name: 'balesin - Shop',
+      short_name: 'balesin - Shop',
+      lang: 'en',
+      description: 'balesin chat commerce.',
+      start_url: baseURL,
+      background_color: '#ffffdd',
+      theme_color: '#ffffdd',
+      dir: 'auto',
+      display: 'standalone',
+      orientation: 'portrait',
+      icons: [
+        {
+          src: 'https://faq.balesin.id/icon/icon-256x256.png',
+          sizes: '256x256',
+          type: 'image/png'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/icon-384x384.png',
+          sizes: '384x384',
+          type: 'image/png'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/icon-512x512.png',
+          sizes: '512x512',
+          type: 'image/png'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/android-icon-192x192-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '192x192'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-180x180-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '180x180'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-152x152-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '152x152'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-144x144-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '144x144'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-120x120-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '120x120'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-114x114-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '114x114'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/favicon-96x96-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '96x96'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-76x76-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '76x76'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-72x72-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '72x72'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-60x60-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '60x60'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/apple-icon-57x57-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '57x57'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/favicon-32x32-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '32x32'
+        },
+        {
+          src: 'https://faq.balesin.id/icon/favicon-16x16-dunplab-manifest-11523.png',
+          type: 'image/png',
+          sizes: '16x16'
+        }
+      ],
+      prefer_related_applications: false
+    }
   },
   /*
    ** vuetify module configuration
