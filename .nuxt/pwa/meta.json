@@ -64,7 +64,7 @@
     {
       "hid": "shortcut-icon",
       "rel": "shortcut icon",
-      "href": "/icon/android-icon-192x192-dunplab-manifest-11523.png"
+      "href": "https://master.balesin.id/icon/android-icon-192x192-dunplab-manifest-11523.png"
     },
     {
       "hid": "apple-touch-icon",
@@ -74,7 +74,7 @@
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.e3a3f1b4.json",
+      "href": "/_nuxt/manifest.64210271.json",
       "hid": "manifest"
     }
   ],
