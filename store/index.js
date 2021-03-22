@@ -37,7 +37,8 @@ export default () => {
       ],
       rp_order: false,
       min_rp: '',
-      max_rp: ''
+      max_rp: '',
+      customized_values: null
     },
 
     mutations: {

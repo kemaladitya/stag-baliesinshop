@@ -91,21 +91,28 @@
         </v-card>
       </v-card>
 
-      <!-- normal cart order -->
-      <NormalOrder :changeqty="changeqty" :updatecache="updatecache" />
+      <div v-if="!customized_values">
+        <!-- normal cart order -->
+        <NormalOrder :changeqty="changeqty" :updatecache="updatecache" />
 
-      <!-- list items rp order -->
-      <RPOrder
-        :parsedate="parsedate"
-        :parseprice="parseprice"
-        :expanddetail="expanddetail"
-        :expansion="expansion"
-        :changeqtysubsitem="changeqtysubsitem"
-        :deleterp="deleterp"
-        :selectsubsdate="selectsubsdate"
-        :changehandler="changehandler"
-        :changedeliverytime="changedeliverytime"
-      />
+        <!-- list items rp order -->
+        <RPOrder
+          :parsedate="parsedate"
+          :parseprice="parseprice"
+          :expanddetail="expanddetail"
+          :expansion="expansion"
+          :changeqtysubsitem="changeqtysubsitem"
+          :deleterp="deleterp"
+          :selectsubsdate="selectsubsdate"
+          :changehandler="changehandler"
+          :changedeliverytime="changedeliverytime"
+        />
+      </div>
+
+      <!-- custom setup -->
+      <!-- <Bundler v-if="!rp_order" /> -->
+      <!-- custom setup -->
+
       <!-- customer notes -->
       <div class="mt-4 pa-2" style="text-align:left">
         <div style="font-size: 12px">Catatan untuk penjual (optional):</div>
@@ -120,7 +127,10 @@
       </div>
 
       <!-- subtotal -->
-      <div class="d-flex flex-row pa-2 pb-1">
+      <div
+        v-if="!customized_values"
+        class="d-flex flex-row pa-2 pb-1"
+      >
         <div>Subtotal</div>
         <div
           v-show="!rp_order"
@@ -146,6 +156,32 @@
         </div>
         <v-card height="20vh" flat />
       </div>
+
+      <!-- custom setup -->
+      <div
+        v-else
+        class="d-flex flex-row pa-2 pb-1"
+      >
+        <div>Subtotal</div>
+        <div
+          v-show="!rp_order"
+          class="pa-2 pt-2"
+          style="font-size: 9px; font-weight: 600; padding-top: 2px; color: rgb(255 111 111); font-style: italic;"
+        >
+          min. {{ store.min_order / 1000 }}k - max. {{ store.max_order / 1000 }}k
+        </div>
+        <v-spacer />
+        <div style="font-weight: 600">
+          Rp. {{
+            customized_values_total
+              .toLocaleString()
+              .replace(/,/g, '.')
+          }}
+        </div>
+        <v-card height="20vh" flat />
+      </div>
+      <!-- custom setup -->
+
     </div>
   </v-card>
 </template>
@@ -153,11 +189,15 @@
 <script>
 import NormalOrder from '@/components/Cart/Platforms/mobile/normal'
 import RPOrder from '@/components/Cart/Platforms/mobile/rp-order'
+// custom setup
+import Bundler from '@/components/Cart/Platforms/mobile/bundler'
+// custom setup
 
 export default {
   components: {
     NormalOrder,
-    RPOrder
+    RPOrder,
+    Bundler
   },
 
   props: {
@@ -224,6 +264,24 @@ export default {
   },
 
   computed: {
+    // custom setup
+    customized_values() {
+      return this.$store.state.customized_values
+    },
+
+    customized_values_total() {
+      let total = 0
+
+      if (this.customized_values) {
+        this.customized_values.forEach(el => {
+          total += el.total
+        })
+      }
+
+      return total
+    },
+    // custom setup
+
     delivery_time_normal() {
       return this.$store.state.delivery_time_normal
     },

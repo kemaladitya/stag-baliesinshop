@@ -35,7 +35,7 @@
     </v-dialog>
 
     <v-card
-      v-if="cart.length || dates.length"
+      v-if="(cart.length || dates.length) && customized_values == null"
       id="b-subs-mode"
       class="mt-2 pr-0"
       :class="screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2'"
@@ -62,6 +62,29 @@
       <div style="text-align:left" :style="'font-size: ' + (screen == 'mini' ? '8px;' : '10px;')">
         Anda dapat mengatur waktu pengiriman roti pesanan Anda, <br />
         untuk dijadwalkan hingga 30 hari kedepan.
+      </div>
+    </v-card>
+
+    <v-card
+      v-if="customized_values"
+      id="b-subs-mode"
+      class="mt-2 pr-0"
+      :class="screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2'"
+      color="#dfdfdf"
+      min-width="100%"
+      flat
+      tile
+      :style="screen == 'mini' ? 'position: fixed; max-height: 59px !important' : null"
+    >
+      <div class="d-flex flex-row">
+        <div style="font-size: 12px; padding-top: 1px; font-weight: 600">
+          MODE PAKET
+        </div>
+        <v-spacer />
+      </div>
+      <div style="text-align:left" :style="'font-size: ' + (screen == 'mini' ? '8px;' : '10px;')">
+        Tentukan variasi roti yang Anda inginkan dalam bentuk pembelian paket<br />
+        Sari Roti (Box & Parcell). Min order untuk Parcell Rp. 60k
       </div>
     </v-card>
 
@@ -169,6 +192,10 @@ export default {
   computed: {
     delivery_time_normal () {
       return this.$store.state.delivery_time_normal
+    },
+
+    customized_values () {
+      return this.$store.state.customized_values
     },
 
     default_date () {

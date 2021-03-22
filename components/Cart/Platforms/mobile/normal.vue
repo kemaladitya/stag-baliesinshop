@@ -113,7 +113,6 @@
           </div>
         </v-card>
       </div>
-      <br />
     </v-card>
   </v-expand-transition>
 </template>

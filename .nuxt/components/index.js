@@ -20,12 +20,13 @@ export { default as Mini } from '../../components/Product-Detail/Platforms/mini.
 export { default as Mobile } from '../../components/Product-Detail/Platforms/mobile.vue'
 export { default as Normal } from '../../components/Cart/Platforms/desktop/normal.vue'
 export { default as RpOrder } from '../../components/Cart/Platforms/desktop/rp-order.vue'
+export { default as Bundler } from '../../components/Cart/Platforms/mobile/bundler.vue'
 export { default as Customer } from '../../components/Checkout/Platforms/desktop/customer.vue'
 export { default as Kurir } from '../../components/Checkout/Platforms/desktop/kurir.vue'
 export { default as Notes } from '../../components/Checkout/Platforms/desktop/notes.vue'
 export { default as OrderDetail } from '../../components/Checkout/Platforms/desktop/order-detail.vue'
 export { default as Subtotal } from '../../components/Checkout/Platforms/desktop/subtotal.vue'
-export { default as Subscription } from '../../components/Checkout/Platforms/desktop/orders/subscription.vue'
+export { default as Subscription } from '../../components/Checkout/Platforms/mini/orders/subscription.vue'
 
 export const LazyGeneral = import('../../components/General.js' /* webpackChunkName: "components/general" */).then(c => c.default || c)
 export const LazyLogo = import('../../components/Logo.vue' /* webpackChunkName: "components/logo" */).then(c => c.default || c)
@@ -49,9 +50,10 @@ export const LazyMini = import('../../components/Product-Detail/Platforms/mini.v
 export const LazyMobile = import('../../components/Product-Detail/Platforms/mobile.vue' /* webpackChunkName: "components/mobile" */).then(c => c.default || c)
 export const LazyNormal = import('../../components/Cart/Platforms/desktop/normal.vue' /* webpackChunkName: "components/normal" */).then(c => c.default || c)
 export const LazyRpOrder = import('../../components/Cart/Platforms/desktop/rp-order.vue' /* webpackChunkName: "components/rp-order" */).then(c => c.default || c)
+export const LazyBundler = import('../../components/Cart/Platforms/mobile/bundler.vue' /* webpackChunkName: "components/bundler" */).then(c => c.default || c)
 export const LazyCustomer = import('../../components/Checkout/Platforms/desktop/customer.vue' /* webpackChunkName: "components/customer" */).then(c => c.default || c)
 export const LazyKurir = import('../../components/Checkout/Platforms/desktop/kurir.vue' /* webpackChunkName: "components/kurir" */).then(c => c.default || c)
 export const LazyNotes = import('../../components/Checkout/Platforms/desktop/notes.vue' /* webpackChunkName: "components/notes" */).then(c => c.default || c)
 export const LazyOrderDetail = import('../../components/Checkout/Platforms/desktop/order-detail.vue' /* webpackChunkName: "components/order-detail" */).then(c => c.default || c)
 export const LazySubtotal = import('../../components/Checkout/Platforms/desktop/subtotal.vue' /* webpackChunkName: "components/subtotal" */).then(c => c.default || c)
-export const LazySubscription = import('../../components/Checkout/Platforms/desktop/orders/subscription.vue' /* webpackChunkName: "components/subscription" */).then(c => c.default || c)
+export const LazySubscription = import('../../components/Checkout/Platforms/mini/orders/subscription.vue' /* webpackChunkName: "components/subscription" */).then(c => c.default || c)

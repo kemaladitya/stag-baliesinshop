@@ -3628,7 +3628,7 @@ var VFooter = __webpack_require__(212);
 var VImg = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSelect/VSelect.js + 21 modules
-var VSelect = __webpack_require__(200);
+var VSelect = __webpack_require__(201);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(105);
@@ -3854,7 +3854,7 @@ var VFooter = __webpack_require__(212);
 var VImg = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSelect/VSelect.js + 21 modules
-var VSelect = __webpack_require__(200);
+var VSelect = __webpack_require__(201);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(105);
@@ -4269,7 +4269,7 @@ var VCard = __webpack_require__(132);
 var VImg = __webpack_require__(53);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSelect/VSelect.js + 21 modules
-var VSelect = __webpack_require__(200);
+var VSelect = __webpack_require__(201);
 
 // CONCATENATED MODULE: ./components/Product-Detail/Platforms/desktop.vue
 
@@ -4933,7 +4933,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 var VDialog = __webpack_require__(188);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VThemeProvider/VThemeProvider.js
-var VThemeProvider = __webpack_require__(199);
+var VThemeProvider = __webpack_require__(200);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/activatable/index.js
 var activatable = __webpack_require__(116);
@@ -5578,7 +5578,8 @@ const baseMixins = Object(mixins["a" /* default */])(activatable["a" /* default 
 }));
 
 /***/ }),
-/* 199 */
+/* 199 */,
+/* 200 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5607,7 +5608,7 @@ const baseMixins = Object(mixins["a" /* default */])(activatable["a" /* default 
 }));
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5834,7 +5835,7 @@ var console = __webpack_require__(2);
 var VMenu = __webpack_require__(171);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VThemeProvider/VThemeProvider.js
-var VThemeProvider = __webpack_require__(199);
+var VThemeProvider = __webpack_require__(200);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/activatable/index.js
 var activatable = __webpack_require__(116);
@@ -8771,7 +8772,7 @@ const VSelect_baseMixins = Object(mixins["a" /* default */])(VTextField_VTextFie
 }));
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9457,7 +9458,6 @@ installComponents(Products_component, {Mini: __webpack_require__(173).default,Mo
 
 
 /***/ }),
-/* 202 */,
 /* 203 */,
 /* 204 */,
 /* 205 */,
@@ -10280,12 +10280,12 @@ module.exports = exports;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=template&id=098586f0&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{staticClass:"pt-12"},[_c('v-dialog',{ref:"dialog",attrs:{"return-value":_vm.date,"persistent":"","width":"290px"},on:{"update:returnValue":function($event){_vm.date=$event},"update:return-value":function($event){_vm.date=$event}},model:{value:(_vm.select_date),callback:function ($$v) {_vm.select_date=$$v},expression:"select_date"}},[_c('v-date-picker',{attrs:{"min":_vm.min_rp,"max":_vm.max_rp,"events":_vm.selected_dates,"show-current":_vm.min_rp,"event-color":"green lighten-1","scrollable":""},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){_vm.select_date = false}}},[_vm._v("Cancel")]),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":_vm.push_date}},[_vm._v("OK")])],1)],1),_vm._v(" "),_c('v-dialog',{attrs:{"persistent":"","max-width":"80%"},model:{value:(_vm.dialog_delete_rp),callback:function ($$v) {_vm.dialog_delete_rp=$$v},expression:"dialog_delete_rp"}},[_c('RemoveConfirmation',{attrs:{"confirmdeleterp":_vm.confirm_delete_rp}})],1),_vm._v(" "),_c('v-dialog',{model:{value:(_vm.min_order),callback:function ($$v) {_vm.min_order=$$v},expression:"min_order"}},[_c('Minimum')],1),_vm._v(" "),_c('v-dialog',{model:{value:(_vm.max_order),callback:function ($$v) {_vm.max_order=$$v},expression:"max_order"}},[_c('Maximum')],1),_vm._v(" "),(_vm.cart.length || _vm.dates.length)?_c('v-card',{staticClass:"mt-2 pr-0",class:_vm.screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2',style:(_vm.screen == 'mini' ? 'position: fixed; max-height: 59px !important' : null),attrs:{"id":"b-subs-mode","color":"#dfdfdf","min-width":"100%","flat":"","tile":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"12px","padding-top":"1px","font-weight":"600"}},[_vm._v("\n        MODE LANGGANAN\n      ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-switch',{staticClass:"pt-0 mt-0",class:_vm.screen == 'mini' ? 'ml-1 mr-0 pr-0' : null,attrs:{"hide-details":"","dense":""},on:{"change":_vm.subs_controller},model:{value:(_vm.switch_rp),callback:function ($$v) {_vm.switch_rp=$$v},expression:"switch_rp"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"left"},style:('font-size: ' + (_vm.screen == 'mini' ? '8px;' : '10px;'))},[_vm._v("\n      Anda dapat mengatur waktu pengiriman roti pesanan Anda, "),_c('br'),_vm._v("\n      untuk dijadwalkan hingga 30 hari kedepan.\n    ")])]):_vm._e(),_vm._v(" "),_c('div',{style:(_vm.screen == 'mini' ? 'margin-top: 65px' : null)},[(_vm.cart.length || _vm.dates.length)?_c('CartDetail',{attrs:{"expansion":_vm.expansion,"subsorder":_vm.subs_order,"normalorder":_vm.normal_order,"changeqty":_vm.change_qty,"parsedate":_vm.parse_date,"parseprice":_vm.parse_price,"changeqtysubsitem":_vm.change_qty_subs_item,"deleterp":_vm.delete_rp,"selectsubsdate":_vm.select_subs_date,"changehandler":_vm.change_handler,"changenotes":_vm.change_notes,"expanddetail":_vm.expand_detail,"changedeliverytime":_vm.change_delivery_time,"changedeliverysingletime":_vm.change_delivery_single_time,"updatecache":_vm.update_cache}}):_c('div',{staticClass:"mt-12"},[_c('center',[_c('div',{staticClass:"pa-12 pb-6"},[_c('v-img',{attrs:{"src":"https://shop.balesin.id/static/plugins/img/cart-empty-icon.png","width":"300"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"18px","font-weight":"600"}},[_vm._v("\n          Keranjang belanja kosong\n        ")]),_vm._v(" "),_c('div',{staticClass:"mt-2",staticStyle:{"font-size":"16px","color":"#999"}},[_vm._v("\n          Kamu belum memilih produk yang diinginkan\n        ")]),_vm._v(" "),_c('div',{staticClass:"pa-2 mt-4"},[_c('v-btn',{attrs:{"color":"#ffdd00","block":"","to":("/site/" + (_vm.site.store) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_vm._v("\n            Mulai Belanja\n          ")])],1)])],1)],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.products},on:{"click:outside":function($event){return _vm.change_handler('products', false)}}},[_c('Products',{attrs:{"selectatsubs":_vm.select_at_subs,"selectedsubsdate":_vm.selected_subs_date,"selecteddate":_vm.selected_date,"changehandler":_vm.change_handler,"products":_vm.products}})],1),_vm._v(" "),_c('v-footer',{staticStyle:{"width":"100%"},attrs:{"fixed":"","padless":"","color":"white"}},[_c('Footer',{attrs:{"checkout":_vm.checkout,"total":_vm.normal_order}})],1)],1)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=template&id=74e3c67a&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{staticClass:"pt-12"},[_c('v-dialog',{ref:"dialog",attrs:{"return-value":_vm.date,"persistent":"","width":"290px"},on:{"update:returnValue":function($event){_vm.date=$event},"update:return-value":function($event){_vm.date=$event}},model:{value:(_vm.select_date),callback:function ($$v) {_vm.select_date=$$v},expression:"select_date"}},[_c('v-date-picker',{attrs:{"min":_vm.min_rp,"max":_vm.max_rp,"events":_vm.selected_dates,"show-current":_vm.min_rp,"event-color":"green lighten-1","scrollable":""},model:{value:(_vm.date),callback:function ($$v) {_vm.date=$$v},expression:"date"}},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){_vm.select_date = false}}},[_vm._v("Cancel")]),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":_vm.push_date}},[_vm._v("OK")])],1)],1),_vm._v(" "),_c('v-dialog',{attrs:{"persistent":"","max-width":"80%"},model:{value:(_vm.dialog_delete_rp),callback:function ($$v) {_vm.dialog_delete_rp=$$v},expression:"dialog_delete_rp"}},[_c('RemoveConfirmation',{attrs:{"confirmdeleterp":_vm.confirm_delete_rp}})],1),_vm._v(" "),_c('v-dialog',{model:{value:(_vm.min_order),callback:function ($$v) {_vm.min_order=$$v},expression:"min_order"}},[_c('Minimum')],1),_vm._v(" "),_c('v-dialog',{model:{value:(_vm.max_order),callback:function ($$v) {_vm.max_order=$$v},expression:"max_order"}},[_c('Maximum')],1),_vm._v(" "),((_vm.cart.length || _vm.dates.length) && _vm.customized_values == null)?_c('v-card',{staticClass:"mt-2 pr-0",class:_vm.screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2',style:(_vm.screen == 'mini' ? 'position: fixed; max-height: 59px !important' : null),attrs:{"id":"b-subs-mode","color":"#dfdfdf","min-width":"100%","flat":"","tile":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"12px","padding-top":"1px","font-weight":"600"}},[_vm._v("\n        MODE LANGGANAN\n      ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-switch',{staticClass:"pt-0 mt-0",class:_vm.screen == 'mini' ? 'ml-1 mr-0 pr-0' : null,attrs:{"hide-details":"","dense":""},on:{"change":_vm.subs_controller},model:{value:(_vm.switch_rp),callback:function ($$v) {_vm.switch_rp=$$v},expression:"switch_rp"}})],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"left"},style:('font-size: ' + (_vm.screen == 'mini' ? '8px;' : '10px;'))},[_vm._v("\n      Anda dapat mengatur waktu pengiriman roti pesanan Anda, "),_c('br'),_vm._v("\n      untuk dijadwalkan hingga 30 hari kedepan.\n    ")])]):_vm._e(),_vm._v(" "),(_vm.customized_values)?_c('v-card',{staticClass:"mt-2 pr-0",class:_vm.screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2',style:(_vm.screen == 'mini' ? 'position: fixed; max-height: 59px !important' : null),attrs:{"id":"b-subs-mode","color":"#dfdfdf","min-width":"100%","flat":"","tile":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"12px","padding-top":"1px","font-weight":"600"}},[_vm._v("\n        MODE PAKET\n      ")]),_vm._v(" "),_c('v-spacer')],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"left"},style:('font-size: ' + (_vm.screen == 'mini' ? '8px;' : '10px;'))},[_vm._v("\n      Tentukan variasi roti yang Anda inginkan dalam bentuk pembelian paket"),_c('br'),_vm._v("\n      Sari Roti (Box & Parcell). Min order untuk Parcell Rp. 60k\n    ")])]):_vm._e(),_vm._v(" "),_c('div',{style:(_vm.screen == 'mini' ? 'margin-top: 65px' : null)},[(_vm.cart.length || _vm.dates.length)?_c('CartDetail',{attrs:{"expansion":_vm.expansion,"subsorder":_vm.subs_order,"normalorder":_vm.normal_order,"changeqty":_vm.change_qty,"parsedate":_vm.parse_date,"parseprice":_vm.parse_price,"changeqtysubsitem":_vm.change_qty_subs_item,"deleterp":_vm.delete_rp,"selectsubsdate":_vm.select_subs_date,"changehandler":_vm.change_handler,"changenotes":_vm.change_notes,"expanddetail":_vm.expand_detail,"changedeliverytime":_vm.change_delivery_time,"changedeliverysingletime":_vm.change_delivery_single_time,"updatecache":_vm.update_cache}}):_c('div',{staticClass:"mt-12"},[_c('center',[_c('div',{staticClass:"pa-12 pb-6"},[_c('v-img',{attrs:{"src":"https://shop.balesin.id/static/plugins/img/cart-empty-icon.png","width":"300"}})],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"18px","font-weight":"600"}},[_vm._v("\n          Keranjang belanja kosong\n        ")]),_vm._v(" "),_c('div',{staticClass:"mt-2",staticStyle:{"font-size":"16px","color":"#999"}},[_vm._v("\n          Kamu belum memilih produk yang diinginkan\n        ")]),_vm._v(" "),_c('div',{staticClass:"pa-2 mt-4"},[_c('v-btn',{attrs:{"color":"#ffdd00","block":"","to":("/site/" + (_vm.site.store) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_vm._v("\n            Mulai Belanja\n          ")])],1)])],1)],1),_vm._v(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.products},on:{"click:outside":function($event){return _vm.change_handler('products', false)}}},[_c('Products',{attrs:{"selectatsubs":_vm.select_at_subs,"selectedsubsdate":_vm.selected_subs_date,"selecteddate":_vm.selected_date,"changehandler":_vm.change_handler,"products":_vm.products}})],1),_vm._v(" "),_c('v-footer',{staticStyle:{"width":"100%"},attrs:{"fixed":"","padless":"","color":"white"}},[_c('Footer',{attrs:{"checkout":_vm.checkout,"total":_vm.normal_order}})],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/cart/index.vue?vue&type=template&id=098586f0&
+// CONCATENATED MODULE: ./pages/site/_store/cart/index.vue?vue&type=template&id=74e3c67a&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(177);
@@ -11397,32 +11397,33 @@ var mini_component = Object(componentNormalizer["a" /* default */])(
 
 installComponents_default()(mini_component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VSpacer: VSpacer["a" /* default */],VTextarea: VTextarea_VTextarea})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/index.vue?vue&type=template&id=59f4e5d6&
-var mobilevue_type_template_id_59f4e5d6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{attrs:{"flat":"","tile":""}},[_c('div',{staticClass:"pb-4",staticStyle:{"height":"80vh","overflow-y":"scroll"}},[(!_vm.rp_order)?_c('v-card',{staticClass:"ma-2 mt-3 mb-0 d-flex flex-row",attrs:{"flat":""}},[_c('v-card',{staticStyle:{"font-size":"12px","font-weight":"600"},attrs:{"flat":""}},[_vm._v("\n        Waktu Pengantaran :\n      ")]),_vm._v(" "),(!_vm.delivery_time_normal)?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"red","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        Pilih waktu pengantaran\n      ")]):_vm._e(),_vm._v(" "),(_vm.delivery_time_normal == 'day')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        Pagi (jam 08.00 - 12.00)\n      ")]):(_vm.delivery_time_normal == 'night')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        Sore (jam 13.00 - 18.00)\n      ")]):(_vm.delivery_time_normal == '08:00 - 17:00')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        jam 08.00 - 17.00\n      ")]):_vm._e(),_vm._v(" "),_c('v-spacer'),_vm._v(" "),(_vm.delivery_time_normal != '08:00 - 17:00')?_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":""}},[_c('v-btn',{staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":_vm.delivery_time_normal == 'day' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverysingletime('day')}}},[_vm._v("\n          Pagi\n        ")]),_vm._v(" "),_c('v-btn',{staticClass:"ml-1",staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":_vm.delivery_time_normal == 'night' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverysingletime('night')}}},[_vm._v("\n          Sore\n        ")])],1):_vm._e()],1):_vm._e(),_vm._v(" "),_c('NormalOrder',{attrs:{"changeqty":_vm.changeqty,"updatecache":_vm.updatecache}}),_vm._v(" "),_c('RPOrder',{attrs:{"parsedate":_vm.parsedate,"parseprice":_vm.parseprice,"expanddetail":_vm.expanddetail,"expansion":_vm.expansion,"changeqtysubsitem":_vm.changeqtysubsitem,"deleterp":_vm.deleterp,"selectsubsdate":_vm.selectsubsdate,"changehandler":_vm.changehandler,"changedeliverytime":_vm.changedeliverytime}}),_vm._v(" "),_c('div',{staticClass:"mt-4 pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("Catatan untuk penjual (optional):")]),_vm._v(" "),_c('v-textarea',{attrs:{"id":"b-customer-notes","hide-details":"","no-resize":"","outlined":"","value":_vm.notes},on:{"change":_vm.changenotes}})],1),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row pa-2 pb-1"},[_c('div',[_vm._v("Subtotal")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],staticClass:"pa-2 pt-2",staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","color":"rgb(255 111 111)","font-style":"italic"}},[_vm._v("\n        min. "+_vm._s(_vm.store.min_order / 1000)+"k - max. "+_vm._s(_vm.store.max_order / 1000)+"k\n      ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),(_vm.rp_order)?_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n        Rp. "+_vm._s(_vm.subsorder
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/index.vue?vue&type=template&id=8a4f8ab6&
+var mobilevue_type_template_id_8a4f8ab6_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{attrs:{"flat":"","tile":""}},[_c('div',{staticClass:"pb-4",staticStyle:{"height":"80vh","overflow-y":"scroll"}},[(!_vm.rp_order)?_c('v-card',{staticClass:"ma-2 mt-3 mb-0 d-flex flex-row",attrs:{"flat":""}},[_c('v-card',{staticStyle:{"font-size":"12px","font-weight":"600"},attrs:{"flat":""}},[_vm._v("\n        Waktu Pengantaran :\n      ")]),_vm._v(" "),(!_vm.delivery_time_normal)?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"red","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        Pilih waktu pengantaran\n      ")]):_vm._e(),_vm._v(" "),(_vm.delivery_time_normal == 'day')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        Pagi (jam 08.00 - 12.00)\n      ")]):(_vm.delivery_time_normal == 'night')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        Sore (jam 13.00 - 18.00)\n      ")]):(_vm.delivery_time_normal == '08:00 - 17:00')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n        jam 08.00 - 17.00\n      ")]):_vm._e(),_vm._v(" "),_c('v-spacer'),_vm._v(" "),(_vm.delivery_time_normal != '08:00 - 17:00')?_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":""}},[_c('v-btn',{staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":_vm.delivery_time_normal == 'day' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverysingletime('day')}}},[_vm._v("\n          Pagi\n        ")]),_vm._v(" "),_c('v-btn',{staticClass:"ml-1",staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":_vm.delivery_time_normal == 'night' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverysingletime('night')}}},[_vm._v("\n          Sore\n        ")])],1):_vm._e()],1):_vm._e(),_vm._v(" "),(!_vm.customized_values)?_c('div',[_c('NormalOrder',{attrs:{"changeqty":_vm.changeqty,"updatecache":_vm.updatecache}}),_vm._v(" "),_c('RPOrder',{attrs:{"parsedate":_vm.parsedate,"parseprice":_vm.parseprice,"expanddetail":_vm.expanddetail,"expansion":_vm.expansion,"changeqtysubsitem":_vm.changeqtysubsitem,"deleterp":_vm.deleterp,"selectsubsdate":_vm.selectsubsdate,"changehandler":_vm.changehandler,"changedeliverytime":_vm.changedeliverytime}})],1):_vm._e(),_vm._v(" "),_c('div',{staticClass:"mt-4 pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("Catatan untuk penjual (optional):")]),_vm._v(" "),_c('v-textarea',{attrs:{"id":"b-customer-notes","hide-details":"","no-resize":"","outlined":"","value":_vm.notes},on:{"change":_vm.changenotes}})],1),_vm._v(" "),(!_vm.customized_values)?_c('div',{staticClass:"d-flex flex-row pa-2 pb-1"},[_c('div',[_vm._v("Subtotal")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],staticClass:"pa-2 pt-2",staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","color":"rgb(255 111 111)","font-style":"italic"}},[_vm._v("\n        min. "+_vm._s(_vm.store.min_order / 1000)+"k - max. "+_vm._s(_vm.store.max_order / 1000)+"k\n      ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),(_vm.rp_order)?_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n        Rp. "+_vm._s(_vm.subsorder
             .toLocaleString()
             .replace(/,/g, '.'))+"\n      ")]):_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n        Rp. "+_vm._s(_vm.normalorder
             .toLocaleString()
+            .replace(/,/g, '.'))+"\n      ")]),_vm._v(" "),_c('v-card',{attrs:{"height":"20vh","flat":""}})],1):_c('div',{staticClass:"d-flex flex-row pa-2 pb-1"},[_c('div',[_vm._v("Subtotal")]),_vm._v(" "),_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],staticClass:"pa-2 pt-2",staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","color":"rgb(255 111 111)","font-style":"italic"}},[_vm._v("\n        min. "+_vm._s(_vm.store.min_order / 1000)+"k - max. "+_vm._s(_vm.store.max_order / 1000)+"k\n      ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n        Rp. "+_vm._s(_vm.customized_values_total
+            .toLocaleString()
             .replace(/,/g, '.'))+"\n      ")]),_vm._v(" "),_c('v-card',{attrs:{"height":"20vh","flat":""}})],1)],1)])}
-var mobilevue_type_template_id_59f4e5d6_staticRenderFns = []
+var mobilevue_type_template_id_8a4f8ab6_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/index.vue?vue&type=template&id=59f4e5d6&
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/index.vue?vue&type=template&id=8a4f8ab6&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/normal.vue?vue&type=template&id=6d366b3c&
-var normalvue_type_template_id_6d366b3c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-expand-transition',[_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order && _vm.cart.length),expression:"!rp_order && cart.length"}],staticClass:"pa-1 pt-2",attrs:{"flat":"","tile":""}},[_vm._l((_vm.cart),function(item,index){return _c('div',{key:index},[_c('v-card',{staticClass:"d-flex flex-row ma-1 mb-2 pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"ma-1 pt-6",attrs:{"width":"25","flat":"","depressed":""},on:{"click":function($event){return _vm.confirm_remove_from_cart(item.id)}}},[_c('center',[_c('v-icon',{attrs:{"color":"red","small":""}},[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{staticClass:"ma-2 ml-0",attrs:{"outlined":""}},[_c('v-img',{attrs:{"src":item.detail[0].main_image,"width":"65","height":"65"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"13px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n              "+_vm._s(item.name)+"\n            ")]),_vm._v(" "),(item.detail[0].discount_price)?_c('div',[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","text-decoration":"line-through","color":"#999"}},[_vm._v("\n                Rp. "+_vm._s(item.detail[0].normal_price
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/normal.vue?vue&type=template&id=32b332cb&
+var normalvue_type_template_id_32b332cb_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-expand-transition',[_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order && _vm.cart.length),expression:"!rp_order && cart.length"}],staticClass:"pa-1 pt-2",attrs:{"flat":"","tile":""}},_vm._l((_vm.cart),function(item,index){return _c('div',{key:index},[_c('v-card',{staticClass:"d-flex flex-row ma-1 mb-2 pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"ma-1 pt-6",attrs:{"width":"25","flat":"","depressed":""},on:{"click":function($event){return _vm.confirm_remove_from_cart(item.id)}}},[_c('center',[_c('v-icon',{attrs:{"color":"red","small":""}},[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{staticClass:"ma-2 ml-0",attrs:{"outlined":""}},[_c('v-img',{attrs:{"src":item.detail[0].main_image,"width":"65","height":"65"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"13px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n              "+_vm._s(item.name)+"\n            ")]),_vm._v(" "),(item.detail[0].discount_price)?_c('div',[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","text-decoration":"line-through","color":"#999"}},[_vm._v("\n                Rp. "+_vm._s(item.detail[0].normal_price
                     .toLocaleString()
                     .replace(/,/g, '.'))+", -\n              ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n                Rp.\n                "+_vm._s(item.detail[0].discount_price
                     .toLocaleString()
                     .replace(/,/g, '.'))+", -\n              ")])]):_c('div',{staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n              Rp. "+_vm._s(item.detail[0].normal_price
                   .toLocaleString()
-                  .replace(/,/g, '.'))+", -\n            ")])])],1),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row pl-1 pr-1",staticStyle:{"align-self":"center"}},[_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","small":"","text":""},on:{"click":function($event){return _vm.changeqty(index, false, item)}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-minus")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"pt-1 text-center",staticStyle:{"font-size":"14px"},attrs:{"min-width":"30","flat":""}},[_vm._v("\n            "+_vm._s(item.qty)+"\n          ")]),_vm._v(" "),_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","small":"","text":""},on:{"click":function($event){return _vm.changeqty(index, true, item)}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-plus")])],1)],1)],1)],1)],1)}),_vm._v(" "),_c('br')],2)],1)}
-var normalvue_type_template_id_6d366b3c_staticRenderFns = []
+                  .replace(/,/g, '.'))+", -\n            ")])])],1),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row pl-1 pr-1",staticStyle:{"align-self":"center"}},[_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","small":"","text":""},on:{"click":function($event){return _vm.changeqty(index, false, item)}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-minus")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"pt-1 text-center",staticStyle:{"font-size":"14px"},attrs:{"min-width":"30","flat":""}},[_vm._v("\n            "+_vm._s(item.qty)+"\n          ")]),_vm._v(" "),_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","small":"","text":""},on:{"click":function($event){return _vm.changeqty(index, true, item)}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-plus")])],1)],1)],1)],1)],1)}),0)],1)}
+var normalvue_type_template_id_32b332cb_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/normal.vue?vue&type=template&id=6d366b3c&
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/normal.vue?vue&type=template&id=32b332cb&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/normal.vue?vue&type=script&lang=js&
-//
 //
 //
 //
@@ -11593,8 +11594,8 @@ var normalvue_type_template_id_6d366b3c_staticRenderFns = []
 
 var normal_component = Object(componentNormalizer["a" /* default */])(
   Platforms_mobile_normalvue_type_script_lang_js_,
-  normalvue_type_template_id_6d366b3c_render,
-  normalvue_type_template_id_6d366b3c_staticRenderFns,
+  normalvue_type_template_id_32b332cb_render,
+  normalvue_type_template_id_32b332cb_staticRenderFns,
   false,
   null,
   null,
@@ -11613,18 +11614,18 @@ var normal_component = Object(componentNormalizer["a" /* default */])(
 
 installComponents_default()(normal_component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VExpandTransition: transitions["a" /* VExpandTransition */],VIcon: VIcon["a" /* default */],VImg: VImg["a" /* default */]})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/rp-order.vue?vue&type=template&id=bb91ab20&
-var rp_ordervue_type_template_id_bb91ab20_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-expand-transition',[_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(_vm.rp_order),expression:"rp_order"}],attrs:{"flat":"","tile":""}},[(_vm.dates.length)?_c('v-card',{staticClass:"pa-2",attrs:{"height":"100%","flat":"","tile":""}},[_vm._l((_vm.dates),function(item,index){return _c('div',{key:index,staticClass:"mb-2",staticStyle:{"border":"1px solid #e0e0e0","border-radius":"5px"}},[_c('div',[_c('div',{staticClass:"d-flex flex-row pa-2"},[_c('div',{staticClass:"pt-2 pl-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n              "+_vm._s(_vm.parsedate(item.date))+"\n            ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pr-1",staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3"}},[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3","text-align":"right"}},[_c('v-spacer'),_vm._v("\n                "+_vm._s(_vm.parseprice(item))+"\n              ")],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","font-style":"italic"},style:(+_vm.parseprice(item).match(/[^\D]/g).join('') < _vm.store.min_order || +_vm.parseprice(item).match(/[^\D]/g).join('') > _vm.store.max_order ?
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/rp-order.vue?vue&type=template&id=986a86b0&
+var rp_ordervue_type_template_id_986a86b0_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-expand-transition',[_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(_vm.rp_order),expression:"rp_order"}],attrs:{"flat":"","tile":""}},[(_vm.dates.length)?_c('v-card',{staticClass:"pa-2",attrs:{"height":"100%","flat":"","tile":""}},[_vm._l((_vm.dates),function(item,index){return _c('div',{key:index,staticClass:"mb-2",staticStyle:{"border":"1px solid #e0e0e0","border-radius":"5px"}},[_c('div',[_c('div',{staticClass:"d-flex flex-row pa-2"},[_c('div',{staticClass:"pt-2 pl-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n              "+_vm._s(_vm.parsedate(item.date))+"\n            ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pr-1",staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3"}},[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3","text-align":"right"}},[_c('v-spacer'),_vm._v("\n                "+_vm._s(_vm.parseprice(item))+"\n              ")],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","font-style":"italic"},style:(+_vm.parseprice(item).match(/[^\D]/g).join('') < _vm.store.min_order || +_vm.parseprice(item).match(/[^\D]/g).join('') > _vm.store.max_order ?
                     'color: rgb(255 111 111);'
                     : 'color: rgb(222 222 222)')},[_vm._v("\n                min. "+_vm._s(_vm.store.min_order / 1000)+"k - max. "+_vm._s(_vm.store.max_order / 1000)+"k\n              ")])]),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","depressed":"","dense":"","small":"","ripple":false},on:{"click":function($event){return _vm.expanddetail(index)}}},[(_vm.expansion.length)?_c('v-icon',[_vm._v("\n                "+_vm._s(_vm.expansion[index].show
                     ? 'mdi-chevron-up'
-                    : 'mdi-chevron-down')+"\n              ")]):_vm._e()],1)],1),_vm._v(" "),_c('div',{staticClass:"pa-3"},[_c('v-card',{staticClass:"d-flex flex-row mb-2",attrs:{"flat":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":""}},[_c('v-card',{staticStyle:{"font-size":"12px","font-weight":"600"},attrs:{"flat":""}},[_vm._v("\n                  Waktu Pengantaran :\n                ")]),_vm._v(" "),(!item.delivery_time)?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"red","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n                  Pilih waktu pengantaran\n                ")]):_vm._e(),_vm._v(" "),(item.delivery_time == 'day')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n                  Pagi (jam 08.00 - 12.00)\n                ")]):(item.delivery_time == 'night')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n                  Sore (jam 13.00 - 18.00)\n                ")]):(item.delivery_time == '08:00 - 17:00')?_c('v-card',{staticClass:"ml-2",staticStyle:{"color":"grey","font-size":"10px","font-weight":"500","padding-top":"2px"},attrs:{"flat":""}},[_vm._v("\n                  jam 08:00 - 17:00\n                ")]):_vm._e()],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),(item.delivery_time != '08:00 - 17:00')?_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":""}},[_c('v-btn',{staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":item.delivery_time == 'day' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverytime(index, item.date, 'day')}}},[_vm._v("\n                  Pagi\n                ")]),_vm._v(" "),_c('v-btn',{staticClass:"ml-1",staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":item.delivery_time == 'night' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverytime(index, item.date, 'night')}}},[_vm._v("\n                  Sore\n                ")])],1):_vm._e()],1)],1)]),_vm._v(" "),_c('v-expand-transition',[(_vm.expansion.length)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion[index].show),expression:"expansion[index].show"}],staticClass:"pa-2",staticStyle:{"border-top":"1px solid #eaeaea"}},[_vm._l((item.items),function(cart_item,idx){return _c('div',{key:idx,staticClass:"mb-2"},[(cart_item.qty && cart_item.select_date)?_c('v-card',{staticClass:"d-flex flex-row pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{attrs:{"flat":"","tile":""}},[_c('center',[_c('v-card',{staticClass:"pt-6 pl-2",staticStyle:{"padding":"0","border-color":"#4caf50 !important","color":"red !important"},attrs:{"small":"","max-width":"26","width":"26","min-width":"26","max-height":"70","height":"70","min-height":"70","depressed":"","rounded":"","text":"","flat":""},on:{"click":function($event){return _vm.changeqtysubsitem(index, idx, '!!')}}},[_c('v-icon',{attrs:{"color":"red","small":""}},[_vm._v("mdi-close")])],1)],1)],1),_vm._v(" "),_c('v-card',{staticClass:"ma-2 mt-3",attrs:{"outlined":""}},[_c('v-img',{attrs:{"src":cart_item.main_image,"width":"50","height":"50"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2 pt-3",staticStyle:{"width":"100%","text-align":"left"}},[_c('div',{staticStyle:{"font-size":"12px","max-width":"350px","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","font-weight":"600"}},[_vm._v("\n                      "+_vm._s(cart_item.name)+"\n                    ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px","max-width":"350px","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","color":"grey"}},[_vm._v("\n                      "+_vm._s(cart_item.variant)+"\n                    ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px","font-weight":"600"}},[_vm._v("\n                      "+_vm._s(cart_item.qty)+" x\n                      "+_vm._s(cart_item.discount_price ?
+                    : 'mdi-chevron-down')+"\n              ")]):_vm._e()],1)],1),_vm._v(" "),_c('div',{staticClass:"pa-3"},[_c('v-card',{staticClass:"d-flex flex-row mb-2",attrs:{"flat":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":""}},[_c('v-card',{staticStyle:{"font-size":"12px","font-weight":"600"},attrs:{"flat":""}},[_vm._v("\n                  Waktu Pengantaran :\n                ")])],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),(item.delivery_time)?_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":""}},[_c('v-btn',{staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":item.delivery_time == 'day' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverytime(index, item.date, 'day')}}},[_vm._v("\n                  Pagi\n                ")]),_vm._v(" "),_c('v-btn',{staticClass:"ml-1",staticStyle:{"font-weight":"600","text-transform":"capitalize"},attrs:{"x-small":"","depressed":"","color":item.delivery_time == 'night' ? 'primary' : null},on:{"click":function($event){return _vm.changedeliverytime(index, item.date, 'night')}}},[_vm._v("\n                  Sore\n                ")])],1):_vm._e()],1)],1)]),_vm._v(" "),_c('v-expand-transition',[(_vm.expansion.length)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion[index].show),expression:"expansion[index].show"}],staticClass:"pa-2",staticStyle:{"border-top":"1px solid #eaeaea"}},[_vm._l((item.items),function(cart_item,idx){return _c('div',{key:idx,staticClass:"mb-2"},[(cart_item.qty && cart_item.select_date)?_c('v-card',{staticClass:"d-flex flex-row pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{attrs:{"flat":"","tile":""}},[_c('center',[_c('v-card',{staticClass:"pt-6 pl-2",staticStyle:{"padding":"0","border-color":"#4caf50 !important","color":"red !important"},attrs:{"small":"","max-width":"26","width":"26","min-width":"26","max-height":"70","height":"70","min-height":"70","depressed":"","rounded":"","text":"","flat":""},on:{"click":function($event){return _vm.changeqtysubsitem(index, idx, '!!')}}},[_c('v-icon',{attrs:{"color":"red","small":""}},[_vm._v("mdi-close")])],1)],1)],1),_vm._v(" "),_c('v-card',{staticClass:"ma-2 mt-3",attrs:{"outlined":""}},[_c('v-img',{attrs:{"src":cart_item.main_image,"width":"50","height":"50"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2 pt-3",staticStyle:{"width":"100%","text-align":"left"}},[_c('div',{staticStyle:{"font-size":"12px","max-width":"350px","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","font-weight":"600"}},[_vm._v("\n                      "+_vm._s(cart_item.name)+"\n                    ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px","max-width":"350px","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","color":"grey"}},[_vm._v("\n                      "+_vm._s(cart_item.variant)+"\n                    ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px","font-weight":"600"}},[_vm._v("\n                      "+_vm._s(cart_item.qty)+" x\n                      "+_vm._s(cart_item.discount_price ?
                           _vm.parse_price_per_item(cart_item.discount_price)
                           : _vm.parse_price_per_item(cart_item.normal_price))+"\n                    ")])]),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row pl-1 pr-1",staticStyle:{"align-self":"center"}},[_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","small":"","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","text":""},on:{"click":function($event){return _vm.changeqtysubsitem(index, idx, '-')}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-minus")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"pt-1 text-center",staticStyle:{"font-size":"14px"},attrs:{"min-width":"30","flat":""}},[_vm._v("\n                      "+_vm._s(cart_item.qty)+"\n                    ")]),_vm._v(" "),_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","small":"","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","text":""},on:{"click":function($event){return _vm.changeqtysubsitem(index, idx, '+')}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-plus")])],1)],1)],1)],1)],1):_vm._e()],1)}),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row pt-2 pb-2 mb-2",staticStyle:{"width":"100%","height":"30px"}},[_c('v-card',{attrs:{"color":"transparent","width":"100%","flat":""}}),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row"},[_c('v-btn',{staticClass:"mr-1",staticStyle:{"text-transform":"capitalize","letter-spacing":"normal","text-shadow":"0 0 black"},attrs:{"small":"","depressed":"","dense":"","text":"","color":"#a8a8a9"},on:{"click":function($event){return _vm.deleterp({ status: true, data: item })}}},[_vm._v("\n                   hapus tanggal\n                ")]),_vm._v(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","letter-spacing":"normal"},attrs:{"small":"","depressed":"","dense":"","color":"#fd0"},on:{"click":function($event){_vm.selectsubsdate(_vm.parsedate(item.date))}}},[_c('v-icon',{staticStyle:{"font-size":"12px"}},[_vm._v("mdi-plus")]),_vm._v("\n                   tambah produk\n                ")],1)],1)],1)],2):_vm._e()])],1)}),_vm._v(" "),_c('br')],2):_vm._e(),_vm._v(" "),_c('div',{staticClass:"pa-2"},[_c('v-btn',{staticStyle:{"font-size":"13px","text-transform":"capitalize"},attrs:{"block":"","depressed":"","color":"#fd0"},on:{"click":function($event){return _vm.changehandler('select_date', true)}}},[_c('v-icon',{staticStyle:{"font-size":"12px"}},[_vm._v("mdi-calendar-plus")]),_vm._v("\n          tambah tanggal\n      ")],1)],1)],1)],1)}
-var rp_ordervue_type_template_id_bb91ab20_staticRenderFns = []
+var rp_ordervue_type_template_id_986a86b0_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/rp-order.vue?vue&type=template&id=bb91ab20&
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/rp-order.vue?vue&type=template&id=986a86b0&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/rp-order.vue?vue&type=script&lang=js&
 //
@@ -12054,8 +12055,8 @@ var rp_ordervue_type_template_id_bb91ab20_staticRenderFns = []
 
 var mobile_rp_order_component = Object(componentNormalizer["a" /* default */])(
   Platforms_mobile_rp_ordervue_type_script_lang_js_,
-  rp_ordervue_type_template_id_bb91ab20_render,
-  rp_ordervue_type_template_id_bb91ab20_staticRenderFns,
+  rp_ordervue_type_template_id_986a86b0_render,
+  rp_ordervue_type_template_id_986a86b0_staticRenderFns,
   false,
   null,
   null,
@@ -12074,6 +12075,664 @@ var mobile_rp_order_component = Object(componentNormalizer["a" /* default */])(
 
 
 installComponents_default()(mobile_rp_order_component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VExpandTransition: transitions["a" /* VExpandTransition */],VIcon: VIcon["a" /* default */],VImg: VImg["a" /* default */],VSpacer: VSpacer["a" /* default */]})
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/bundler.vue?vue&type=template&id=085ba15d&
+var bundlervue_type_template_id_085ba15d_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.store.customize_setup)?_c('div',{staticClass:"pa-1",staticStyle:{"text-align":"right"}},[_c('v-dialog',{attrs:{"persistent":"","max-width":"90%"},model:{value:(_vm.rm_dialog),callback:function ($$v) {_vm.rm_dialog=$$v},expression:"rm_dialog"}},[_c('v-card',{staticClass:"pa-2 pl-4 pr-4",staticStyle:{"text-align":"left"},attrs:{"flat":"","tile":""}},[_c('div',{staticStyle:{"font-size":"20px","font-weight":"600","padding-bottom":"10px"}},[_vm._v("\n        Hapus Paket?\n      ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"13px","color":"grey","padding-bottom":"10px"}},[_vm._v("\n        Paket ini akan dihapus dari mode paket kamu.\n      ")])]),_vm._v(" "),_c('v-card',{staticClass:"d-flex flex-row pa-2",staticStyle:{"justify-content":"flex-end"},attrs:{"flat":"","tile":""}},[_c('v-btn',{staticClass:"mr-2",staticStyle:{"text-transform":"capitalize"},attrs:{"small":"","dense":"","depressed":"","text":""},on:{"click":function($event){_vm.rm_dialog = false}}},[_vm._v("\n        Batal\n      ")]),_vm._v(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize"},attrs:{"color":"error","small":"","dense":"","depressed":""},on:{"click":_vm.remove_bundle}},[_vm._v("\n        Hapus\n      ")])],1)],1),_vm._ssrNode(" "),_c('v-dialog',{attrs:{"persistent":"","max-width":"90%"},model:{value:(_vm.dialog),callback:function ($$v) {_vm.dialog=$$v},expression:"dialog"}},[_c('v-card',[_c('v-card',{staticClass:"d-flex flex-row pa-2",attrs:{"flat":""}},[_c('v-card',{staticStyle:{"font-size":"13px"},style:(_vm.type == 'box' ? 'color: white' : 'color: grey'),attrs:{"width":"48%","height":"22","light":"","color":_vm.type == 'box' ? 'primary' : 'white'},on:{"click":function($event){_vm.type = 'box'}}},[_vm._v("\n          Box\n        ")]),_vm._v(" "),_c('v-card',{attrs:{"width":"4%","flat":"","tile":""}}),_vm._v(" "),_c('v-card',{staticStyle:{"font-size":"13px"},style:(_vm.type == 'parcell' ? 'color: white' : 'color: grey'),attrs:{"width":"48%","height":"22","light":"","color":_vm.type == 'parcell' ? 'primary' : 'white'},on:{"click":function($event){_vm.type = 'parcell'}}},[_vm._v("\n          Parcell\n        ")])],1),_vm._v(" "),(_vm.type == 'box')?_c('div',{staticStyle:{"font-size":"10px","text-align":"left","padding-left":"10px","font-style":"italic"},style:(_vm.total < 30000 ? 'color: red;' : 'color: grey;')},[_vm._v("\n        Minimum order 30k.\n      ")]):_vm._e(),_vm._v(" "),(_vm.type == 'parcell')?_c('div',{staticStyle:{"font-size":"10px","text-align":"left","padding-left":"10px","font-style":"italic"},style:(_vm.total < 60000 ? 'color: red;' : 'color: grey;')},[_vm._v("\n        Minimum order 60k.\n      ")]):_vm._e(),_vm._v(" "),(_vm.list_items.length)?_c('v-card',{staticClass:"pa-2",staticStyle:{"overflow-y":"scroll"},attrs:{"flat":"","tile":"","max-height":"400"}},_vm._l((_vm.list_items),function(item,index){return _c('v-card',{key:index,staticClass:"d-flex flex-row mb-2",attrs:{"outlined":""}},[_c('div',{staticClass:"pa-2"},[_c('v-img',{attrs:{"src":item.image,"width":"70","height":"70"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-3 pl-1",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"14px"}},[_vm._v("\n              "+_vm._s(item.name)+"\n            ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("\n              "+_vm._s(item.variant)+"\n            ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("\n              Rp. "+_vm._s(item.discount_price
+                  ? item.discount_price.toLocaleString().replace(/,/g, '.')
+                  : item.normal_price.toLocaleString().replace(/,/g, '.'))+", -\n            ")])]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row pl-1 pr-2",staticStyle:{"align-self":"center"}},[_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","small":"","text":"","disabled":!item.qty},on:{"click":function($event){return _vm.change_group_qty(false, index)}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-minus")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"pt-1 text-center",staticStyle:{"font-size":"14px"},attrs:{"min-width":"30","flat":""}},[_vm._v("\n              "+_vm._s(item.qty)+"\n            ")]),_vm._v(" "),_c('div',[_c('v-btn',{staticStyle:{"padding":"0","border-color":"#4caf50 !important"},attrs:{"color":"success","max-width":"26","width":"26","min-width":"26","max-height":"26","height":"26","min-height":"26","depressed":"","outlined":"","rounded":"","small":"","text":""},on:{"click":function($event){return _vm.change_group_qty(true, index)}}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-plus")])],1)],1)],1)],1)}),1):_vm._e(),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"right","font-size":"12px"},style:(_vm.total ? 'color: red' : 'color: grey')},[_vm._v("\n        Total : Rp. "+_vm._s(_vm.total.toLocaleString().replace(/,/g, '.'))+", -\n      ")]),_vm._v(" "),_c('v-card',{staticClass:"d-flex flex-row mt-0 pa-2 pt-0",attrs:{"flat":""}},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticClass:"mr-2",attrs:{"color":"green darken-1","depressed":"","small":"","text":""},on:{"click":_vm.cancel}},[_vm._v("\n          Kembali\n        ")]),_vm._v(" "),_c('v-btn',{staticStyle:{"color":"white"},attrs:{"color":"green darken-1","depressed":"","small":"","disabled":_vm.create_btn},on:{"click":_vm.submit_bundle}},[_vm._v("\n          Tambah\n        ")])],1)],1)],1),_vm._ssrNode(" "),(_vm.customized_values)?_c('transition',{attrs:{"name":"fade","mode":"out-in","appear":""}},[_c('v-card',{staticClass:"pa-1",attrs:{"flat":"","tile":""}},_vm._l((_vm.customized_values),function(item,idx){return _c('v-card',{key:idx,staticClass:"mb-2 pa-2",staticStyle:{"text-align":"left"},attrs:{"outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"text-transform":"capitalize","font-size":"12px","color":"grey"},style:(item.type == 'box' ? 'margin-right: 20px' : null)},[_c('div',{staticClass:"d-flex flex-row mt-2"},[(item.type == 'box')?_c('center',{staticStyle:{"width":"25px"}},[_c('v-img',{staticClass:"mr-2",attrs:{"max-width":"18px","min-width":"18px","max-height":"18px","min-height":"18px","src":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnBV7tG8dA-CP6cR2y_s-msDWxSZFpRohWGw&usqp=CAU"}})],1):_vm._e(),_vm._v(" "),(item.type == 'parcell')?_c('center',{staticStyle:{"width":"25px"}},[_c('v-img',{staticClass:"mr-2",attrs:{"max-width":"8px","min-width":"8px","max-height":"18","min-height":"18","src":"https://www.pikpng.com/pngl/b/299-2992890_red-ribbon-png.png"}})],1):_vm._e(),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v(_vm._s(item.type))])],1)]),_vm._v(" "),_c('div',{staticClass:"ml-12",staticStyle:{"text-transform":"capitalize","font-size":"14px","color":"grey","padding-top":"8px","text-align":"left","width":"60%"}},[_c('div',{staticClass:"mr-1",staticStyle:{"font-size":"12px","color":"grey","font-weight":"600"}},[_vm._v("\n                Rp. "+_vm._s(item.total.toLocaleString().replace(/,/g, '.'))+", -\n              ")])]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"padding":"4px 0 4px 4px"}},[_c('v-btn',{attrs:{"icon":"","depressed":"","dense":"","small":"","ripple":false},on:{"click":function($event){_vm.expansion[idx].show = !_vm.expansion[idx].show}}},[(_vm.expansion.length)?_c('v-icon',[_vm._v("\n                "+_vm._s(_vm.expansion[idx].show ? 'mdi-chevron-up' : 'mdi-chevron-down')+"\n              ")]):_vm._e()],1)],1)],1),_vm._v(" "),_c('v-expand-transition',[(_vm.expansion.length)?_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.expansion[idx].show),expression:"expansion[idx].show"}]},[_vm._l((item.items),function(detail_item,index){return _c('v-card',{key:index,staticClass:"mt-2 ml-0 mr-0",attrs:{"outlined":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{staticClass:"ma-2 ml-0",attrs:{"flat":""}},[_c('v-img',{attrs:{"src":detail_item.image,"width":"75","height":"75"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"13px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n                    "+_vm._s(detail_item.name)+"\n                  ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"13px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n                    "+_vm._s(detail_item.variant)+"\n                  ")]),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row",staticStyle:{"font-size":"13px"}},[_c('div',{staticClass:"mr-2",staticStyle:{"font-size":"13px","font-weight":"600","color":"black"}},[_vm._v("\n                      "+_vm._s(detail_item.qty)+" x\n                    ")]),_vm._v(" "),(detail_item.discount_price)?_c('div',[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","text-decoration":"line-through","color":"#999"}},[_vm._v("\n                        Rp. "+_vm._s(detail_item.normal_price
+                            .toLocaleString()
+                            .replace(/,/g, '.'))+", -\n                      ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n                        Rp.\n                        "+_vm._s(detail_item.discount_price
+                            .toLocaleString()
+                            .replace(/,/g, '.'))+", -\n                      ")])]):_c('div',{staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n                      Rp. "+_vm._s(detail_item.normal_price
+                          .toLocaleString()
+                          .replace(/,/g, '.'))+", -\n                    ")])])])],1)],1)}),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row mt-1 pt-1"},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize"},attrs:{"color":"red","small":"","text":"","depressed":"","dense":""},on:{"click":function($event){return _vm.confirm_remove_bundle(idx)}}},[_c('v-icon',{staticClass:"mr-1",attrs:{"color":"red","small":""}},[_vm._v("mdi-close-circle-outline")]),_vm._v("\n                Hapus paket\n              ")],1)],1)],2):_vm._e()])],1)}),1)],1):_vm._e(),_vm._ssrNode(" "),_c('v-btn',{attrs:{"color":"primary","small":"","depressed":""},on:{"click":_vm.created_notes}},[_c('v-icon',{attrs:{"small":""}},[_vm._v("mdi-typewriter")])],1),_vm._ssrNode(" "),_c('v-btn',{staticClass:"mr-1",staticStyle:{"text-transform":"capitalize","letter-spacing":"normal"},attrs:{"color":"success","small":"","depressed":""},on:{"click":function($event){_vm.dialog = true}}},[_vm._v("\n    Tambah paket\n  ")])],2):_vm._e()}
+var bundlervue_type_template_id_085ba15d_staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/bundler.vue?vue&type=template&id=085ba15d&
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/bundler.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var bundlervue_type_script_lang_js_ = ({
+  data: () => ({
+    type: 'box',
+    dialog: false,
+    rm_dialog: false,
+    target_rm: null,
+    list_items: [],
+    expansion: []
+  }),
+  watch: {
+    customized_values(newval, oldval) {
+      if (newval) {
+        this.expansion = newval.map(el => ({
+          show: false
+        }));
+      }
+    }
+
+  },
+  computed: {
+    store() {
+      return this.$store.state.store;
+    },
+
+    create_btn() {
+      if (this.type == 'box' && this.total < 30000) {
+        return true;
+      }
+
+      if (this.type == 'parcell' && this.total < 60000) {
+        return true;
+      }
+
+      return false;
+    },
+
+    customized_values() {
+      return this.$store.state.customized_values;
+    },
+
+    user_notes() {
+      return this.$store.state.user_notes;
+    },
+
+    cart() {
+      return this.$store.state.cart;
+    },
+
+    dates() {
+      return this.$store.state.dates;
+    },
+
+    rp_order() {
+      return this.$store.state.rp_order;
+    },
+
+    total() {
+      let total = 0;
+      this.list_items.forEach(el => {
+        const price = el.discount_price ? el.discount_price : el.normal_price;
+        total += el.qty * price;
+      });
+      return total;
+    }
+
+  },
+
+  beforeMount() {
+    this.cart.forEach(el => {
+      this.list_items.push({
+        id: el.id,
+        name: el.name,
+        SKU: el.SKU,
+        qty: 0,
+        image: el.detail[0].main_image,
+        variant: el.detail[0].variant,
+        normal_price: el.detail[0].normal_price,
+        discount_price: el.detail[0].discount_price
+      });
+      this.expansion.push({
+        show: false
+      });
+    });
+  },
+
+  methods: {
+    created_notes() {
+      const user_notes = this.user_notes.split('----------------------------#\n');
+      const notes = this.customized_values.map((el, index) => `bundle-${index + 1} :\n* tipe = ${el.type}\n${el.items.map(item => `- "${item.SKU}" = ${item.qty} item.`).join('\n')}\n`).join('\n');
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'user_notes',
+          data: `${notes}\n----------------------------#\n${user_notes.length > 1 ? user_notes[1] : user_notes[0]}\n`
+        }
+      });
+    },
+
+    confirm_remove_bundle(index) {
+      this.target_rm = index;
+      this.rm_dialog = true;
+    },
+
+    remove_bundle() {
+      this.rm_dialog = false;
+      const filtered_bundle = this.customized_values.filter((el, index) => index != this.target_rm);
+
+      if (filtered_bundle.length) {
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'customized_values',
+            data: filtered_bundle
+          }
+        });
+        return;
+      }
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'customized_values',
+          data: null
+        }
+      });
+    },
+
+    cancel() {
+      this.total = 0;
+      this.dialog = false;
+      this.cart.forEach(el => {
+        this.list_items.push({
+          id: el.id,
+          name: el.name,
+          SKU: el.SKU,
+          qty: 0,
+          image: el.detail[0].main_image,
+          variant: el.detail[0].variant,
+          normal_price: el.detail[0].normal_price,
+          discount_price: el.detail[0].discount_price
+        });
+      });
+    },
+
+    change_group_qty(status, index) {
+      this.list_items.forEach((el, i) => {
+        if (i == index) {
+          if (status) {
+            this.list_items[i].qty += 1;
+          } else {
+            this.list_items[i].qty -= 1;
+          }
+        }
+      });
+    },
+
+    submit_bundle() {
+      const bundle = this.list_items.slice(0);
+
+      if (!this.customized_values) {
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'customized_values',
+            data: [{
+              type: this.type,
+              items: bundle.filter(el => el.qty),
+              total: this.total
+            }]
+          }
+        });
+      } else {
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'customized_values',
+            data: [...this.customized_values, {
+              type: this.type,
+              items: bundle.filter(el => el.qty),
+              total: this.total
+            }]
+          }
+        });
+      }
+
+      this.cart.forEach(el => {
+        this.list_items.push({
+          id: el.id,
+          name: el.name,
+          SKU: el.SKU,
+          qty: 0,
+          image: el.detail[0].main_image,
+          variant: el.detail[0].variant,
+          normal_price: el.detail[0].normal_price,
+          discount_price: el.detail[0].discount_price
+        });
+      });
+      this.list_items = this.list_items.slice(bundle.length);
+      this.dialog = false;
+    }
+
+  }
+});
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/bundler.vue?vue&type=script&lang=js&
+ /* harmony default export */ var mobile_bundlervue_type_script_lang_js_ = (bundlervue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js + 3 modules
+var VDialog = __webpack_require__(198);
+
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/bundler.vue
+
+
+
+
+
+/* normalize component */
+
+var bundler_component = Object(componentNormalizer["a" /* default */])(
+  mobile_bundlervue_type_script_lang_js_,
+  bundlervue_type_template_id_085ba15d_render,
+  bundlervue_type_template_id_085ba15d_staticRenderFns,
+  false,
+  null,
+  null,
+  "c663c07e"
+  
+)
+
+/* harmony default export */ var bundler = (bundler_component.exports);
+
+/* vuetify-loader */
+
+
+
+
+
+
+
+
+installComponents_default()(bundler_component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VDialog: VDialog["a" /* default */],VExpandTransition: transitions["a" /* VExpandTransition */],VIcon: VIcon["a" /* default */],VImg: VImg["a" /* default */],VSpacer: VSpacer["a" /* default */]})
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/index.vue?vue&type=script&lang=js&
 //
@@ -12228,12 +12887,52 @@ installComponents_default()(mobile_rp_order_component, {VBtn: VBtn["a" /* defaul
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+ // custom setup
+
+ // custom setup
 
 /* harmony default export */ var mobilevue_type_script_lang_js_ = ({
   components: {
     NormalOrder: mobile_normal,
-    RPOrder: mobile_rp_order
+    RPOrder: mobile_rp_order,
+    Bundler: bundler
   },
   props: {
     expanddetail: {
@@ -12298,6 +12997,24 @@ installComponents_default()(mobile_rp_order_component, {VBtn: VBtn["a" /* defaul
     }
   },
   computed: {
+    // custom setup
+    customized_values() {
+      return this.$store.state.customized_values;
+    },
+
+    customized_values_total() {
+      let total = 0;
+
+      if (this.customized_values) {
+        this.customized_values.forEach(el => {
+          total += el.total;
+        });
+      }
+
+      return total;
+    },
+
+    // custom setup
     delivery_time_normal() {
       return this.$store.state.delivery_time_normal;
     },
@@ -12336,8 +13053,8 @@ installComponents_default()(mobile_rp_order_component, {VBtn: VBtn["a" /* defaul
 
 var mobile_component = Object(componentNormalizer["a" /* default */])(
   Platforms_mobilevue_type_script_lang_js_,
-  mobilevue_type_template_id_59f4e5d6_render,
-  mobilevue_type_template_id_59f4e5d6_staticRenderFns,
+  mobilevue_type_template_id_8a4f8ab6_render,
+  mobilevue_type_template_id_8a4f8ab6_staticRenderFns,
   false,
   null,
   null,
@@ -14022,12 +14739,12 @@ var products_component = Object(componentNormalizer["a" /* default */])(
 
 installComponents_default()(products_component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VCheckbox: VCheckbox_VCheckbox,VDivider: VDivider["a" /* default */],VIcon: VIcon["a" /* default */],VImg: VImg["a" /* default */],VSheet: VSheet["a" /* default */],VSpacer: VSpacer["a" /* default */]})
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/cart.vue?vue&type=template&id=12a3ec46&
-var cartvue_type_template_id_12a3ec46_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-1 d-flex flex-row",staticStyle:{"width":"100%"}},[_c('v-btn',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],staticStyle:{"text-transform":"capitalize","color":"black !important","border":"1px solid #ccc !important","letter-spacing":"initial"},style:(_vm.screen == 'mini' ? 'font-size: 11px' : null),attrs:{"depressed":"","min-width":"49.5%","max-width":"49.5%","to":_vm.back,"disabled":_vm.rp_order,"height":_vm.screen == 'mini' ? 35 : 45}},[_vm._v("\n    Kembali Belanja\n  ")]),_vm._ssrNode(" "),_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],attrs:{"flat":"","min-width":"1%"}}),_vm._ssrNode(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","letter-spacing":"initial"},style:(_vm.screen == 'mini' ? 'font-size: 11px' : null),attrs:{"depressed":"","color":"#FD0","min-width":!_vm.rp_order ? '49.5%' : '100%',"max-width":"!rp_order ? '49.5%' : '100%'","height":_vm.screen == 'mini' ? 35 : 45,"disabled":_vm.checkout_btn},on:{"click":_vm.checkout}},[_vm._v("\n    Lanjut Pembayaran\n  ")])],2)}
-var cartvue_type_template_id_12a3ec46_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/cart.vue?vue&type=template&id=8f87c616&
+var cartvue_type_template_id_8f87c616_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-1 d-flex flex-row",staticStyle:{"width":"100%"}},[_c('v-btn',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],staticStyle:{"text-transform":"capitalize","color":"black !important","border":"1px solid #ccc !important","letter-spacing":"initial"},style:(_vm.screen == 'mini' ? 'font-size: 11px' : null),attrs:{"depressed":"","min-width":"49.5%","max-width":"49.5%","to":_vm.back,"disabled":_vm.rp_order,"height":_vm.screen == 'mini' ? 35 : 45}},[_vm._v("\n    Kembali Belanja\n  ")]),_vm._ssrNode(" "),_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],attrs:{"flat":"","min-width":"1%"}}),_vm._ssrNode(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","letter-spacing":"initial"},style:(_vm.screen == 'mini' ? 'font-size: 11px' : null),attrs:{"depressed":"","color":"#FD0","min-width":!_vm.rp_order ? '49.5%' : '100%',"max-width":"!rp_order ? '49.5%' : '100%'","height":_vm.screen == 'mini' ? 35 : 45,"disabled":_vm.checkout_btn},on:{"click":_vm.checkout}},[_vm._v("\n    Lanjut Pembayaran\n  ")])],2)}
+var cartvue_type_template_id_8f87c616_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Footer/cart.vue?vue&type=template&id=12a3ec46&
+// CONCATENATED MODULE: ./components/Footer/cart.vue?vue&type=template&id=8f87c616&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/cart.vue?vue&type=script&lang=js&
 //
@@ -14112,7 +14829,37 @@ var cartvue_type_template_id_12a3ec46_staticRenderFns = []
       return this.$store.state.delivery_time_normal;
     },
 
+    // custom setup
+    customized_values() {
+      return this.$store.state.customized_values;
+    },
+
+    customized_values_total() {
+      let total = 0;
+
+      if (this.customized_values) {
+        this.customized_values.forEach(el => {
+          total += el.total;
+        });
+      }
+
+      return total;
+    },
+
+    // custom setup
     checkout_btn() {
+      // custom setup
+      if (this.customized_values) {
+        if (this.customized_values_total > this.store.max_order) {
+          return true;
+        } else if (this.customized_values_total < this.store.min_order) {
+          return true;
+        }
+
+        return false;
+      } // custom setup
+
+
       const list_validate = [];
       let status = true;
       let total;
@@ -14179,8 +14926,8 @@ var cartvue_type_template_id_12a3ec46_staticRenderFns = []
 
 var cart_component = Object(componentNormalizer["a" /* default */])(
   Footer_cartvue_type_script_lang_js_,
-  cartvue_type_template_id_12a3ec46_render,
-  cartvue_type_template_id_12a3ec46_staticRenderFns,
+  cartvue_type_template_id_8f87c616_render,
+  cartvue_type_template_id_8f87c616_staticRenderFns,
   false,
   null,
   null,
@@ -14197,6 +14944,29 @@ var cart_component = Object(componentNormalizer["a" /* default */])(
 installComponents_default()(cart_component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */]})
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14364,6 +15134,10 @@ installComponents_default()(cart_component, {VBtn: VBtn["a" /* default */],VCard
   computed: {
     delivery_time_normal() {
       return this.$store.state.delivery_time_normal;
+    },
+
+    customized_values() {
+      return this.$store.state.customized_values;
     },
 
     default_date() {
@@ -17488,9 +18262,6 @@ function sanitizeDateString(dateString, type) {
   }
 
 }));
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js + 3 modules
-var VDialog = __webpack_require__(198);
-
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VFooter/VFooter.js
 var VFooter = __webpack_require__(212);
 
@@ -17645,7 +18416,7 @@ var _store_cart_component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var _store_cart = __webpack_exports__["default"] = (_store_cart_component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(_store_cart_component, {Products: __webpack_require__(201).default})
+installComponents_default()(_store_cart_component, {Products: __webpack_require__(202).default})
 
 
 /* vuetify-loader */

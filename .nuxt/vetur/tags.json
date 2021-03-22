@@ -131,6 +131,12 @@
   "LazyRpOrder": {
     "description": "Auto imported from /components/Cart/Platforms/desktop/rp-order.vue"
   },
+  "Bundler": {
+    "description": "Auto imported from /components/Cart/Platforms/mobile/bundler.vue"
+  },
+  "LazyBundler": {
+    "description": "Auto imported from /components/Cart/Platforms/mobile/bundler.vue"
+  },
   "Customer": {
     "description": "Auto imported from /components/Checkout/Platforms/desktop/customer.vue"
   },
@@ -162,9 +168,9 @@
     "description": "Auto imported from /components/Checkout/Platforms/desktop/subtotal.vue"
   },
   "Subscription": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"
+    "description": "Auto imported from /components/Checkout/Platforms/mini/orders/subscription.vue"
   },
   "LazySubscription": {
-    "description": "Auto imported from /components/Checkout/Platforms/desktop/orders/subscription.vue"
+    "description": "Auto imported from /components/Checkout/Platforms/mini/orders/subscription.vue"
   }
 }

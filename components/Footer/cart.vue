@@ -84,7 +84,37 @@ export default {
       return this.$store.state.delivery_time_normal
     },
 
+    // custom setup
+    customized_values() {
+      return this.$store.state.customized_values
+    },
+
+    customized_values_total() {
+      let total = 0
+
+      if (this.customized_values) {
+        this.customized_values.forEach(el => {
+          total += el.total
+        })
+      }
+
+      return total
+    },
+    // custom setup
+
     checkout_btn () {
+      // custom setup
+      if (this.customized_values) {
+        if (this.customized_values_total > this.store.max_order) {
+          return true
+        } else if (this.customized_values_total < this.store.min_order) {
+          return true
+        }
+
+        return false
+      }
+      // custom setup
+
       const list_validate = []
       let status = true
       let total

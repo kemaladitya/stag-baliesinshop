@@ -5917,7 +5917,8 @@ __webpack_require__.r(__webpack_exports__);
       month: ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
       rp_order: false,
       min_rp: '',
-      max_rp: ''
+      max_rp: '',
+      customized_values: null
     },
     mutations: {
       setState(state, {
