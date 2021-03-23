@@ -6,7 +6,7 @@
 
 const { Nuxt, Builder } = require('nuxt')
 // const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/local.config.json')
-const { API_KEY, SHOP_API, REDIS_CONFIG } = require('../config/config.json')
+const { API_KEY, SHOP_API, REDIS_CONFIG, ADONIS } = require('../config/config.json')
 const express = require('express')
 const consola = require('consola')
 const webPush = require('web-push')
@@ -111,7 +111,7 @@ async function cache({ url, headers, method, body, _qs, params }, res) {
   }
 }
 
-async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
+async function order_hanlder({ url, headers, method, body, _qs, params }, res) {
   try {
     let get_redis = await client.get(`${body.customer.uuid}/${body.store.bot_name}`)
 
@@ -168,7 +168,7 @@ async function orderHanlder({ url, headers, method, body, _qs, params }, res) {
   }
 }
 
-async function applyVoucherHanlder({ url, headers, method, body, _qs, params }, res) {
+async function apply_voucher_hanlder({ url, headers, method, body, _qs, params }, res) {
   try {
     let get_redis = await client.get(`${body.uuid}/${body.bot_name}`)
 
@@ -225,7 +225,7 @@ async function applyVoucherHanlder({ url, headers, method, body, _qs, params }, 
   }
 }
 
-async function deliverycostCheckHanlder({ url, headers, method, body, _qs, params }, res) {
+async function delivery_cost_check_hanlder({ url, headers, method, body, _qs, params }, res) {
   try {
     let get_redis = await client.get(`${body.uuid}/${body.store_name}`)
 
@@ -253,7 +253,90 @@ async function deliverycostCheckHanlder({ url, headers, method, body, _qs, param
   }
 }
 
-async function apiHandler({ url, headers, method, body, _qs, params }, res) {
+async function manage_cart_from_bot(req, res) {
+  try {
+    const { bot_id, chatkey, sku, method, region } = req.body
+    const request = await axios({
+      url   : `${ADONIS}/shop/cart/info`,
+      method: 'post',
+      data  : { bot_id, sku, region }
+    })
+    const get_redis = await client.get(`${chatkey}/${request.data.bot_name}`)
+
+    console.log(request.data, ' request.data')
+
+
+    if (!get_redis) {
+      const date = new Date()
+
+      date.setHours(date.getHours() + 7)
+      date.setDate(date.getDate() + 1)
+
+      const delivery_date = date.toISOString().slice(0, 10)
+      const payload = {
+        type  :"single-order",
+        items :[
+          {
+            delivery_date,
+            items: [
+              {
+                id       : request.data.product.id,
+                qty      : 1,
+                price    : request.data.product.price,
+                SKU      : sku,
+                name     : request.data.product.name,
+                variant  : request.data.product.variant
+              }
+            ]
+          }
+        ]
+      }
+
+      await client.set(`${chatkey}/${request.data.bot_name}`, JSON.stringify(payload))
+    } else {
+      let payload = JSON.parse(get_redis)
+      const is_exist_item = payload.items[0].items.filter(el => el.SKU == sku)
+
+      if (is_exist_item.length) {
+        payload.items[0].items = payload.items[0].items.map(el => {
+          if (el.SKU == sku) {
+            el.qty += 1
+          }
+
+          return el
+        })
+      } else {
+        console.log({
+          id       : request.data.product.id,
+          qty      : 1,
+          price    : request.data.product.price,
+          SKU      : sku,
+          name     : request.data.product.name,
+          variant  : request.data.product.variant
+        }, ' push')
+        payload.items[0].items.push({
+          id       : request.data.product.id,
+          qty      : 1,
+          price    : request.data.product.price,
+          SKU      : sku,
+          name     : request.data.product.name,
+          variant  : request.data.product.variant
+        })
+      }
+
+      await client.set(`${chatkey}/${request.data.bot_name}`, JSON.stringify(payload))
+    }
+    const response = await client.get(`${chatkey}/${request.data.bot_name}`)
+
+    return res.json(JSON.parse(response))
+  } catch (error) {
+    console.log('@manage_cart_from_bot | ', error)
+
+    return res.send(error)
+  }
+}
+
+async function api_handler({ url, headers, method, body, _qs, params }, res) {
   console.log('kesini jan')
   console.log({
       url: SHOP_API + '/dev' + url,
@@ -315,11 +398,12 @@ async function start() {
   app.use(bodyParser.json({ limit: '100mb' }))
   app.use(bodyParser.urlencoded({ limit: '100mb', extended: true }))
 
-  app.use('/api', apiHandler)
+  app.use('/api', api_handler)
   app.use('/cache', cache)
-  app.use('/deliverycost/check', deliverycostCheckHanlder)
-  app.use('/voucher/apply', applyVoucherHanlder)
-  app.use('/transaction/order', orderHanlder)
+  app.use('/manage/cart', manage_cart_from_bot)
+  app.use('/deliverycost/check', delivery_cost_check_hanlder)
+  app.use('/voucher/apply', apply_voucher_hanlder)
+  app.use('/transaction/order', order_hanlder)
   app.use('/product/search', product_search)
 
   // Give nuxt middleware to express

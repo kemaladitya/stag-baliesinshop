@@ -4985,7 +4985,7 @@ module.exports = require("@fortawesome/free-brands-svg-icons");
 /* 50 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"https://faq.balesin.id/icon/icon-384x384.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.ec1736a8.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
+module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.ec1736a8.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
 
 /***/ }),
 /* 51 */
@@ -8964,16 +8964,19 @@ const components = {
   DialogsCartMaxOrder: () => __webpack_require__.e(/* import() | components/dialogs-cart-max-order */ 50).then(__webpack_require__.bind(null, 274)).then(c => c.default || c),
   DialogsCartMinOrder: () => __webpack_require__.e(/* import() | components/dialogs-cart-min-order */ 51).then(__webpack_require__.bind(null, 273)).then(c => c.default || c),
   DialogsCartRemoveConfirm: () => __webpack_require__.e(/* import() | components/dialogs-cart-remove-confirm */ 52).then(__webpack_require__.bind(null, 272)).then(c => c.default || c),
+  DialogsCheckoutInsertVoucherCode: () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 53).then(__webpack_require__.bind(null, 276)).then(c => c.default || c),
   ProductDetailPlatformsDesktop: () => __webpack_require__.e(/* import() | components/product-detail-platforms-desktop */ 60).then(__webpack_require__.bind(null, 255)).then(c => c.default || c),
   ProductDetailPlatformsMini: () => __webpack_require__.e(/* import() | components/product-detail-platforms-mini */ 61).then(__webpack_require__.bind(null, 253)).then(c => c.default || c),
   ProductDetailPlatformsMobile: () => __webpack_require__.e(/* import() | components/product-detail-platforms-mobile */ 62).then(__webpack_require__.bind(null, 254)).then(c => c.default || c),
-  DialogsCheckoutInsertVoucherCode: () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 53).then(__webpack_require__.bind(null, 276)).then(c => c.default || c),
   ProductsPlatformsDesktop: () => __webpack_require__.e(/* import() | components/products-platforms-desktop */ 64).then(__webpack_require__.bind(null, 206)).then(c => c.default || c),
   ProductsPlatformsMini: () => __webpack_require__.e(/* import() | components/products-platforms-mini */ 65).then(__webpack_require__.bind(null, 204)).then(c => c.default || c),
   ProductsPlatformsMobile: () => __webpack_require__.e(/* import() | components/products-platforms-mobile */ 66).then(__webpack_require__.bind(null, 205)).then(c => c.default || c),
   CartPlatformsDesktop: () => __webpack_require__.e(/* import() | components/cart-platforms-desktop */ 8).then(__webpack_require__.bind(null, 249)).then(c => c.default || c),
   CartPlatformsDesktopNormal: () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-normal */ 9).then(__webpack_require__.bind(null, 212)).then(c => c.default || c),
   CartPlatformsDesktopRpOrder: () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-rp-order */ 10).then(__webpack_require__.bind(null, 213)).then(c => c.default || c),
+  CartPlatformsMini: () => __webpack_require__.e(/* import() | components/cart-platforms-mini */ 11).then(__webpack_require__.bind(null, 247)).then(c => c.default || c),
+  CartPlatformsMiniNormal: () => __webpack_require__.e(/* import() | components/cart-platforms-mini-normal */ 12).then(__webpack_require__.bind(null, 207)).then(c => c.default || c),
+  CartPlatformsMiniRpOrder: () => __webpack_require__.e(/* import() | components/cart-platforms-mini-rp-order */ 13).then(__webpack_require__.bind(null, 208)).then(c => c.default || c),
   CartPlatformsMobileBundler: () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-bundler */ 15).then(__webpack_require__.bind(null, 211)).then(c => c.default || c),
   CartPlatformsMobile: () => __webpack_require__.e(/* import() | components/cart-platforms-mobile */ 14).then(__webpack_require__.bind(null, 248)).then(c => c.default || c),
   CartPlatformsMobileNormal: () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-normal */ 16).then(__webpack_require__.bind(null, 209)).then(c => c.default || c),
@@ -9002,16 +9005,13 @@ const components = {
   CheckoutPlatformsMobilePayment: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-payment */ 47).then(__webpack_require__.bind(null, 227)).then(c => c.default || c),
   CheckoutPlatformsMobileSubtotal: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-subtotal */ 48).then(__webpack_require__.bind(null, 225)).then(c => c.default || c),
   CheckoutPlatformsMobileVoucher: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-voucher */ 49).then(__webpack_require__.bind(null, 222)).then(c => c.default || c),
-  CartPlatformsMini: () => __webpack_require__.e(/* import() | components/cart-platforms-mini */ 11).then(__webpack_require__.bind(null, 247)).then(c => c.default || c),
-  CartPlatformsMiniNormal: () => __webpack_require__.e(/* import() | components/cart-platforms-mini-normal */ 12).then(__webpack_require__.bind(null, 207)).then(c => c.default || c),
-  CartPlatformsMiniRpOrder: () => __webpack_require__.e(/* import() | components/cart-platforms-mini-rp-order */ 13).then(__webpack_require__.bind(null, 208)).then(c => c.default || c),
+  CheckoutPlatformsDesktopOrdersNormal: () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-orders-normal */ 24).then(__webpack_require__.bind(null, 192)).then(c => c.default || c),
+  CheckoutPlatformsDesktopOrdersSubscription: () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-orders-subscription */ 25).then(__webpack_require__.bind(null, 193)).then(c => c.default || c),
   CheckoutPlatformsMiniOrdersNormal: () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-orders-normal */ 34).then(__webpack_require__.bind(null, 187)).then(c => c.default || c),
   CheckoutPlatformsMiniOrdersSubscription: () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-orders-subscription */ 35).then(__webpack_require__.bind(null, 188)).then(c => c.default || c),
   CheckoutPlatformsMobileOrdersBundler: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-orders-bundler */ 44).then(__webpack_require__.bind(null, 191)).then(c => c.default || c),
   CheckoutPlatformsMobileOrdersNormal: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-orders-normal */ 45).then(__webpack_require__.bind(null, 189)).then(c => c.default || c),
-  CheckoutPlatformsMobileOrdersSubscription: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-orders-subscription */ 46).then(__webpack_require__.bind(null, 190)).then(c => c.default || c),
-  CheckoutPlatformsDesktopOrdersNormal: () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-orders-normal */ 24).then(__webpack_require__.bind(null, 192)).then(c => c.default || c),
-  CheckoutPlatformsDesktopOrdersSubscription: () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-orders-subscription */ 25).then(__webpack_require__.bind(null, 193)).then(c => c.default || c)
+  CheckoutPlatformsMobileOrdersSubscription: () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-orders-subscription */ 46).then(__webpack_require__.bind(null, 190)).then(c => c.default || c)
 };
 
 for (const name in components) {
@@ -9120,23 +9120,23 @@ var meta = __webpack_require__(50);
 // CONCATENATED MODULE: ./.nuxt/pwa/icon.plugin.js
 /* harmony default export */ var icon_plugin = (async function (ctx, inject) {
   const icons = {
-    "64x64": "https://faq.balesin.id/icon/icon-384x384.png",
-    "120x120": "https://faq.balesin.id/icon/icon-384x384.png",
-    "144x144": "https://faq.balesin.id/icon/icon-384x384.png",
-    "152x152": "https://faq.balesin.id/icon/icon-384x384.png",
-    "192x192": "https://faq.balesin.id/icon/icon-384x384.png",
-    "384x384": "https://faq.balesin.id/icon/icon-384x384.png",
-    "512x512": "https://faq.balesin.id/icon/icon-384x384.png",
-    "ipad_1536x2048": "https://faq.balesin.id/icon/icon-384x384.png",
-    "ipadpro9_1536x2048": "https://faq.balesin.id/icon/icon-384x384.png",
-    "ipadpro10_1668x2224": "https://faq.balesin.id/icon/icon-384x384.png",
-    "ipadpro12_2048x2732": "https://faq.balesin.id/icon/icon-384x384.png",
-    "iphonese_640x1136": "https://faq.balesin.id/icon/icon-384x384.png",
-    "iphone6_50x1334": "https://faq.balesin.id/icon/icon-384x384.png",
-    "iphoneplus_1080x1920": "https://faq.balesin.id/icon/icon-384x384.png",
-    "iphonex_1125x2436": "https://faq.balesin.id/icon/icon-384x384.png",
-    "iphonexr_828x1792": "https://faq.balesin.id/icon/icon-384x384.png",
-    "iphonexsmax_1242x2688": "https://faq.balesin.id/icon/icon-384x384.png"
+    "64x64": "https://faq.balesin.id/icon/icon-256x256.png",
+    "120x120": "https://faq.balesin.id/icon/icon-256x256.png",
+    "144x144": "https://faq.balesin.id/icon/icon-256x256.png",
+    "152x152": "https://faq.balesin.id/icon/icon-256x256.png",
+    "192x192": "https://faq.balesin.id/icon/icon-256x256.png",
+    "384x384": "https://faq.balesin.id/icon/icon-256x256.png",
+    "512x512": "https://faq.balesin.id/icon/icon-256x256.png",
+    "ipad_1536x2048": "https://faq.balesin.id/icon/icon-256x256.png",
+    "ipadpro9_1536x2048": "https://faq.balesin.id/icon/icon-256x256.png",
+    "ipadpro10_1668x2224": "https://faq.balesin.id/icon/icon-256x256.png",
+    "ipadpro12_2048x2732": "https://faq.balesin.id/icon/icon-256x256.png",
+    "iphonese_640x1136": "https://faq.balesin.id/icon/icon-256x256.png",
+    "iphone6_50x1334": "https://faq.balesin.id/icon/icon-256x256.png",
+    "iphoneplus_1080x1920": "https://faq.balesin.id/icon/icon-256x256.png",
+    "iphonex_1125x2436": "https://faq.balesin.id/icon/icon-256x256.png",
+    "iphonexr_828x1792": "https://faq.balesin.id/icon/icon-256x256.png",
+    "iphonexsmax_1242x2688": "https://faq.balesin.id/icon/icon-256x256.png"
   };
 
   const getIcon = size => icons[size + 'x' + size] || '';
