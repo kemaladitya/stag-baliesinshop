@@ -306,30 +306,32 @@ async function manage_cart_from_bot(req, res) {
       const is_exist_item = payload.items[0].items.filter(el => el.SKU == sku)
 
       if (is_exist_item.length) {
-        payload.items[0].items = payload.items[0].items.map(el => {
+        payload.items[0].items = payload.items[0].items.filter(el => {
           if (el.SKU == sku) {
-            el.qty += 1
+            if (method == 'add') {
+              el.qty += 1
+            } else if (method == 'reduce') {
+              el.qty -= 1
+            } else if (method == 'remove') {
+              return el.sku == sku ? el : null
+            }
           }
+
+          if (el.qty < 1) return null
 
           return el
         })
       } else {
-        console.log({
-          id       : request.data.product.id,
-          qty      : 1,
-          price    : request.data.product.price,
-          SKU      : sku,
-          name     : request.data.product.name,
-          variant  : request.data.product.variant
-        }, ' push')
-        payload.items[0].items.push({
-          id       : request.data.product.id,
-          qty      : 1,
-          price    : request.data.product.price,
-          SKU      : sku,
-          name     : request.data.product.name,
-          variant  : request.data.product.variant
-        })
+        if (method == 'add') {
+          payload.items[0].items.push({
+            id       : request.data.product.id,
+            qty      : 1,
+            price    : request.data.product.price,
+            SKU      : sku,
+            name     : request.data.product.name,
+            variant  : request.data.product.variant
+          })
+        }
       }
 
       await client.set(`${chatkey}/${request.data.bot_name}`, JSON.stringify(payload))
