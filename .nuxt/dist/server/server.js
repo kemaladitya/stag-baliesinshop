@@ -4985,7 +4985,7 @@ module.exports = require("@fortawesome/free-brands-svg-icons");
 /* 50 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.ec1736a8.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
+module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"/_nuxt/icons/icon_512x512.5821de.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.3f263951.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
 
 /***/ }),
 /* 51 */
@@ -6257,7 +6257,7 @@ async function setContext(app, context) {
   // If context not defined, create it
   if (!app.context) {
     app.context = {
-      isStatic: true,
+      isStatic: false,
       isDev: false,
       isHMR: false,
       app,
@@ -8809,10 +8809,6 @@ const layouts = {
 
     isFetching() {
       return this.nbFetching > 0;
-    },
-
-    isPreview() {
-      return Boolean(this.$options.previewData);
     }
 
   },
@@ -8948,8 +8944,8 @@ const components = {
   General: () => __webpack_require__.e(/* import() | components/general */ 56).then(__webpack_require__.bind(null, 183)).then(c => c.default || c),
   Logo: () => __webpack_require__.e(/* import() | components/logo */ 58).then(__webpack_require__.bind(null, 328)).then(c => c.default || c),
   VuetifyLogo: () => __webpack_require__.e(/* import() | components/vuetify-logo */ 67).then(__webpack_require__.bind(null, 329)).then(c => c.default || c),
-  Cart: () => __webpack_require__.e(/* import() | components/cart */ 7).then(__webpack_require__.bind(null, 271)).then(c => c.default || c),
   BottomSheetRegLoading: () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 6).then(__webpack_require__.bind(null, 316)).then(c => c.default || c),
+  Cart: () => __webpack_require__.e(/* import() | components/cart */ 7).then(__webpack_require__.bind(null, 271)).then(c => c.default || c),
   Checkout: () => __webpack_require__.e(/* import() | components/checkout */ 18).then(__webpack_require__.bind(null, 262)).then(c => c.default || c),
   FooterCart: () => __webpack_require__.e(/* import() | components/footer-cart */ 54).then(__webpack_require__.bind(null, 275)).then(c => c.default || c),
   FooterCheckout: () => __webpack_require__.e(/* import() | components/footer-checkout */ 55).then(__webpack_require__.bind(null, 280)).then(c => c.default || c),
@@ -9120,23 +9116,23 @@ var meta = __webpack_require__(50);
 // CONCATENATED MODULE: ./.nuxt/pwa/icon.plugin.js
 /* harmony default export */ var icon_plugin = (async function (ctx, inject) {
   const icons = {
-    "64x64": "https://faq.balesin.id/icon/icon-256x256.png",
-    "120x120": "https://faq.balesin.id/icon/icon-256x256.png",
-    "144x144": "https://faq.balesin.id/icon/icon-256x256.png",
-    "152x152": "https://faq.balesin.id/icon/icon-256x256.png",
-    "192x192": "https://faq.balesin.id/icon/icon-256x256.png",
-    "384x384": "https://faq.balesin.id/icon/icon-256x256.png",
-    "512x512": "https://faq.balesin.id/icon/icon-256x256.png",
-    "ipad_1536x2048": "https://faq.balesin.id/icon/icon-256x256.png",
-    "ipadpro9_1536x2048": "https://faq.balesin.id/icon/icon-256x256.png",
-    "ipadpro10_1668x2224": "https://faq.balesin.id/icon/icon-256x256.png",
-    "ipadpro12_2048x2732": "https://faq.balesin.id/icon/icon-256x256.png",
-    "iphonese_640x1136": "https://faq.balesin.id/icon/icon-256x256.png",
-    "iphone6_50x1334": "https://faq.balesin.id/icon/icon-256x256.png",
-    "iphoneplus_1080x1920": "https://faq.balesin.id/icon/icon-256x256.png",
-    "iphonex_1125x2436": "https://faq.balesin.id/icon/icon-256x256.png",
-    "iphonexr_828x1792": "https://faq.balesin.id/icon/icon-256x256.png",
-    "iphonexsmax_1242x2688": "https://faq.balesin.id/icon/icon-256x256.png"
+    "64x64": "/_nuxt/icons/icon_64x64.5821de.png",
+    "120x120": "/_nuxt/icons/icon_120x120.5821de.png",
+    "144x144": "/_nuxt/icons/icon_144x144.5821de.png",
+    "152x152": "/_nuxt/icons/icon_152x152.5821de.png",
+    "192x192": "/_nuxt/icons/icon_192x192.5821de.png",
+    "384x384": "/_nuxt/icons/icon_384x384.5821de.png",
+    "512x512": "/_nuxt/icons/icon_512x512.5821de.png",
+    "ipad_1536x2048": "/_nuxt/icons/splash_ipad_1536x2048.5821de.png",
+    "ipadpro9_1536x2048": "/_nuxt/icons/splash_ipadpro9_1536x2048.5821de.png",
+    "ipadpro10_1668x2224": "/_nuxt/icons/splash_ipadpro10_1668x2224.5821de.png",
+    "ipadpro12_2048x2732": "/_nuxt/icons/splash_ipadpro12_2048x2732.5821de.png",
+    "iphonese_640x1136": "/_nuxt/icons/splash_iphonese_640x1136.5821de.png",
+    "iphone6_50x1334": "/_nuxt/icons/splash_iphone6_50x1334.5821de.png",
+    "iphoneplus_1080x1920": "/_nuxt/icons/splash_iphoneplus_1080x1920.5821de.png",
+    "iphonex_1125x2436": "/_nuxt/icons/splash_iphonex_1125x2436.5821de.png",
+    "iphonexr_828x1792": "/_nuxt/icons/splash_iphonexr_828x1792.5821de.png",
+    "iphonexsmax_1242x2688": "/_nuxt/icons/splash_iphonexsmax_1242x2688.5821de.png"
   };
 
   const getIcon = size => icons[size + 'x' + size] || '';
@@ -9308,7 +9304,7 @@ const setupProgress = axios => {
   // runtimeConfig
   const runtimeConfig = ctx.$config && ctx.$config.axios || {}; // baseURL
 
-  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://master.balesin.id'; // Create fresh objects for all default header scopes
+  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'http://0.0.0.0:8081'; // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!
   // https://github.com/mzabriskie/axios/blob/master/lib/defaults.js
 
@@ -9470,7 +9466,7 @@ async function createApp(ssrContext, config = {}) {
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
       }, {
         "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.13aaac64.json"
+        "href": "\u002F_nuxt\u002Fmanifest.47544a36.json"
       }],
       "script": [],
       "style": []

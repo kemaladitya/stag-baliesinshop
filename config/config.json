@@ -1,5 +1,5 @@
 {
-  "baseURL": "https://master.balesin.id",
+  "baseURL": "http://0.0.0.0:8081",
   "API_KEY": "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
   "SOCKET": "https://faq.balesin.id/chat",
   "ADONIS": "https://faq.balesin.id/adn",

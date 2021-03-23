@@ -262,17 +262,16 @@ async function manage_cart_from_bot(req, res) {
       data  : { bot_id, sku, region }
     })
     const get_redis = await client.get(`${chatkey}/${request.data.bot_name}`)
+    const date = new Date()
+
+    date.setHours(date.getHours() + 7)
+    date.setDate(date.getDate() + 1)
+
+    const delivery_date = date.toISOString().slice(0, 10)
 
     console.log(request.data, ' request.data')
 
-
     if (!get_redis) {
-      const date = new Date()
-
-      date.setHours(date.getHours() + 7)
-      date.setDate(date.getDate() + 1)
-
-      const delivery_date = date.toISOString().slice(0, 10)
       const payload = {
         type  :"single-order",
         items :[
@@ -295,6 +294,15 @@ async function manage_cart_from_bot(req, res) {
       await client.set(`${chatkey}/${request.data.bot_name}`, JSON.stringify(payload))
     } else {
       let payload = JSON.parse(get_redis)
+      console.log(JSON.stringify(payload, null, 2))
+
+      if (!payload.items.length) {
+        payload.items.push({
+          delivery_date,
+          items: []
+        })
+      }
+
       const is_exist_item = payload.items[0].items.filter(el => el.SKU == sku)
 
       if (is_exist_item.length) {

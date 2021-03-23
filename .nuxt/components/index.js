@@ -1,8 +1,8 @@
 export { default as General } from '../../components/General.js'
 export { default as Logo } from '../../components/Logo.vue'
 export { default as VuetifyLogo } from '../../components/VuetifyLogo.vue'
-export { default as Cart } from '../../components/Cart/index.vue'
 export { default as BottomSheetRegLoading } from '../../components/Bottom-Sheet/reg_loading.vue'
+export { default as Cart } from '../../components/Cart/index.vue'
 export { default as Checkout } from '../../components/Checkout/index.vue'
 export { default as FooterCart } from '../../components/Footer/cart.vue'
 export { default as FooterCheckout } from '../../components/Footer/checkout.vue'
@@ -69,8 +69,8 @@ export { default as CheckoutPlatformsMobileOrdersSubscription } from '../../comp
 export const LazyGeneral = import('../../components/General.js' /* webpackChunkName: "components/general" */).then(c => c.default || c)
 export const LazyLogo = import('../../components/Logo.vue' /* webpackChunkName: "components/logo" */).then(c => c.default || c)
 export const LazyVuetifyLogo = import('../../components/VuetifyLogo.vue' /* webpackChunkName: "components/vuetify-logo" */).then(c => c.default || c)
-export const LazyCart = import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => c.default || c)
 export const LazyBottomSheetRegLoading = import('../../components/Bottom-Sheet/reg_loading.vue' /* webpackChunkName: "components/bottom-sheet-reg-loading" */).then(c => c.default || c)
+export const LazyCart = import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => c.default || c)
 export const LazyCheckout = import('../../components/Checkout/index.vue' /* webpackChunkName: "components/checkout" */).then(c => c.default || c)
 export const LazyFooterCart = import('../../components/Footer/cart.vue' /* webpackChunkName: "components/footer-cart" */).then(c => c.default || c)
 export const LazyFooterCheckout = import('../../components/Footer/checkout.vue' /* webpackChunkName: "components/footer-checkout" */).then(c => c.default || c)

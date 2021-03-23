@@ -126,49 +126,49 @@
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_64x64.5821de.png",
       "sizes": "64x64",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_120x120.5821de.png",
       "sizes": "120x120",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_144x144.5821de.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_152x152.5821de.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_192x192.5821de.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_384x384.5821de.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "https://faq.balesin.id/icon/icon-256x256.png",
+      "src": "/_nuxt/icons/icon_512x512.5821de.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "start_url": "https://master.balesin.id",
+  "start_url": "http://0.0.0.0:8081",
   "display": "standalone",
   "background_color": "#ffffdd",
   "theme_color": "#ffffdd",
