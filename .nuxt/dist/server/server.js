@@ -6847,25 +6847,25 @@ function shouldScrollToTop(route) {
 
 
 
-const _06441552 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout */ 76).then(__webpack_require__.bind(null, 319)));
+const _43736778 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout */ 76).then(__webpack_require__.bind(null, 319)));
 
-const _3fe4e034 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register */ 77).then(__webpack_require__.bind(null, 320)));
+const _214d3721 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register */ 77).then(__webpack_require__.bind(null, 320)));
 
-const _674f4f08 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 68).then(__webpack_require__.bind(null, 321)));
+const _15f2afae = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 68).then(__webpack_require__.bind(null, 321)));
 
-const _cde82b64 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 69).then(__webpack_require__.bind(null, 322)));
+const _7c8b8c0a = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 69).then(__webpack_require__.bind(null, 322)));
 
-const _35c96410 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 74).then(__webpack_require__.bind(null, 323)));
+const _30bdd4ab = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 74).then(__webpack_require__.bind(null, 323)));
 
-const _b6d65126 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 72).then(__webpack_require__.bind(null, 318)));
+const _2909889a = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 72).then(__webpack_require__.bind(null, 318)));
 
-const _4ec06dda = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 73).then(__webpack_require__.bind(null, 324)));
+const _7863c880 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 73).then(__webpack_require__.bind(null, 324)));
 
-const _f04f88b2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 75).then(__webpack_require__.bind(null, 325)));
+const _6901644c = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 75).then(__webpack_require__.bind(null, 325)));
 
-const _f97dd3ce = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 71).then(__webpack_require__.bind(null, 326)));
+const _07b5c746 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 71).then(__webpack_require__.bind(null, 326)));
 
-const _6d385a9d = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 70).then(__webpack_require__.bind(null, 327)));
+const _29fdd460 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 70).then(__webpack_require__.bind(null, 327)));
 
 const emptyFn = () => {};
 
@@ -6878,43 +6878,43 @@ const routerOptions = {
   scrollBehavior: router_scrollBehavior,
   routes: [{
     path: "/success/checkout",
-    component: _06441552,
+    component: _43736778,
     name: "success-checkout"
   }, {
     path: "/success/register",
-    component: _3fe4e034,
+    component: _214d3721,
     name: "success-register"
   }, {
     path: "/error/link/expired",
-    component: _674f4f08,
+    component: _15f2afae,
     name: "error-link-expired"
   }, {
     path: "/error/link/invalid",
-    component: _cde82b64,
+    component: _7c8b8c0a,
     name: "error-link-invalid"
   }, {
     path: "/site/:store",
-    component: _35c96410,
+    component: _30bdd4ab,
     name: "site-store"
   }, {
     path: "/site/:store?/cart",
-    component: _b6d65126,
+    component: _2909889a,
     name: "site-store-cart"
   }, {
     path: "/site/:store?/checkout",
-    component: _4ec06dda,
+    component: _7863c880,
     name: "site-store-checkout"
   }, {
     path: "/site/:store?/userprofile",
-    component: _f04f88b2,
+    component: _6901644c,
     name: "site-store-userprofile"
   }, {
     path: "/site/:store?/:pid",
-    component: _f97dd3ce,
+    component: _07b5c746,
     name: "site-store-pid"
   }, {
     path: "/",
-    component: _6d385a9d,
+    component: _29fdd460,
     name: "index"
   }],
   fallback: false
@@ -7100,7 +7100,7 @@ var error_component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "62b60239"
+  "64223bba"
   
 )
 
@@ -8680,7 +8680,7 @@ var default_component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   null,
-  "1147809c"
+  "77dccd1c"
   
 )
 
@@ -8722,7 +8722,7 @@ var empty_component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "0b22ea04"
+  "65a76ae8"
   
 )
 
@@ -9056,7 +9056,7 @@ var free_solid_svg_icons_ = __webpack_require__(48);
 // EXTERNAL MODULE: external "@fortawesome/free-brands-svg-icons"
 var free_brands_svg_icons_ = __webpack_require__(49);
 
-// CONCATENATED MODULE: ./.nuxt/templates.plugin.67fd027c.js
+// CONCATENATED MODULE: ./.nuxt/templates.plugin.73973bb5.js
 
 
 
@@ -9372,7 +9372,7 @@ const setupProgress = axios => {
 
  // Source: ./vuetify/plugin.js (mode: 'all')
 
- // Source: ./templates.plugin.67fd027c.js (mode: 'all')
+ // Source: ./templates.plugin.73973bb5.js (mode: 'all')
 
  // Source: ./pwa/meta.plugin.js (mode: 'all')
 
@@ -9614,8 +9614,8 @@ async function createApp(ssrContext, config = {}) {
     await vuetify_plugin(app.context, inject);
   }
 
-  if (typeof /* Cannot get final name for export "default" in "./.nuxt/templates.plugin.67fd027c.js" (known exports: , known reexports: ) */ undefined === 'function') {
-    await /* Cannot get final name for export "default" in "./.nuxt/templates.plugin.67fd027c.js" (known exports: , known reexports: ) */ undefined(app.context, inject);
+  if (typeof /* Cannot get final name for export "default" in "./.nuxt/templates.plugin.73973bb5.js" (known exports: , known reexports: ) */ undefined === 'function') {
+    await /* Cannot get final name for export "default" in "./.nuxt/templates.plugin.73973bb5.js" (known exports: , known reexports: ) */ undefined(app.context, inject);
   }
 
   if (typeof meta_plugin === 'function') {

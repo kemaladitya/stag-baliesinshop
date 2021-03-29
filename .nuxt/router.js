@@ -4,16 +4,16 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _06441552 = () => interopDefault(import('../pages/success/checkout.vue' /* webpackChunkName: "pages/success/checkout" */))
-const _3fe4e034 = () => interopDefault(import('../pages/success/register.vue' /* webpackChunkName: "pages/success/register" */))
-const _674f4f08 = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
-const _cde82b64 = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
-const _35c96410 = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
-const _b6d65126 = () => interopDefault(import('../pages/site/_store/cart/index.vue' /* webpackChunkName: "pages/site/_store/cart/index" */))
-const _4ec06dda = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
-const _f04f88b2 = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
-const _f97dd3ce = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
-const _6d385a9d = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _43736778 = () => interopDefault(import('../pages/success/checkout.vue' /* webpackChunkName: "pages/success/checkout" */))
+const _214d3721 = () => interopDefault(import('../pages/success/register.vue' /* webpackChunkName: "pages/success/register" */))
+const _15f2afae = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
+const _7c8b8c0a = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
+const _30bdd4ab = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
+const _2909889a = () => interopDefault(import('../pages/site/_store/cart/index.vue' /* webpackChunkName: "pages/site/_store/cart/index" */))
+const _7863c880 = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
+const _6901644c = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
+const _07b5c746 = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
+const _29fdd460 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -28,43 +28,43 @@ export const routerOptions = {
 
   routes: [{
     path: "/success/checkout",
-    component: _06441552,
+    component: _43736778,
     name: "success-checkout"
   }, {
     path: "/success/register",
-    component: _3fe4e034,
+    component: _214d3721,
     name: "success-register"
   }, {
     path: "/error/link/expired",
-    component: _674f4f08,
+    component: _15f2afae,
     name: "error-link-expired"
   }, {
     path: "/error/link/invalid",
-    component: _cde82b64,
+    component: _7c8b8c0a,
     name: "error-link-invalid"
   }, {
     path: "/site/:store",
-    component: _35c96410,
+    component: _30bdd4ab,
     name: "site-store"
   }, {
     path: "/site/:store?/cart",
-    component: _b6d65126,
+    component: _2909889a,
     name: "site-store-cart"
   }, {
     path: "/site/:store?/checkout",
-    component: _4ec06dda,
+    component: _7863c880,
     name: "site-store-checkout"
   }, {
     path: "/site/:store?/userprofile",
-    component: _f04f88b2,
+    component: _6901644c,
     name: "site-store-userprofile"
   }, {
     path: "/site/:store?/:pid",
-    component: _f97dd3ce,
+    component: _07b5c746,
     name: "site-store-pid"
   }, {
     path: "/",
-    component: _6d385a9d,
+    component: _29fdd460,
     name: "index"
   }],
 
