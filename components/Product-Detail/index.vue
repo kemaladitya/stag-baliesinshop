@@ -14,32 +14,14 @@
     <Mini
       v-if="screen === 'mini'"
       id="mini"
-      :selectedvariant="selectedvariant"
-      :selectedqty="selectedqty"
-      :productdetail="productdetail"
-      :selectqty="selectqty"
-      :selectvariant="selectvariant"
-      :addtocart="addtocart"
     />
     <Mobile
       v-if="screen === 'mobile'"
       id="mobile"
-      :selectedvariant="selectedvariant"
-      :selectedqty="selectedqty"
-      :productdetail="productdetail"
-      :selectqty="selectqty"
-      :selectvariant="selectvariant"
-      :addtocart="addtocart"
     />
     <Desktop
       v-if="screen === 'desktop'"
       id="desktop"
-      :selectedvariant="selectedvariant"
-      :selectedqty="selectedqty"
-      :productdetail="productdetail"
-      :selectqty="selectqty"
-      :selectvariant="selectvariant"
-      :addtocart="addtocart"
     />
   </div>
 </template>
@@ -57,30 +39,30 @@ export default {
   },
 
   props: {
-    selectedvariant: {
-      type: Object,
-      required: true
-    },
-    selectedqty: {
-      type: Number,
-      required: true
-    },
-    productdetail: {
-      type: Object,
-      required: true
-    },
-    selectqty: {
-      type: Function,
-      required: true
-    },
-    selectvariant: {
-      type: Function,
-      required: true
-    },
-    addtocart: {
-      type: Function,
-      required: true
-    }
+    // selectedvariant: {
+    //   type: Object,
+    //   required: true
+    // },
+    // selectedqty: {
+    //   type: Number,
+    //   required: true
+    // },
+    // productdetail: {
+    //   type: Object,
+    //   required: true
+    // },
+    // selectqty: {
+    //   type: Function,
+    //   required: true
+    // },
+    // selectvariant: {
+    //   type: Function,
+    //   required: true
+    // },
+    // addtocart: {
+    //   type: Function,
+    //   required: true
+    // }
   },
 
   computed: {

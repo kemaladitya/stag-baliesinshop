@@ -1,5 +1,10 @@
 <template>
-  <div class="pa-1 d-flex flex-row" style="width: 100%;">
+  <v-card
+    class="pa-1 d-flex flex-row" style="width: 100%;"
+    flat
+    tile
+    :height="screen == 'mini' ? 45 : 53"
+  >
     <v-btn
       v-show="!rp_order"
       depressed
@@ -32,7 +37,7 @@
     >
       Lanjut Pembayaran
     </v-btn>
-  </div>
+  </v-card>
 </template>
 
 <script>
@@ -92,6 +97,8 @@ export default {
     customized_values_total() {
       let total = 0
 
+      console.log(this.customized_values, ' customized_values_total 3')
+
       if (this.customized_values) {
         this.customized_values.forEach(el => {
           total += el.total
@@ -104,14 +111,14 @@ export default {
 
     checkout_btn () {
       // custom setup
-      if (this.customized_values) {
-        if (this.customized_values_total > this.store.max_order) {
-          return true
-        } else if (this.customized_values_total < this.store.min_order) {
-          return true
+      if (this.customized_values != null) {
+        if (this.customized_values_total >= this.store.min_order) {
+          return false
+        } else if (this.customized_values_total <= this.store.min_order) {
+          return false
         }
 
-        return false
+        return true
       }
       // custom setup
 
@@ -160,7 +167,7 @@ export default {
         if (this.rp_order && this.dates.length) {
           status = false
         } else if (!this.rp_order && this.cart.length && this.delivery_time_normal) {
-          if (+this.total > this.store.min_order && +this.total < this.store.max_order) {
+          if (+this.total >= this.store.min_order && +this.total <= this.store.max_order) {
             return false
           } else {
             return true

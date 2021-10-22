@@ -10,7 +10,7 @@ const axiosExtra = {
     for (const scope of Array.isArray(scopes) ? scopes : [ scopes ]) {
       if (!value) {
         delete this.defaults.headers[scope][name];
-        return
+        continue
       }
       this.defaults.headers[scope][name] = value
     }
@@ -148,8 +148,8 @@ export default (ctx, inject) => {
   const runtimeConfig = ctx.$config && ctx.$config.axios || {}
   // baseURL
   const baseURL = process.browser
-    ? (runtimeConfig.browserBaseURL || runtimeConfig.browserBaseUrl || runtimeConfig.baseURL || runtimeConfig.baseUrl || 'https://master.balesin.id')
-      : (runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://master.balesin.id')
+    ? (runtimeConfig.browserBaseURL || runtimeConfig.browserBaseUrl || runtimeConfig.baseURL || runtimeConfig.baseUrl || 'https://shop.balesin.id')
+      : (runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://shop.balesin.id')
 
   // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!

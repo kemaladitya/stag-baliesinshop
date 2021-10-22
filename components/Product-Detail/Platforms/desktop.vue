@@ -1,208 +1,26 @@
 <template>
-  <div class="ml-12 mr-12 mt-4 mb-12 pb-12" style="text-align: left">
-    <div v-if="productdetail">
-      <v-card class="d-flex flex-row" height="100%" flat tile>
-        <center
-          class="pt-12"
-          style="width: 100%;"
-        >
-          <v-card width="380" height="380" flat>
-            <v-img
-              class="ma-8 mt-3"
-              width="350"
-              height="350"
-              :src="selectedvariant.main_image"
-            />
-          </v-card>
-        </center>
-        <div class="ml-4" style="width: 100%">
-          <v-card class="pt-12" flat tile>
-            <div class="mb-3" style="font-size: 26px; font-weight: 600">
-              {{ productdetail.name }}
-            </div>
-            <div>
-              <div style="font-size: 13px; color: grey">Variant:</div>
-              <div class="mb-5" style="font-weight: 600">
-                {{ productdetail.detail[0].variant }}
-              </div>
-            </div>
-            <div>
-              <div style="font-size: 13px; color: grey">
-                Description:
-              </div>
-              <div class="mb-5" style="color: grey">
-                {{ productdetail.description }}
-              </div>
-            </div>
-            <div class="d-flex flex-row mb-5" style="font-weight: 600">
-              <div class="mr-2">Size:</div>
-              <div class="d-flex flex-row">
-                <div
-                  v-for="(size, indx) in productdetail.detail[0].size.split(',')"
-                  :key="indx"
-                  class="elevation-1 ml-1"
-                  style="
-                    background-color: #fd0;
-                    padding: 3px 8px;
-                    border-radius: 4px;
-                    color: black;
-                    font-size: 13px;
-                  "
-                >
-                  {{ size.replace(/,/g, '') }}
-                </div>
-              </div>
-              <div>
-              </div>
-            </div>
-            <div class="pt-6 pb-3">
-              <div
-                class="mt-4"
-                :style="
-                  productdetail.detail[0].discount_price
-                    ? 'text-decoration-line: line-through; color: grey; font-size: 20px'
-                    : 'font-weight: 600; font-size: 20px'"
-              >
-                Rp. {{ productdetail.detail[0].normal_price.toLocaleString().replace(/,/g, '.') }}, -
-              </div>
-              <div v-if="productdetail.detail[0].discount_price" style="font-weight: 600; font-size: 20px">
-                Rp. {{ productdetail.detail[0].discount_price.toLocaleString().replace(/,/g, '.') }}, -
-              </div>
-            </div>
-            <div class="mt-12" style="width: 320px">
-              <div style="font-size: 13px; color: grey">
-                Pilih Variant:
-              </div>
-              <v-select
-                :items="productdetail.detail.map(el => el.variant)"
-                :placeholder="selectedvariant.variant"
-                @change="selectvariant"
-                hide-details
-                outlined
-                dense
-              />
-            </div>
-            <div class="d-flex flex-row mt-6">
-              <div class="mr-3">
-                <div style="font-size: 13px; color: grey">
-                  Quantity:
-                </div>
-                <div class="mt-1" style="width: 110px">
-                  <v-select
-                    :items="
-                      Array.from(Array(selectedvariant.stock).keys()).slice(1, 11)
-                    "
-                    :placeholder="
-                      String(
-                        Array.from(Array(selectedvariant.stock).keys()).slice(1)[0]
-                      )
-                    "
-                    outlined
-                    dense
-                    @change="selectqty"
-                  />
-                </div>
-                <!-- <div class="d-flex flex-row" style="margin-top: 6px">
-                  <v-card class="pa-1" width="35" height="35" @click="">
-                    <center>
-                      <v-icon>mdi-menu-left</v-icon>
-                    </center>
-                  </v-card>
-                  <center style="padding: 6px 20px">
-                    1
-                  </center>
-                  <v-card class="pa-1" width="35" height="35" @click="">
-                    <center>
-                      <v-icon>mdi-menu-right</v-icon>
-                    </center>
-                  </v-card>
-                </div> -->
-              </div>
-              <div class="ml-1 mt-6">
-                <v-btn
-                  height="39"
-                  color="#fd0"
-                  depressed
-                  style="letter-spacing: normal"
-                >
-                  Tambah ke Keranjang
-                </v-btn>
-              </div>
-            </div>
-          </v-card> 
-        </div>
-        <!-- <div style="background-color: red; width: 100%">
-          flex
-        </div> -->
-        <!-- <v-card width="50%" class="pa-4 pt-0" style="align-self: center;" flat>
+  <div style="text-align: left">
+    <div v-if="product">
+      <v-card class="pa-12 pt-3 pb-0" flat tile>
+        <center>
           <v-img
-            class="ma-8 mt-0"
+            class="ma-8"
+            loading=lazy
+            style="border-radius: 3px"
+            :src="selected_variant.image"
             width="300"
-            height="300"
-            :src="selectedvariant.main_image"
           />
-        </v-card>
-        <v-card width="50%" class="pt-12 mt-12" flat tile>
-          <div class="mb-3" style="font-size: 26px; font-weight: 600">
-            {{ productdetail.name }}
-          </div>
-          <div>
-            <div style="font-size: 13px; color: grey">Variant:</div>
-            <div class="mb-5" style="font-weight: 600">
-              {{ productdetail.detail[0].variant }}
-            </div>
-          </div>
-          <div>
-            <div style="font-size: 13px; color: grey">Description:</div>
-            <div class="mb-5" style="color: grey">
-              {{ productdetail.description }}
-            </div>
-          </div>
-          <div class="d-flex flex-row mb-5" style="font-weight: 600">
-            <div class="mr-2">Size:</div>
-            <div class="d-flex flex-row">
-              <div
-                v-for="(size, indx) in productdetail.detail[0].size.split(',')"
-                :key="indx"
-                class="elevation-1 ml-1"
-                style="
-                  background-color: #8C2A35;
-                  padding: 3px 8px;
-                  border-radius: 4px;
-                  color: white;
-                  font-size: 13px;
-                "
-              >
-                {{ size.replace(/,/g, '') }}
-              </div>
-            </div>
-            <div>
-            </div>
-          </div>
-          <div class="mt-12 pt-12">
-            <div
-              class="mt-12"
-              :style="
-                productdetail.detail[0].discount_price
-                  ? 'text-decoration-line: line-through; color: grey; font-size: 26px'
-                  : 'font-weight: 600'"
-            >
-              Rp. {{ productdetail.detail[0].normal_price.toLocaleString().replace(/,/g, '.') }}, -
-            </div>
-            <div v-if="productdetail.detail[0].discount_price" style="font-weight: 600; font-size: 26px">
-              Rp. {{ productdetail.detail[0].discount_price.toLocaleString().replace(/,/g, '.') }}, -
-            </div>
-          </div>
-        </v-card> -->
+        </center>
       </v-card>
-      <!-- 
       <v-card class="d-flex flex-row pa-1" flat tile>
-        <div class="name">{{ productdetail.name }}</div>
+        <div class="name">{{ product.name }}</div>
         <v-spacer />
 
-        <div v-if="selectedvariant.normal_price" class="price">
-          Rp. {{
-            selectedvariant.normal_price.toLocaleString().replace(/,/g, '.')
+        <div class="price">
+          Rp {{
+            selected_variant.discount_price
+              ? selected_variant.discount_price.toLocaleString().replace(/,/g, '.')
+              : selected_variant.normal_price.toLocaleString().replace(/,/g, '.')
           }}, -
         </div>
       </v-card>
@@ -213,31 +31,31 @@
         <div class="variant pr-2" style="text-align: left">
           <div class="label mb-1">Variant</div>
           <v-select
-            :items="productdetail.detail.map(el => el.variant)"
-            :label="selectedvariant.variant"
+            :items="variant.map(({ name }) => name)"
+            :label="selected_variant.name"
             min-width="50%"
             max-width="50%"
             solo
             dense
-            @change="selectvariant"
+            @change="select_variant"
           />
         </div>
         <div class="qty pl-2" style="text-align: left">
           <div class="label mb-1">Qty.</div>
           <v-select
             :items="
-              Array.from(Array(selectedvariant.stock).keys()).slice(1, 11)
+              Array.from(Array(selected_variant.stock).keys()).slice(1, 11)
             "
             :label="
               String(
-                Array.from(Array(selectedvariant.stock).keys()).slice(1)[0]
+                Array.from(Array(selected_variant.stock).keys()).slice(1)[0]
               )
             "
             min-width="50%"
             max-width="50%"
             solo
             dense
-            @change="selectqty"
+            @change="select_qty"
           />
         </div>
       </v-card>
@@ -247,7 +65,7 @@
       <center class="pb-3 pt-3">
         <div class="size">Ukuran</div>
         <div class="size">
-          {{ selectedvariant.size }}
+          {{ selected_variant.size }}
         </div>
       </center>
 
@@ -256,9 +74,9 @@
       <div class="description pa-1 pt-3">
         <div class="label">Deskripsi</div>
         <div class="detail pt-2">
-          {{ productdetail.description }}
+          {{ product.description }}
         </div>
-        <v-card height="50" flat tile />
+        <v-card height="25vh" flat tile />
       </div>
 
       <v-footer
@@ -273,8 +91,8 @@
         >
           <v-btn
             depressed
-            :to="back"
-            style="width: 49.5%"
+            style="width: 49.5%; letter-spacing: normal; text-transform: none"
+            :to="home_url"
           >
             Lanjut Belanja
           </v-btn>
@@ -282,57 +100,138 @@
           <v-btn
             depressed
             color="#FD0"
-            @click="addtocart(productdetail)"
-            style="width: 49.5%"
+            style="width: 49.5%; letter-spacing: normal; text-transform: none"
+            @click="manage_cart"
           >
             Tambah ke keranjang
           </v-btn>
         </div>
-      </v-footer> -->
+      </v-footer>
     </div>
+    <v-bottom-sheet
+      :value="mini_cart"
+      @click:outside="show_mini_cart(false)"
+    >
+      <div class="d-flex flex-row" style="background-color: white">
+        <v-spacer />
+        <v-btn
+          icon
+          text
+          color="red"
+          @click="mini_cart = false"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
+      <v-divider />
+      <MiniCart />
+    </v-bottom-sheet>
   </div>
 </template>
 
 <script>
+import API from '@/components/General'
+import MiniCart from '@/components/Bottom-Sheet/mini-cart'
+
 export default {
-  props: {
-    selectedvariant: {
-      type: Object,
-      required: true
-    },
-    selectedqty: {
-      type: Number,
-      required: true
-    },
-    productdetail: {
-      type: Object,
-      required: true
-    },
-    selectqty: {
-      type: Function,
-      required: true
-    },
-    selectvariant: {
-      type: Function,
-      required: true
-    },
-    addtocart: {
-      type: Function,
-      required: true
-    }
+  components: {
+    MiniCart,
   },
 
   data: () => ({
-    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
+    product: null,
+    variant: [],
+    selected_variant: null,
+    qty: 1,
+    mini_cart: false,
   }),
 
   computed: {
-    back() {
+    home_url() {
       const site = this.$store.state.site
 
       return `/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`
+    },
+
+    store() {
+      return this.$store.state.store
+    },
+  },
+
+  async mounted() {
+    const { params: { pid }, query: { c } } = this.$route
+    const request = await this.$store.dispatch('request', {
+      url: '/api/product/detail',
+      method: 'post',
+      data: {
+        id: pid,
+        outlet: c,
+        store_id: this.store.id,
+      }
+    })
+
+    if (request.data.response) {
+      this.product = request.data.response
+      this.variant = request.data.response.variant
+      this.selected_variant = this.variant.length
+        ? this.variant[0] : null
     }
-  }
+  },
+
+  methods: {
+    show_mini_cart(status) {
+      this.mini_cart = status
+    },
+
+    select_variant(e) {
+      const filtered = this.variant.filter(el => el.name === e)
+
+      this.selected_variant = filtered[0]
+    },
+
+    select_qty(e) {
+      this.qty = e
+    },
+
+    async manage_cart() {
+      const { params: { store }, query: { c, u, src } } = this.$route
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'loading',
+          data: true
+        }
+      })
+
+      await API.cart_manager(this, {
+        method: 'add',
+        info: {
+          mode: 'single-order',
+          item: {
+            id: this.product.id,
+            detail_id: this.selected_variant.id,
+            sku: this.product.sku,
+            qty: this.qty
+          },
+          store: {
+            name   : store,
+            source : src,
+            uuid   : u,
+            outlet : c,
+          },
+        },
+      })
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'loading',
+          data: false
+        }
+      })
+
+      this.show_mini_cart(true)
+    },
+  },
 }
 </script>
 

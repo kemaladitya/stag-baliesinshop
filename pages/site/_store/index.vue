@@ -1,73 +1,43 @@
 <template>
   <div>
-    <v-container id="b-list-products" class="pt-12 pl-1 pr-1 mb-12">
-      <v-card flat tile>
-        <Loading v-show="loading_product" />
-        <div class="ma-1 mb-0 d-flex flex-row" style="margin-top: 17px !important">
-          <div class="mr-1" style="width: 100%">
-            <v-text-field
-              append-icon="mdi-magnify"
-              placeholder="Mau cari apa hari ini?"
-              hide-details
-              dense
-              outlined
-              style="font-size: 13px"
-              v-model="search_value"
-            />
-          </div>
-          <div style="width: 47px;">
-            <v-select
-              id="b-search-product-by"
-              :items="select_search_type"
-              placeholder="Search by"
-              width="80"
-              max-width="80"
-              min-width="80"
-              append-icon="mdi-cog"
-              hide-details
-              dense
-              outlined
-              v-model="search_type"
-            />
-          </div>
-        </div>
-        <div class="ml-2" style="font-size: 8px; color: #999; padding-top: 2px; text-align: left">
-          Cari Produk berdasarkan : <span style="color: #0D47A1">"{{ search_type }}"</span>
-        </div>
-        <div v-show="!loading_product">
+    <v-card id="b-list-products" class="pt-12 mb-12" flat tile>
+      <v-progress-linear
+        v-show="loading"
+        style="z-index: 9999 !important"
+        color="blue darken-2"
+        height="3"
+        indeterminate
+      />
+      <v-card style="width: 100%" flat tile>
+        <v-card v-if="loading_product" width="100%" flat tile>
+          <center style="width: 100%">
+            <div style="width: 50%; margin-top: 30vh">
+              <v-img :src="require('@/assets/images/loading/balesin-loading.gif')" width="80" loading="lazy" />
+              <div class="mb-2" style="font-size: 13px; color: gray; padding-top: 13px; font-weight: 600">
+                Mohon menunggu...
+              </div>
+            </div>
+          </center>
+        </v-card>
+        <div v-else>
           <Products
-            :listproduct="search_value.length ? find_product : list_product"
             :productdetail="product_detail"
-            :addtocart="add_to_cart"
             :loadingproduct="loading_product"
           />
         </div>
       </v-card>
       <v-snackbar v-model="snackbar">information</v-snackbar>
-    </v-container>
-    <!-- <div> -->
-      <v-card
-        v-show="(!rp_order && cart.length) || rp_order && dates.length"
-        class="basket-background-shadow"
-        width="100%"
-        height="40px"
-        style="position: fixed; bottom: -5px; z-index: 8"
-        tile
-      >
-        &nbsp;
-      </v-card>
-      <!-- <v-img src="data:image/jpeg;base64,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" /> -->
-      <!-- <v-img width="100%" height="100px" src="https://png2.cleanpng.com/dy/8f0e4c5a6345ceadd4a04d00c513e245/L0KzQYq3VcA4N6l9epH0aYP2gLBuTgBweqVmet5uLX7ohMj2kvsub6NmiNpyY4Owc73wkL1ieqUyjORqboPzccPsjvN6NZVqRadsZEK0dIGBg8QyP5U3RqQANkm6RoaAUcU2P2M8S6oBNEizQ4O1kP5o/kisspng-portable-network-graphics-clip-art-transparency-de-5cd21d08c417d2.2569765715572738648032.png" /> -->
-    <!-- </div> -->
-    <transition name="scroll-y-reverse-transition" mode="out-in" appear>
+    </v-card>
+
+    <transition v-if="!loading_product" name="scroll-y-reverse-transition" mode="out-in" appear>
       <div
-        v-show="(!rp_order && cart.length) || rp_order && dates.length"
+        v-show="(cart.length)"
         style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9;"
       >
         <v-card
           class="d-flex flex-row pa-3 pr-3 pl-3"
           color="#fd0"
-          :to="gotocart"
+          :to="cart_url"
         >
           <v-card
             color="transparent"
@@ -82,7 +52,7 @@
             style="font-size: 14px; font-weight: 600; color: grey"
             flat
           >
-            {{ total_qty_item }} item
+            {{ order_info.qty_item }} item
           </v-card>
           <v-spacer />
           <v-card
@@ -90,16 +60,9 @@
             style="font-size: 14px; font-weight: 600"
             flat
           >
-            <div v-if="rp_order" style="font-weight: 600">
-              Rp. {{
-                subs_order
-                  .toLocaleString()
-                  .replace(/,/g, '.')
-              }}
-            </div>
-            <div v-else style="font-weight: 600">
-              Rp. {{
-                normal_order
+            <div style="font-weight: 600">
+              Rp {{
+                order_info.total
                   .toLocaleString()
                   .replace(/,/g, '.')
               }}
@@ -108,10 +71,20 @@
         </v-card>
       </div>
     </transition>
+    <!-- <v-card
+      v-show="(!rp_order && cart.length) || rp_order && dates.length"
+      class="basket-background-shadow"
+      width="100%"
+      height="40px"
+      style="position: fixed; bottom: -5px; z-index: 8"
+      tile
+    >
+      &nbsp;
+    </v-card>
     <v-dialog
-      v-model="dialog_list_dates"
-      persistent
       max-width="290"
+      persistent
+      v-model="dialog_list_dates"
     >
       <v-card class="pa-2">
         <div class="d-flex flex-row">
@@ -125,23 +98,30 @@
           v-for="(item, index) in dates"
           :key="index"
           class="mt-1 pa-2"
-          outlined
           style="
             background-color: aliceblue;
             border-color: #0D47A1 !important;
             font-size: 13px;
             font-weight: 600;
           "
+          outlined
           @click="add_to_rp_cart(item.date)"
         >
           {{ item.date }}
         </v-card>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
   </div>
 </template>
 
 <script>
+/** 
+ * * get store info
+ * * get products if not exist
+ * * get customer info if not exist (for get cart)
+ * * get cart
+ */
+
 import API from '@/components/General'
 import Products from '@/components/Products/index'
 import Loading from '@/components/Loading/list_product'
@@ -157,39 +137,12 @@ export default {
     snackbar: false,
     loading_product: false,
     dialog_list_dates: false,
-    select_search_type: ['Nama', 'Varian'],
-    search_type: 'Nama',
-    search_value: '',
     temp_product: {}
   }),
 
   computed: {
-    find_product() {
-      let results = this.list_product.map(el => el)
-
-      if (this.search_type === 'Varian') {
-        results = results.filter(el => {
-          const list_variant = el.detail.map(detail_item => detail_item.variant)
-
-          if (list_variant.join(',').toLowerCase().includes(this.search_value.toLowerCase())) {
-            return el
-          }
-        })
-      } else {
-        results = results.filter(el => el.name.toLowerCase().includes(this.search_value.toLowerCase()))
-      }
-
-      return results
-    },
-
-    gotocart() {
-      const { store, uuid, source, category } = this.site
-
-      return `/site/${store}/cart?u=${uuid}&mtd=view&src=${source}&c=${category}`
-    },
-
-    list_product() {
-      return this.$store.state.products
+    loading() {
+      return this.$store.state.loading
     },
 
     site() {
@@ -200,113 +153,99 @@ export default {
       return this.$store.state.store
     },
 
-    rp_order() {
-      return this.$store.state.rp_order
+    customer() {
+      return this.$store.state.customer
     },
 
-    normal_order () {
-      let total = 0
-
-      this.cart.forEach(el => {
-        const pricing = el.detail[0].discount_price
-          ? el.detail[0].discount_price
-          : el.detail[0].normal_price
-
-        total += el.qty * pricing
-      })
-
-      return total
+    order_type() {
+      return this.$store.state.order_type
     },
 
-    subs_order () {
-      let total = 0
+    list_product() {
+      return this.$store.state.products
+    },
 
-      this.dates.forEach(el => {
-        el.items.forEach(item => {
-          const pricing = item.discount_price
-            ? item.discount_price
-            : item.normal_price
+    list_merchant() {
+      return this.$store.state.list_merchant
+    },
 
-          total += item.qty * pricing
-        })
-      })
-
-      return total
+    merchant() {
+      return this.$store.state.merchant
     },
 
     cart() {
-      if (this.rp_order) {
-        const merge_cart = []
+      if (this.order_type === 'single-order') {
+        return this.$store.state.cart
+      } else if (this.order_type === 'subscription-order') {
+        return this.$store.state.subscription_cart
+      } else if (this.order_type === 'package-order') {
+        return this.$store.state.package_cart
+      }
+    },
 
-        this.dates.forEach(el => {
-          const filtered = el.items.filter(item => item.select_date)
+    order_info() {
+      let qty_item = 0
+      let total    = 0
 
-          // console.log(filtered, ' filtered')
+      if (this.order_type === 'single-order' && this.cart) {
+        // console.log('!@order_info.this.cart |', this.cart)
+        this.cart.forEach(el => {
+          const find = this.list_product.filter(
+            product => product.id === el.id && product.SKU === el.sku
+          )
 
-          if (filtered.length) {
-            merge_cart.push(...filtered)
+          if (find.length) {
+            qty_item += el.qty
+            total    += (find[0].discount_price || find[0].normal_price) * el.qty
           }
         })
+      } else if (this.order_type === 'subscription-order' && this.cart) {
+        this.cart.forEach(date => {
+          date.items.forEach(item => {
+            const find = this.list_product.filter(
+              product => product.id === item.id && product.SKU === item.sku
+            )
 
-        return merge_cart
+            if (find.length) {
+              qty_item += item.qty
+              total    += (find[0].discount_price || find[0].normal_price) * item.qty
+            }
+          })
+        })
       }
 
-      return this.$store.state.cart
+      return { qty_item, total }
     },
 
-    dates() {
-      return this.$store.state.dates
-    },
+    cart_url() {
+      const { store, uuid, source, category } = this.site
 
-    total_qty_item() {
-      if (this.rp_order) {
-        const rp_qty = this.get_rp_qty_item()
-
-        return rp_qty
-      }
-
-      const so_qty = this.get_so_qty_item()
-
-      return so_qty
-    },
-
-    single_order_date() {
-      const date = new Date()
-      const day = date.getDate()
-
-      date.setDate(day + 1)
-
-      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`}`
+      return `/site/${store}/cart?u=${uuid}&mtd=view&src=${source}&c=${category}`
     },
   },
 
   async mounted () {
-    const { c, u } = this.$route.query
+    this.loading_product = true
 
-    const get_product = await API.get_list_products(this.$store, {
-      category: c,
-      uid: u,
-      bot_id: this.$route.params.store
-    })
+    await this.init_page()
+    await this.get_list_merchant(0)
 
-    if (!get_product.status) {
-      if (get_product.message == 'Expired.') {
-        this.$router.replace('/error/link/expired')
-      }
-
-      if (get_product.message == 'Invalid URL.') {
-        this.$router.replace('/error/link/invalid')
-      }
-    }
-
-    API.cart_detail(this.$store, {
-      bot_id: this.store.bot_id,
-      store_name: this.site.store,
-      source: this.site.source,
+    const cart = await API.cart_manager(this, {
       method: 'get',
-      uuid: this.site.uuid,
-      category: this.site.category
+      info: {
+        item: null,
+        store: {
+          name   : this.site.store,
+          source : this.site.source,
+          uuid   : this.site.uuid,
+          outlet : this.site.category,
+        },
+      },
     })
+
+    // if (cart.type === 'subscription-order') {
+    //   this.$router.push(this.cart_url)
+    // }
 
     if (!this.$store.state.fullpath.length) {
       this.$store.dispatch('setState', {
@@ -316,37 +255,105 @@ export default {
         }
       })
     }
+
+    this.loading_product = false
   },
 
   methods: {
-    get_so_qty_item() {
-      let total = 0
+    async init_page() {
+      const { c, u } = this.$route.query
 
-      this.cart.forEach(el => {
-        total += el.qty
+      if (!this.store.hasOwnProperty('id')) {
+        await this.get_base_info('site-store')
+
+        console.log('@this.store |', this.store)
+      }
+
+      if (this.store.store_type) {
+        await this.get_merchant_detail(c)
+      }
+
+      if (!this.customer) {
+        await this.get_customer_detail(this.store.bot_id)
+      }
+
+      const get_product = await API.get_list_products(this.$store, {
+        category: c,
+        uid: u,
+        bot_id: this.$route.params.store,
+        merchant: this.merchant ? this.merchant.id : 0,
       })
 
-      return total
+      if (!get_product.status) {
+        if (get_product.message == 'Expired.') {
+          this.$router.replace('/error/link/expired')
+        }
+
+        if (get_product.message == 'Invalid URL.') {
+          this.$router.replace('/error/link/invalid')
+        }
+      }
     },
 
-    get_rp_qty_item() {
-      let total = 0
-
-      this.dates.forEach(el => {
-        el.items.forEach(item => {
-          if (item.qty) {
-            total += item.qty
-          }
-        })
+    async get_merchant_detail(merchant_id) {
+      console.log('get_merchant_detail')
+      const request = await this.$store.dispatch('request', {
+        url: '/api/store/market/info',
+        method: 'post',
+        data: { merchant_id }
       })
 
-      return total
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'merchant',
+          data: request.data.response
+        }
+      })
+    },
+
+    async get_list_merchant(page) {
+      // this.loading_merchant = true
+      // this.$store.dispatch('setState', {
+      //   payload: {
+      //     key: 'general_loading',
+      //     data: true
+      //   }
+      // })
+
+      const { query: { market } } = this.$route
+      const list_merchant = await this.$store.dispatch('request', {
+        url: '/api/store/market/merchant',
+        method: 'post',
+        data: {
+          bot_id: this.store.bot_id,
+          market_id: market,
+          page
+        }
+      })
+
+      // this.loading_merchant = false
+      // this.$store.dispatch('setState', {
+      //   payload: {
+      //     key: 'general_loading',
+      //     data: false
+      //   }
+      // })
+
+      // if (list_merchant.data.response.length != 10) {
+      //   this.end = true
+      // }
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'list_merchant',
+          data: [ ...this.list_merchant, ...list_merchant.data.response ]
+        }
+      })
     },
 
     product_detail(item) {
-      console.log('*** product_detail method ***')
-
       const { uuid, source, category, store } = this.site
+
       this.$router.replace(
         `/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`
       )
@@ -404,143 +411,10 @@ export default {
           items: mapped
         }
       })
-
-      this.$store.dispatch('setState', {
-        payload: {
-          key: 'added_to_cart',
-          data: true
-        }
-      })
-    },
-
-    add_to_cart(item) {
-      if (this.rp_order && this.dates.length) {
-        this.dialog_list_dates = true
-        this.temp_product = item[0]
-
-        return
-      } else {
-
-        console.log('*** add_to_cart method ***')
-
-        let cart = []
-        const self = this
-        const selected_variant = item[0].detail[0]
-        const _temp_product = {
-          SKU: item[0].SKU,
-          category: item[0].category,
-          description: item[0].description,
-          detail: [selected_variant],
-          id: item[0].id,
-          name: item[0].name,
-          weight: item[0].weight,
-          qty: 1,
-          select_date: true
-        }
-        const list_cart = this.$store.state.cart
-        const _cart = list_cart.filter(
-          el =>
-            el.id === item[0].id &&
-            el.detail[0].variant === selected_variant.variant
-        )
-
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'rp_order',
-            data: false
-          }
-        })
-
-        if (!_cart.length) {
-          _temp_product.qty = 1
-          list_cart.push(_temp_product)
-
-          self.$store.dispatch('setState', {
-            payload: {
-              key: 'cart',
-              data: list_cart
-            }
-          })
-        } else {
-          const check_stock = selected_variant.stock >= 1 + _cart[0].qty
-          if (check_stock) {
-            const updated_cart = list_cart.map(el => {
-              if (el.id === item[0].id) {
-                _cart[0].qty += 1
-
-                return _cart[0]
-              } else {
-                return el
-              }
-            })
-
-            self.$store.dispatch('setState', {
-              payload: {
-                key: 'cart',
-                data: updated_cart
-              }
-            })
-          } else {
-            // console.log('qty tidak mencukupi')
-          }
-        }
-
-        if (this.rp_order) {
-          const _dates = this.dates.map(el => {
-            const filtered = el.items.filter(item => item.qty && item.select_date)
-
-            return {
-              date: el.date,
-              items: filtered.map(f_item => ({
-                detail_id: f_item.detail_id,
-                id: f_item.id,
-                product_id: f_item.product_id,
-                qty: f_item.qty,
-                variant: f_item.variant
-              }))
-            }
-          })
-
-          cart = {
-            type: 'rp-order',
-            items: _dates
-          }
-        } else {
-          cart = {
-            type: 'single-order',
-            items: this.cart.map(el => ({
-              delivery_date: this.single_order_date,
-              items: [{
-                id: el.id,
-                qty: el.qty,
-                price: el.detail[0].discount_price || el.detail[0].normal_price,
-                SKU: el.SKU,
-                name: el.name,
-                variant: el.detail[0].variant,
-              }]
-            }))
-          }
-        }
-
-        API.manage_cart(self.$store, {
-          store_name: this.site.store,
-          source: this.site.source,
-          method: 'set',
-          uuid: this.site.uuid,
-          detail: cart
-        })
-
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'added_to_cart',
-            data: true
-          }
-        })
-      }
     },
 
     async get_product() {
-      console.log('*** get_product method ***')
+      // console.log('*** get_product method ***')
 
       this.loading_product = true
 
@@ -551,14 +425,15 @@ export default {
         data: {
           category: c,
           uid: u,
-          bot_id: this.$route.params.store
+          bot_id: this.$route.params.store,
+          merchant: this.merchant ? this.merchant.id : 0,
         }
       })
 
       this.$store.dispatch('setState', {
         payload: {
           key: 'products',
-          data: request.data
+          data: request.data.sort((a, b) => b.priority - a.priority)
         }
       })
 
@@ -659,7 +534,62 @@ export default {
       //     }
       //   }
       // }
-    }
+    },
+
+    async get_base_info(page) {
+      const store = await this.$store.dispatch('request', {
+        url: '/api/store',
+        method: 'post',
+        data: {
+          store_name: this.$route.params.store,
+          page: page,
+        },
+      })
+
+      if (store.status != 200) {
+        this.$router.replace('/error/link/invalid')
+
+        return false
+      }
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'store',
+          data: {
+            ...this.store,
+            ...store.data
+          }
+        }
+      })
+    },
+
+    async get_customer_detail(bot_id) {
+      try {
+        const request = await this.$store.dispatch('request', {
+          url: '/api/customer',
+          method: 'post',
+          data: {
+            chatkey: this.$route.query.u,
+            bot_id
+          }
+        })
+
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'customer',
+            data: request.data.response
+          }
+        })
+
+        if (this.customer.ex_callback && this.$route.name == 'site-store') {
+          // if (this.site.category != this.customer.ex_callback || this.site.category != 'all' || this.site.category.length) {
+          //   window.open(`https://shop.balesin.id/site/${this.site.store}?u=${this.site.uuid}&src=${this.site.source}&c=${this.customer.ex_callback}`, '_self')
+          // }
+        }
+      } catch (error) {
+        // console.log(error)
+      }
+    },
   }
 }
 </script>

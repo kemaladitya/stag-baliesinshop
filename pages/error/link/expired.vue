@@ -1,7 +1,7 @@
 <template>
   <div class="b-font">
     <center>
-      <v-card width="380" style="margin-top: 50%">
+      <v-card width="380" style="margin-top: 25vh" flat>
         <!-- <div v-if="store"> -->
           <v-img
             :src="'https://repo-platform.s3.amazonaws.com/8466-sarirotiwagmail.com-sarirotiwa%402142020.jpeg'"

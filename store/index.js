@@ -1,50 +1,40 @@
 import Vuex from 'vuex'
 
-const date = new Date()
+const month = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+const date  = new Date()
 
 date.setHours(date.getHours() + 7)
-date.setDate(date.getDate() + 1)
+date.setDate(date.getDate() + 2)
 
 export default () => {
   return new Vuex.Store({
     /* Initial State */
     state: {
-      uuid: null,
-      added_to_cart: false,
-      alert: {
-        status: false,
-        text: ''
-      },
-      screen: 'mobile',
-      site: null,
-      fullpath: '',
-      store: null,
-      customer: null,
-      user_notes: '',
-      dates: [],
-      delivery_time_normal: '08:00 - 17:00',
-      cart: [],
-      products: [],
-      month: [
-        '',
-        'Januari',
-        'Februari',
-        'Maret',
-        'April',
-        'Mei',
-        'Juni',
-        'Juli',
-        'Agustus',
-        'September',
-        'Oktober',
-        'November',
-        'Desember'
-      ],
-      rp_order: false,
-      min_rp: '',
-      max_rp: '',
-      single_delivery_date: date.toISOString(),
-      customized_values: null
+      loading              : false,
+      order_type           : 'single-order',
+      site                 : null,
+      store                : null,
+      customer             : null,
+      customized_values    : null,
+      merchant             : null,
+      rp_order             : false,
+      mini_cart            : false,
+      fullpath             : '',
+      user_notes           : '',
+      min_rp               : '',
+      max_rp               : '',
+      screen               : 'mobile',
+      delivery_time_normal : '08:00 - 17:00',
+      package_cart         : [],
+      subscription_cart    : [],
+      cart                 : [],
+      products             : [],
+      list_merchant        : [],
+      month                : month,
+      single_delivery_date : date.toISOString(),
+      alert                : { status: false, text: '' },
+      general_loading      : false,
+      mt_address           : [],
     },
 
     mutations: {
@@ -59,10 +49,16 @@ export default () => {
 
     actions: {
       setState({ commit }, { payload: { key, data } }) {
-        commit('setState', { key, data })
+        try {
+          commit('setState', { key, data })        
+        } catch (error) {
+          console.log(error)
+        }
       },
 
       async request({ commit }, { url, method, data }) {
+        let message
+
         try {
           const auth =
             url.includes('auth') ||
@@ -72,11 +68,7 @@ export default () => {
             url === '/change'
 
           if (auth) {
-            const request = await this.$axios({
-              url,
-              method,
-              data
-            })
+            const request = await this.$axios({ url, method, data })
 
             if (request.status >= 400) {
               commit('setState', { key: 'snackbarerror', data: true })
@@ -97,9 +89,9 @@ export default () => {
               data
             })
 
-            // console.log(request, ' request')
+            console.log(request, ' request')
 
-            if (request.status >= 400) {
+            if (request.status >= 400 || (request.data && !request.data.status)) {
               commit('setState', { key: 'snackbarerror', data: true })
 
               setTimeout(() => {
@@ -110,11 +102,24 @@ export default () => {
             return request
           }
         } catch (error) {
+          console.log(error)
           commit('setState', { key: 'snackbarerror', data: true })
 
           setTimeout(() => {
             commit('setState', { key: 'snackbarerror', data: false })
           }, 5000)
+
+          this.$axios({
+            url   : '/mailer',
+            method: 'post',
+            data  : {
+              message: url +
+                " <br /><br /> " +
+                String(error) +
+                " <br /><br /> " +
+                JSON.stringify(data)
+            }
+          })
 
           return error
         }

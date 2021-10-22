@@ -1,9 +1,5 @@
 #b-list-products {
   #desktop {
-    #b-search-product-by {
-      width: 0 !important;
-    }
-
     .image {
       border-radius: 3px 2px 0 0;
       min-width: 180px;
@@ -26,6 +22,7 @@
 
     .name {
       font-size: 14px;
+      font-weight: 600;
       max-width: 165px;
       display: inline-block;
       min-width: 80px;
@@ -39,6 +36,7 @@
       font-weight: 600;
 
       .lined {
+        font-size: 8px;
         color: darkgrey !important;
         text-decoration-line: line-through !important;
       }
@@ -66,10 +64,10 @@
     }
 
     .product-mdi-icon {
-      font-size: 12px;
+      font-size: 12px !important;
     }
 
-    .select-variant{
+    .select-variant {
       text-transform: none;
       font-size: 11px;
       letter-spacing: normal;
@@ -113,6 +111,7 @@
 
     .name {
       font-size: 14px;
+      font-weight: 600;
       max-width: 165px;
       display: inline-block;
       min-width: 80px;
@@ -126,6 +125,7 @@
       font-weight: 600;
 
       .lined {
+        font-size: 8px;
         color: darkgrey !important;
         text-decoration-line: line-through !important;
       }
@@ -153,7 +153,95 @@
     }
 
     .product-mdi-icon {
+      font-size: 12px !important;
+    }
+
+    .select-variant {
+      text-transform: none;
+      font-size: 11px;
+      letter-spacing: normal;
+      width: 100%;
+    }
+
+    .empty-image {
+      border-radius: 5px;
+      width: 200px;
+      height: 200px;
+    }
+
+    .empty-info {
+      font-weight: 600;
+      background-color: #fd0;
+      border-radius: 5px;
+      width: fit-content;
+    }
+  }
+
+  #mini {
+    .image {
+      border-radius: 3px 2px 0 0;
+      min-width: 180px;
+      min-height: 180px;
+
+      .promo-badge {
+        padding: 2px 5px;
+        background-color: #1565c0;
+        color: white;
+        font-size: 10px;
+        font-weight: 600;
+        max-width: 40%;
+        text-align: center;
+        border-radius: 0 0 3px;
+        -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    .name {
+      display: inline-block;
+      min-width: 130px;
+      max-width: 130px;
+      white-space: nowrap;
+      overflow: hidden !important;
+      text-overflow: ellipsis;
+      font-weight: 600;
+    }
+
+    .discount-price {
       font-size: 12px;
+      font-weight: 600;
+
+      .lined {
+        font-size: 8px;
+        color: darkgrey !important;
+        text-decoration-line: line-through !important;
+      }
+    }
+
+    .normal-price {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .show-detail {
+      text-transform: none;
+      font-size: 11px;
+      border: 1px solid #cccccc;
+      color: #3f3f3f;
+      letter-spacing: normal;
+      width: 48%;
+    }
+
+    .add-to-cart {
+      text-transform: none;
+      font-size: 11px;
+      letter-spacing: normal;
+      width: 48%;
+    }
+
+    .product-mdi-icon {
+      font-size: 12px !important;
     }
 
     .select-variant {

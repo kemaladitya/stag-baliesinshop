@@ -1,262 +1,242 @@
 <template>
-  <v-card flat tile>
-    <div class="pb-4" style="height: 80vh; overflow-y: scroll">
-      <v-card
-        v-if="!rp_order"
-        class="ma-2 mt-3 mb-0 d-flex flex-row"
-        flat
+  <div>
+    <div class="pa-1" style="padding-bottom: 180px">
+      <Subscription v-if="order_type === 'subscription-order'" />
+      <Single v-if="order_type === 'single-order'" />
+      <Package v-if="order_type === 'package-order' || order_type === 'single-order'" />
+
+      <div
+        v-if="
+          (order_type === 'single-order' && cart.length) ||
+          (order_type === 'package-order' && package_cart.length) ||
+          (order_type === 'subscription-order' && subscription_cart.length)
+        "
       >
-        <v-card
-          flat
-          style="font-size: 8.5px; font-weight: 600; text-align: left; padding-top: 1px; margin-top: 2px"
-        >
-          Waktu Pengantaran :
-        </v-card>
-        <v-card
-          v-if="!delivery_time_normal"
-          class="ml-2"
-          flat
-          style="
-            color: red;
-            font-size: 8.5px;
-            font-weight: 500;
-            padding-top: 2px;
-            text-align: left;
-            margin-top: 2px;
-          "
-        >
-          Pilih waktu pengantaran
-        </v-card>
-        <v-card
-          v-if="delivery_time_normal == 'day'"
-          class="ml-2"
-          flat
-          style="
-            color: grey;
-            font-size: 8.5px;
-            font-weight: 500;
-            padding-top: 2px;
-            text-align: left;
-            margin-top: 2px;
-          "
-        >
-          Pagi (jam 08.00 - 12.00)
-        </v-card>
-        <v-card
-          v-else-if="delivery_time_normal == 'night'"
-          class="ml-2"
-          flat
-          style="
-            color: grey;
-            font-size: 8.5px;
-            font-weight: 500;
-            padding-top: 2px;
-            text-align: left;
-            margin-top: 2px;
-          "
-        >
-          Sore (jam 13.00 - 18.00)
-        </v-card>
-        <v-card
-          v-else-if="delivery_time_normal == '08:00 - 17:00'"
-          class="ml-2"
-          flat
-          style="
-            color: grey;
-            font-size: 10px;
-            font-weight: 500;
-            padding-top: 2px;
-          "
-        >
-          jam 08.00 - 17.00
-        </v-card>
-
-        <v-spacer />
-        <v-card
-          v-if="delivery_time_normal != '08:00 - 17:00'"
-          class="d-flex flex-row"
-          flat
-        >
-          <v-btn
-            x-small
-            depressed
-            @click="changedeliverysingletime('day')"
-            :color="delivery_time_normal == 'day' ? 'primary' : null"
-            style="font-weight: 600; text-transform: capitalize; font-size: 9px"
-            height="20px"
+        <div class="mt-2 pa-1" style="text-align:left">
+          <div style="font-size: 12px">Catatan untuk penjual (optional):</div>
+          <v-textarea
+            id="b-customer-notes"
+            hide-details
+            no-resize
+            outlined
+            style="font-size: 13px"
+            @change="write_notes"
+          />
+          <!-- :value="notes"
+          @change="changenotes" -->
+        </div>
+        <div class="d-flex flex-row pa-1">
+          <div>Subtotal</div>
+          <div
+            v-if="order_type !== 'package-order'"
+            class="d-flex flex-row pl-1"
+            style="align-self: center; color: red; font-size: 11px; font-style: italic"
           >
-            Pagi
-          </v-btn>
-          <v-btn
-            class="ml-1"
-            x-small
-            depressed
-            @click="changedeliverysingletime('night')"
-            :color="delivery_time_normal == 'night' ? 'primary' : null"
-            style="font-weight: 600; text-transform: capitalize; font-size: 9px"
-            height="20px"
-          >
-            Sore
-          </v-btn>
-        </v-card>
-      </v-card>
-
-      <!-- normal cart order -->
-      <NormalOrder :changeqty="changeqty" :updatecache="updatecache" />
-
-      <!-- list items rp order -->
-      <RPOrder
-        :parsedate="parsedate"
-        :parseprice="parseprice"
-        :expanddetail="expanddetail"
-        :expansion="expansion"
-        :changeqtysubsitem="changeqtysubsitem"
-        :deleterp="deleterp"
-        :selectsubsdate="selectsubsdate"
-        :changehandler="changehandler"
-        :changedeliverytime="changedeliverytime"
-      />
-      <!-- customer notes -->
-      <div class="mt-4 pa-2" style="text-align:left">
-        <div style="font-size: 12px">Catatan untuk penjual (optional):</div>
-        <v-textarea
-          id="b-customer-notes"
-          hide-details
-          no-resize
-          outlined
-          :value="notes"
-          @change="changenotes"
-        />
-      </div>
-
-      <!-- subtotal -->
-      <div class="d-flex flex-row pa-2 pb-1">
-        <div>Subtotal</div>
-        <div
-          v-show="!rp_order"
-          class="pa-2 pt-2"
-          style="font-size: 9px; font-weight: 600; padding-top: 2px; color: rgb(255 111 111); font-style: italic;"
-        >
-          min. {{ store.min_order / 1000 }}k - max. {{ store.max_order / 1000 }}k
+            <div style="margin: 2px 2px 0 2px">
+              min. {{ store.min_order ? store.min_order / 1000 : 0 }}k -
+            </div>
+            <div style="margin: 2px 2px 0 2px">
+              max. {{ store.max_order ? store.max_order / 1000 : 0 }}k
+            </div>
+          </div>
+          <v-spacer></v-spacer>
+          <div style="font-weight: 600">
+            Rp {{
+              general_total_order
+                ? general_total_order.toLocaleString().replace(/,/g, '.')
+                : 0
+              }}
+          </div>
         </div>
-        <v-spacer />
-        <div v-if="rp_order" style="font-weight: 600">
-          Rp. {{
-            subsorder
-              .toLocaleString()
-              .replace(/,/g, '.')
-          }}
-        </div>
-        <div v-else style="font-weight: 600">
-          Rp. {{
-            normalorder
-              .toLocaleString()
-              .replace(/,/g, '.')
-          }}
-        </div>
-        <v-card height="20vh" flat />
       </div>
     </div>
-  </v-card>
+    <v-footer fixed padless color="white" style="width: 100%;">
+      <v-card
+        class="pa-1 d-flex flex-row" style="width: 100%;"
+        flat
+        tile
+      >
+        <v-btn
+          v-if="order_type !== 'subscription-order' && order_type !== 'package-order'"
+          depressed
+          style="
+            text-transform: capitalize;
+            color: black !important;
+            border: 1px solid #ccc !important;
+            letter-spacing: initial;
+          "
+          min-width="49.5%"
+          max-width="49.5%"
+          :to="`/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
+        >
+          Kembali Belanja
+        </v-btn>
+        <!-- v-show="!rp_order"
+        :to="back"
+        :style="screen == 'mini' ? 'font-size: 11px' : null"
+        :height="screen == 'mini' ? 35 : 45" -->
+        <v-spacer></v-spacer>
+        <!-- 
+        <v-card v-show="!rp_order" flat min-width="1%" /> -->
+        <v-btn
+          depressed
+          style="text-transform: capitalize; letter-spacing: initial"
+          color="#FD0"
+          :min-width="order_type !== 'subscription-order' && order_type !== 'package-order' ? '49.5%' : '100%'"
+          :max-width="order_type !== 'subscription-order' && order_type !== 'package-order' ? '49.5%' : '100%'"
+          :disabled="checkout_requirement"
+          :to="checkout"
+        >
+          Lanjut Pembayaran
+        </v-btn>
+      </v-card>
+    </v-footer>
+  </div>
 </template>
 
 <script>
-import NormalOrder from '@/components/Cart/Platforms/mini/normal'
-import RPOrder from '@/components/Cart/Platforms/mini/rp-order'
+import Single from '@/components/Cart/Platforms/mini/type/single-order.vue'
+import Subscription from '@/components/Cart/Platforms/mini/type/subscription-order.vue'
+import Package from '@/components/Cart/Platforms/mini/type/package-order.vue'
 
 export default {
   components: {
-    NormalOrder,
-    RPOrder
+    Single,
+    Package,
+    Subscription,
   },
 
-  props: {
-    expanddetail: {
-      type: Function,
-      required: true
-    },
-    updatecache: {
-      type: Function,
-      required: true
-    },
-    expansion: {
-      type: Array,
-      required: true
-    },
-    subsorder: {
-      type: Number,
-      required: true
-    },
-    normalorder: {
-      type: Number,
-      required: true
-    },
-    changeqty: {
-      type: Function,
-      required: true
-    },
-    parsedate: {
-      type: Function,
-      required: true
-    },
-    parseprice: {
-      type: Function,
-      required: true
-    },
-    changeqtysubsitem: {
-      type: Function,
-      required: true
-    },
-    deleterp: {
-      type: Function,
-      required: true
-    },
-    selectsubsdate: {
-      type: Function,
-      required: true
-    },
-    changehandler: {
-      type: Function,
-      required: true
-    },
-    changenotes: {
-      type: Function,
-      required: true
-    },
-    changedeliverytime: {
-      type: Function,
-      required: true
-    },
-    changedeliverysingletime: {
-      type: Function,
-      required: true
-    },
-  },
+  data: () => ({
+    sheet: true,
+  }),
 
   computed: {
-    delivery_time_normal() {
-      return this.$store.state.delivery_time_normal
+    site() {
+      return this.$store.state.site
     },
 
     store() {
       return this.$store.state.store
     },
 
-    rp_order () {
-      return this.$store.state.rp_order
+    checkout_requirement() {
+      if (this.order_type === 'subscription-order') {
+        if (this.general_total_order > this.store.max_order || this.general_total_order < this.store.min_order) {
+          return true
+        } else if (this.limit_recurring_purchase !== null) {
+          if (this.limit_recurring_purchase.min_selected_date > this.subscription_cart.length) {
+            return true
+          }
+        }
+
+        return false
+      } else {
+        return this.general_total_order > this.store.max_order || this.general_total_order < this.store.min_order
+      }
     },
 
-    cart () {
+    limit_recurring_purchase() {
+      if (this.store && this.store.limit_recurring_purchase) {
+        return JSON.parse(this.$store.state.store.limit_recurring_purchase)
+      }
+
+      return null
+    },
+
+    order_type() {
+      return this.$store.state.order_type
+    },
+
+    customer() {
+      return this.$store.state.customer
+    },
+
+    list_product() {
+      return this.$store.state.products
+    },
+
+    cart() {
       return this.$store.state.cart
     },
 
-    notes () {
-      return this.$store.state.user_notes
+    subscription_cart() {
+      return this.$store.state.subscription_cart
     },
 
-    dates () {
-      return this.$store.state.dates
-    }
+    package_cart() {
+      return this.$store.state.package_cart
+    },
+
+    checkout() {
+      if ((this.store.registered_mode && this.customer) || !this.store.registered_mode && this.customer) {
+        return `/site/${this.$route.params.store}/checkout?src=${this.$route.query.src}&u=${this.$route.query.u}&c=${this.$route.query.c}`
+      } else if (!this.store.registered_mode && !this.customer) {
+        return `/site/${this.$route.params.store}/userprofile?u=${this.$route.query.u}&src=${this.$route.query.src}&mtd=reg`
+      }
+    },
+
+    general_total_order() {
+      let total = 0
+
+      if (this.order_type === 'single-order') {
+        this.cart.forEach(el => {
+          const find = this.list_product.filter(
+            product => product.id === el.id && product.SKU === el.sku
+          )
+
+          if (find.length) {
+            total += (find[0].discount_price || find[0].normal_price) * el.qty
+          }
+        })
+      } else if (this.order_type === 'subscription-order') {
+        for (let i = 0; i < this.subscription_cart.length; i++) {
+          const items = this.subscription_cart[i].items
+
+          total = 0
+
+          for (let j = 0; j < items.length; j++) {
+            const el = items[j]
+            
+            const find = this.list_product.filter(
+              product => product.id === el.id && product.SKU === el.sku
+            )
+
+            if (find.length) {
+              total += (find[0].discount_price || find[0].normal_price) * el.qty
+            }
+          }
+
+          if (total < this.store.min_order || total > this.store.max_order) return total
+        }
+      } else if (this.order_type === 'package-order') {
+        this.package_cart.forEach(el => {
+          el.items.forEach(items => {
+            const find = this.list_product.filter(
+              product => product.id === items.id && product.SKU === items.sku
+            )
+
+            if (find.length) {
+              total += (find[0].discount_price || find[0].normal_price) * items.qty
+            }
+          })
+        })
+      }
+
+      // console.log('product', product)
+
+      return total
+    },
   },
+
+  methods: {
+    write_notes(e) {
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'user_notes',
+          data: e,
+        },
+      })
+    }
+  }
 }
 </script>

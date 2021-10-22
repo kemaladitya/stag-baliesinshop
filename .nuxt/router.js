@@ -4,16 +4,20 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _43736778 = () => interopDefault(import('../pages/success/checkout.vue' /* webpackChunkName: "pages/success/checkout" */))
-const _214d3721 = () => interopDefault(import('../pages/success/register.vue' /* webpackChunkName: "pages/success/register" */))
-const _15f2afae = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
-const _7c8b8c0a = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
-const _30bdd4ab = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
-const _2909889a = () => interopDefault(import('../pages/site/_store/cart/index.vue' /* webpackChunkName: "pages/site/_store/cart/index" */))
-const _7863c880 = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
-const _6901644c = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
-const _07b5c746 = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
-const _29fdd460 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _3bff402e = () => interopDefault(import('../pages/internal_test.vue' /* webpackChunkName: "pages/internal_test" */))
+const _643b1972 = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
+const _30eeab44 = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
+const _014093be = () => interopDefault(import('../pages/success/checkout/_phone.vue' /* webpackChunkName: "pages/success/checkout/_phone" */))
+const _2bfd6eb8 = () => interopDefault(import('../pages/success/register/_phone.vue' /* webpackChunkName: "pages/success/register/_phone" */))
+const _2bfcd37c = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
+const _1aa22d63 = () => interopDefault(import('../pages/site/_store/cart/index.vue' /* webpackChunkName: "pages/site/_store/cart/index" */))
+const _3b853409 = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
+const _f5f913ea = () => interopDefault(import('../pages/site/_store/merchant/index.vue' /* webpackChunkName: "pages/site/_store/merchant/index" */))
+const _2f7264f1 = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
+const _4fe268fe = () => interopDefault(import('../pages/site/_store/cart/backup.vue' /* webpackChunkName: "pages/site/_store/cart/backup" */))
+const _58e6ccca = () => interopDefault(import('../pages/site/_store/checkout/backup.vue' /* webpackChunkName: "pages/site/_store/checkout/backup" */))
+const _0d6327e2 = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
+const _416141e7 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -27,44 +31,60 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/success/checkout",
-    component: _43736778,
-    name: "success-checkout"
-  }, {
-    path: "/success/register",
-    component: _214d3721,
-    name: "success-register"
+    path: "/internal_test",
+    component: _3bff402e,
+    name: "internal_test"
   }, {
     path: "/error/link/expired",
-    component: _15f2afae,
+    component: _643b1972,
     name: "error-link-expired"
   }, {
     path: "/error/link/invalid",
-    component: _7c8b8c0a,
+    component: _30eeab44,
     name: "error-link-invalid"
   }, {
+    path: "/success/checkout/:phone?",
+    component: _014093be,
+    name: "success-checkout-phone"
+  }, {
+    path: "/success/register/:phone?",
+    component: _2bfd6eb8,
+    name: "success-register-phone"
+  }, {
     path: "/site/:store",
-    component: _30bdd4ab,
+    component: _2bfcd37c,
     name: "site-store"
   }, {
     path: "/site/:store?/cart",
-    component: _2909889a,
+    component: _1aa22d63,
     name: "site-store-cart"
   }, {
     path: "/site/:store?/checkout",
-    component: _7863c880,
+    component: _3b853409,
     name: "site-store-checkout"
   }, {
+    path: "/site/:store?/merchant",
+    component: _f5f913ea,
+    name: "site-store-merchant"
+  }, {
     path: "/site/:store?/userprofile",
-    component: _6901644c,
+    component: _2f7264f1,
     name: "site-store-userprofile"
   }, {
+    path: "/site/:store?/cart/backup",
+    component: _4fe268fe,
+    name: "site-store-cart-backup"
+  }, {
+    path: "/site/:store?/checkout/backup",
+    component: _58e6ccca,
+    name: "site-store-checkout-backup"
+  }, {
     path: "/site/:store?/:pid",
-    component: _07b5c746,
+    component: _0d6327e2,
     name: "site-store-pid"
   }, {
     path: "/",
-    component: _29fdd460,
+    component: _416141e7,
     name: "index"
   }],
 
@@ -72,7 +92,7 @@ export const routerOptions = {
 }
 
 export function createRouter (ssrContext, config) {
-  const base = (config.app && config.app.basePath) || routerOptions.base
+  const base = (config._app && config._app.basePath) || routerOptions.base
   const router = new Router({ ...routerOptions, base  })
 
   // TODO: remove in Nuxt 3

@@ -1,7 +1,7 @@
-exports.ids = [56];
+exports.ids = [70];
 exports.modules = {
 
-/***/ 183:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   get_list_products: async (self, data) => {
     try {
-      console.log('*** get_product method ***');
+      // console.log('*** get_product method ***')
       const request = await self.dispatch('request', {
         url: '/api/products',
         method: 'post',
@@ -17,14 +17,14 @@ __webpack_require__.r(__webpack_exports__);
       });
 
       if (request.data.status) {
-        console.log(request.data.results, ' request.data.results');
+        // console.log(request.data.results, ' request.data.results')
         self.dispatch('setState', {
           payload: {
             key: 'products',
-            data: request.data.results
+            data: request.data.results.sort((a, b) => b.priority - a.priority)
           }
-        });
-        console.log(request.data, ' request.data');
+        }); // console.log(request.data, ' request.data')
+
         return true;
       }
 
@@ -167,15 +167,70 @@ __webpack_require__.r(__webpack_exports__);
   },
   manage_cart: async (self, data) => {
     try {
+      console.log('@manage.cart');
       console.log('manage_cart', JSON.stringify(data, null, 2));
       const request = await self.dispatch('request', {
         url: '/cache/manage/cart',
         method: 'post',
         data
       });
-      console.log(request);
+
+      if ('status' in request) {
+        return request;
+      } else {
+        console.log('@cart_request_failed |', request);
+        return {
+          status: 404,
+          data: {
+            status: false
+          }
+        };
+      }
     } catch (error) {
-      console.log(error);
+      console.log('@manage_cart |', error);
+    }
+  },
+  cart_manager: async (self, data) => {
+    const request = await self.$store.dispatch('request', {
+      url: '/cart',
+      method: 'post',
+      data
+    });
+    console.log('!@cart_manager.request |', request.data);
+
+    if (request.status === 200 && request.data) {
+      self.$store.dispatch('setState', {
+        payload: {
+          key: 'order_type',
+          data: request.data.type || 'single-order'
+        }
+      });
+      const order_type = self.$store.state.order_type;
+
+      if (order_type === 'single-order') {
+        self.$store.dispatch('setState', {
+          payload: {
+            key: 'cart',
+            data: request.data.items
+          }
+        });
+      } else if (order_type === 'subscription-order') {
+        self.$store.dispatch('setState', {
+          payload: {
+            key: 'subscription_cart',
+            data: request.data.items
+          }
+        });
+      } else if (order_type === 'package-order') {
+        self.$store.dispatch('setState', {
+          payload: {
+            key: 'package_cart',
+            data: request.data.items
+          }
+        });
+      }
+
+      return request.data;
     }
   }
 });

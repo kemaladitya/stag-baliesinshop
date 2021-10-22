@@ -1,72 +1,100 @@
 [
   {
-    "name": "success-checkout",
-    "path": "/success/checkout",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/success/checkout.vue",
-    "chunkName": "pages/success/checkout",
-    "_name": "_43736778"
-  },
-  {
-    "name": "success-register",
-    "path": "/success/register",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/success/register.vue",
-    "chunkName": "pages/success/register",
-    "_name": "_214d3721"
+    "name": "internal_test",
+    "path": "/internal_test",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/internal_test.vue",
+    "chunkName": "pages/internal_test",
+    "_name": "_3bff402e"
   },
   {
     "name": "error-link-expired",
     "path": "/error/link/expired",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/error/link/expired.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/error/link/expired.vue",
     "chunkName": "pages/error/link/expired",
-    "_name": "_15f2afae"
+    "_name": "_643b1972"
   },
   {
     "name": "error-link-invalid",
     "path": "/error/link/invalid",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/error/link/invalid.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/error/link/invalid.vue",
     "chunkName": "pages/error/link/invalid",
-    "_name": "_7c8b8c0a"
+    "_name": "_30eeab44"
+  },
+  {
+    "name": "success-checkout-phone",
+    "path": "/success/checkout/:phone?",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/success/checkout/_phone.vue",
+    "chunkName": "pages/success/checkout/_phone",
+    "_name": "_014093be"
+  },
+  {
+    "name": "success-register-phone",
+    "path": "/success/register/:phone?",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/success/register/_phone.vue",
+    "chunkName": "pages/success/register/_phone",
+    "_name": "_2bfd6eb8"
   },
   {
     "name": "site-store",
     "path": "/site/:store",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/site/_store/index.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/index.vue",
     "chunkName": "pages/site/_store/index",
-    "_name": "_30bdd4ab"
+    "_name": "_2bfcd37c"
   },
   {
     "name": "site-store-cart",
     "path": "/site/:store?/cart",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/site/_store/cart/index.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/cart/index.vue",
     "chunkName": "pages/site/_store/cart/index",
-    "_name": "_2909889a"
+    "_name": "_1aa22d63"
   },
   {
     "name": "site-store-checkout",
     "path": "/site/:store?/checkout",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/site/_store/checkout/index.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/checkout/index.vue",
     "chunkName": "pages/site/_store/checkout/index",
-    "_name": "_7863c880"
+    "_name": "_3b853409"
+  },
+  {
+    "name": "site-store-merchant",
+    "path": "/site/:store?/merchant",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/merchant/index.vue",
+    "chunkName": "pages/site/_store/merchant/index",
+    "_name": "_f5f913ea"
   },
   {
     "name": "site-store-userprofile",
     "path": "/site/:store?/userprofile",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/site/_store/userprofile/index.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/userprofile/index.vue",
     "chunkName": "pages/site/_store/userprofile/index",
-    "_name": "_6901644c"
+    "_name": "_2f7264f1"
+  },
+  {
+    "name": "site-store-cart-backup",
+    "path": "/site/:store?/cart/backup",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/cart/backup.vue",
+    "chunkName": "pages/site/_store/cart/backup",
+    "_name": "_4fe268fe"
+  },
+  {
+    "name": "site-store-checkout-backup",
+    "path": "/site/:store?/checkout/backup",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/checkout/backup.vue",
+    "chunkName": "pages/site/_store/checkout/backup",
+    "_name": "_58e6ccca"
   },
   {
     "name": "site-store-pid",
     "path": "/site/:store?/:pid",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",
     "chunkName": "pages/site/_store/_pid/index",
-    "_name": "_07b5c746"
+    "_name": "_0d6327e2"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/taufikhidayat/Documents/BALESIN.ID/FAQ/revamp/PWA/prepare_test/Balesin-Shop-FE/pages/index.vue",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_29fdd460"
+    "_name": "_416141e7"
   }
 ]

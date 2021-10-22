@@ -1,16 +1,23 @@
 <template>
-  <div style="text-align: left">
-    <div v-if="productdetail">
+  <div class="mt-1" style="text-align: left; min-height: calc(100vh - 100px); max-height: calc(100vh - 100px); overflow-y: scroll">
+    <div v-if="product">
       <v-card class="pa-12 pt-3 pb-0" flat tile>
-        <v-img class="ma-8" :src="selectedvariant.main_image" />
+        <v-img
+          class="ma-8"
+          loading=lazy
+          style="border-radius: 3px"
+          :src="selected_variant.image"
+        />
       </v-card>
       <v-card class="d-flex flex-row pa-1" flat tile>
-        <div class="name">{{ productdetail.name }}</div>
+        <div class="name">{{ product.name }}</div>
         <v-spacer />
 
-        <div v-if="selectedvariant.normal_price" class="price">
-          Rp. {{
-            selectedvariant.normal_price.toLocaleString().replace(/,/g, '.')
+        <div class="price">
+          Rp {{
+            selected_variant.discount_price
+              ? selected_variant.discount_price.toLocaleString().replace(/,/g, '.')
+              : selected_variant.normal_price.toLocaleString().replace(/,/g, '.')
           }}, -
         </div>
       </v-card>
@@ -21,31 +28,31 @@
         <div class="variant pr-2" style="text-align: left">
           <div class="label mb-1">Variant</div>
           <v-select
-            :items="productdetail.detail.map(el => el.variant)"
-            :label="selectedvariant.variant"
+            :items="variant.map(({ name }) => name)"
+            :label="selected_variant.name"
             min-width="50%"
             max-width="50%"
             solo
             dense
-            @change="selectvariant"
+            @change="select_variant"
           />
         </div>
         <div class="qty pl-2" style="text-align: left">
           <div class="label mb-1">Qty.</div>
           <v-select
             :items="
-              Array.from(Array(selectedvariant.stock).keys()).slice(1, 11)
+              Array.from(Array(selected_variant.stock).keys()).slice(1, 11)
             "
             :label="
               String(
-                Array.from(Array(selectedvariant.stock).keys()).slice(1)[0]
+                Array.from(Array(selected_variant.stock).keys()).slice(1)[0]
               )
             "
             min-width="50%"
             max-width="50%"
             solo
             dense
-            @change="selectqty"
+            @change="select_qty"
           />
         </div>
       </v-card>
@@ -55,7 +62,7 @@
       <center class="pb-3 pt-3">
         <div class="size">Ukuran</div>
         <div class="size">
-          {{ selectedvariant.size }}
+          {{ selected_variant.size }}
         </div>
       </center>
 
@@ -64,7 +71,7 @@
       <div class="description pa-1 pt-3">
         <div class="label">Deskripsi</div>
         <div class="detail pt-2">
-          {{ productdetail.description }}
+          {{ product.description }}
         </div>
         <v-card height="25vh" flat tile />
       </div>
@@ -79,12 +86,10 @@
           class="content d-flex flex-row pa-1"
           style="width: 100%"
         >
-          <!-- width: 600px !important;
-          min-width: 600px !important; -->
           <v-btn
             depressed
-            :to="back"
-            style="width: 49.5%; letter-spacing: normal;"
+            style="width: 49.5%; letter-spacing: normal; text-transform: none"
+            :to="home_url"
           >
             Lanjut Belanja
           </v-btn>
@@ -92,53 +97,138 @@
           <v-btn
             depressed
             color="#FD0"
-            @click="addtocart(productdetail)"
-            style="width: 49.5%; letter-spacing: normal;"
+            style="width: 49.5%; letter-spacing: normal; text-transform: none"
+            @click="manage_cart"
           >
             Tambah ke keranjang
           </v-btn>
         </div>
       </v-footer>
     </div>
+    <v-bottom-sheet
+      :value="mini_cart"
+      @click:outside="show_mini_cart(false)"
+    >
+      <div class="d-flex flex-row" style="background-color: white">
+        <v-spacer />
+        <v-btn
+          icon
+          text
+          color="red"
+          @click="mini_cart = false"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
+      <v-divider />
+      <MiniCart />
+    </v-bottom-sheet>
   </div>
 </template>
 
 <script>
+import API from '@/components/General'
+import MiniCart from '@/components/Bottom-Sheet/mini-cart'
+
 export default {
-  props: {
-    selectedvariant: {
-      type: Object,
-      required: true
-    },
-    selectedqty: {
-      type: Number,
-      required: true
-    },
-    productdetail: {
-      type: Object,
-      required: true
-    },
-    selectqty: {
-      type: Function,
-      required: true
-    },
-    selectvariant: {
-      type: Function,
-      required: true
-    },
-    addtocart: {
-      type: Function,
-      required: true
-    }
+  components: {
+    MiniCart,
   },
 
+  data: () => ({
+    product: null,
+    variant: [],
+    selected_variant: null,
+    qty: 1,
+    mini_cart: false,
+  }),
+
   computed: {
-    back() {
+    home_url() {
       const site = this.$store.state.site
 
       return `/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`
+    },
+
+    store() {
+      return this.$store.state.store
+    },
+  },
+
+  async mounted() {
+    const { params: { pid }, query: { c } } = this.$route
+    const request = await this.$store.dispatch('request', {
+      url: '/api/product/detail',
+      method: 'post',
+      data: {
+        id: pid,
+        outlet: c,
+        store_id: this.store.id,
+      }
+    })
+
+    if (request.data.response) {
+      this.product = request.data.response
+      this.variant = request.data.response.variant
+      this.selected_variant = this.variant.length
+        ? this.variant[0] : null
     }
-  }
+  },
+
+  methods: {
+    show_mini_cart(status) {
+      this.mini_cart = status
+    },
+
+    select_variant(e) {
+      const filtered = this.variant.filter(el => el.name === e)
+
+      this.selected_variant = filtered[0]
+    },
+
+    select_qty(e) {
+      this.qty = e
+    },
+
+    async manage_cart() {
+      const { params: { store }, query: { c, u, src } } = this.$route
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'loading',
+          data: true
+        }
+      })
+
+      await API.cart_manager(this, {
+        method: 'add',
+        info: {
+          mode: 'single-order',
+          item: {
+            id: this.product.id,
+            detail_id: this.selected_variant.id,
+            sku: this.product.sku,
+            qty: this.qty
+          },
+          store: {
+            name   : store,
+            source : src,
+            uuid   : u,
+            outlet : c,
+          },
+        },
+      })
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'loading',
+          data: false
+        }
+      })
+
+      this.show_mini_cart(true)
+    },
+  },
 }
 </script>
 

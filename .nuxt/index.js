@@ -13,13 +13,14 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_413a74b8 from 'nuxt_plugin_plugin_413a74b8' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_workbox_a582a52c from 'nuxt_plugin_workbox_a582a52c' // Source: ./workbox.js (mode: 'client')
-import nuxt_plugin_plugin_67e7ca36 from 'nuxt_plugin_plugin_67e7ca36' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_templatesplugin73973bb5_102de87c from 'nuxt_plugin_templatesplugin73973bb5_102de87c' // Source: ./templates.plugin.73973bb5.js (mode: 'all')
-import nuxt_plugin_metaplugin_181e2b06 from 'nuxt_plugin_metaplugin_181e2b06' // Source: ./pwa/meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_0ecee01e from 'nuxt_plugin_iconplugin_0ecee01e' // Source: ./pwa/icon.plugin.js (mode: 'all')
-import nuxt_plugin_axios_629bf3ce from 'nuxt_plugin_axios_629bf3ce' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_plugin_683ca441 from 'nuxt_plugin_plugin_683ca441' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_workbox_22e40433 from 'nuxt_plugin_workbox_22e40433' // Source: ./workbox.js (mode: 'client')
+import nuxt_plugin_plugin_7381ef4d from 'nuxt_plugin_plugin_7381ef4d' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_templatesplugin3b8c9e8c_1ae642d4 from 'nuxt_plugin_templatesplugin3b8c9e8c_1ae642d4' // Source: ./templates.plugin.3b8c9e8c.js (mode: 'all')
+import nuxt_plugin_metaplugin_5b9b6846 from 'nuxt_plugin_metaplugin_5b9b6846' // Source: ./pwa/meta.plugin.js (mode: 'all')
+import nuxt_plugin_iconplugin_60430dba from 'nuxt_plugin_iconplugin_60430dba' // Source: ./pwa/icon.plugin.js (mode: 'all')
+import nuxt_plugin_axios_0beb2e52 from 'nuxt_plugin_axios_0beb2e52' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_deviceplugin_91998d3c from 'nuxt_plugin_deviceplugin_91998d3c' // Source: ./device.plugin.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -48,7 +49,11 @@ Vue.component(Nuxt.name, Nuxt)
 
 Object.defineProperty(Vue.prototype, '$nuxt', {
   get() {
-    return this.$root.$options.$nuxt
+    const globalNuxt = this.$root.$options.$nuxt
+    if (process.client && !globalNuxt && typeof window !== 'undefined') {
+      return window.$nuxt
+    }
+    return globalNuxt
   },
   configurable: true
 })
@@ -83,7 +88,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"","title":"balesin - Shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"balesin - shop"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"https:\u002F\u002Frepo-platform.s3.ap-southeast-1.amazonaws.com\u002F62-local-docker1234%408_38_29am.gif"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.13aaac64.json"}],"script":[],"style":[]},
+    head: {"titleTemplate":"","title":"balesin - Shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"balesin - shop"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"https:\u002F\u002Frepo-platform.s3.ap-southeast-1.amazonaws.com\u002F62-local-docker1234%408_38_29am.gif"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.9de03ee0.json"}],"script":[],"style":[]},
 
     store,
     router,
@@ -212,32 +217,36 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_413a74b8 === 'function') {
-    await nuxt_plugin_plugin_413a74b8(app.context, inject)
+  if (typeof nuxt_plugin_plugin_683ca441 === 'function') {
+    await nuxt_plugin_plugin_683ca441(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_workbox_a582a52c === 'function') {
-    await nuxt_plugin_workbox_a582a52c(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_22e40433 === 'function') {
+    await nuxt_plugin_workbox_22e40433(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_67e7ca36 === 'function') {
-    await nuxt_plugin_plugin_67e7ca36(app.context, inject)
+  if (typeof nuxt_plugin_plugin_7381ef4d === 'function') {
+    await nuxt_plugin_plugin_7381ef4d(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_templatesplugin73973bb5_102de87c === 'function') {
-    await nuxt_plugin_templatesplugin73973bb5_102de87c(app.context, inject)
+  if (typeof nuxt_plugin_templatesplugin3b8c9e8c_1ae642d4 === 'function') {
+    await nuxt_plugin_templatesplugin3b8c9e8c_1ae642d4(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_metaplugin_181e2b06 === 'function') {
-    await nuxt_plugin_metaplugin_181e2b06(app.context, inject)
+  if (typeof nuxt_plugin_metaplugin_5b9b6846 === 'function') {
+    await nuxt_plugin_metaplugin_5b9b6846(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_iconplugin_0ecee01e === 'function') {
-    await nuxt_plugin_iconplugin_0ecee01e(app.context, inject)
+  if (typeof nuxt_plugin_iconplugin_60430dba === 'function') {
+    await nuxt_plugin_iconplugin_60430dba(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_629bf3ce === 'function') {
-    await nuxt_plugin_axios_629bf3ce(app.context, inject)
+  if (typeof nuxt_plugin_axios_0beb2e52 === 'function') {
+    await nuxt_plugin_axios_0beb2e52(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_deviceplugin_91998d3c === 'function') {
+    await nuxt_plugin_deviceplugin_91998d3c(app.context, inject)
   }
 
   // Lock enablePreview in context
@@ -247,26 +256,33 @@ async function createApp(ssrContext, config = {}) {
     }
   }
 
-  // If server-side, wait for async component to be resolved first
-  if (process.server && ssrContext && ssrContext.url) {
-    await new Promise((resolve, reject) => {
-      router.push(ssrContext.url, resolve, (err) => {
-        // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
-        if (!err._isRouter) return reject(err)
-        if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()
+  // Wait for async component to be resolved first
+  await new Promise((resolve, reject) => {
+    // Ignore 404s rather than blindly replacing URL in browser
+    if (process.client) {
+      const { route } = router.resolve(app.context.route.fullPath)
+      if (!route.matched.length) {
+        return resolve()
+      }
+    }
+    router.replace(app.context.route.fullPath, resolve, (err) => {
+      // https://github.com/vuejs/vue-router/blob/v3.4.3/src/util/errors.js
+      if (!err._isRouter) return reject(err)
+      if (err.type !== 2 /* NavigationFailureType.redirected */) return resolve()
 
-        // navigated to a different route in router guard
-        const unregister = router.afterEach(async (to, from) => {
+      // navigated to a different route in router guard
+      const unregister = router.afterEach(async (to, from) => {
+        if (process.server && ssrContext && ssrContext.url) {
           ssrContext.url = to.fullPath
-          app.context.route = await getRouteData(to)
-          app.context.params = to.params || {}
-          app.context.query = to.query || {}
-          unregister()
-          resolve()
-        })
+        }
+        app.context.route = await getRouteData(to)
+        app.context.params = to.params || {}
+        app.context.query = to.query || {}
+        unregister()
+        resolve()
       })
     })
-  }
+  })
 
   return {
     store,

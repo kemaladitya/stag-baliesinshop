@@ -1,7 +1,7 @@
 <template>
   <div class="b-font">
     <center>
-      <v-card width="380" style="margin-top: 50%">
+      <v-card width="380" style="margin-top: 25vh" flat>
         <div class="pa-4 pt-8">
           <v-img
             src="https://faq.balesin.id/icon.ico"

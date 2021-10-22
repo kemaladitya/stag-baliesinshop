@@ -1,49 +1,16 @@
 <template>
   <div>
     <Mini
-      v-if="screen === 'mini'"
+      v-if="screen == 'mini'"
       id="mini"
-      :changehandler="changehandler"
-      :appliedvoucher="appliedvoucher"
-      :date="date"
-      :parsedate="parsedate"
-      :parseprice="parseprice"
-      :expansion="expansion"
-      :grandtotal="grandtotal"
-      :selectedpayment="selectedpayment"
-      :selectedcourier="selectedcourier"
-      :applyingvoucher="applyingvoucher"
-      :shippingcostloading="shippingcostloading"
     />
     <Mobile
-      v-if="screen === 'mobile'"
+      v-if="screen == 'mobile'"
       id="mobile"
-      :changehandler="changehandler"
-      :appliedvoucher="appliedvoucher"
-      :date="date"
-      :parsedate="parsedate"
-      :parseprice="parseprice"
-      :expansion="expansion"
-      :grandtotal="grandtotal"
-      :selectedpayment="selectedpayment"
-      :selectedcourier="selectedcourier"
-      :applyingvoucher="applyingvoucher"
-      :shippingcostloading="shippingcostloading"
     />
     <Desktop
-      v-if="screen === 'desktop'"
+      v-if="screen == 'desktop'"
       id="desktop"
-      :changehandler="changehandler"
-      :appliedvoucher="appliedvoucher"
-      :date="date"
-      :parsedate="parsedate"
-      :parseprice="parseprice"
-      :expansion="expansion"
-      :grandtotal="grandtotal"
-      :selectedpayment="selectedpayment"
-      :selectedcourier="selectedcourier"
-      :applyingvoucher="applyingvoucher"
-      :shippingcostloading="shippingcostloading"
     />
   </div>
 </template>
@@ -60,62 +27,7 @@ export default {
     Desktop
   },
 
-  props: {
-    changehandler: {
-      type: Function,
-      required: true
-    },
-
-    selectedcourier: {
-      type: Object,
-      required: true
-    },
-
-    appliedvoucher: {
-      type: Object,
-      required: true
-    },
-
-    date: {
-      type: String,
-      required: true
-    },
-
-    parsedate: {
-      type: Function,
-      required: true
-    },
-
-    parseprice: {
-      type: Function,
-      required: true
-    },
-
-    expansion: {
-      type: Array,
-      required: true
-    },
-
-    grandtotal: {
-      type: Number,
-      required: true
-    },
-
-    applyingvoucher: {
-      type: Boolean,
-      required: true
-    },
-
-    shippingcostloading: {
-      type: Boolean,
-      required: true
-    },
-
-    selectedpayment: {
-      type: String,
-      required: true
-    }
-  },
+  props: {},
 
   computed: {
     screen () {

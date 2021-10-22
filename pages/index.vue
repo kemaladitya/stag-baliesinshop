@@ -1,21 +1,14 @@
 <template>
   <div class="pa-3 pt-12" style="overflow-y: scroll !important; max-height: 100vh;">
-    <center class="mb-8 mt-3">
+    <center class="mb-8" style="margin-top: 20vh">
       <v-img src="https://faq.balesin.id/icon.ico" width="210" />
       <div class="mt-6" style="font-weight: 600">
-        balesin shop - Internal testing
+        balesin - Shop
+      </div>
+      <div class="mt-6" style="font-weight: 600">
+        Silakan chat ke nomor WhatsApp store untuk membuka katalog produk.
       </div>
     </center>
-    <v-card flat>
-      <v-text-field label="Phone" placeholder="628123456789" v-model="uuid" outlined />
-    </v-card>
-    <v-card flat>
-      <v-text-field label="Bot Name" placeholder="sarirotiwa" v-model="bot_name" outlined />
-    </v-card>
-    <v-btn :disabled="active_btn" color="#FD0" block @click="find_user">shop</v-btn>
-    <div class="mt-4">
-      <v-btn :disabled="active_btn" color="#FD0" block @click="reg_user">register</v-btn>
-    </div>
     <v-card height="5vh" flat />
   </div>
 </template>

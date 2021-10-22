@@ -1,116 +1,28 @@
 <template>
-  <v-container class="b-font pt-12 pl-1 pr-1" style="overflow-x: hidden">
-    <v-dialog v-model="voucher_form" persistent max-width="100%">
-      <InsertVoucherCode :usevoucher="use_voucher" :changehandler="change_handler" />
-    </v-dialog>
-
-    <Checkout
-      v-if="cart.length || dates.length"
-      :date="date"
-      :customer="customer"
-      :changehandler="change_handler"
-      :appliedvoucher="applied_voucher"
-      :parsedate="parse_date"
-      :parseprice="parse_price"
-      :expansion="expansion"
-      :grandtotal="grand_total"
-      :selectedpayment="selected_payment"
-      :selectedcourier="selected_courier"
-      :applyingvoucher="applying_voucher"
-      :shippingcostloading="shipping_cost_loading"
+  <v-card class="b-font pt-12" style="overflow-x: hidden" flat tile>
+    <v-progress-linear
+      v-show="loading"
+      style="z-index: 9999 !important"
+      color="blue darken-2"
+      height="3"
+      indeterminate
     />
-
-    <div class="mt-12" v-else>
-      <center>
-        <div class="pa-12 pb-6">
-          <v-img
-            src="https://shop.balesin.id/static/plugins/img/cart-empty-icon.png"
-            width="300"
-          />
-        </div>
-        <div style="font-size: 18px; font-weight: 600">
-          Keranjang belanja kosong
-        </div>
-        <div class="mt-2" style="font-size: 16px; color: #999">
-          Kamu belum memilih produk yang diinginkan
-        </div>
-        <div class="pa-2 mt-4">
-          <v-btn
-            color="#ffdd00"
-            block
-            :to="`/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
-          >
-            Mulai Belanja
-          </v-btn>
-        </div>
-      </center>
-    </div>
-
-    <v-bottom-sheet
-      :value="voucher"
-      @click:outside="change_handler('voucher', false)"
-    >
-      <Voucher
-        :changehandler="change_handler"
-        :listvouchers="list_vouchers"
-        :usevoucher="use_voucher"
-        :customvoucher="custom_voucher"
-      />
-    </v-bottom-sheet>
-
-    <v-bottom-sheet
-      :value="courier"
-      @click:outside="change_handler('courier', false)"
-    >
-      <Courier
-        :changehandler="change_handler"
-        :getcour="get_cour"
-      />
-    </v-bottom-sheet>
-
-    <v-bottom-sheet
-      :value="payment"
-      @click:outside="change_handler('payment', false)"
-    >
-      <Payment
-        :changehandler="change_handler"
-        :paymentdetail="payment_detail"
-        :selectedpayment="selected_payment"
-        :selectpayment="select_payment"
-      />
-    </v-bottom-sheet>
-
-    <v-bottom-sheet
-      :value="order_loading"
-      persistent
-    >
-      <v-sheet>
-        <center class="pa-3">
-          <v-img
-            width="130"
-            src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"
-          />
-          <div style="">Pesanan kamu sedang diproses,</div>
-          <div style="">harap menunggu untuk beberapa</div>
-          <div style="">saat.</div>
+    <div class="pl-1 pr-1">
+      <v-card v-if="loading_checkout" width="100%" flat tile>
+        <center style="width: 100%">
+          <div style="width: 50%; margin-top: 30vh">
+            <v-img :src="require('@/assets/images/loading/balesin-loading.gif')" width="80" loading="lazy" />
+            <div class="mb-2" style="font-size: 13px; color: gray; padding-top: 13px; font-weight: 600">
+              Mohon menunggu...
+            </div>
+          </div>
         </center>
-      </v-sheet>
-    </v-bottom-sheet>
-
-    <v-footer
-      v-if="cart.length || dates.length"
-      fixed
-      padless
-      color="grey lighten-3"
-      style="width: 100%;"
-    >
-      <Footer
-        :grandtotal="grand_total"
-        :processbtn="process_btn"
-        :executeorder="execute_order"
-      />
-    </v-footer>
-  </v-container>
+      </v-card>
+      <div v-else>
+        <Checkout v-if="store && customer" />
+      </div>
+    </div>
+  </v-card>
 </template>
 
 <script>
@@ -121,7 +33,6 @@ import Courier from '~/components/Bottom-Sheet/Checkout/courier.vue'
 import Voucher from '~/components/Bottom-Sheet/Checkout/voucher.vue'
 import Payment from '~/components/Bottom-Sheet/Checkout/payment.vue'
 import Footer from '~/components/Footer/checkout.vue'
-import Format from '~/components/General.json'
 
 export default {
   components: {
@@ -134,772 +45,768 @@ export default {
   },
 
   data: () => ({
-    applying_voucher: false,
-    order_loading: false,
-    shipping_cost_loading: false,
-    triggered: false,
-    select_date: false,
-    date: new Date().toISOString().substr(0, 10),
-    page: 1,
-    min_rp: '',
-    max_rp: '',
-    voucher_code: '',
-    applied_voucher: { name: null, value: 0 },
-    menu: false,
-    expansion: [],
-    products: false,
-    payment: false,
-    voucher: false,
-    courier: false,
-    voucher_form: false,
-    list_vouchers: [],
-    custom_voucher: false,
-    selected_payment: '',
-    selected_courier: {
-      status: false,
-      name: '',
-      price: 0
-    },
-    payment_detail: Format.payment_type
+    loading_checkout: false
   }),
 
   computed: {
+    loading() {
+      return this.$store.state.loading
+    },
+
+    site() {
+      return this.$store.state.site
+    },
+
     store() {
       return this.$store.state.store
-    },
-
-    dates() {
-      return this.$store.state.dates
-    },
-
-    notes() {
-      return this.$store.state.user_notes
-    },
-
-    list_products() {
-      return this.$store.state.products
-    },
-
-    month() {
-      return this.$store.state.month
     },
 
     customer() {
       return this.$store.state.customer
     },
 
-    cart() {
-      return this.$store.state.cart
+    products() {
+      return this.$store.state.products
     },
-
-    site () {
-      return this.$store.state.site
-    },
-
-    single_order_date() {
-      const date = new Date()
-      const day = date.getDate()
-
-      date.setDate(day + 1)
-
-      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate() > 9 ? date.getDate() : `0${date.getDate()}`}`
-    },
-
-    rp_order() {
-      return this.$store.state.rp_order
-    },
-
-    total() {
-      if (!this.cart.length) return 0
-
-      const self = this
-      const mapped = this.cart.map(el => el.qty * el.detail[0].normal_price)
-      const reduced = mapped.reduce((t, n) => t + n)
-
-      return (reduced * self.dates.length).toLocaleString().replace(/,/g, '.')
-    },
-
-    selected_date() {
-      const filtered = this.dates.filter(el => 
-        el.date.split('-')[2] === this.selected_subs_date.split(' ')[0]
-      )
-
-      if (filtered.length) {
-        return filtered[0].items
-      } else {
-        return []
-      }
-    },
-
-    grand_total() {
-      if (!this.rp_order) {
-        return this.normal_order()
-      } else {
-        return this.subs_order()
-      }
-    },
-
-    list_product() {
-      return this.$store.state.products.map(el => {
-        el.select_date = false
-
-        if (el.qty) {
-          el.select_date = true
-        }
-
-        return el
-      })
-    },
-
-    process_btn() {
-      if (this.rp_order) {
-        if (this.dates.length && this.selected_payment && this.selected_courier.status) {
-          return false
-        } else {
-          return true
-        }
-      } else {
-        if (this.cart.length && this.selected_payment && this.grand_total > this.store.min_order && this.grand_total < this.store.max_order && this.selected_courier.status) {
-          return false
-        } else {
-          return true
-        }
-      }
-    }
-  },
-  
-  watch: {
-    dates(newval, oldval) {
-      const temp_expansion = []
-
-      newval.forEach(el => {
-        temp_expansion.push({ show: false })
-      })
-
-      this.expansion = temp_expansion
-    },
-  },
-
-  async beforeDestroy() {
-    await this.reset_cart()
   },
 
   async mounted () {
-    const { c, u } = this.$route.query
+    this.loading_checkout = true
 
-    const get_product = await API.get_list_products(this.$store, {
-      category: c,
-      uid: u,
-      bot_id: this.$route.params.store
-    })
+    await this.init_page()
 
-    console.log(this.store.courier, ' this.store.courier')
-    if (this.store.courier.length == 1) {
-      const cour_name = this.store.courier[0].split('|').slice(1, 3).join('|')
-      await this.select_courier({
-        name: cour_name,
-        store_id: this.store.id,
-        store_name: this.site.store,
-        uuid: this.site.uuid,
-        customer_city: this.customer.city,
-        customer_urban: this.customer.urban,
-        customer_sub_district: this.customer.sub_district
-      })
-    }
-    
-    if (!get_product.status) {
-      if (get_product.message == 'Expired.') {
-        this.$router.replace('/error/link/expired')
-      }
-
-      if (get_product.message == 'Invalid URL.') {
-        this.$router.replace('/error/link/invalid')
-      }
+    if (!this.store.hasOwnProperty('min_order')) {
+      await this.get_base_info('site-store-cart')
     }
 
-    const cart_detail = await API.cart_detail(this.$store, {
-      bot_id: this.store.bot_id,
-      store_name: this.site.store,
-      source: this.site.source,
+    await this.get_base_info('site-store-checkout')
+    await API.cart_manager(this, {
       method: 'get',
-      uuid: this.site.uuid,
-      category: this.site.category
+      info: {
+        item: null,
+        store: {
+          name   : this.site.store,
+          source : this.site.source,
+          uuid   : this.site.uuid,
+          outlet : this.site.category,
+        },
+      },
     })
 
-    console.log(cart_detail)
-
-    if (!this.$store.state.fullpath.length) {
-      this.$store.dispatch('setState', {
-        payload: {
-          key: 'fullpath',
-          data: this.$route.fullPath
-        }
-      })
-    }
-
-    if (!this.store || !this.store.bot_id) {
-      this.$router.go(-1)
-    }
-
-    this.expansion = this.dates.map(el => ({ show: true }))
-
-    await this.check_voucher()
-
-    try {
-      if (cart_detail && cart_detail.results && cart_detail.results.used_voucher && cart_detail.results.used_voucher.length) {
-        const find_voucher = this.list_vouchers.filter(el => el.name === cart_detail.results.used_voucher)
-
-        console.log(find_voucher, 'find_voucher')
-
-        if (find_voucher.length) {
-          await this.use_voucher({ is_custom_voucher: false, value: find_voucher[0] })
-        }
-      }
-    } catch (error) {
-      console.log(error)
-    }
+    this.loading_checkout = false
   },
 
   methods: {
-    async select_courier(data) {
-      this.courier = false
-      const pricing = await this.$store.dispatch('request', {
-        url: '/deliverycost/check',
-        method: 'post',
-        data
-      })
+    async init_page() {
+      const { c, u } = this.$route.query
 
-      if (pricing.status == 200) {
-        this.selected_courier = pricing.data
+      if (!this.store) {
+        await this.get_base_info('site-page')
       }
-    },
 
-    change_handler (key, value) {
-      this[key] = value
-    },
+      if (!this.customer) {
+        await this.get_customer_detail(this.store.bot_id)
+      }
 
-    select_subs_date(params) {
-      this.selected_subs_date = params
-      this.change_handler('products', true)
-    },
-
-    select_at_subs(item, e) {
-      const dates = this.dates.filter(
-        el => el.date.split('-')[2] === this.selected_subs_date.split(' ')[0]
-      )
-
-      dates[0].items[item].select_date = e
-      dates[0].items[item].qty = 1
-
-      this.change_handler('dates', dates)
-    },
-
-    normal_order() {
-      if (this.cart.length) {
-        let total = 0
-
-        this.cart.forEach(el => {
-          console.log('count total ', el)
-          const pricing = el.detail[0].discount_price
-            ? el.detail[0].discount_price
-            : el.detail[0].normal_price
-
-          total += el.qty * pricing
+      if (!this.products.length) {
+        const get_product = await API.get_list_products(this.$store, {
+          category: c,
+          uid: u,
+          bot_id: this.$route.params.store
         })
 
-        return total
-      }
-    },
-
-    subs_order() {
-      let total = 0
-
-      this.dates.forEach(el => {
-        el.items.forEach(item => {
-          const pricing = item.discount_price
-            ? item.discount_price
-            : item.normal_price
-
-          total += item.qty * pricing
-        })
-      })
-
-      return total
-    },
-
-    parse_price(params) {
-      let total = 0
-
-      params.items.forEach(el => {
-        if (el.qty) {
-          const price = el.discount_price ? el.discount_price : el.normal_price
-
-          total += price * el.qty
-        }
-      })
-
-      return `Rp. ${total.toLocaleString().replace(',', '.')}`
-    },
-
-    parse_date({ date }) {
-      const splitted = date.split('-')
-
-      return `${splitted[2]} ${this.month[+splitted[1]]} ${splitted[0]}`
-    },
-
-    expand(index) {
-      this.expansion[index].show = !this.expansion[index].show
-    },
-
-    sort_dates() {
-      // this.dates = this.dates.sort()
-    },
-
-    select_payment(type) {
-      this.selected_payment = type
-      this.payment = false
-    },
-
-    get_cour() {
-      if (this.store) {
-        const lists = this.store.courier.map(el => {
-          if (el.includes('custom')) {
-            return `${el.split('|')[1]}|${el.split('|')[2]}`
-          } else {
-            return el
+        if (!get_product.status) {
+          if (get_product.message == 'Expired.') {
+            this.$router.replace('/error/link/expired')
           }
-        })
 
-        return lists
+          if (get_product.message == 'Invalid URL.') {
+            this.$router.replace('/error/link/invalid')
+          }
+        }
       }
     },
 
-    async check_voucher() {
-      console.log('get voucher')
-      const request = await this.$store.dispatch('request', {
-        url: '/api/vouchers',
+    async get_base_info(page) {
+      const store = await this.$store.dispatch('request', {
+        url: '/api/store',
         method: 'post',
         data: {
-          store_id: this.store.id
-        }
+          store_name: this.$route.params.store,
+          page: page,
+        },
       })
 
-      console.log('get voucher', request)
+      if (store.status != 200) {
+        this.$router.replace('/error/link/invalid')
 
-      this.list_vouchers = request.data.filter(el => el.show_select)
-
-      const custom = request.data.filter(el => !el.show_select)
-
-      if (custom.length) {
-        this.custom_voucher = true
+        return false
       }
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'store',
+          data: {
+            ...this.store,
+            ...store.data
+          }
+        }
+      })
     },
 
-    async implement_voucher(type, params) {
+    async get_customer_detail(bot_id) {
       try {
-        const cat_list = params.value.categories_product.split(',')
-        
-        if (!cat_list.includes(this.site.category)) {
-          this.$store.dispatch('setState', {
-            payload: {
-              key : 'alert',
-              data: {
-                status: true,
-                text  : 'Voucher tidak berlaku di area Anda.'
-              }
-            }
-          })
-        }
-
-        const total = this.grand_total
-        const body  = {
-          id           : this.store.id,
-          bot_id       : this.store.bot_id,
-          store_name   : this.store.name,
-          bot_name     : this.site.store,
-          uuid         : this.site.uuid,
-          category     : this.site.category,
-          voucher_code : 
-            type == 'static'
-              ? params.value.name
-              : params.value
-        }
-
-        const execute_voucher = await this.$store.dispatch('request', {
-          url: '/voucher/apply',
+        const request = await this.$store.dispatch('request', {
+          url: '/api/customer',
           method: 'post',
-          data: body
+          data: {
+            chatkey: this.$route.query.u,
+            bot_id
+          }
         })
 
-        if (execute_voucher.status == 200 && execute_voucher.data.status) {
-          if (!this.rp_order) {
-            const mapped_cart = []
-
-            this.cart.forEach(el => {
-              const filtered = execute_voucher.data.result.items.filter(item => 
-                item.id === el.id && item.SKU == item.SKU
-              )
-
-              if (filtered.length) {
-                el.detail[0].normal_price   = filtered[0].normal_price
-                el.detail[0].discount_price = filtered[0].discount_price
-              }
-
-              mapped_cart.push(el)
-            })
-
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'cart',
-                data: mapped_cart
-              }
-            })
-
-            const new_total = this.grand_total
-
-            this.applied_voucher = {
-              name  : params.value,
-              value : execute_voucher.data.result.old_total != execute_voucher.data.result.total
-                ? Math.abs(total - new_total)
-                : 0
-            }
-          } else {
-            const dates        = this.dates.map(el => el)
-            const mapped_dates = dates.map(order => {
-              const merged_orders = execute_voucher.data.result.merged_orders
-              const find_result   = merged_orders.filter(el => el.delivery_date === order.date)
-
-              console.log(find_result, ' ; find_result')
-
-              if (find_result.length) {
-                order.items = order.items.map(order_item => {
-                  if (order_item.select_date) {
-                    const combine_detail = find_result[0].items.filter(m_item => m_item.id === order_item.product_id)
-
-                    if (combine_detail.length) {
-                      order_item.discount_price = combine_detail[0].discount_price
-                      order_item.normal_price   = combine_detail[0].normal_price
-                    }
-                  }
-
-                  return order_item
-                })
-              }
-
-              
-              return order
-            })
-
-            console.log(mapped_dates, ' implement voucher mapped_dates')
-
-            this.$store.dispatch('setState', {
-              payload: {
-                key: 'dates',
-                data: mapped_dates
-              }
-            })
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'customer',
+            data: request.data.response
           }
+        })
 
-          const new_total = this.grand_total
-
-          this.applied_voucher = {
-            name  : type == 'static'
-              ? params.value.name
-              : params.value,
-            value : execute_voucher.data.result.old_total != execute_voucher.data.result.total
-              ? Math.abs(total - new_total)
-              : 0
-          }
-
-          const order_type = !this.rp_order ? 'single-order' : 'rp-order'
-
-          this.update_cache(order_type, params.value.name)
-
-          return
-        } else {
-          const self = this
-
-          if (execute_voucher.data.message == 'Voucher code is out of stock.') {
-            this.check_voucher()
-          }
-
-          this.$store.dispatch('setState', {
-            payload: {
-              key : 'alert',
-              data: {
-                status: true,
-                text  : execute_voucher.data.message
-              }
-            }
-          })
-
-          setTimeout(() => {
-            self.$store.dispatch('setState', {
-              payload: {
-                key : 'alert',
-                data: {
-                  status: true,
-                  text  : execute_voucher.data.message
-                }
-              }
-            })
-          }, 3000)
+        if (this.customer.ex_callback && this.$route.name == 'site-store') {
+          // if (this.site.category != this.customer.ex_callback || this.site.category != 'all' || this.site.category.length) {
+          //   window.open(`https://shop.balesin.id/site/${this.site.store}?u=${this.site.uuid}&src=${this.site.source}&c=${this.customer.ex_callback}`, '_self')
+          // }
         }
       } catch (error) {
         console.log(error)
       }
     },
+    // async select_courier(data) {
+    //   this.courier = false
+    //   const pricing = await this.$store.dispatch('request', {
+    //     url: '/deliverycost/check',
+    //     method: 'post',
+    //     data
+    //   })
 
-    async reset_cart() {
-      const { c, u } = this.$route.query
+    //   if (pricing.status == 200) {
+    //     this.selected_courier = pricing.data
+    //   }
+    // },
 
-      await API.get_list_products(this.$store, {
-        category: c,
-        uid: u,
-        bot_id: this.$route.params.store
-      })
+    // change_handler (key, value) {
+    //   this[key] = value
+    // },
 
-      if (!this.rp_order) {
-        console.log('reset so')
-        const cart        = this.cart.slice(0)
-        const mapped_cart = cart.map(el => {
-          let filtered = this.list_products.filter(product => el.id == product.id)
+    // select_subs_date(params) {
+    //   this.selected_subs_date = params
+    //   this.change_handler('products', true)
+    // },
 
-          filtered[0].qty = el.qty
+    // select_at_subs(item, e) {
+    //   const dates = this.dates.filter(
+    //     el => el.date.split('-')[2] === this.selected_subs_date.split(' ')[0]
+    //   )
 
-          return filtered[0]
-        })
+    //   dates[0].items[item].select_date = e
+    //   dates[0].items[item].qty = 1
 
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'cart',
-            data: mapped_cart
-          }
-        })
-      } else {
-        console.log('reset rp dates', this.dates)
-        const dates = []
+    //   this.change_handler('dates', dates)
+    // },
 
-        this.dates.forEach(order => {
-          console.log(order, ';orders')
-          order.items = order.items.map(item => {
-            console.log(item, ' ; order - item')
-            const filtered = this.list_products.filter(product =>
-              item.select_date && item.qty && product.id == item.id
-            )
+    // normal_order() {
+    //   if (this.cart.length) {
+    //     let total = 0
 
-            if (filtered.length) {
-              const f_item  = filtered[0]
-              const updated = {
-                SKU              : f_item.SKU,
-                detail_id        : f_item.detail[0].detail_id,
-                discount_price   : f_item.detail[0].discount_price,
-                id               : f_item.id,
-                main_image       : f_item.detail[0].main_image,
-                name             : f_item.name,
-                normal_price     : f_item.detail[0].normal_price,
-                product_id       : f_item.id,
-                qty              : item.qty,
-                select_date      : item.select_date,
-                variant          : f_item.detail[0].variant
-              }
+    //     this.cart.forEach(el => {
+    //       console.log('count total ', el)
+    //       const pricing = el.detail[0].discount_price
+    //         ? el.detail[0].discount_price
+    //         : el.detail[0].normal_price
 
-              return updated
-            } else {
-              return item
-            }
-          })
+    //       total += el.qty * pricing
+    //     })
+
+    //     return total
+    //   }
+    // },
+
+    // subs_order() {
+    //   let total = 0
+
+    //   this.dates.forEach(el => {
+    //     el.items.forEach(item => {
+    //       const pricing = item.discount_price
+    //         ? item.discount_price
+    //         : item.normal_price
+
+    //       total += item.qty * pricing
+    //     })
+    //   })
+
+    //   return total
+    // },
+
+    // parse_price(params) {
+    //   let total = 0
+
+    //   params.items.forEach(el => {
+    //     if (el.qty) {
+    //       const price = el.discount_price ? el.discount_price : el.normal_price
+
+    //       total += price * el.qty
+    //     }
+    //   })
+
+    //   return `Rp ${total.toLocaleString().replace(',', '.')}`
+    // },
+
+    // parse_date({ date }) {
+    //   const splitted = date.split('-')
+
+    //   return `${splitted[2]} ${this.month[+splitted[1]]} ${splitted[0]}`
+    // },
+
+    // expand(index) {
+    //   this.expansion[index].show = !this.expansion[index].show
+    // },
+
+    // sort_dates() {
+    //   // this.dates = this.dates.sort()
+    // },
+
+    // select_payment(type) {
+    //   this.selected_payment = type
+    //   this.payment = false
+    // },
+
+    // get_cour() {
+    //   if (this.store) {
+    //     const lists = this.store.courier.map(el => {
+    //       if (el.includes('custom')) {
+    //         return `${el.split('|')[1]}|${el.split('|')[2]}`
+    //       } else {
+    //         return el
+    //       }
+    //     })
+
+    //     return lists
+    //   }
+    // },
+
+    // async check_voucher() {
+    //   console.log('get voucher')
+    //   const request = await this.$store.dispatch('request', {
+    //     url: '/api/vouchers',
+    //     method: 'post',
+    //     data: {
+    //       store_id: this.store.id
+    //     }
+    //   })
+
+    //   console.log('get voucher', request)
+
+    //   this.list_vouchers = request.data.filter(el => el.show_select)
+    //   this.all_voucher = request.data
+
+    //   const custom = request.data.filter(el => !el.show_select)
+
+    //   if (custom.length) {
+    //     this.custom_voucher = true
+    //   }
+    // },
+
+    // async implement_voucher(type, params) {
+    //   try {
+    //     const self = this
+    //     const cat_list = type == 'static' ? params.value.categories_product.split(',') : []
+
+    //     if (type == 'static' && !cat_list.includes(this.site.category)) {
+    //       this.$store.dispatch('setState', {
+    //         payload: {
+    //           key : 'alert',
+    //           data: {
+    //             status: true,
+    //             text  : 'Voucher tidak berlaku di area Anda.'
+    //           }
+    //         }
+    //       })
+    //     }
+
+    //     const body  = {
+    //       id           : this.store.id,
+    //       bot_id       : this.store.bot_id,
+    //       store_name   : this.store.name,
+    //       bot_name     : this.site.store,
+    //       uuid         : this.site.uuid,
+    //       category     : this.site.category,
+    //       voucher_code : 
+    //         type == 'static'
+    //           ? params.value.name
+    //           : params.value
+    //     }
+
+    //     console.log(body, ' body')
+
+    //     const execute_voucher = await this.$store.dispatch('request', {
+    //       url: '/voucher/apply',
+    //       method: 'post',
+    //       data: body
+    //     })
+
+    //     // if (!execute_voucher.data) {
+    //     //   this.$store.dispatch('setState', {
+    //     //     payload: {
+    //     //       key : 'alert',
+    //     //       data: {
+    //     //         status: true,
+    //     //         text  : 'Voucher not valid!'
+    //     //       }
+    //     //     }
+    //     //   })
+
+    //     //   setTimeout(() => {
+    //     //     self.$store.dispatch('setState', {
+    //     //       payload: {
+    //     //         key : 'alert',
+    //     //         data: {
+    //     //           status: false,
+    //     //           text  : ''
+    //     //         }
+    //     //       }
+    //     //     })
+    //     //   }, 3000)
+    //     // }
+
+    //     if (execute_voucher.status == 200 && execute_voucher.data.status) {
+    //       const order_type = execute_voucher.data.result.order_type
+
+    //       if (order_type == 'single-order') {
+    //         const items = execute_voucher.data.result.items[0].items
+    //         const mapped_cart = []
+
+    //         this.cart.forEach(el => {
+    //           const filtered = items.filter(item => item.id === el.id && item.SKU == item.SKU)
+
+    //           if (filtered.length) {
+    //             el.detail[0].normal_price   = filtered[0].normal_price
+    //             el.detail[0].discount_price = filtered[0].discount_price
+    //           }
+
+    //           mapped_cart.push(el)
+    //         })
+
+    //         this.$store.dispatch('setState', {
+    //           payload: {
+    //             key: 'cart',
+    //             data: mapped_cart
+    //           }
+    //         })
+    //       } else if (order_type == 'rp-order') {
+    //         const mapped_dates = this.dates.map(el => {
+    //           const filtered_items = execute_voucher.data.result.items.filter(item => item.delivery_date == el.date)
+    //           const { items }      = filtered_items[0]
+    //           const date_items     = el.items.map(item => {
+    //             const selected_item = items.filter(s_item => s_item.id === item.id)
+
+    //             if (selected_item.length) {
+    //               if (item.discount_price) {
+    //                 item.normal_price   = item.discount_price
+    //                 item.discount_price = selected_item[0].discount_price
+    //               } else {
+    //                 item.discount_price = selected_item[0].discount_price
+    //               }
+    //             }
+
+    //             return item
+    //           })
+
+    //           return {
+    //             date          : el.date,
+    //             delivery_time : el.delivery_time,
+    //             items         : date_items
+    //           }
+    //         })
+
+    //         this.$store.dispatch('setState', {
+    //           payload: {
+    //             key  : 'dates',
+    //             data : mapped_dates
+    //           }
+    //         })
+    //       } else if (order_type == 'pkg-order') {
+    //         const mapped_results = execute_voucher.data.result.items.map(({ type, items }) => {
+    //           let total = 0
+
+    //           items.forEach(el => {
+    //             if (el.discount_price) {
+    //               total += (el.discount_price * el.qty)
+    //             } else {
+    //               total += (el.normal_price * el.qty)
+    //             }
+    //           })
+
+    //           return { type, items, total}
+    //         })
+
+    //         this.$store.dispatch('setState', {
+    //           payload: {
+    //             key  : 'customized_values',
+    //             data : mapped_results
+    //           }
+    //         })
+    //       }
+
+    //       this.applied_voucher = {
+    //         name  : type == 'static' ? params.value.name : params.value,
+    //         value : Math.abs(execute_voucher.data.result.old_total - execute_voucher.data.result.total)
+    //       }
+    //     } else {
+    //       if (execute_voucher.data.message == 'Voucher code is out of stock.') {
+    //         this.check_voucher()
+    //       }
+
+    //       this.$store.dispatch('setState', {
+    //         payload: {
+    //           key : 'alert',
+    //           data: {
+    //             status: true,
+    //             text  : execute_voucher.data.message
+    //           }
+    //         }
+    //       })
+
+    //       setTimeout(() => {
+    //         self.$store.dispatch('setState', {
+    //           payload: {
+    //             key : 'alert',
+    //             data: {
+    //               status: true,
+    //               text  : execute_voucher.data.message
+    //             }
+    //           }
+    //         })
+    //       }, 3000)
+    //     }
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // },
+
+    // async reset_cart() {
+    //   // const { c, u } = this.$route.query
+
+    //   // await API.get_list_products(this.$store, {
+    //   //   category: c,
+    //   //   uid: u,
+    //   //   bot_id: this.$route.params.store
+    //   // })
+
+    //   // if (!this.rp_order) {
+    //   //   console.log('reset so')
+    //   //   const cart        = this.cart.slice(0)
+    //   //   const mapped_cart = cart.map(el => {
+    //   //     let filtered = this.list_products.filter(product => el.id == product.id)
+
+    //   //     filtered[0].qty = el.qty
+
+    //   //     return filtered[0]
+    //   //   })
+
+    //   //   this.$store.dispatch('setState', {
+    //   //     payload: {
+    //   //       key: 'cart',
+    //   //       data: mapped_cart
+    //   //     }
+    //   //   })
+    //   // } else {
+    //   //   console.log('reset rp dates', this.dates)
+    //   //   const dates = []
+
+    //   //   this.dates.forEach(order => {
+    //   //     console.log(order, ';orders')
+    //   //     order.items = order.items.map(item => {
+    //   //       console.log(item, ' ; order - item')
+    //   //       const filtered = this.list_products.filter(product =>
+    //   //         item.select_date && item.qty && product.id == item.id
+    //   //       )
+
+    //   //       if (filtered.length) {
+    //   //         const f_item  = filtered[0]
+    //   //         const updated = {
+    //   //           SKU              : f_item.SKU,
+    //   //           detail_id        : f_item.detail[0].detail_id,
+    //   //           discount_price   : f_item.detail[0].discount_price,
+    //   //           id               : f_item.id,
+    //   //           main_image       : f_item.detail[0].main_image,
+    //   //           name             : f_item.name,
+    //   //           normal_price     : f_item.detail[0].normal_price,
+    //   //           product_id       : f_item.id,
+    //   //           qty              : item.qty,
+    //   //           select_date      : item.select_date,
+    //   //           variant          : f_item.detail[0].variant
+    //   //         }
+
+    //   //         return updated
+    //   //       } else {
+    //   //         return item
+    //   //       }
+    //   //     })
           
-          dates.push(order)
-        })
+    //   //     dates.push(order)
+    //   //   })
 
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'dates',
-            data: dates
-          }
-        })
-      }
-    },
+    //   //   this.$store.dispatch('setState', {
+    //   //     payload: {
+    //   //       key: 'dates',
+    //   //       data: dates
+    //   //     }
+    //   //   })
+    //   // }
+    // },
 
-    async use_voucher(params) {
-      this.used_voucher     = false
-      this.applying_voucher = true
+    // async use_voucher(params) {
+    //   this.used_voucher     = false
+    //   this.applying_voucher = true
 
-      if (!params.is_custom_voucher && typeof params.value != 'boolean') {
-        this.voucher   = false
+    //   if (!params.is_custom_voucher && typeof params.value != 'boolean') {
+    //     this.voucher   = false
 
-        await this.reset_cart()
-        await this.implement_voucher('static', params)
+    //     await this.reset_cart()
+    //     await this.implement_voucher('static', params)
 
-        console.log('static voucher')
-      } else if (params.is_custom_voucher && typeof params.value == 'boolean') {
-        this.voucher      = false
-        this.voucher_form = true
+    //     console.log('static voucher')
+    //   } else if (params.is_custom_voucher && typeof params.value == 'boolean') {
+    //     this.voucher      = false
+    //     this.voucher_form = true
 
-        console.log('custom voucher')
-      } else if (params.is_custom_voucher && typeof params.value != 'boolean') {
-        await this.reset_cart()
+    //     console.log('custom voucher')
+    //   } else if (params.is_custom_voucher && typeof params.value != 'boolean') {
+    //     const filter_voucher = this.list_vouchers.filter(el => el.name.toLowerCase() == params.value.toLowerCase())
+  
+    //     console.log('filter_voucher', filter_voucher)
 
-        this.voucher_form = false
+    //     if ((filter_voucher.length && filter_voucher[0].show_select != 1) || !filter_voucher.length) {
+    //       const find_null = this.all_voucher.filter(el => !el.name)
 
-        await this.implement_voucher('custom', params)
+    //       if (find_null.length) {
+    //         const find_mode = JSON.parse(find_null[0].sku_product)
+            
+    //         if ((find_mode.mode == 'so' && !this.rp_order) || (find_mode.mode == 'rp' && !this.rp_order)) {
+    //           await this.reset_cart()
 
-        this.voucher = false
+    //           this.voucher_form = false
 
-        console.log('use custom voucher')
-      }
+    //           await this.implement_voucher('custom', params)
 
-      this.applying_voucher = false
-    },
+    //           this.voucher = false
 
-    update_cache(mode, voucher_code) {
-      const self = this
+    //           console.log('use custom voucher')
+    //         }
+    //       }
+    //     }
+    //   }
 
-      if (mode == 'single-order') {
-        const cart = {
-          type: 'single-order',
-          notes: this.notes,
-          voucher_code: voucher_code,
-          items: this.cart.map(el => ({
-            delivery_date: this.single_order_date,
-            delivery_time: this.delivery_time_normal,
-            items: [{
-              id: el.id,
-              qty: el.qty,
-              SKU: el.SKU,
-              name: el.name,
-              variant: el.detail[0].variant,
-            }]
-          }))
-        }
+    //   this.applying_voucher = false
+    // },
 
-        API.manage_cart(self.$store, {
-          store_name: this.site.store,
-          source: this.site.source,
-          method: 'set',
-          uuid: this.site.uuid,
-          detail: cart
-        })
-      } else {
-        const self = this
-        const mapped = this.dates.map(el => {
-          const items = el.items.filter(item => item.qty)
-          const cut = items.map(item => ({
-            id: item.id,
-            qty: item.qty,
-            variant: item.variant,
-            SKU: item.SKU,
-            name: item.name,
-          }))
+    // update_cache(mode, voucher_code) {
+    //   const self = this
 
-          return {
-            delivery_date: el.date,
-            delivery_time: el.delivery_time,
-            items: cut
-          }
-        })
+    //   if (mode == 'single-order') {
+    //     const cart = {
+    //       type: 'single-order',
+    //       notes: this.notes,
+    //       voucher_code: voucher_code,
+    //       items: this.cart.map(el => ({
+    //         delivery_date: this.single_order_date,
+    //         delivery_time: this.delivery_time_normal,
+    //         items: [{
+    //           id: el.id,
+    //           qty: el.qty,
+    //           SKU: el.SKU,
+    //           name: el.name,
+    //           variant: el.detail[0].variant,
+    //         }]
+    //       }))
+    //     }
 
-        API.manage_cart(self.$store, {
-          store_name: this.site.store,
-          source: this.site.source,
-          method: 'set',
-          uuid: this.site.uuid,
-          detail: {
-            type: 'rp-order',
-            notes: this.notes,
-            voucher_code: voucher_code,
-            items: mapped
-          }
-        })
-      }
-    },
+    //     API.manage_cart(self.$store, {
+    //       store_name: this.site.store,
+    //       source: this.site.source,
+    //       method: 'set',
+    //       uuid: this.site.uuid,
+    //       detail: cart
+    //     })
+    //   } else {
+    //     const self = this
+    //     const mapped = this.dates.map(el => {
+    //       const items = el.items.filter(item => item.qty)
+    //       const cut = items.map(item => ({
+    //         id: item.id,
+    //         qty: item.qty,
+    //         variant: item.variant,
+    //         SKU: item.SKU,
+    //         name: item.name,
+    //       }))
 
-    async validate_voucher() {
-      try {
-        console.log()
-        const validate = await this.$store.dispatch('request', {
-          url: '/api/voucher',
-          method: 'post',
-          data: {
-            voucher: '',
-            uuid: '',
-            botname: '',
-            categories: '',
-            products: '',
-          }
-        })
-      } catch (error) {
-        return error
-      }
-    },
+    //       return {
+    //         delivery_date: el.date,
+    //         delivery_time: el.delivery_time,
+    //         items: cut
+    //       }
+    //     })
 
-    async execute_order() {
-      // console.log('execute order')
-      this.order_loading = true
+    //     API.manage_cart(self.$store, {
+    //       store_name: this.site.store,
+    //       source: this.site.source,
+    //       method: 'set',
+    //       uuid: this.site.uuid,
+    //       detail: {
+    //         type: 'rp-order',
+    //         notes: this.notes,
+    //         voucher_code: voucher_code,
+    //         items: mapped
+    //       }
+    //     })
+    //   }
+    // },
 
-      const data = {
-        store: {
-          id: this.store.id,
-          bot_id: this.store.bot_id,
-          store_name: this.store.name,
-          bot_name: this.site.store,
-          use_ext_callback: this.store.ext_api_callback,
-          use_ext_api_payment: this.store.ext_api_payment
-        },
-        customer: {
-          uuid: this.site.uuid,
-          method: "create",
-          source: this.site.source,
-          category: this.site.category,
-          address: this.customer.address,
-          city: this.customer.city,
-          email: this.customer.email,
-          name: this.customer.name,
-          phone: this.customer.phone,
-          province: this.customer.province,
-          sub_district: this.customer.sub_district,
-          urban: this.customer.urban,
-          zip_code: this.customer.zip_code
-        },
-        order: {
-          courier: this.selected_courier,
-          harga_ongkir: this.selected_courier.price,
-          voucher_code: this.applied_voucher.name ? this.applied_voucher.name : this.voucher_code,
-          nama_kurir: this.selected_courier.name,
-          payment: this.selected_payment,
-          payment_type: this.selected_payment,
-          set_date: this.date,
-          notes: this.notes && this.notes.length ? this.notes : '',
-        }
-      }
+    // async validate_voucher() {
+    //   try {
+    //     console.log()
+    //     const validate = await this.$store.dispatch('request', {
+    //       url: '/api/voucher',
+    //       method: 'post',
+    //       data: {
+    //         voucher: '',
+    //         uuid: '',
+    //         botname: '',
+    //         categories: '',
+    //         products: '',
+    //       }
+    //     })
+    //   } catch (error) {
+    //     return error
+    //   }
+    // },
 
-      const request = await this.$store.dispatch('request', {
-        url: '/transaction/order',
-        method: 'post',
-        data
-      })
+    // async execute_order() {
+    //   this.order_loading = true
 
-      if (request.status == 200)  {
-        if (request.data.status) {
-          this.order_loading = false
-          this.$router.replace('/success/checkout')
+    //   console.log('kesini0')
 
-          return true
-        }
-      }
+    //   if (this.customized_values) {
+    //     console.log('kesini1')
+    //     const customize_setup = JSON.parse(this.store.customize_setup).packaging.rules.detail
+    //     const mapped_customized_values = this.customized_values.map(el => {
+    //       const selected_mode = customize_setup.filter(setup => setup.type == el.type)
 
-      this.$store.dispatch('setState', {
-        payload: {
-          key: 'alert',
-          data: {
-            status: true,
-            text: 'Order gagal, silahkan coba lagi.'
-          }
-        }
-      })
-      this.order_loading = false
-    }
+    //       return { ...el, min_order: selected_mode[0].min, max_order: selected_mode[0].max}
+    //     })
+    //     const validate_total = mapped_customized_values.filter(el => el.total > el.max_order || el.total < el.min_order)
+
+    //     if (validate_total.length) {
+    //       this.order_loading = false
+
+    //       this.$store.dispatch('setState', {
+    //         payload: {
+    //           key: 'alert',
+    //           data: {
+    //             status: true,
+    //             text: 'Order gagal, total belanja anda belum memenuhi syarat.'
+    //           }
+    //         }
+    //       })
+
+    //       return true
+    //     }
+    //   }
+
+    //   if (!this.customized_values && this.rp_order) {
+    //     console.log('kesini2')
+    //     if (this.grand_total < this.store.min_order || this.grand_total > this.store.max_order) {
+    //       this.$store.dispatch('setState', {
+    //         payload: {
+    //           key: 'alert',
+    //           data: {
+    //             status: true,
+    //             text: 'Order gagal, total belanja anda tidak memenuhi syarat.'
+    //           }
+    //         }
+    //       })
+
+    //       return true
+    //     }
+    //   }
+
+    //   if (!this.customized_values && !this.rp_order) {
+    //     console.log('kesini3')
+    //     if (this.grand_total < this.store.min_order || this.grand_total > this.store.max_order) {
+    //       this.$store.dispatch('setState', {
+    //         payload: {
+    //           key: 'alert',
+    //           data: {
+    //             status: true,
+    //             text: 'Order gagal, total belanja anda tidak memenuhi syarat.'
+    //           }
+    //         }
+    //       })
+
+    //       return true
+    //     }
+    //   }
+
+    //   const notes         = this.notes && this.notes.length ? this.notes : ''
+    //   const voucher_code  = this.applied_voucher.name ? this.applied_voucher.name : this.voucher_code
+    //   const delivery_date = this.customized_values ? this.min_rp : null
+
+    //   const request = await this.$store.dispatch('request', {
+    //     url    : '/transaction/order',
+    //     method : 'post',
+    //     data   : {
+    //       method   : 'create',
+    //       store_id : this.store.id,
+    //       bot_name : this.site.store,
+    //       uuid     : this.site.uuid,
+    //       source   : this.site.source,
+    //       order    : {
+    //         courier       : this.selected_courier,
+    //         harga_ongkir  : this.selected_courier.price,
+    //         nama_kurir    : this.selected_courier.name,
+    //         payment       : this.selected_payment,
+    //         payment_type  : this.selected_payment,
+    //         set_date      : this.date,
+    //         delivery_time : this.delivery_time_normal,
+    //         delivery_date,
+    //         voucher_code,
+    //         notes
+    //       }
+    //     }
+    //   })
+
+    //   console.log(JSON.stringify(request, null, 2))
+
+    //   if (request.status == 200)  {
+    //     if (request.data.status) {
+    //       this.order_loading = false
+    //       this.$router.replace('/success/checkout')
+
+    //       return true
+    //     }
+    //   }
+
+    //   this.$store.dispatch('setState', {
+    //     payload: {
+    //       key: 'alert',
+    //       data: {
+    //         status: true,
+    //         text: 'Order gagal, silahkan coba lagi.'
+    //       }
+    //     }
+    //   })
+    //   this.order_loading = false
+    // }
   }
 }
 </script>

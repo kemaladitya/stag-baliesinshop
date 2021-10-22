@@ -7,6 +7,53 @@
       text-align: -webkit-center;
     "
   >
+    <div
+      v-if="$nuxt.isOffline"
+      class="b-font"
+      style="
+        padding-top: 38vh;
+        position: fixed;
+        z-index: 9999;
+        background-color: rgba(255, 247, 198, 0.9);
+        color: rgb(95, 95, 95);
+        border: .2px solid #fd0;
+        width: 100%;
+        height: 100vh;
+        font-size: 12px;
+        font-weight: 600;
+      "
+    >
+      <div>
+        <center>
+          <v-icon style="font-size: 70px">mdi-signal-off</v-icon>
+          <div style="margin-top: 5px; font-size: 14px; font-weight: 600">
+            You are offline
+          </div>
+        </center>
+      </div>
+    </div>
+    <div
+      v-if="loading"
+      class="b-font"
+      style="
+        position: fixed;
+        z-index: 9999;
+        background-color: rgb(255 255 255 / 0%);
+        color: rgb(95, 95, 95);
+        border: .2px solid #fd0;
+        width: 100%;
+        height: 100vh;
+        font-size: 12px;
+        font-weight: 600;
+      "
+    >
+      <v-progress-linear
+        style="z-index: 9999 !important"
+        color="success"
+        height="3"
+        indeterminate
+      />
+    </div>
     <v-app
       class="b-font overflow-hidden"
       style="
@@ -15,115 +62,23 @@
         box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
       "
     >
-      <!-- timeout="3000" -->
-      <v-snackbar
-        id="b-snackbar"
-        v-model="alert.status"
-        width="100%"
-        fixed
-        top
-      >
-        <div class="d-flex flex-row">
-          <div>
-            <v-icon color="#fd0" small>mdi-alert</v-icon>
-          </div>
-          <div style="padding-top: 1px; margin-left: 8px; font-weight: 600">{{ alert.text }}</div>
-        </div>
-      </v-snackbar>
-      <v-alert
-        type="success"
-        color="success"
-        border="left"
-        elevation="2"
-        dense
-        :value="added_to_cart"
-        style="
-          width: 98%;
-          margin: 1%;
-          margin-top: 8px;
-          z-index: 9999;
-          position: fixed;
-        "
-        transition="scale-transition"
-      >
-        Success add to cart.
-      </v-alert>
       <div class="pb-12">
         <div>
-          <v-app-bar
-            absolute
-            color="white"
-            elevate-on-scroll
-            scroll-target="#scrolling-techniques-7"
-            style="border-bottom: 1px solid #ccc !important; z-index: 9; height: 55px"
-          >
-            <v-app-bar-nav-icon
-              depressed
-              :ripple="false"
-              class="ml-2 pa-2"
-              color="white"
-            >
-              <v-btn
-                v-if="$route.name == 'site-store-checkout'"
-                class="ml-4"
-                style="color: black !important"
-                x-small
-                fab
-                text
-                depressed
-                :ripple="false"
-                :to="gotocart"
-              >
-                <v-icon small>mdi-arrow-left</v-icon>
-              </v-btn>
-              <v-img
-                v-if="store"
-                :src="store.image"
-                width="40"
-                height="40"
-                max-width="53"
-                max-height="53"
-                @click="back"
-              />
-              <v-icon v-else>mdi-store</v-icon>
-            </v-app-bar-nav-icon>
-            <v-spacer />
-            <v-badge
-              v-if="(cart_btn && $route.name == 'site-store-checkout') || ($route.name == 'site-store-pid')"
-              id="b-shop-cart-badge"
-              top="-5px"
-              color="red darken-1"
-              style="font-size: 10px"
-              min-width="16px"
-              height="16px"
-              :icon="String(total_qty_item)"
-              bordered
-              overlap
-            >
-              <v-btn
-                v-if="cart_btn"
-                rounded
-                depressed
-                :ripple="false"
-                max-width="38"
-                min-width="38"
-                :to="gotocart"
-                color="#fcfcfc"
-                style="
-                  color: black !important;
-                  border: 1px solid #fcfcfc !important;
-                "
-              >
-                <v-icon>mdi-cart-outline</v-icon>
-              </v-btn>
-            </v-badge>
-          </v-app-bar>
+          <Headers />
           <v-sheet
             id="scrolling-techniques-7"
-            class="overflow-y-auto"
+            class="overflow-hidden b-main-page"
             max-height="100vh"
             v-if="store"
           >
+            <v-progress-linear
+              v-if="general_loading"
+              style="z-index: 9999 !important"
+              color="success"
+              height="3"
+              indeterminate
+            />
+            <v-card v-else height="3" flat/>
             <nuxt />
           </v-sheet>
         </div>
@@ -133,31 +88,45 @@
 </template>
 
 <script>
+import Headers from '@/components/Partials/headers'
+
 export default {
+  components: {
+    Headers,
+  },
+
   data: () => ({
     page: 1,
     snackbar: true,
     cart_btn: null
   }),
 
-  watch: {
-    added_to_cart(newval, oldval) {
-      const self = this
+  // watch: {
+  //   added_to_cart(newval, oldval) {
+  //     const self = this
 
-      if (newval) {
-        setTimeout(() => {
-          self.$store.dispatch('setState', {
-            payload: {
-              key: 'added_to_cart',
-              data: false
-            }
-          })
-        }, 1500)
-      }
-    }
-  },
+  //     if (newval) {
+  //       setTimeout(() => {
+  //         self.$store.dispatch('setState', {
+  //           payload: {
+  //             key: 'added_to_cart',
+  //             data: false
+  //           }
+  //         })
+  //       }, 1500)
+  //     }
+  //   }
+  // },
 
   computed: {
+    loading() {
+      return this.$store.state.loading
+    },
+
+    general_loading() {
+      return this.$store.state.general_loading
+    },
+
     screen() {
       return this.$store.state.screen
     },
@@ -216,13 +185,17 @@ export default {
       return this.$store.state.site
     },
 
+    customer() {
+      return this.$store.state.customer
+    },
+
     dates() {
       return this.$store.state.dates
     },
 
-    added_to_cart() {
-      return this.$store.state.added_to_cart
-    }
+    // added_to_cart() {
+    //   return this.$store.state.added_to_cart
+    // }
   },
 
   async beforeCreate() {
@@ -259,6 +232,33 @@ export default {
 
   async mounted () {
     const self = this
+    const { name, params: { store }, query: { c, src, u } } = this.$route
+
+    if (name !== 'site-store-userprofile') {
+      const check_area = await this.$store.dispatch('request', {
+        url: '/api/customer/session',
+        method: 'post',
+        data: {
+          bot_id: store,
+          uid : u,
+          category: c,
+        }
+      })
+
+      console.log('@check_area |', check_area)
+
+      if (!check_area.data.status) {
+        this.$router.push('/error/link/expired')
+      }
+    }
+
+    await this.get_base_info('site-store')
+    
+    if (this.$route.name === 'site-store-userprofile') {
+      this.cart_btn = null
+    } else {
+      this.cart_btn = true
+    }
 
     this.$nextTick(() => {
       window.addEventListener('resize', this.getWindowWidth)
@@ -267,31 +267,10 @@ export default {
       this.getWindowHeight()
     })
 
-    const store = await this.$store.dispatch('request', {
-      url: '/api/store',
-      method: 'post',
-      data: {
-        store_name: this.$route.params.store
-      }
-    })
-
-    if (store.status != 200) {
-      this.$router.replace('/error/link/invalid')
-
-      return false
-    }
-
-    this.$store.dispatch('setState', {
-      payload: {
-        key: 'store',
-        data: store.data
-      }
-    })
-
-    this.get_customer_detail(store.data.bot_id)
+    // await this.get_customer_detail(this.store.bot_id)
 
     if (process.browser) {
-      if (window.innerWidth <= 320) {
+      if (window.innerWidth <= 375) {
         console.log('mini')
         self.$store.dispatch('setState', {
           payload: {
@@ -315,12 +294,6 @@ export default {
           }
         })
       }
-    }
-
-    if (this.$route.name === 'site-store-userprofile') {
-      this.cart_btn = null
-    } else {
-      this.cart_btn = true
     }
   },
 
@@ -357,33 +330,11 @@ export default {
       return total
     },
 
-    async get_customer_detail(bot_id) {
-      try {
-        const request = await this.$store.dispatch('request', {
-          url: '/api/customer',
-          method: 'post',
-          data: {
-            chatkey: this.$route.query.u,
-            bot_id
-          }
-        })
-
-        this.$store.dispatch('setState', {
-          payload: {
-            key: 'customer',
-            data: request.data
-          }
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    },
-
     getWindowWidth(event) {
       const self = this
       this.windowWidth = document.documentElement.clientWidth
 
-      console.log(this.windowWidth, ' this.windowWidth')
+      // console.log(this.windowWidth, ' this.windowWidth')
 
       if (this.windowWidth <= 390) {
         console.log('mini')
@@ -421,7 +372,62 @@ export default {
 
     get_so_total_qty() {
 
-    }
+    },
+
+    async get_base_info(page) {
+      const store = await this.$store.dispatch('request', {
+        url: '/api/store',
+        method: 'post',
+        data: {
+          store_name: this.$route.params.store,
+          page: page,
+        },
+      })
+
+      if (store.status != 200) {
+        this.$router.replace('/error/link/invalid')
+
+        return false
+      }
+
+      this.$store.dispatch('setState', {
+        payload: {
+          key: 'store',
+          data: {
+            ...this.store,
+            ...store.data
+          }
+        }
+      })
+    },
+
+    async get_customer_detail(bot_id) {
+      try {
+        const request = await this.$store.dispatch('request', {
+          url: '/api/customer',
+          method: 'post',
+          data: {
+            chatkey: this.$route.query.u,
+            bot_id
+          }
+        })
+
+        this.$store.dispatch('setState', {
+          payload: {
+            key: 'customer',
+            data: request.data.response
+          }
+        })
+
+        if (this.customer.ex_callback && this.$route.name == 'site-store') {
+          // if (this.site.category != this.customer.ex_callback || this.site.category != 'all' || this.site.category.length) {
+          //   window.open(`https://shop.balesin.id/site/${this.site.store}?u=${this.site.uuid}&src=${this.site.source}&c=${this.customer.ex_callback}`, '_self')
+          // }
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
   }
 }
 </script>

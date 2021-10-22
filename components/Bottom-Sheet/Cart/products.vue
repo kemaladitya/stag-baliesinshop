@@ -57,7 +57,7 @@
                 {{ product.variant }}
               </div>
               <div style="font-size: 12px; font-weight: 600">
-                Rp.
+                Rp
                 {{
                   product.normal_price.toLocaleString().replace(/,/g, '.')
                 }}, -

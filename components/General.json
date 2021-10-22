@@ -26,6 +26,15 @@
       "height": 21,
       "pt": 0,
       "pl": 2
+    },
+    "shopeepay": {
+      "name": "shopeepay",
+      "img": "https://1.bp.blogspot.com/-EmJLucvvYZw/X0Gm1J37spI/AAAAAAAAC0s/Dyq4-ko9Eecvg0ostmowa2RToXZITkbcQCLcBGAsYHQ/w1200-h630-p-k-no-nu/Logo%2BShopeePay.png",
+      "desc": "Pembayaran dilakukan di bawah 30 menit dan pastikan saldo mencukupi.",
+      "width": 60,
+      "height": 21,
+      "pt": 0,
+      "pl": 0
     }
   }
 }
