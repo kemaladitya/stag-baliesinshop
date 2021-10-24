@@ -153,7 +153,6 @@
               hide-details
               :solo="search_value.length > 0"
               :outlined="search_value.length < 1"
-              :disabled="search_value.length < 1"
               v-model="search_value"
             />
           </v-card>
@@ -206,15 +205,151 @@
     </div>
     <div class="pl-1 pr-1" style="min-height: calc(100vh - 130px); max-height: calc(100vh - 130px); overflow-y: scroll">
       <div v-if="search_result.length">
-        <div v-if="store.store_type" class="d-flex flex-row">
-          <div class="pa-1 pt-2" style="font-size: 13px; font-weight: 600; text-align: left; margin-bottom: -10px">Produk yang tersedia</div>
-          <v-spacer />
-          <div class="pt-1 pr-1">
-            <v-icon x-small @click="show_mode = !show_mode">mdi-{{ show_mode ? 'view-grid' : 'view-list' }}</v-icon>
+        <div v-if="recomendation_items">
+          <div
+            class="pa-1"
+            style="
+              font-size: 12px;
+              max-width: 110px;
+              font-weight: 600;
+              text-align: left;
+              min-width: 100%;
+            "
+          >
+            {{ customer.name }}, ini produk pilihan untukmu
+          </div>
+          <div class="d-flex flex-row" style="overflow-x: scroll; padding-bottom: 10px;">
+            <v-card
+              v-for="(item, idx) in recomendation_items"
+              :key="idx"
+              class="mr-1 mt-1 ml-1"
+              style="text-align: left"
+              :width="item_width"
+              flat
+              outlined
+            >
+              <!-- :to="`/site/${site.store}/${item.id}?u=${$route.query.u}&src=${$route.query.src}&c=${$route.query.c}`" -->
+              <v-img class="image" :src="item.main_image" height="150" loading=lazy style="text-align: left" />
+              <div class="pa-2" style="text-align: left">
+                <div class="mr-1">
+                  <div
+                    v-if="item.is_promo" 
+                    style="
+                      background: #002BBC;
+                      color: white;
+                      font-size: 8px;
+                      width: fit-content;
+                      min-height: 12px;
+                      align-self: center;
+                      font-weight: 600;
+                      line-height: 1;
+                      padding: 2px;
+                      border-radius: 1px;
+                    "
+                  >
+                    Promo
+                  </div>
+                  <div
+                    v-else
+                    style="
+                      font-size: 8px;
+                      width: fit-content;
+                      min-height: 12px;
+                      align-self: center;
+                      font-weight: 600;
+                      line-height: 1;
+                      padding: 2px;
+                      border-radius: 1px;
+                    "
+                  >&nbsp;</div>
+                </div>
+                <div class="name">{{ item.name }}</div>
+                <div class="discount-price">
+                  <div>
+                    <div v-if="item.is_promo || item.discount_price">
+                      Rp {{
+                        item.discount_price
+                          .toLocaleString()
+                          .replace(/,/g, '.')
+                      }}
+                    </div>
+                    <div :class="item.is_promo ? 'lined' : null">
+                      Rp {{
+                        item.normal_price
+                          .toLocaleString()
+                          .replace(/,/g, '.')
+                      }}
+                    </div>
+                    <div v-if="!item.is_promo" style="font-size: 8px">&nbsp;</div>
+                  </div>
+                </div>
+
+                <div v-if="item.variant.length === 1" class="d-flex flex-row pt-3 b-product-action">
+                  <v-btn
+                    class="show-detail"
+                    depressed
+                    dense
+                    text
+                    small
+                    @click="show_detail(item)"
+                  >
+                    <v-icon class="product-mdi-icon">mdi-eye</v-icon> &nbsp;Lihat
+                  </v-btn>
+                  <v-spacer />
+                  <v-btn
+                    class="add-to-cart"
+                    color="#fffbbb"
+                    depressed
+                    dense
+                    small
+                    @click="add_to_cart(item.id, item.variant[0].id, item.SKU, 1)"
+                    style="color: black; border: 1px solid #cccccc !important"
+                  >
+                    <v-icon class="product-mdi-icon">mdi-basket-plus</v-icon> &nbsp;Tambah
+                  </v-btn>
+                </div>
+                <div v-else-if="item.variant.length > 1" class="d-flex flex-row pt-3" outlined>
+                  <v-btn
+                    class="select-variant"
+                    color="#FD0"
+                    depressed
+                    dense
+                    small
+                    style="color: black; border: 1px solid #cccccc !important"
+                    @click="show_detail(item)"
+                  >
+                    <v-icon class="product-mdi-icon">mdi-checkbox-multiple-marked-outline</v-icon>
+                    &nbsp;Pilih Variant
+                  </v-btn>
+                </div>
+              </div>
+            </v-card>
+          </div>
+          <div>
+            <div
+              v-if="!store.store_type"
+              class="pa-1 pb-0 mt-2"
+              style="
+                font-size: 12px;
+                max-width: 110px;
+                font-weight: 600;
+                text-align: left;
+                min-width: 100%;
+              "
+            >
+              Produk {{ store.name }}
+            </div>
+            <div v-else class="d-flex flex-row">
+              <div class="pa-1 pt-2" style="font-size: 13px; font-weight: 600; text-align: left; margin-bottom: -10px">Produk yang tersedia</div>
+              <v-spacer />
+              <div class="pt-1 pr-1">
+                <v-icon x-small @click="show_mode = !show_mode">mdi-{{ show_mode ? 'view-grid' : 'view-list' }}</v-icon>
+              </div>
+            </div>
           </div>
         </div>
-        <List v-if="show_mode" :search_result="search_result" :add_to_cart="add_to_cart" />
-        <Grid v-else :search_result="search_result" :add_to_cart="add_to_cart" />
+        <List v-if="show_mode" :search_result="search_result" :showdetail="show_detail" :add_to_cart="add_to_cart" />
+        <Grid v-else :search_result="search_result" :showdetail="show_detail" :add_to_cart="add_to_cart" />
       </div>
 
       <div v-else>
@@ -306,22 +441,18 @@
 import API from '@/components/General'
 import List from '@/components/Products/Platforms/mobile/show-type/list'
 import Grid from '@/components/Products/Platforms/mobile/show-type/grid'
-
 export default {
   components: { List, Grid },
-
   props: {
     productdetail: {
       type: Function,
       required: true
     },
-
     loadingproduct: {
       type: Boolean,
       required: true
     }
   },
-
   data: () => ({
     select_search_type: ['Nama', 'Varian', 'Kategori'],
     search_type: 'Nama',
@@ -331,58 +462,77 @@ export default {
     alert: true,
     show_mode: false
   }),
-
   computed: {
+    item_width() {
+      if (process.browser) {
+        const style = window.screen.width / 2;
+        return style - 12.5;
+      };
+      return '200px';
+    },
     site() {
       return this.$store.state.site
     },
-
     store() {
       return this.$store.state.store
     },
-
     order_type() {
       return this.$store.state.order_type
     },
-
     list_merchant() {
       return this.$store.state.list_merchant
     },
-
     merchant() {
       return this.$store.state.merchant
     },
-
     customer() {
       return this.$store.state.customer
     },
-
     mt_address() {
       return this.$store.state.mt_address
     },
-
     cart() {
       return this.$store.state.cart
     },
-
     subscription_cart() {
       return this.$store.state.subscription_cart
     },
-
     package_cart() {
       return this.$store.state.package_cart
     },
-
     list_subscription_date() {
       const dates = this.subscription_cart.map(el => el.date)
-
       return dates
     },
-
     products() {
       return this.$store.state.products
     },
-
+    recomendation_items() {
+      if (this.products.length && this.$store.state.recomendation_items) {
+        const items = [];
+        this.$store.state.recomendation_items.forEach(item => {
+          const filtered_product = this.products.filter(_ => _.name == item.name || _.SKU == item.sku)
+          if (filtered_product.length) {
+            items.push(filtered_product[0])
+          };
+        });
+        if (items.length) return items;
+      }
+      return null
+    },
+    frequent_items() {
+      if (this.products.length && this.$store.state.frequent_items) {
+        const items = [];
+        this.$store.state.frequent_items.forEach(item => {
+          const filtered_product = this.products.filter(_ => _.name == item.name || _.SKU == item.sku)
+          if (filtered_product.length) {
+            items.push(filtered_product[0]);
+          };
+        });
+        if (items.length) return items;
+      }
+      return null
+    },
     search_result() {
       if (this.search_value.length) {
         if (this.search_type === 'Nama') {
@@ -390,37 +540,32 @@ export default {
             ({ name }) => name.toLowerCase()
               .includes(this.search_value.toLowerCase())
           )
-
           return results
         }
-
         if (this.search_type === 'Kategori') {
           const results = this.products.filter(
             ({ category }) => category.toLowerCase()
               .includes(this.search_value.toLowerCase())
           )
-
           return results
         }
-
         if (this.search_type === 'Varian') {
           const results = this.products.filter((el) => {
             const find = el.variant.filter(({ name }) => name.toLowerCase()
               .includes(this.search_value.toLowerCase())
             )
-
             return find.length ? el : null
           })
-
           return results
         }
       }
-
       return this.products
     },
   },
-
   methods: {
+    show_detail(item) {
+      this.$router.push(`/site/${this.site.store}/${item.id}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`)
+    },
     async add_to_cart(id, detail_id, sku, qty) {
       if (this.order_type === 'single-order') {
         await this.add_single_order(id, detail_id, sku, qty)
@@ -429,7 +574,6 @@ export default {
         this.sheet = true
       }
     },
-
     async add_single_order(id, detail_id, sku, qty) {
       this.$store.dispatch('setState', {
         payload: {
@@ -437,7 +581,6 @@ export default {
           data: true
         }
       })
-
       await API.cart_manager(this, {
         method: 'add',
         info: {
@@ -451,7 +594,6 @@ export default {
           },
         },
       })
-
       this.$store.dispatch('setState', {
         payload: {
           key: 'loading',
@@ -459,7 +601,6 @@ export default {
         }
       })
     },
-
     async add_subscription_order(date) {
       this.$store.dispatch('setState', {
         payload: {
@@ -467,30 +608,24 @@ export default {
           data: true
         }
       })
-
       const newval = []
-
       this.subscription_cart.forEach(el => {
         if (el.date === date) {
           const list_ids = el.items.map(el => el.detail_id)
-
           if (list_ids.includes(this.target_subs_date.detail_id)) {
             el.items = el.items.filter(item => {
               if (el.date === date && item.detail_id === this.target_subs_date.detail_id) {
                 item.qty += 1
               }
-
               return item
             })
           } else {
             el.items.push({...this.target_subs_date, qty: 1})
           }
         }
-
         newval.push(el)
       })
-
-
+      console.log(JSON.stringify(newval, null, 2))
       await API.cart_manager(this, {
         method: 'set',
         info: {
@@ -504,10 +639,8 @@ export default {
           },
         },
       })
-
       this.target_subs_date = null
       this.sheet = false
-
       this.$store.dispatch('setState', {
         payload: {
           key: 'loading',
@@ -515,25 +648,21 @@ export default {
         }
       })
     },
-
     count_total_order(items) {
+      console.log('@count_total_order |', items)
       let total = 0
       let item  = 0
-
       items.forEach(el => {
         const find = this.products.filter(
           product => product.id === el.id && product.SKU === el.sku
         )
-
         if (find.length) {
           total += (find[0].discount_price || find[0].normal_price) * el.qty
           item  += el.qty
         }
       })
-
       return { total, item }
     },
-
     parse_date(date) {
       const list_month = [
         '',
@@ -553,19 +682,19 @@ export default {
       const day = date.split('-')[2]
       const month = list_month[+date.split('-')[1]]
       const years = date.split('-')[0]
-
       return `${day} ${month} ${years}`
     },
-
     select_merchant(merchant) {
       const { params: { store }, query: { market, c, src, u } } = this.$route
-
+   
+      console.log('@select_outlet |', merchant)
+      // this.$router.replace(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`)
       if (process.browser) {
         window.location.replace(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`)
       }
     },
-
     select_address(address) {
+      console.log('@select_address |', address)
       this.$store.dispatch('setState', {
         payload: {
           key: 'customer',
@@ -574,6 +703,9 @@ export default {
       })
       this.alert = true
     },
+    add_sub_address() {
+      console.log('@add_sub_address')
+    }
   }
 }
 </script>
@@ -583,26 +715,21 @@ export default {
   .v-input--is-label-active > div:nth-child(1) > div:nth-child(1) {
     padding-left: 8px !important;
   }
-
   .v-select__slot {
     max-height: 40.4px !important;
   }
 }
-
 .b-merchant-item {
   padding: 0 !important;
   border-radius: 3px !important;
-
   .v-btn__content {
     justify-content: left !important;
   }
 }
-
 // .v-menu__content {
 //   top: 55px !important;
 //   left: 0 !important;
 // }
-
 // div.v-menu__content:nth-child(2) {
 //   min-width: 100% !important;
 //   top: 55px !important;
@@ -610,7 +737,6 @@ export default {
 //   transform-origin: center center 0px !important;
 //   z-index: 8 !important;
 // }
-
 // div.v-menu__content:nth-child(3) {
 //   min-width: calc(100% - 24px) !important;
 //   top: 121px !important;
@@ -618,17 +744,14 @@ export default {
 //   transform-origin: center center 0px !important;
 //   z-index: 8 !important;
 // }
-
 #b-snackbar {
   display: fixed !important;
   width: 100% !important;
-
   .v-snack__content {
     font-size: 11px !important;
     font-weight: 600 !important;
   }
 }
-
 #b-find-product > div:nth-child(2) > div > div > div > div.v-select__slot > div.v-input__append-inner {
   padding-left: 0;
 }

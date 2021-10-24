@@ -88,7 +88,9 @@
 </template>
 
 <script>
-import Headers from '@/components/Partials/headers'
+import axios from 'axios';
+import Headers from '@/components/Partials/headers';
+import { recommendation_api } from '@/config.json'
 
 export default {
   components: {
@@ -228,6 +230,7 @@ export default {
   },
 
   async mounted () {
+    console.log("recommendation_api", recommendation_api)
     const self = this
     const { name, params: { store }, query: { c, src, u } } = this.$route
 
@@ -288,9 +291,43 @@ export default {
         })
       }
     }
+
+    if (recommendation_api) {
+      this.get_recomendation();
+    }
   },
 
   methods: {
+    async get_recomendation() {
+      try {
+        const self = this;
+        const request = await axios({
+          url: 'https://master.balesin.id/profiling',
+          method: 'post',
+          data: {
+            "uuid"  : self.$route.query.u,
+            "bot_id": self.store.bot_id,
+          }
+        });
+        if (request.status == 200) {
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "recomendation_items",
+              data: request.data.result.recommendation_items
+            }
+          })
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "frequent_items",
+              data: request.data.result.frequent_items
+            }
+          })
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
     back() {
       const { store, uuid, source, category } = this.$store.state.site
 

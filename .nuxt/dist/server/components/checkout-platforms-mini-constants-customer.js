@@ -1,7 +1,7 @@
 exports.ids = [48];
 exports.modules = {
 
-/***/ 279:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69,10 +69,10 @@ var installComponents = __webpack_require__(11);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(43);
+var VBtn = __webpack_require__(44);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(21);
+var VIcon = __webpack_require__(22);
 
 // CONCATENATED MODULE: ./components/Checkout/Platforms/mini/constants/customer.vue
 

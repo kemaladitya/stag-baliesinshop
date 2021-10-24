@@ -30,6 +30,8 @@ export default () => {
       cart                 : [],
       products             : [],
       list_merchant        : [],
+      recomendation_items  : [],
+      frequent_items       : [],
       month                : month,
       single_delivery_date : date.toISOString(),
       alert                : { status: false, text: '' },

@@ -115,7 +115,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 60);
+/******/ 	return __webpack_require__(__webpack_require__.s = 61);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -602,7 +602,7 @@ function fillArray(length, obj) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return deprecate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return breaking; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return removed; });
-/* harmony import */ var _framework__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
+/* harmony import */ var _framework__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23);
 /* eslint-disable no-console */
 
 
@@ -1646,7 +1646,7 @@ function toXYZ(rgb) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VSheet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
+/* harmony import */ var _VSheet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (_VSheet__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
@@ -1659,6 +1659,12 @@ module.exports = require("vuex");
 
 /***/ }),
 /* 16 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1703,17 +1709,17 @@ const Toggleable = factory();
 /* harmony default export */ __webpack_exports__["a"] = (Toggleable);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VSheet_VSheet_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(71);
+/* harmony import */ var _src_components_VSheet_VSheet_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(72);
 /* harmony import */ var _src_components_VSheet_VSheet_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VSheet_VSheet_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_binds_attrs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var _mixins_elevatable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
 /* harmony import */ var _mixins_measurable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(27);
-/* harmony import */ var _mixins_roundable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(41);
+/* harmony import */ var _mixins_roundable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(42);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(3);
 // Styles
@@ -1769,7 +1775,7 @@ const Toggleable = factory();
 }));
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1821,13 +1827,13 @@ const Intersect = {
 /* harmony default export */ __webpack_exports__["a"] = (Intersect);
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _directives_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(39);
+/* harmony import */ var _directives_ripple__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(40);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
  // Directives
 
@@ -1973,7 +1979,7 @@ const Intersect = {
 }));
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2138,11 +2144,11 @@ function mergeListeners(...args) {
 }
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VIcon_VIcon_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(85);
+/* harmony import */ var _src_components_VIcon_VIcon_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(86);
 /* harmony import */ var _src_components_VIcon_VIcon_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VIcon_VIcon_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_binds_attrs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
@@ -2387,7 +2393,7 @@ const VIcon = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"
 }));
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2497,7 +2503,7 @@ If you're seeing "$attrs is readonly", it's caused by this`);
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/src/styles/main.sass
-var main = __webpack_require__(73);
+var main = __webpack_require__(74);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/locale/en.js
 /* harmony default export */ var en = ({
@@ -3786,17 +3792,11 @@ framework_Vuetify.config = {
 };
 
 /***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-module.exports = require("axios");
-
-/***/ }),
 /* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VIcon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
+/* harmony import */ var _VIcon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (_VIcon__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
@@ -3988,7 +3988,7 @@ __webpack_require__.d(__webpack_exports__, "b", function() { return /* binding *
 // UNUSED EXPORTS: VCarouselTransition, VCarouselReverseTransition, VTabTransition, VTabReverseTransition, VMenuTransition, VDialogTransition, VDialogBottomTransition, VDialogTopTransition, VScaleTransition, VScrollXTransition, VScrollXReverseTransition, VScrollYTransition, VScrollYReverseTransition, VSlideXReverseTransition, VSlideYTransition, VSlideYReverseTransition
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mergeData.js
-var mergeData = __webpack_require__(20);
+var mergeData = __webpack_require__(21);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/components/transitions/createTransition.js
 
@@ -4309,9 +4309,9 @@ const VExpandXTransition = createJavascriptTransition('expand-x-transition', exp
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VProgressCircular_VProgressCircular_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(83);
+/* harmony import */ var _src_components_VProgressCircular_VProgressCircular_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(84);
 /* harmony import */ var _src_components_VProgressCircular_VProgressCircular_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VProgressCircular_VProgressCircular_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _directives_intersect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony import */ var _directives_intersect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
 // Styles
@@ -4477,13 +4477,13 @@ const VExpandXTransition = createJavascriptTransition('expand-x-transition', exp
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VProgressLinear_VProgressLinear_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(94);
+/* harmony import */ var _src_components_VProgressLinear_VProgressLinear_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(95);
 /* harmony import */ var _src_components_VProgressLinear_VProgressLinear_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VProgressLinear_VProgressLinear_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _transitions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(32);
-/* harmony import */ var _directives_intersect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(18);
+/* harmony import */ var _directives_intersect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
 /* harmony import */ var _mixins_positionable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(12);
-/* harmony import */ var _mixins_proxyable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(47);
+/* harmony import */ var _mixins_proxyable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(48);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(3);
@@ -4751,11 +4751,17 @@ module.exports = require("vue-router");
 
 /***/ }),
 /* 39 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"a\":false}");
+
+/***/ }),
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export Ripple */
-/* harmony import */ var _src_directives_ripple_VRipple_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81);
+/* harmony import */ var _src_directives_ripple_VRipple_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82);
 /* harmony import */ var _src_directives_ripple_VRipple_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_directives_ripple_VRipple_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 // Styles
@@ -5091,7 +5097,7 @@ const Ripple = {
 /* harmony default export */ __webpack_exports__["a"] = (Ripple);
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5138,7 +5144,7 @@ function provide(namespace, self = false) {
 }
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5179,12 +5185,12 @@ function provide(namespace, self = false) {
 }));
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return factory; });
-/* harmony import */ var _registrable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(40);
+/* harmony import */ var _registrable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
 // Mixins
 
 function factory(namespace, child, parent) {
@@ -5241,19 +5247,19 @@ const Groupable = factory('itemGroup');
 /* unused harmony default export */ var _unused_webpack_default_export = (Groupable);
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VBtn_VBtn_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(79);
+/* harmony import */ var _src_components_VBtn_VBtn_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80);
 /* harmony import */ var _src_components_VBtn_VBtn_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VBtn_VBtn_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _VSheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
-/* harmony import */ var _VProgressCircular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(46);
-/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
-/* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(16);
+/* harmony import */ var _VProgressCircular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(47);
+/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(43);
+/* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(17);
 /* harmony import */ var _mixins_elevatable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(26);
 /* harmony import */ var _mixins_positionable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12);
-/* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(19);
+/* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(20);
 /* harmony import */ var _mixins_sizeable__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(28);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(3);
 /* harmony import */ var _util_console__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(2);
@@ -5434,7 +5440,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_9__[/* default *
 }));
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5469,7 +5475,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_9__[/* default *
 }));
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5546,7 +5552,7 @@ function applicationable(value, events = []) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5556,7 +5562,7 @@ function applicationable(value, events = []) {
 /* harmony default export */ __webpack_exports__["a"] = (_VProgressCircular__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5611,14 +5617,14 @@ const Proxyable = factory();
 /* harmony default export */ __webpack_exports__["a"] = (Proxyable);
 
 /***/ }),
-/* 48 */,
-/* 49 */
+/* 49 */,
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(92);
+var content = __webpack_require__(93);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -5629,43 +5635,43 @@ module.exports.__inject__ = function (context) {
 };
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = require("node-fetch");
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-meta");
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = require("@fortawesome/free-solid-svg-icons");
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports) {
 
 module.exports = require("@fortawesome/free-brands-svg-icons");
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"/_nuxt/icons/icon_512x512.5821de.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.4b27e15a.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
+module.exports = JSON.parse("{\"title\":\"balesin - Shop\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"balesin - Shop\"},{\"hid\":\"author\",\"name\":\"author\",\"content\":\"balesin.id\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"balesin chat commerce.\"},{\"hid\":\"theme-color\",\"name\":\"theme-color\",\"content\":\"#ffffdd\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"balesin - Shop\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"balesin chat commerce.\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"https://faq.balesin.id/icon/icon-256x256.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"/_nuxt/icons/icon_512x512.5821de.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.777fbb4c.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = require("defu");
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5875,16 +5881,16 @@ var installComponents = __webpack_require__(11);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VAppBar/VAppBar.sass
-var VAppBar = __webpack_require__(67);
+var VAppBar = __webpack_require__(68);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VToolbar/VToolbar.sass
-var VToolbar = __webpack_require__(69);
+var VToolbar = __webpack_require__(70);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/VSheet.js
-var VSheet = __webpack_require__(17);
+var VSheet = __webpack_require__(18);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
-var VImg = __webpack_require__(57);
+var VImg = __webpack_require__(58);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/helpers.js
 var helpers = __webpack_require__(1);
@@ -6078,7 +6084,7 @@ const Scroll = {
 };
 /* harmony default export */ var directives_scroll = (Scroll);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/applicationable/index.js
-var applicationable = __webpack_require__(45);
+var applicationable = __webpack_require__(46);
 
 // EXTERNAL MODULE: external "vue"
 var external_vue_ = __webpack_require__(0);
@@ -6182,10 +6188,10 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
   }
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/ssr-bootable/index.js
-var ssr_bootable = __webpack_require__(44);
+var ssr_bootable = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/toggleable/index.js
-var toggleable = __webpack_require__(16);
+var toggleable = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(3);
@@ -6436,7 +6442,7 @@ const baseMixins = Object(mixins["a" /* default */])(VToolbar_VToolbar, scrollab
 var VIcon = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(43);
+var VBtn = __webpack_require__(44);
 
 // CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VAppBar/VAppBarNavIcon.js
 // Components
@@ -6469,10 +6475,10 @@ var VBtn = __webpack_require__(43);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VBadge/VBadge.sass
-var VBadge = __webpack_require__(87);
+var VBadge = __webpack_require__(88);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon_VIcon = __webpack_require__(21);
+var VIcon_VIcon = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
 var colorable = __webpack_require__(9);
@@ -6681,7 +6687,7 @@ var positionable = __webpack_require__(12);
 
 }));
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(109);
+var VSpacer = __webpack_require__(110);
 
 // CONCATENATED MODULE: ./components/Partials/headers.vue
 
@@ -6717,19 +6723,19 @@ installComponents_default()(component, {VAppBar: VAppBar_VAppBar,VAppBarNavIcon:
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VImg/VImg.sass
-var VImg = __webpack_require__(75);
+var VImg = __webpack_require__(76);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/intersect/index.js
-var intersect = __webpack_require__(18);
+var intersect = __webpack_require__(19);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VResponsive/VResponsive.sass
-var VResponsive = __webpack_require__(77);
+var VResponsive = __webpack_require__(78);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/measurable/index.js
 var measurable = __webpack_require__(27);
@@ -6798,7 +6804,7 @@ var mixins = __webpack_require__(3);
 var themeable = __webpack_require__(7);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mergeData.js
-var mergeData = __webpack_require__(20);
+var mergeData = __webpack_require__(21);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/console.js
 var console = __webpack_require__(2);
@@ -7076,29 +7082,29 @@ const hasIntersect = typeof window !== 'undefined' && 'IntersectionObserver' in 
 }));
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(93);
+var content = __webpack_require__(94);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("e23b7040", content, true)
 
 /***/ }),
-/* 59 */,
-/* 60 */
+/* 60 */,
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(61);
-module.exports = __webpack_require__(98);
+__webpack_require__(62);
+module.exports = __webpack_require__(99);
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 global.installComponents = function (component, components) {
@@ -7142,7 +7148,7 @@ function provideFunctionalComponents(component, components) {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports) {
 
 class Cart {
@@ -7199,20 +7205,20 @@ class Cart {
 module.exports = new Cart();
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(64);
+var content = __webpack_require__(65);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("3d49e0e5", content, true)
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7225,20 +7231,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(66);
+var content = __webpack_require__(67);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("5764bbd8", content, true)
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7251,20 +7257,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(68);
+var content = __webpack_require__(69);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("a9b20584", content, true)
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7277,20 +7283,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(70);
+var content = __webpack_require__(71);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("402355ff", content, true)
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7303,20 +7309,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(72);
+var content = __webpack_require__(73);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("63000ea3", content, true)
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7329,20 +7335,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(74);
+var content = __webpack_require__(75);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("2840f874", content, true)
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7355,20 +7361,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(76);
+var content = __webpack_require__(77);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("1cdf85c7", content, true)
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7381,20 +7387,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(78);
+var content = __webpack_require__(79);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("2fba213c", content, true)
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7407,20 +7413,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(80);
+var content = __webpack_require__(81);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("549a5500", content, true)
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7433,20 +7439,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(82);
+var content = __webpack_require__(83);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("04604cc2", content, true)
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7459,20 +7465,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(84);
+var content = __webpack_require__(85);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("e003f1f8", content, true)
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7485,20 +7491,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(86);
+var content = __webpack_require__(87);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("6b715e77", content, true)
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7511,20 +7517,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(88);
+var content = __webpack_require__(89);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("5276b867", content, true)
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7537,20 +7543,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(90);
+var content = __webpack_require__(91);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("744bab4a", content, true)
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7563,18 +7569,18 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(49);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(50);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7587,7 +7593,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7600,20 +7606,20 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(95);
+var content = __webpack_require__(96);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("cf87dc84", content, true)
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -7626,7 +7632,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7662,6 +7668,8 @@ date.setDate(date.getDate() + 2);
       cart: [],
       products: [],
       list_merchant: [],
+      recomendation_items: [],
+      frequent_items: [],
       month: month,
       single_delivery_date: date.toISOString(),
       alert: {
@@ -7803,13 +7811,13 @@ date.setDate(date.getDate() + 2);
 });
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports) {
 
 // This file is intentionally left empty for noop aliases
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7854,8 +7862,8 @@ __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktop", functi
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMini", function() { return CartPlatformsMini; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobile", function() { return CartPlatformsMobile; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktop", function() { return CheckoutPlatformsDesktop; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobile", function() { return CheckoutPlatformsMobile; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMini", function() { return CheckoutPlatformsMini; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobile", function() { return CheckoutPlatformsMobile; });
 __webpack_require__.d(components_namespaceObject, "ProductsPlatformsMobile", function() { return ProductsPlatformsMobile; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrder", function() { return CartPlatformsDesktopTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypeSingleOrder", function() { return CartPlatformsDesktopTypeSingleOrder; });
@@ -7871,16 +7879,16 @@ __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConst
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderInfo", function() { return CheckoutPlatformsDesktopConstantsOrderInfo; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsPayment", function() { return CheckoutPlatformsDesktopConstantsPayment; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsVoucher", function() { return CheckoutPlatformsDesktopConstantsVoucher; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsCourier", function() { return CheckoutPlatformsMobileConstantsCourier; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsCustomer", function() { return CheckoutPlatformsMobileConstantsCustomer; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderInfo", function() { return CheckoutPlatformsMobileConstantsOrderInfo; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsPayment", function() { return CheckoutPlatformsMobileConstantsPayment; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsVoucher", function() { return CheckoutPlatformsMobileConstantsVoucher; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsCourier", function() { return CheckoutPlatformsMiniConstantsCourier; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsCustomer", function() { return CheckoutPlatformsMiniConstantsCustomer; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsOrderInfo", function() { return CheckoutPlatformsMiniConstantsOrderInfo; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsPayment", function() { return CheckoutPlatformsMiniConstantsPayment; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsVoucher", function() { return CheckoutPlatformsMiniConstantsVoucher; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsCourier", function() { return CheckoutPlatformsMobileConstantsCourier; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsCustomer", function() { return CheckoutPlatformsMobileConstantsCustomer; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderInfo", function() { return CheckoutPlatformsMobileConstantsOrderInfo; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsPayment", function() { return CheckoutPlatformsMobileConstantsPayment; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsVoucher", function() { return CheckoutPlatformsMobileConstantsVoucher; });
 __webpack_require__.d(components_namespaceObject, "ProductsPlatformsMobileShowTypeGrid", function() { return ProductsPlatformsMobileShowTypeGrid; });
 __webpack_require__.d(components_namespaceObject, "ProductsPlatformsMobileShowTypeList", function() { return ProductsPlatformsMobileShowTypeList; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrderFooterDetail", function() { return CartPlatformsDesktopTypePackageOrderFooterDetail; });
@@ -7895,12 +7903,12 @@ __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypePackag
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderTypePackageOrder", function() { return CheckoutPlatformsDesktopConstantsOrderTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder", function() { return CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder", function() { return CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderTypePackageOrder", function() { return CheckoutPlatformsMobileConstantsOrderTypePackageOrder; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderTypeSingleOrder", function() { return CheckoutPlatformsMobileConstantsOrderTypeSingleOrder; });
-__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder", function() { return CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsOrderTypePackageOrder", function() { return CheckoutPlatformsMiniConstantsOrderTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsOrderTypeSingleOrder", function() { return CheckoutPlatformsMiniConstantsOrderTypeSingleOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder", function() { return CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderTypePackageOrder", function() { return CheckoutPlatformsMobileConstantsOrderTypePackageOrder; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderTypeSingleOrder", function() { return CheckoutPlatformsMobileConstantsOrderTypeSingleOrder; });
+__webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder", function() { return CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrderTypeMultiple", function() { return CartPlatformsDesktopTypePackageOrderTypeMultiple; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrderTypeSingle", function() { return CartPlatformsDesktopTypePackageOrderTypeSingle; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderTypeMultiple", function() { return CartPlatformsMiniTypePackageOrderTypeMultiple; });
@@ -7916,12 +7924,12 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 var external_ufo_ = __webpack_require__(6);
 
 // EXTERNAL MODULE: external "node-fetch"
-var external_node_fetch_ = __webpack_require__(50);
+var external_node_fetch_ = __webpack_require__(51);
 var external_node_fetch_default = /*#__PURE__*/__webpack_require__.n(external_node_fetch_);
 
 // CONCATENATED MODULE: ./.nuxt/middleware.js
 const middleware = {};
-middleware['cart'] = __webpack_require__(62);
+middleware['cart'] = __webpack_require__(63);
 middleware['cart'] = middleware['cart'].default || middleware['cart'];
 /* harmony default export */ var _nuxt_middleware = (middleware);
 // CONCATENATED MODULE: ./.nuxt/utils.js
@@ -8610,7 +8618,7 @@ var external_vuex_ = __webpack_require__(15);
 var external_vuex_default = /*#__PURE__*/__webpack_require__.n(external_vuex_);
 
 // EXTERNAL MODULE: external "vue-meta"
-var external_vue_meta_ = __webpack_require__(51);
+var external_vue_meta_ = __webpack_require__(52);
 var external_vue_meta_default = /*#__PURE__*/__webpack_require__.n(external_vue_meta_);
 
 // EXTERNAL MODULE: external "vue-client-only"
@@ -8701,29 +8709,29 @@ function shouldScrollToTop(route) {
 
 
 
-const _3bff402e = () => interopDefault(__webpack_require__.e(/* import() | pages/internal_test */ 91).then(__webpack_require__.bind(null, 365)));
+const _3bff402e = () => interopDefault(__webpack_require__.e(/* import() | pages/internal_test */ 91).then(__webpack_require__.bind(null, 366)));
 
-const _643b1972 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 88).then(__webpack_require__.bind(null, 366)));
+const _643b1972 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 88).then(__webpack_require__.bind(null, 367)));
 
-const _30eeab44 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 89).then(__webpack_require__.bind(null, 367)));
+const _30eeab44 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 89).then(__webpack_require__.bind(null, 368)));
 
-const _014093be = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout/_phone */ 98).then(__webpack_require__.bind(null, 368)));
+const _014093be = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout/_phone */ 98).then(__webpack_require__.bind(null, 369)));
 
-const _2bfd6eb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register/_phone */ 99).then(__webpack_require__.bind(null, 369)));
+const _2bfd6eb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register/_phone */ 99).then(__webpack_require__.bind(null, 370)));
 
-const _2bfcd37c = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 95).then(__webpack_require__.bind(null, 370)));
+const _2bfcd37c = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 95).then(__webpack_require__.bind(null, 371)));
 
-const _1aa22d63 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 93).then(__webpack_require__.bind(null, 364)));
+const _1aa22d63 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 93).then(__webpack_require__.bind(null, 365)));
 
-const _3b853409 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 94).then(__webpack_require__.bind(null, 371)));
+const _3b853409 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 94).then(__webpack_require__.bind(null, 372)));
 
-const _f5f913ea = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/merchant/index */ 96).then(__webpack_require__.bind(null, 372)));
+const _f5f913ea = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/merchant/index */ 96).then(__webpack_require__.bind(null, 373)));
 
-const _2f7264f1 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 97).then(__webpack_require__.bind(null, 373)));
+const _2f7264f1 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 97).then(__webpack_require__.bind(null, 374)));
 
-const _0d6327e2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 92).then(__webpack_require__.bind(null, 374)));
+const _0d6327e2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 92).then(__webpack_require__.bind(null, 375)));
 
-const _416141e7 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 90).then(__webpack_require__.bind(null, 375)));
+const _416141e7 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 90).then(__webpack_require__.bind(null, 376)));
 
 const emptyFn = () => {};
 
@@ -8949,7 +8957,7 @@ var installComponents = __webpack_require__(11);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VApp/VApp.js
-var VApp = __webpack_require__(108);
+var VApp = __webpack_require__(109);
 
 // CONCATENATED MODULE: ./layouts/error.vue
 
@@ -9082,17 +9090,24 @@ installComponents_default()(error_component, {VApp: VApp["a" /* default */]})
 
 });
 // EXTERNAL MODULE: ./node_modules/@fortawesome/fontawesome-svg-core/styles.css
-var styles = __webpack_require__(65);
+var styles = __webpack_require__(66);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=0a42ddbc&
-var defaultvue_type_template_id_0a42ddbc_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"background-color":"rgb(253 251 238)","text-align":"-webkit-center"}},[(_vm.$nuxt.isOffline)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      padding-top: 38vh;\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgba(255, 247, 198, 0.9);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_vm._ssrNode("<div>","</div>",[_c('center',[_c('v-icon',{staticStyle:{"font-size":"70px"}},[_vm._v("mdi-signal-off")]),_vm._v(" "),_c('div',{staticStyle:{"margin-top":"5px","font-size":"14px","font-weight":"600"}},[_vm._v("\n          You are offline\n        ")])],1)],1)]):_vm._e(),_vm._ssrNode(" "),(_vm.loading)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgb(255 255 255 / 0%);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}})],1):_vm._e(),_vm._ssrNode(" "),_c('v-app',{staticClass:"b-font overflow-hidden",staticStyle:{"-webkit-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","-moz-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)"}},[_c('div',{staticClass:"pb-12"},[_c('div',[_c('Headers'),_vm._v(" "),(_vm.store)?_c('v-sheet',{staticClass:"overflow-hidden b-main-page",attrs:{"id":"scrolling-techniques-7","max-height":"100vh"}},[(_vm.general_loading)?_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}}):_c('v-card',{attrs:{"height":"3","flat":""}}),_vm._v(" "),_c('nuxt')],1):_vm._e()],1)])])],2)}
-var defaultvue_type_template_id_0a42ddbc_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=c6f78d28&
+var defaultvue_type_template_id_c6f78d28_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"background-color":"rgb(253 251 238)","text-align":"-webkit-center"}},[(_vm.$nuxt.isOffline)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      padding-top: 38vh;\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgba(255, 247, 198, 0.9);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_vm._ssrNode("<div>","</div>",[_c('center',[_c('v-icon',{staticStyle:{"font-size":"70px"}},[_vm._v("mdi-signal-off")]),_vm._v(" "),_c('div',{staticStyle:{"margin-top":"5px","font-size":"14px","font-weight":"600"}},[_vm._v("\n          You are offline\n        ")])],1)],1)]):_vm._e(),_vm._ssrNode(" "),(_vm.loading)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgb(255 255 255 / 0%);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}})],1):_vm._e(),_vm._ssrNode(" "),_c('v-app',{staticClass:"b-font overflow-hidden",staticStyle:{"-webkit-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","-moz-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)"}},[_c('div',{staticClass:"pb-12"},[_c('div',[_c('Headers'),_vm._v(" "),(_vm.store)?_c('v-sheet',{staticClass:"overflow-hidden b-main-page",attrs:{"id":"scrolling-techniques-7","max-height":"100vh"}},[(_vm.general_loading)?_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}}):_c('v-card',{attrs:{"height":"3","flat":""}}),_vm._v(" "),_c('nuxt')],1):_vm._e()],1)])])],2)}
+var defaultvue_type_template_id_c6f78d28_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./layouts/default.vue?vue&type=template&id=0a42ddbc&
+// CONCATENATED MODULE: ./layouts/default.vue?vue&type=template&id=c6f78d28&
+
+// EXTERNAL MODULE: external "axios"
+var external_axios_ = __webpack_require__(16);
+var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
 
 // EXTERNAL MODULE: ./components/Partials/headers.vue + 11 modules
-var headers = __webpack_require__(56);
+var headers = __webpack_require__(57);
+
+// EXTERNAL MODULE: ./config.json
+var config_0 = __webpack_require__(39);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=script&lang=js&
 //
@@ -9184,6 +9199,8 @@ var headers = __webpack_require__(56);
 //
 //
 //
+
+
 
 /* harmony default export */ var defaultvue_type_script_lang_js_ = ({
   components: {
@@ -9318,6 +9335,7 @@ var headers = __webpack_require__(56);
   },
 
   async mounted() {
+    console.log("recommendation_api", config_0["a" /* recommendation_api */]);
     const self = this;
     const {
       name,
@@ -9363,9 +9381,44 @@ var headers = __webpack_require__(56);
     }); // await this.get_customer_detail(this.store.bot_id)
 
     if (false) {}
+
+    if (config_0["a" /* recommendation_api */]) {
+      this.get_recomendation();
+    }
   },
 
   methods: {
+    async get_recomendation() {
+      try {
+        const self = this;
+        const request = await external_axios_default()({
+          url: 'https://master.balesin.id/profiling',
+          method: 'post',
+          data: {
+            "uuid": self.$route.query.u,
+            "bot_id": self.store.bot_id
+          }
+        });
+
+        if (request.status == 200) {
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "recomendation_items",
+              data: request.data.result.recommendation_items
+            }
+          });
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "frequent_items",
+              data: request.data.result.frequent_items
+            }
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     back() {
       const {
         store,
@@ -9482,16 +9535,16 @@ var headers = __webpack_require__(56);
 // CONCATENATED MODULE: ./layouts/default.vue?vue&type=script&lang=js&
  /* harmony default export */ var layouts_defaultvue_type_script_lang_js_ = (defaultvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(103);
+var VCard = __webpack_require__(104);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(21);
+var VIcon = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VProgressLinear/VProgressLinear.js
 var VProgressLinear = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/VSheet.js
-var VSheet = __webpack_require__(17);
+var VSheet = __webpack_require__(18);
 
 // CONCATENATED MODULE: ./layouts/default.vue
 
@@ -9499,7 +9552,7 @@ var VSheet = __webpack_require__(17);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(91)
+  var style0 = __webpack_require__(92)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -9508,8 +9561,8 @@ if (style0.__inject__) style0.__inject__(context)
 
 var default_component = Object(componentNormalizer["a" /* default */])(
   layouts_defaultvue_type_script_lang_js_,
-  defaultvue_type_template_id_0a42ddbc_render,
-  defaultvue_type_template_id_0a42ddbc_staticRenderFns,
+  defaultvue_type_template_id_c6f78d28_render,
+  defaultvue_type_template_id_c6f78d28_staticRenderFns,
   false,
   injectStyles,
   null,
@@ -9729,7 +9782,7 @@ external_vue_default.a.use(external_vuex_default.a);
 let store_store = {};
 
 (function updateModules() {
-  store_store = normalizeRoot(__webpack_require__(96), 'store/index.js'); // If store is an exported method = classic mode (deprecated)
+  store_store = normalizeRoot(__webpack_require__(97), 'store/index.js'); // If store is an exported method = classic mode (deprecated)
   // Enforce store modules
 
   store_store.modules = store_store.modules || {}; // If the environment supports hot reloading...
@@ -9770,94 +9823,94 @@ function normalizeModule(moduleData, filePath) {
   return moduleData;
 }
 // CONCATENATED MODULE: ./.nuxt/components/index.js
-const General = () => __webpack_require__.e(/* import() | components/general */ 70).then(__webpack_require__.bind(null, 110)).then(c => wrapFunctional(c.default || c));
-const Logo = () => __webpack_require__.e(/* import() | components/logo */ 72).then(__webpack_require__.bind(null, 381)).then(c => wrapFunctional(c.default || c));
-const VuetifyLogo = () => __webpack_require__.e(/* import() | components/vuetify-logo */ 87).then(__webpack_require__.bind(null, 382)).then(c => wrapFunctional(c.default || c));
-const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 204)).then(c => wrapFunctional(c.default || c));
-const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 362)).then(c => wrapFunctional(c.default || c));
-const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 337)).then(c => wrapFunctional(c.default || c));
-const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 36).then(__webpack_require__.bind(null, 329)).then(c => wrapFunctional(c.default || c));
-const FooterCart = () => __webpack_require__.e(/* import() | components/footer-cart */ 68).then(__webpack_require__.bind(null, 376)).then(c => wrapFunctional(c.default || c));
-const FooterCheckout = () => __webpack_require__.e(/* import() | components/footer-checkout */ 69).then(__webpack_require__.bind(null, 342)).then(c => wrapFunctional(c.default || c));
-const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 71).then(__webpack_require__.bind(null, 344)).then(c => wrapFunctional(c.default || c));
-const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 73).then(__webpack_require__.bind(null, 330)).then(c => wrapFunctional(c.default || c));
-const PartialsHeaders = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 56)).then(c => wrapFunctional(c.default || c));
-const ProductDetail = () => __webpack_require__.e(/* import() | components/product-detail */ 77).then(__webpack_require__.bind(null, 343)).then(c => wrapFunctional(c.default || c));
-const Products = () => __webpack_require__.e(/* import() | components/products */ 81).then(__webpack_require__.bind(null, 328)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCartProducts = () => __webpack_require__.e(/* import() | components/bottom-sheet-cart-products */ 1).then(__webpack_require__.bind(null, 377)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutCourier = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-courier */ 2).then(__webpack_require__.bind(null, 339)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-loading */ 3).then(__webpack_require__.bind(null, 363)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutPayment = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-payment */ 4).then(__webpack_require__.bind(null, 341)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutVoucher = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-voucher */ 5).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
-const DialogsCartMaxOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-max-order */ 64).then(__webpack_require__.bind(null, 378)).then(c => wrapFunctional(c.default || c));
-const DialogsCartMinOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-min-order */ 65).then(__webpack_require__.bind(null, 379)).then(c => wrapFunctional(c.default || c));
-const DialogsCartRemoveConfirm = () => __webpack_require__.e(/* import() | components/dialogs-cart-remove-confirm */ 66).then(__webpack_require__.bind(null, 380)).then(c => wrapFunctional(c.default || c));
-const DialogsCheckoutInsertVoucherCode = () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 67).then(__webpack_require__.bind(null, 338)).then(c => wrapFunctional(c.default || c));
-const MerchantPlatformsDesktop = () => __webpack_require__.e(/* import() | components/merchant-platforms-desktop */ 74).then(__webpack_require__.bind(null, 324)).then(c => wrapFunctional(c.default || c));
-const MerchantPlatformsMini = () => __webpack_require__.e(/* import() | components/merchant-platforms-mini */ 75).then(__webpack_require__.bind(null, 322)).then(c => wrapFunctional(c.default || c));
-const MerchantPlatformsMobile = () => __webpack_require__.e(/* import() | components/merchant-platforms-mobile */ 76).then(__webpack_require__.bind(null, 323)).then(c => wrapFunctional(c.default || c));
-const ProductDetailPlatformsDesktop = () => __webpack_require__.e(/* import() | components/product-detail-platforms-desktop */ 78).then(__webpack_require__.bind(null, 327)).then(c => wrapFunctional(c.default || c));
-const ProductDetailPlatformsMini = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mini */ 79).then(__webpack_require__.bind(null, 325)).then(c => wrapFunctional(c.default || c));
-const ProductDetailPlatformsMobile = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mobile */ 80).then(__webpack_require__.bind(null, 326)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsDesktop = () => __webpack_require__.e(/* import() | components/products-platforms-desktop */ 82).then(__webpack_require__.bind(null, 315)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMini = () => __webpack_require__.e(/* import() | components/products-platforms-mini */ 83).then(__webpack_require__.bind(null, 313)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktop = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop */ 9).then(__webpack_require__.bind(null, 318)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMini = () => __webpack_require__.e(/* import() | components/cart-platforms-mini */ 18).then(__webpack_require__.bind(null, 316)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobile = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile */ 27).then(__webpack_require__.bind(null, 317)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktop = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop */ 37).then(__webpack_require__.bind(null, 321)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobile = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile */ 55).then(__webpack_require__.bind(null, 320)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMini = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini */ 46).then(__webpack_require__.bind(null, 319)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMobile = () => __webpack_require__.e(/* import() | components/products-platforms-mobile */ 84).then(__webpack_require__.bind(null, 314)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order */ 10).then(__webpack_require__.bind(null, 278)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-single-order */ 16).then(__webpack_require__.bind(null, 276)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-subscription-order */ 17).then(__webpack_require__.bind(null, 277)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order */ 19).then(__webpack_require__.bind(null, 272)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-single-order */ 25).then(__webpack_require__.bind(null, 270)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-subscription-order */ 26).then(__webpack_require__.bind(null, 271)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order */ 28).then(__webpack_require__.bind(null, 275)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-single-order */ 34).then(__webpack_require__.bind(null, 273)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-subscription-order */ 35).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-courier */ 38).then(__webpack_require__.bind(null, 292)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-customer */ 39).then(__webpack_require__.bind(null, 289)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-info */ 40).then(__webpack_require__.bind(null, 291)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-payment */ 44).then(__webpack_require__.bind(null, 293)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-voucher */ 45).then(__webpack_require__.bind(null, 290)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-courier */ 56).then(__webpack_require__.bind(null, 287)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-customer */ 57).then(__webpack_require__.bind(null, 284)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-info */ 58).then(__webpack_require__.bind(null, 286)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-payment */ 62).then(__webpack_require__.bind(null, 288)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-voucher */ 63).then(__webpack_require__.bind(null, 285)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-courier */ 47).then(__webpack_require__.bind(null, 282)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-customer */ 48).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-info */ 49).then(__webpack_require__.bind(null, 281)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-payment */ 53).then(__webpack_require__.bind(null, 283)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-voucher */ 54).then(__webpack_require__.bind(null, 280)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMobileShowTypeGrid = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-grid */ 85).then(__webpack_require__.bind(null, 269)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMobileShowTypeList = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-list */ 86).then(__webpack_require__.bind(null, 268)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-footer-detail */ 11).then(__webpack_require__.bind(null, 247)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-list-items */ 12).then(__webpack_require__.bind(null, 246)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-remove-package */ 13).then(__webpack_require__.bind(null, 248)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-footer-detail */ 20).then(__webpack_require__.bind(null, 237)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-list-items */ 21).then(__webpack_require__.bind(null, 236)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-remove-package */ 22).then(__webpack_require__.bind(null, 238)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-footer-detail */ 29).then(__webpack_require__.bind(null, 242)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-list-items */ 30).then(__webpack_require__.bind(null, 241)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-remove-package */ 31).then(__webpack_require__.bind(null, 243)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-package-order */ 41).then(__webpack_require__.bind(null, 257)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-single-order */ 42).then(__webpack_require__.bind(null, 256)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-subscription-order */ 43).then(__webpack_require__.bind(null, 255)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-package-order */ 59).then(__webpack_require__.bind(null, 254)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-single-order */ 60).then(__webpack_require__.bind(null, 253)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-subscription-order */ 61).then(__webpack_require__.bind(null, 252)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-package-order */ 50).then(__webpack_require__.bind(null, 251)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-single-order */ 51).then(__webpack_require__.bind(null, 250)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-subscription-order */ 52).then(__webpack_require__.bind(null, 249)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-multiple */ 14).then(__webpack_require__.bind(null, 245)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-single */ 15).then(__webpack_require__.bind(null, 244)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-multiple */ 23).then(__webpack_require__.bind(null, 235)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-single */ 24).then(__webpack_require__.bind(null, 234)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-multiple */ 32).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-single */ 33).then(__webpack_require__.bind(null, 239)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
+const General = () => __webpack_require__.e(/* import() | components/general */ 70).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
+const Logo = () => __webpack_require__.e(/* import() | components/logo */ 72).then(__webpack_require__.bind(null, 382)).then(c => wrapFunctional(c.default || c));
+const VuetifyLogo = () => __webpack_require__.e(/* import() | components/vuetify-logo */ 87).then(__webpack_require__.bind(null, 383)).then(c => wrapFunctional(c.default || c));
+const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 205)).then(c => wrapFunctional(c.default || c));
+const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 363)).then(c => wrapFunctional(c.default || c));
+const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 338)).then(c => wrapFunctional(c.default || c));
+const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 36).then(__webpack_require__.bind(null, 330)).then(c => wrapFunctional(c.default || c));
+const FooterCart = () => __webpack_require__.e(/* import() | components/footer-cart */ 68).then(__webpack_require__.bind(null, 377)).then(c => wrapFunctional(c.default || c));
+const FooterCheckout = () => __webpack_require__.e(/* import() | components/footer-checkout */ 69).then(__webpack_require__.bind(null, 343)).then(c => wrapFunctional(c.default || c));
+const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 71).then(__webpack_require__.bind(null, 345)).then(c => wrapFunctional(c.default || c));
+const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 73).then(__webpack_require__.bind(null, 331)).then(c => wrapFunctional(c.default || c));
+const PartialsHeaders = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 57)).then(c => wrapFunctional(c.default || c));
+const ProductDetail = () => __webpack_require__.e(/* import() | components/product-detail */ 77).then(__webpack_require__.bind(null, 344)).then(c => wrapFunctional(c.default || c));
+const Products = () => __webpack_require__.e(/* import() | components/products */ 81).then(__webpack_require__.bind(null, 329)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCartProducts = () => __webpack_require__.e(/* import() | components/bottom-sheet-cart-products */ 1).then(__webpack_require__.bind(null, 378)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutCourier = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-courier */ 2).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-loading */ 3).then(__webpack_require__.bind(null, 364)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutPayment = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-payment */ 4).then(__webpack_require__.bind(null, 342)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutVoucher = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-voucher */ 5).then(__webpack_require__.bind(null, 341)).then(c => wrapFunctional(c.default || c));
+const DialogsCartMaxOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-max-order */ 64).then(__webpack_require__.bind(null, 379)).then(c => wrapFunctional(c.default || c));
+const DialogsCartMinOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-min-order */ 65).then(__webpack_require__.bind(null, 380)).then(c => wrapFunctional(c.default || c));
+const DialogsCartRemoveConfirm = () => __webpack_require__.e(/* import() | components/dialogs-cart-remove-confirm */ 66).then(__webpack_require__.bind(null, 381)).then(c => wrapFunctional(c.default || c));
+const DialogsCheckoutInsertVoucherCode = () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 67).then(__webpack_require__.bind(null, 339)).then(c => wrapFunctional(c.default || c));
+const MerchantPlatformsDesktop = () => __webpack_require__.e(/* import() | components/merchant-platforms-desktop */ 74).then(__webpack_require__.bind(null, 325)).then(c => wrapFunctional(c.default || c));
+const MerchantPlatformsMini = () => __webpack_require__.e(/* import() | components/merchant-platforms-mini */ 75).then(__webpack_require__.bind(null, 323)).then(c => wrapFunctional(c.default || c));
+const MerchantPlatformsMobile = () => __webpack_require__.e(/* import() | components/merchant-platforms-mobile */ 76).then(__webpack_require__.bind(null, 324)).then(c => wrapFunctional(c.default || c));
+const ProductDetailPlatformsDesktop = () => __webpack_require__.e(/* import() | components/product-detail-platforms-desktop */ 78).then(__webpack_require__.bind(null, 328)).then(c => wrapFunctional(c.default || c));
+const ProductDetailPlatformsMini = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mini */ 79).then(__webpack_require__.bind(null, 326)).then(c => wrapFunctional(c.default || c));
+const ProductDetailPlatformsMobile = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mobile */ 80).then(__webpack_require__.bind(null, 327)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsDesktop = () => __webpack_require__.e(/* import() | components/products-platforms-desktop */ 82).then(__webpack_require__.bind(null, 316)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMini = () => __webpack_require__.e(/* import() | components/products-platforms-mini */ 83).then(__webpack_require__.bind(null, 314)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktop = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop */ 9).then(__webpack_require__.bind(null, 319)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMini = () => __webpack_require__.e(/* import() | components/cart-platforms-mini */ 18).then(__webpack_require__.bind(null, 317)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobile = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile */ 27).then(__webpack_require__.bind(null, 318)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktop = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop */ 37).then(__webpack_require__.bind(null, 322)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMini = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini */ 46).then(__webpack_require__.bind(null, 320)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobile = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile */ 55).then(__webpack_require__.bind(null, 321)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMobile = () => __webpack_require__.e(/* import() | components/products-platforms-mobile */ 84).then(__webpack_require__.bind(null, 315)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order */ 10).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-single-order */ 16).then(__webpack_require__.bind(null, 277)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-subscription-order */ 17).then(__webpack_require__.bind(null, 278)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order */ 19).then(__webpack_require__.bind(null, 273)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-single-order */ 25).then(__webpack_require__.bind(null, 271)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-subscription-order */ 26).then(__webpack_require__.bind(null, 272)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order */ 28).then(__webpack_require__.bind(null, 276)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-single-order */ 34).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-subscription-order */ 35).then(__webpack_require__.bind(null, 275)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-courier */ 38).then(__webpack_require__.bind(null, 293)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-customer */ 39).then(__webpack_require__.bind(null, 290)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-info */ 40).then(__webpack_require__.bind(null, 292)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-payment */ 44).then(__webpack_require__.bind(null, 294)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-voucher */ 45).then(__webpack_require__.bind(null, 291)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-courier */ 47).then(__webpack_require__.bind(null, 283)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-customer */ 48).then(__webpack_require__.bind(null, 280)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-info */ 49).then(__webpack_require__.bind(null, 282)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-payment */ 53).then(__webpack_require__.bind(null, 284)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-voucher */ 54).then(__webpack_require__.bind(null, 281)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-courier */ 56).then(__webpack_require__.bind(null, 288)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-customer */ 57).then(__webpack_require__.bind(null, 285)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-info */ 58).then(__webpack_require__.bind(null, 287)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-payment */ 62).then(__webpack_require__.bind(null, 289)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-voucher */ 63).then(__webpack_require__.bind(null, 286)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMobileShowTypeGrid = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-grid */ 85).then(__webpack_require__.bind(null, 270)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMobileShowTypeList = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-list */ 86).then(__webpack_require__.bind(null, 269)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-footer-detail */ 11).then(__webpack_require__.bind(null, 248)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-list-items */ 12).then(__webpack_require__.bind(null, 247)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-remove-package */ 13).then(__webpack_require__.bind(null, 249)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-footer-detail */ 20).then(__webpack_require__.bind(null, 238)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-list-items */ 21).then(__webpack_require__.bind(null, 237)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-remove-package */ 22).then(__webpack_require__.bind(null, 239)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-footer-detail */ 29).then(__webpack_require__.bind(null, 243)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-list-items */ 30).then(__webpack_require__.bind(null, 242)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-remove-package */ 31).then(__webpack_require__.bind(null, 244)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-package-order */ 41).then(__webpack_require__.bind(null, 258)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-single-order */ 42).then(__webpack_require__.bind(null, 257)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-subscription-order */ 43).then(__webpack_require__.bind(null, 256)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-package-order */ 50).then(__webpack_require__.bind(null, 252)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-single-order */ 51).then(__webpack_require__.bind(null, 251)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-subscription-order */ 52).then(__webpack_require__.bind(null, 250)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-package-order */ 59).then(__webpack_require__.bind(null, 255)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-single-order */ 60).then(__webpack_require__.bind(null, 254)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-subscription-order */ 61).then(__webpack_require__.bind(null, 253)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-multiple */ 14).then(__webpack_require__.bind(null, 246)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-single */ 15).then(__webpack_require__.bind(null, 245)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-multiple */ 23).then(__webpack_require__.bind(null, 236)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-single */ 24).then(__webpack_require__.bind(null, 235)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-multiple */ 32).then(__webpack_require__.bind(null, 241)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-single */ 33).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
 
 function wrapFunctional(options) {
   if (!options || !options.functional) {
@@ -9897,10 +9950,10 @@ for (const name in components_namespaceObject) {
   external_vue_default.a.component('Lazy' + name, components_namespaceObject[name]);
 }
 // EXTERNAL MODULE: ./.nuxt/empty.js
-var _nuxt_empty = __webpack_require__(97);
+var _nuxt_empty = __webpack_require__(98);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/framework.js + 22 modules
-var framework = __webpack_require__(22);
+var framework = __webpack_require__(23);
 
 // CONCATENATED MODULE: ./.nuxt/vuetify/options.js
 /* harmony default export */ var vuetify_options = ({
@@ -9929,10 +9982,10 @@ var fontawesome_svg_core_ = __webpack_require__(30);
 var vue_fontawesome_ = __webpack_require__(31);
 
 // EXTERNAL MODULE: external "@fortawesome/free-solid-svg-icons"
-var free_solid_svg_icons_ = __webpack_require__(52);
+var free_solid_svg_icons_ = __webpack_require__(53);
 
 // EXTERNAL MODULE: external "@fortawesome/free-brands-svg-icons"
-var free_brands_svg_icons_ = __webpack_require__(53);
+var free_brands_svg_icons_ = __webpack_require__(54);
 
 // CONCATENATED MODULE: ./.nuxt/templates.plugin.3b8c9e8c.js
 
@@ -9985,7 +10038,7 @@ function hasMeta(arr, key, val) {
   return arr.find(obj => val ? obj[key] === val : obj[key]);
 }
 // EXTERNAL MODULE: ./.nuxt/pwa/meta.json
-var meta = __webpack_require__(54);
+var meta = __webpack_require__(55);
 
 // CONCATENATED MODULE: ./.nuxt/pwa/meta.plugin.js
 
@@ -10021,12 +10074,8 @@ var meta = __webpack_require__(54);
 
   inject('icon', getIcon);
 });
-// EXTERNAL MODULE: external "axios"
-var external_axios_ = __webpack_require__(23);
-var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
-
 // EXTERNAL MODULE: external "defu"
-var external_defu_ = __webpack_require__(55);
+var external_defu_ = __webpack_require__(56);
 var external_defu_default = /*#__PURE__*/__webpack_require__.n(external_defu_);
 
 // CONCATENATED MODULE: ./.nuxt/axios.js
@@ -10186,7 +10235,7 @@ const setupProgress = axios => {
   // runtimeConfig
   const runtimeConfig = ctx.$config && ctx.$config.axios || {}; // baseURL
 
-  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://shop.balesin.id'; // Create fresh objects for all default header scopes
+  const baseURL =  false ? undefined : runtimeConfig.baseURL || runtimeConfig.baseUrl || process.env._AXIOS_BASE_URL_ || 'https://staging.balesin.id'; // Create fresh objects for all default header scopes
   // Axios creates only one which is shared across SSR requests!
   // https://github.com/mzabriskie/axios/blob/master/lib/defaults.js
 
@@ -10552,7 +10601,7 @@ async function createApp(ssrContext, config = {}) {
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
       }, {
         "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.9de03ee0.json"
+        "href": "\u002F_nuxt\u002Fmanifest.7e39591e.json"
       }],
       "script": [],
       "style": []
@@ -11108,19 +11157,19 @@ const createNext = ssrContext => opts => {
 });
 
 /***/ }),
-/* 99 */,
 /* 100 */,
 /* 101 */,
 /* 102 */,
-/* 103 */
+/* 103 */,
+/* 104 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VCard_VCard_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58);
+/* harmony import */ var _src_components_VCard_VCard_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(59);
 /* harmony import */ var _src_components_VCard_VCard_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VCard_VCard_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _VSheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 /* harmony import */ var _mixins_loadable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(19);
+/* harmony import */ var _mixins_routable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
 // Styles
  // Extensions
@@ -11203,15 +11252,15 @@ const createNext = ssrContext => opts => {
 }));
 
 /***/ }),
-/* 104 */,
 /* 105 */,
 /* 106 */,
 /* 107 */,
-/* 108 */
+/* 108 */,
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VApp_VApp_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63);
+/* harmony import */ var _src_components_VApp_VApp_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(64);
 /* harmony import */ var _src_components_VApp_VApp_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VApp_VApp_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
@@ -11275,11 +11324,11 @@ const createNext = ssrContext => opts => {
 }));
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(89);
+/* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(90);
 /* harmony import */ var _src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_grid_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
 

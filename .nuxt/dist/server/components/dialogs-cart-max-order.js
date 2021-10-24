@@ -1,7 +1,7 @@
 exports.ids = [64];
 exports.modules = {
 
-/***/ 378:
+/***/ 379:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,10 +51,10 @@ var installComponents = __webpack_require__(11);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(103);
+var VCard = __webpack_require__(104);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(21);
+var VIcon = __webpack_require__(22);
 
 // CONCATENATED MODULE: ./components/Dialogs/Cart/max-order.vue
 

@@ -1,6 +1,6 @@
 <template>
   <v-card flat tile style="max-height: 80vh !important; overflow-y: scroll">
-    <v-card class="ma-1">
+    <v-card class="ma-1" flat>
       <div
         class="pl-2 pt-1 pb-1"
         style="align-self: center; font-size: 13px; font-weight: 600; text-align: left"
@@ -98,68 +98,129 @@
       </div>
     </v-card>
     <v-card height="5px" flat tile />
-    <v-card class="pa-1 mb-0 pb-2" color="transparent">
-      <div
-        class="pl-2 pt-1 pb-2"
-        style="align-self: center; font-size: 13px; font-weight: 600; text-align: left"
-      >
-        Produk lainnya
-      </div>
-      <div class="d-flex flex-row ma-1 pb-2 mb-0" style="overflow-x: scroll;">
-        <v-card
-          v-for="(item, idx) in list_product"
-          :key="idx"
-          class="mr-2 mt-1 ml-1"
-          style="text-align: left"
-          elevation="2"
-          @click="product_detail(item)"
+    <v-card class="pa-1 mb-0" color="transparent">
+      <div v-if="recomendation_items">
+        <div
+          class="pa-1"
+          style="
+            font-size: 12px;
+            max-width: 110px;
+            font-weight: 600;
+            text-align: left;
+            min-width: 100%;
+          "
         >
-          <center style="width: 120px">
-            <v-img :src="item.main_image" width="100" height="100" />
-          </center>
-          <div class="pa-2">
-            <div
-              style="
-                font-size: 12px;
-                max-width: 110px;
-                display: inline-block;
-                min-width: 110px;
-                white-space: nowrap;
-                overflow: hidden !important;
-                text-overflow: ellipsis;
-                font-weight: 600;
-              "
-            >
-              {{ item.name }}
-            </div>
-            <div v-if="item.discount_price">
-              <div style="font-size: 12px; font-weight: 600; text-decoration: line-through; color: #999">
-                Rp {{
-                  item.normal_price
-                    .toLocaleString()
-                    .replace(/,/g, '.')
-                }}, -
+          Produk yang sering kamu beli
+        </div>
+        <div class="d-flex flex-row" style="overflow-x: scroll; padding-bottom: 10px">
+          <v-card
+            v-for="(item, idx) in frequent_items"
+            :key="idx"
+            class="mr-2 mt-1 ml-1"
+            style="text-align: left"
+            flat
+            outlined
+            :to="`/site/${site.store}/${item.id}?u=${$route.query.u}&src=${$route.query.src}&c=${$route.query.c}`"
+          >
+            <center style="width: 126px">
+              <v-img :src="item.main_image" />
+            </center>
+            <div class="pa-2">
+              <div
+                style="
+                  font-size: 12px;
+                  max-width: 110px;
+                  display: inline-block;
+                  min-width: 110px;
+                  white-space: nowrap;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
+                  font-weight: 600;
+                "
+              >
+                {{ item.name }}
               </div>
-              <div class="mr-2" style="font-size: 12px; font-weight: 600">
+              <div v-if="item.discount_price" style="font-size: 12px; font-weight: 600; margin-top: -5px;">
                 Rp {{
                   item.discount_price
                     .toLocaleString()
                     .replace(/,/g, '.')
                 }}, -
               </div>
+              <div v-else style="font-size: 12px; font-weight: 600; margin-top: -5px;">
+                Rp {{
+                  item.normal_price
+                    .toLocaleString()
+                    .replace(/,/g, '.')
+                }}, -
+              </div>
             </div>
-            <div v-else style="font-size: 12px; font-weight: 600">
-              Rp {{
-                item.normal_price
-                  .toLocaleString()
-                  .replace(/,/g, '.')
-              }}, -
+          </v-card>
+        </div>
+      </div>
+      <div v-else>
+        <div
+          class="pl-2 pt-1 pb-2"
+          style="align-self: center; font-size: 13px; font-weight: 600; text-align: left"
+        >
+          Produk lainnya
+        </div>
+        <div class="d-flex flex-row ma-1 pb-2 mb-0" style="overflow-x: scroll; padding-bottom: 10px">
+          <v-card
+            v-for="(item, idx) in list_product"
+            :key="idx"
+            class="mr-2 mt-1 ml-1"
+            style="text-align: left"
+            flat
+            outlined
+            @click="product_detail(item)"
+          >
+            <center style="width: 126px">
+              <v-img :src="item.main_image" />
+            </center>
+            <div class="pa-2">
+              <div
+                style="
+                  font-size: 12px;
+                  max-width: 110px;
+                  display: inline-block;
+                  min-width: 110px;
+                  white-space: nowrap;
+                  overflow: hidden !important;
+                  text-overflow: ellipsis;
+                  font-weight: 600;
+                "
+              >
+                {{ item.name }}
+              </div>
+              <div v-if="item.discount_price">
+                <div style="font-size: 12px; font-weight: 600; text-decoration: line-through; color: #999">
+                  Rp {{
+                    item.normal_price
+                      .toLocaleString()
+                      .replace(/,/g, '.')
+                  }}, -
+                </div>
+                <div class="mr-2" style="font-size: 12px; font-weight: 600">
+                  Rp {{
+                    item.discount_price
+                      .toLocaleString()
+                      .replace(/,/g, '.')
+                  }}, -
+                </div>
+              </div>
+              <div v-else style="font-size: 12px; font-weight: 600">
+                Rp {{
+                  item.normal_price
+                    .toLocaleString()
+                    .replace(/,/g, '.')
+                }}, -
+              </div>
             </div>
-          </div>
-        </v-card>
+          </v-card>
+        </div>
       </div>
     </v-card>
-    <v-card height="10px" flat tile />
   </v-card>
 </template>
 
@@ -169,24 +230,25 @@ export default {
     site() {
       return this.$store.state.site
     },
-
     list_product() {
       return this.$store.state.products
     },
-
     cart() {
       return this.$store.state.cart
     },
-
+    customer() {
+      return this.$store.state.customer
+    },
+    store() {
+      return this.$store.state.store
+    },
     parsed_lists() {
       let total = 0
       const product = []
-
       this.cart.forEach(el => {
         const find = this.list_product.filter(
           product => product.id === el.id && product.SKU === el.sku
         )
-
         if (find.length) {
           product.push({
             id             : find[0].id,
@@ -199,34 +261,59 @@ export default {
             is_promo       : find[0].is_promo,
             qty            : el.qty
           })
-
           total += (find[0].discount_price || find[0].normal_price) * el.qty
         }
       })
-
       return { product, total }
-    }
+    },
+    products() {
+      return this.$store.state.products
+    },
+    recomendation_items() {
+      if (this.products.length && this.$store.state.recomendation_items) {
+        const items = [];
+        this.$store.state.recomendation_items.forEach(item => {
+          const filtered_product = this.products.filter(_ => _.name == item.name || _.SKU == item.sku)
+          if (filtered_product.length) {
+            items.push(filtered_product[0])
+          };
+        });
+        if (items.length) return items;
+      }
+      return null
+    },
+    frequent_items() {
+      if (this.products.length && this.$store.state.frequent_items) {
+        const items = [];
+        this.$store.state.frequent_items.forEach(item => {
+          const filtered_product = this.products.filter(_ => _.name == item.name || _.SKU == item.sku)
+          if (filtered_product.length) {
+            items.push(filtered_product[0]);
+          };
+        });
+        if (items.length) return items;
+      }
+      return null
+    },
   },
-
   methods: {
     product_detail(item) {
+      console.log('*** product_detail method ***')
       const { uuid, source, category, store } = this.site
-
       this.$store.dispatch('setState', {
         payload: {
           key : 'mini_cart',
           data: false
         }
       })
-
-      this.$router.replace(`/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`)
+      this.$router.replace(
+        `/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`
+      )
     },
-
     gotocart() {
       const { store, uuid, source, category } = this.$store.state.site
-
       this.$router.replace(
-        `/site/${store}/cart?u=${uuid}&mtd=view&src=${source}&c=${category}`
+        `/site/${this.$route.params.store}/cart?u=${this.$route.query.u}&mtd=view&src=${this.$route.query.src}&c=${this.$route.query.c}`
       )
     },
   }

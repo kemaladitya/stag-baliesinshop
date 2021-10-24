@@ -381,7 +381,6 @@ export default {
     },
 
     async selected_province(_, __) {
-      console.log('@watch.selected_province |', _)
       if (_) {
         this.selected_sub_district = null
         this.selected_urban = null
@@ -391,7 +390,6 @@ export default {
     },
 
     async selected_city(_, __) {
-      console.log('@watch.selected_city |', _)
       if (_) {
         this.selected_urban = null
         this.postal_code = null
@@ -403,7 +401,6 @@ export default {
     },
 
     async selected_sub_district(_, __) {
-      console.log('@watch.selected_sub_district |', _)
       if (_) {
         this.selected_urban = null
         this.postal_code = null
@@ -415,7 +412,6 @@ export default {
     },
 
     async selected_urban(_, __) {
-      console.log('@watch.selected_urban |', _)
       if (_) {
         const urban = this.urban.filter(el => el.name === _)
 
@@ -466,7 +462,6 @@ export default {
     change_selected_route(key, value) {
       this.is_updated = true
       this[`selected${key}`] = value
-      console.log('change_selected_route', key, value)
     },
 
     async get_province() {
@@ -538,10 +533,7 @@ export default {
 
     async get_urban(sub_district) {
       this.loading.urban = true
-      console.log(this.province)
-      console.log(this.selected_province)
       const province = this.province.filter(el => el.name === this.selected_province)
-      console.log(province, ' @urban')
       const urban = await this.$store.dispatch('request', {
         url: '/api/administration/urban',
         method: 'post',
@@ -629,7 +621,7 @@ export default {
           this.selected_province = request.data.response.province
         }
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     },
   

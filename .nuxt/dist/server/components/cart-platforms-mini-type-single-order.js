@@ -1,7 +1,7 @@
 exports.ids = [25,70];
 exports.modules = {
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -226,7 +226,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 270:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -247,7 +247,7 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Cart/Platforms/mini/type/single-order.vue?vue&type=template&id=2b5cca5d&
 
 // EXTERNAL MODULE: ./components/General.js
-var General = __webpack_require__(110);
+var General = __webpack_require__(111);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mini/type/single-order.vue?vue&type=script&lang=js&
 //
@@ -483,13 +483,13 @@ var installComponents = __webpack_require__(11);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(43);
+var VBtn = __webpack_require__(44);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(103);
+var VCard = __webpack_require__(104);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(21);
+var VIcon = __webpack_require__(22);
 
 // CONCATENATED MODULE: ./components/Cart/Platforms/mini/type/single-order.vue
 
