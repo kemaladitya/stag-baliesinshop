@@ -128,11 +128,7 @@ export default {
       const product = []
 
       this.package_cart[0].items.forEach(el => {
-        const find = this.list_product.filter(
-          product => product.id === el.id && product.SKU === el.sku
-        )
-
-        console.log('@parsed_lists |', find)
+        const find = this.list_product.filter(product => product.id === el.id && product.SKU === el.sku)
 
         if (find.length) {
           product.push({

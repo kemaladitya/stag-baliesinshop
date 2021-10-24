@@ -14,8 +14,7 @@ async function short(bot_name, source, chatkey, outlet) {
 
     return short_link
   } catch (error) {
-    console.log('@url_shortener.error |', link)
-    console.log('@url_shortener.error |', error)
+    console.log("@url_shortener.error |", link, error);
 
     return error
   }

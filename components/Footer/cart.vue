@@ -97,8 +97,6 @@ export default {
     customized_values_total() {
       let total = 0
 
-      console.log(this.customized_values, ' customized_values_total 3')
-
       if (this.customized_values) {
         this.customized_values.forEach(el => {
           total += el.total
@@ -159,8 +157,6 @@ export default {
 
       if (this.rp_order && list_validate.indexOf(false) != -1) {
         status = true
-
-        console.log(total, '  validate price per date 3')
 
         return status
       } else {

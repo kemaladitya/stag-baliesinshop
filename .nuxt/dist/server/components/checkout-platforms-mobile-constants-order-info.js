@@ -1,14 +1,14 @@
 exports.ids = [58,59,60,61];
 exports.modules = {
 
-/***/ 269:
+/***/ 252:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue?vue&type=template&id=1a26a919&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue?vue&type=template&id=3963cec6&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(!_vm.voucher.loading)?_c('v-expand-transition',[(_vm.list_cart.length)?_c('v-card',{staticClass:"pt-2",attrs:{"height":"100%","flat":"","tile":""}},_vm._l((_vm.list_cart),function(item,index){return _c('div',{key:index,staticClass:"mb-2",staticStyle:{"border":"1px solid #e0e0e0","border-radius":"5px"}},[_c('div',[_c('div',{staticClass:"d-flex flex-row pa-2"},[_c('div',{staticClass:"pt-2 pl-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n                "+_vm._s(_vm.date_parser(item.date))+"\n              ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pr-1",staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3"}},[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3","text-align":"right"}},[_c('v-spacer'),_vm._v("\n                  Rp "+_vm._s(_vm.item_parser(item.items).total
                       ? _vm.item_parser(item.items).total.toLocaleString().replace(/,/g, '.')
                       : _vm.item_parser(item.items).total)+"\n                ")],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","font-style":"italic"},style:(_vm.item_parser(item.items).total < _vm.store.min_order || _vm.item_parser(item.items).total > _vm.store.max_order ?
@@ -25,7 +25,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue?vue&type=template&id=1a26a919&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue?vue&type=template&id=3963cec6&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue?vue&type=script&lang=js&
 //
@@ -253,7 +253,6 @@ var staticRenderFns = []
           });
         }
       });
-      console.log('product', product);
       return product;
     },
 
@@ -320,8 +319,6 @@ var staticRenderFns = []
     },
 
     date_parser(date) {
-      console.log(date, 'date_parser');
-
       const _ = date.split('-');
 
       const day = _[2];
@@ -394,7 +391,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 270:
+/***/ 253:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -604,7 +601,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VIcon: V
 
 /***/ }),
 
-/***/ 271:
+/***/ 254:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -892,28 +889,28 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 297:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=template&id=1357c81c&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=template&id=1f8c294f&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-1 pt-2 text-left"},[_vm._ssrNode("<div style=\"font-size: 12px\">\n    DETAIL PESANAN &amp; WAKTU PENGANTARAN\n  </div> "),(_vm.order_type === 'subscription-order')?_c('Subscription',{attrs:{"voucher":_vm.voucher}}):_vm._e(),_vm._ssrNode(" "),(_vm.order_type === 'single-order')?_c('Single'):_vm._e(),_vm._ssrNode(" "),(_vm.order_type === 'package-order')?_c('Package'):_vm._e(),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"pt-2\">","</div>",[_c('v-card',{staticClass:"mt-2 pt-2 pb-2",staticStyle:{"border-top":"1px solid rgba(0, 0, 0, 0.12)","border-bottom":"1px solid rgba(0, 0, 0, 0.12)","font-size":"13px"},attrs:{"flat":"","tile":""}},[_c('div',[_vm._v("Catatan untuk penjual:")]),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600","color":"dimgray"}},[(_vm.user_notes.length)?_c('div',{staticClass:"pt-2"},[_vm._v(_vm._s(_vm.user_notes))]):_c('div',{staticClass:"pt-2"},[_vm._v("-")])])])],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row mt-3 mb-1 pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-size: 12px\"></div> "),_c('v-spacer'),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600\">Subtotal:</div>\n       \n      "),_c('v-spacer'),_vm._ssrNode(" <div style=\"font-weight: 600; color: rgb(25, 118, 210)\">"+_vm._ssrEscape("\n        Rp\n        "+_vm._s(_vm.general_total_order.toLocaleString().replace(/,/g, '.'))+"\n      ")+"</div>")],2)],2),_vm._ssrNode(" <div"+(_vm._ssrStyle({"font-size":"9px","color":"red","text-align":"center"},null, { display: (_vm.store.min_order && _vm.store.max_order) ? '' : 'none' }))+">"+_vm._ssrEscape("\n    "+_vm._s(_vm.validate_total)+"\n  ")+"</div>")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=template&id=1357c81c&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=template&id=1f8c294f&
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue + 4 modules
-var subscription_order = __webpack_require__(269);
+var subscription_order = __webpack_require__(252);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue + 4 modules
-var single_order = __webpack_require__(270);
+var single_order = __webpack_require__(253);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/package-order.vue + 4 modules
-var package_order = __webpack_require__(271);
+var package_order = __webpack_require__(254);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=script&lang=js&
 //
@@ -1087,8 +1084,7 @@ var package_order = __webpack_require__(271);
             }
           });
         });
-      } // console.log('product', product)
-
+      }
 
       return total;
     },
@@ -1107,13 +1103,10 @@ var package_order = __webpack_require__(271);
         this.subscription_cart.forEach(el => {
           if (is_valid === 1) {
             let total = 0;
-            console.log(total);
             el.items.forEach(item => {
               const find = this.list_product.filter(product => product.id === item.id && product.SKU === item.sku);
-              console.log('find', find);
               total += (find[0].discount_price || find[0].normal_price) * item.qty;
             });
-            console.log('find', total);
 
             if (total > this.store.max_order) {
               is_valid = 2;
@@ -1133,13 +1126,9 @@ var package_order = __webpack_require__(271);
 
         return '';
       } else if (this.order_type === 'package-order') {
-        console.log('masuk sini');
-
         if (this.store.customize_setup) {
-          // console.log(, ' this.store.customize_setup')
           const order_type = this.package_cart[0].type;
           const find_rules = JSON.parse(this.store.customize_setup).packaging.rules.detail.filter(el => el.type === order_type);
-          console.log("!@find_rules |", JSON.stringify(find_rules, null, 2));
 
           if (find_rules[0].min > this.general_total_order) {
             return `Minimum pembelian Rp ${find_rules[0].min.toLocaleString().replace(/,/g, '.')} belum tercapai. Silakan tambah lagi pesanan Anda.`;

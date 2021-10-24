@@ -70,20 +70,6 @@
     "_name": "_2f7264f1"
   },
   {
-    "name": "site-store-cart-backup",
-    "path": "/site/:store?/cart/backup",
-    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/cart/backup.vue",
-    "chunkName": "pages/site/_store/cart/backup",
-    "_name": "_4fe268fe"
-  },
-  {
-    "name": "site-store-checkout-backup",
-    "path": "/site/:store?/checkout/backup",
-    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/checkout/backup.vue",
-    "chunkName": "pages/site/_store/checkout/backup",
-    "_name": "_58e6ccca"
-  },
-  {
     "name": "site-store-pid",
     "path": "/site/:store?/:pid",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",

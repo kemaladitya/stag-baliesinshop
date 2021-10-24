@@ -210,8 +210,6 @@ export default {
 
   methods: {
     product_detail(item) {
-      console.log('*** product_detail method ***')
-
       const { uuid, source, category, store } = this.site
 
       this.$store.dispatch('setState', {
@@ -221,9 +219,7 @@ export default {
         }
       })
 
-      this.$router.replace(
-        `/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`
-      )
+      this.$router.replace(`/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`)
     },
 
     gotocart() {

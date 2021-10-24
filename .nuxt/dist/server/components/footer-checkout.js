@@ -1,19 +1,19 @@
 exports.ids = [69];
 exports.modules = {
 
-/***/ 347:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/checkout.vue?vue&type=template&id=0a98c773&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/checkout.vue?vue&type=template&id=02fe80bc&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-1",staticStyle:{"background-color":"white !important","width":"100%"}},[_vm._ssrNode("<div class=\"d-flex flex-row pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600\">TOTAL HARGA</div> "),_c('v-spacer'),_vm._ssrNode(" "+((!_vm.customized_values)?("<div style=\"font-weight: 600\">"+_vm._ssrEscape("\n      Rp\n      "+_vm._s(_vm.grandtotal.toLocaleString().replace(',', '.'))+"\n    ")+"</div>"):("<div style=\"font-weight: 600\">"+_vm._ssrEscape("\n      Rp\n      "+_vm._s(_vm.customized_values_total.toLocaleString().replace(',', '.'))+"\n    ")+"</div>")))],2),_vm._ssrNode(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","font-weight":"600"},attrs:{"depressed":"","color":"#FD0","min-width":"100%","height":"45","disabled":!!this.checked_button},on:{"click":_vm.executeorder}},[_vm._v("\n    Proses\n  ")])],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Footer/checkout.vue?vue&type=template&id=0a98c773&
+// CONCATENATED MODULE: ./components/Footer/checkout.vue?vue&type=template&id=02fe80bc&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/checkout.vue?vue&type=script&lang=js&
 //
@@ -94,7 +94,6 @@ var staticRenderFns = []
     checked_button() {
       if (!this.processbtn) {
         if (this.customized_values && !this.rp_order) {
-          console.log('masuk this.customized_values');
           const customize_setup = JSON.parse(this.store.customize_setup).packaging.rules.detail;
           const mapped_customized_values = this.customized_values.map(el => {
             const selected_mode = customize_setup.filter(setup => setup.type == el.type);
@@ -104,7 +103,6 @@ var staticRenderFns = []
             };
           });
           const validate_total = mapped_customized_values.filter(el => el.total > el.max_order || el.total < el.min_order);
-          console.log('@validate_total', validate_total);
 
           if (validate_total.length) {
             return true;
@@ -114,7 +112,6 @@ var staticRenderFns = []
         }
 
         if (this.rp_order) {
-          console.log('@rp_order | ', this.rp_order, this.grandtotal);
           const get_items = this.dates.slice(0).map(el => {
             let rp_total = 0;
             const items = el.items.filter(item => item.select_date);
@@ -148,14 +145,7 @@ var staticRenderFns = []
       return this.processbtn;
     }
 
-  },
-
-  mounted() {
-    console.log('@checkout.processbtn |', this.processbtn);
-    console.log('@checkout.grand_total | ', this.grandtotal);
-    console.log('@checkout.checked_button | ', this.checked_button);
   }
-
 });
 // CONCATENATED MODULE: ./components/Footer/checkout.vue?vue&type=script&lang=js&
  /* harmony default export */ var Footer_checkoutvue_type_script_lang_js_ = (checkoutvue_type_script_lang_js_); 

@@ -16,14 +16,8 @@ async function manage(request, response) {
 
     const manager = await balesin.cart.store.manage(request.body);
 
-    console.log("@manager |", manager);
-    console.log("@request.body |", request.body);
-
     return response.json(manager);
   } catch (error) {
-    console.log("@cart.error.body |", request.body);
-    console.log("@cart.error.info |", error);
-
     return response.status(400).json({
       status: false,
       message: "Failed add item to cart failed, please try again.",
@@ -72,12 +66,10 @@ async function cache(request, response) {
 
           return result;
         } else if (manager.set_resp.type === "package-order") {
-          console.log("manager.set_resp |", manager.set_resp);
           const result = [];
 
           for (let i = 0; i < manager.set_resp.items.length; i++) {
             const element = manager.set_resp.items[i];
-            console.log("@element | ", element);
             const parsed_lists = await balesin.api.shop.parse_items(
               request.body.store_name,
               request.body.uuid,
@@ -104,8 +96,6 @@ async function cache(request, response) {
       });
     }
   } catch (error) {
-    console.log("@cache.error |", error);
-
     return response.status(400).json({
       status: false,
       results: { type: "single-order", items: [] },
@@ -116,7 +106,6 @@ async function cache(request, response) {
 
 async function bot(request, response) {
   try {
-    console.log("@request.body |", request.body)
     if (request.body.method === "reorder") {
       const reorder = await reorder_bot(request.body)
 
@@ -161,12 +150,10 @@ async function bot(request, response) {
 
           return result;
         } else if (manager.set_resp.type === "package-order") {
-          console.log("manager.set_resp |", manager.set_resp);
           const result = [];
 
           for (let i = 0; i < manager.set_resp.items.length; i++) {
             const element = manager.set_resp.items[i];
-            console.log("@element | ", element);
             const parsed_lists = await balesin.api.shop.parse_items(
               request.body.store_name,
               request.body.chatkey,
@@ -199,7 +186,7 @@ async function bot(request, response) {
       });
     }
   } catch (error) {
-    console.log("@manage_cart_from_bot | ", error);
+    console.error(error);
 
     return response.status(400).json({
       status: false,
@@ -262,7 +249,7 @@ async function reorder_bot({ bot_id, chatkey, outlet, source }) {
       response : short_link.data,
     }
   } catch (error) {
-    console.log("@reorder.error |", error)
+    console.error("@reorder.error |", error);
 
     return {
       status   : "failed",

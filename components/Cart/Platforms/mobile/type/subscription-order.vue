@@ -548,8 +548,6 @@ export default {
         }
       })
 
-      console.log('product', product)
-
       return product
     },
 
@@ -664,7 +662,6 @@ export default {
         },
       })
 
-      console.log('@for-cart-redis', new_cart)
       this.$store.dispatch('setState', {
         payload: {
           key : 'subscription_cart',
@@ -700,10 +697,7 @@ export default {
     delete_item(date, detail_id) {
       this.list_cart = this.list_cart.map(el => {
         if (el.date === date) {
-          console.log(el.items)
-          const filter_item = el.items.filter(
-            item => item.detail_id !== detail_id
-          )
+          const filter_item = el.items.filter(item => item.detail_id !== detail_id)
 
           el.items = filter_item
         }
@@ -779,26 +773,11 @@ export default {
     },
 
     date_parser(date) {
-      console.log(date, 'date_parser')
-      const _ = date.split('-')
-      const day = _[2]
-      const month = _[1]
-      const years = _[0]
-      const _month = [
-        '',
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ]
+      const _      = date.split('-')
+      const day    = _[2]
+      const month  = _[1]
+      const years  = _[0]
+      const _month = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
       return `${day} ${_month[+month]} ${years}`
     }

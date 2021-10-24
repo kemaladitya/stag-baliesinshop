@@ -192,7 +192,6 @@ export default {
 
   methods: {
     async manage_cart(id, detail_id, sku, qty, method) {
-      console.log(id, detail_id, sku, qty, method)
       this.$store.dispatch('setState', {
         payload: {
           key: 'loading',

@@ -188,7 +188,6 @@ export default {
       let total    = 0
 
       if (this.order_type === 'single-order' && this.cart) {
-        // console.log('!@order_info.this.cart |', this.cart)
         this.cart.forEach(el => {
           const find = this.list_product.filter(
             product => product.id === el.id && product.SKU === el.sku
@@ -243,10 +242,6 @@ export default {
       },
     })
 
-    // if (cart.type === 'subscription-order') {
-    //   this.$router.push(this.cart_url)
-    // }
-
     if (!this.$store.state.fullpath.length) {
       this.$store.dispatch('setState', {
         payload: {
@@ -265,8 +260,6 @@ export default {
 
       if (!this.store.hasOwnProperty('id')) {
         await this.get_base_info('site-store')
-
-        console.log('@this.store |', this.store)
       }
 
       if (this.store.store_type) {
@@ -296,7 +289,6 @@ export default {
     },
 
     async get_merchant_detail(merchant_id) {
-      console.log('get_merchant_detail')
       const request = await this.$store.dispatch('request', {
         url: '/api/store/market/info',
         method: 'post',
@@ -312,14 +304,6 @@ export default {
     },
 
     async get_list_merchant(page) {
-      // this.loading_merchant = true
-      // this.$store.dispatch('setState', {
-      //   payload: {
-      //     key: 'general_loading',
-      //     data: true
-      //   }
-      // })
-
       const { query: { market } } = this.$route
       const list_merchant = await this.$store.dispatch('request', {
         url: '/api/store/market/merchant',
@@ -330,18 +314,6 @@ export default {
           page
         }
       })
-
-      // this.loading_merchant = false
-      // this.$store.dispatch('setState', {
-      //   payload: {
-      //     key: 'general_loading',
-      //     data: false
-      //   }
-      // })
-
-      // if (list_merchant.data.response.length != 10) {
-      //   this.end = true
-      // }
 
       this.$store.dispatch('setState', {
         payload: {
@@ -414,8 +386,6 @@ export default {
     },
 
     async get_product() {
-      // console.log('*** get_product method ***')
-
       this.loading_product = true
 
       const { c, u } = this.$route.query
@@ -440,100 +410,6 @@ export default {
       this.loading_product = false
 
       return true
-    },
-
-    async get_cart() {
-      // const cart_detail = await API.cart_detail(this.$store, {
-      //   bot_id: this.store.bot_id,
-      //   store_name: this.site.store,
-      //   source: this.site.source,
-      //   method: 'get',
-      //   uuid: this.site.uuid,
-      //   category: this.site.category
-      // })
-
-      // console.log(cart_detail, ' cart_detail')
-
-      // if (cart_detail && cart_detail.status && cart_detail.results) {
-      //   if (cart_detail.results.type === 'single-order') {
-      //     if (cart_detail.results.items.length) {
-      //       console.log(cart_detail.results.items)
-      //       const list_cart = cart_detail.results.items.map(el => {
-      //         console.log(el.items, ' el items')
-      //         const search_product = this.list_product.filter(
-      //           prod => prod.id === el.items[0].id
-      //         )
-
-      //         console.log(search_product, ' search_product')
-
-      //         if (search_product.length) {
-      //           search_product[0].select_date = true
-      //           search_product[0].qty = el.items[0].qty
-
-      //           return search_product[0]
-      //         }
-      //       })
-      //       const cleaned_cart = list_cart.filter(el => typeof el == 'object')
-
-      //       this.$store.dispatch('setState', {
-      //         payload: {
-      //           key: 'cart',
-      //           data: cleaned_cart
-      //         }
-      //       })
-      //     }
-      //   }
-
-      //   if (cart_detail.results.type === 'rp-order') {
-      //     console.log(cart_detail.results, ' cart_detail.results')
-      //     if (cart_detail.results.items.length) {
-      //       const list_dates = cart_detail.results.items.map(el => {
-      //         const list_items = el.items.map(item => {
-      //           console.log(item.id, 'item')
-      //           const search_product = get_product.filter(
-      //             prod => prod.id === item.id
-      //             // ! filter detail variantnya juga disini
-      //           )
-      //           console.log(search_product, ' search_product')
-      //           const _item = {
-      //             SKU: search_product[0].SKU,
-      //             detail_id: search_product[0].detail[0].detail_id,
-      //             discount_price: search_product[0].detail[0].discount_price,
-      //             id: search_product[0].id,
-      //             main_image: search_product[0].detail[0].main_image,
-      //             name: search_product[0].name,
-      //             normal_price: search_product[0].detail[0].normal_price,
-      //             product_id: search_product[0].id,
-      //             qty: item.qty,
-      //             select_date: true,
-      //             variant: search_product[0].detail[0].variant
-      //           }
-
-      //           return _item
-      //         })
-
-      //         return {
-      //           date: el.delivery_date,
-      //           items: list_items
-      //         }
-      //       })
-
-      //       this.$store.dispatch('setState', {
-      //         payload: {
-      //           key: 'dates',
-      //           data: list_dates
-      //         }
-      //       })
-
-      //       this.$store.dispatch('setState', {
-      //         payload: {
-      //           key: 'rp_order',
-      //           data: true
-      //         }
-      //       })
-      //     }
-      //   }
-      // }
     },
 
     async get_base_info(page) {
@@ -580,14 +456,8 @@ export default {
             data: request.data.response
           }
         })
-
-        if (this.customer.ex_callback && this.$route.name == 'site-store') {
-          // if (this.site.category != this.customer.ex_callback || this.site.category != 'all' || this.site.category.length) {
-          //   window.open(`https://shop.balesin.id/site/${this.site.store}?u=${this.site.uuid}&src=${this.site.source}&c=${this.customer.ex_callback}`, '_self')
-          // }
-        }
       } catch (error) {
-        // console.log(error)
+        console.error(error)
       }
     },
   }

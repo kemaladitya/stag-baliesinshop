@@ -15,14 +15,12 @@ async function create(request, response) {
     //     .json({ error: 'order failed! cart is already used.', status: false })
     // }
 
-    console.log('@check_cart |', check_cart)
     get_redis.status = 'unavailable'
+
     await set_cart(`${request.body.uuid}/${request.body.bot_name}`, "", get_redis)
 
     request.body.order.items = balesin.help.parse_order_items(get_redis)
     request.body.order.voucher_code = get_redis.voucher || ""
-
-    console.log(JSON.stringify(request.body, null, 2))
 
     const post_order = await balesin.api.shop.order(request.body)
 
@@ -34,10 +32,6 @@ async function create(request, response) {
     await del_cart(`${request.body.uuid}/${request.body.bot_name}/explink`, "")
     await del_cart(`${request.body.uuid}/${request.body.bot_name}`, "")
 
-    console.log("\n\n\n")
-    console.log(post_order)
-    console.log("\n\n\n")
-
     return response
       .json(
         post_order.data.hasOwnProperty("data")
@@ -46,6 +40,7 @@ async function create(request, response) {
       )
   } catch (error) {
     console.log(error)
+
     return response
       .status(404)
       .json({ error, status: false })
@@ -113,7 +108,7 @@ async function reorder(request, response) {
       response : short_link.data,
     })
   } catch (error) {
-    console.log("@reorder.error |", error)
+    console.error("@reorder.error |", error);
 
     return response.json({
       message  : String(error),
@@ -178,7 +173,7 @@ async function reorder_(bot_id, chatkey, outlet, source) {
       response : short_link.data,
     }
   } catch (error) {
-    console.log("@reorder.error |", error)
+    console.error("@reorder.error |", error);
 
     return {
       status   : "failed",

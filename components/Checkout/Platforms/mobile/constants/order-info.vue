@@ -181,8 +181,6 @@ export default {
         })
       }
 
-      // console.log('product', product)
-
       return total
     },
 
@@ -201,19 +199,12 @@ export default {
         this.subscription_cart.forEach(el => {
           if (is_valid === 1) {
             let total = 0
-            console.log(total)
 
             el.items.forEach(item => {
-              const find = this.list_product.filter(
-                product => product.id === item.id && product.SKU === item.sku
-              )
-
-              console.log('find', find)
+              const find = this.list_product.filter(product => product.id === item.id && product.SKU === item.sku)
 
               total += ((find[0].discount_price || find[0].normal_price) * item.qty)
             })
-
-            console.log('find', total)
 
             if (total > this.store.max_order) {
               is_valid = 2
@@ -233,13 +224,9 @@ export default {
 
         return ''
       }  else if (this.order_type === 'package-order') {
-        console.log('masuk sini')
         if (this.store.customize_setup) {
-          // console.log(, ' this.store.customize_setup')
           const order_type = this.package_cart[0].type
           const find_rules = JSON.parse(this.store.customize_setup).packaging.rules.detail.filter(el => el.type === order_type)
-
-          console.log("!@find_rules |", JSON.stringify(find_rules, null, 2))
 
           if (find_rules[0].min > this.general_total_order) {
             return `Minimum pembelian Rp ${find_rules[0].min.toLocaleString().replace(/,/g, '.')} belum tercapai. Silakan tambah lagi pesanan Anda.`

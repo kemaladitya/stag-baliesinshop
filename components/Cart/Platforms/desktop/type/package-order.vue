@@ -360,16 +360,6 @@ export default {
     //       normal_price   : el.normal_price,
     //       discount_price : el.discount_price
     //     })
-    //     console.log({
-    //       id             : el.id,
-    //       name           : el.name,
-    //       SKU            : el.SKU,
-    //       qty            : el.qty,
-    //       image          : el.main_image,
-    //       variant        : el.variant,
-    //       normal_price   : el.normal_price,
-    //       discount_price : el.discount_price
-    //     });
     //     this.expansion.push({ show: true })
     //   })
     // }
@@ -438,8 +428,6 @@ export default {
     },
 
     change_group_qty(status, index) {
-      console.log('change_group_qty', status, index)
-      console.log('this.list_items', this.list_items)
       this.list_items = this.list_items.filter((el, i) => {
         if (i == index) {
           if (status) {

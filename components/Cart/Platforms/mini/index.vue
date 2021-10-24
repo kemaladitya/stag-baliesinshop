@@ -222,8 +222,6 @@ export default {
         })
       }
 
-      // console.log('product', product)
-
       return total
     },
   },

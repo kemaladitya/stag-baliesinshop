@@ -15,7 +15,6 @@ class Cart {
   }
 
   set(payload) {
-    console.log(JSON.stringify(payload, null, 2))
     const validator_lv1 = payload.hasOwnProperty('store_name') &&
       payload.hasOwnProperty('source') &&
       payload.hasOwnProperty('method') &&

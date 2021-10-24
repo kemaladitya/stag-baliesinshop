@@ -1,4 +1,4 @@
-exports.ids = [98,70,73,74,75,76];
+exports.ids = [96,70,73,74,75,76];
 exports.modules = {
 
 /***/ 110:
@@ -6,10 +6,17 @@ exports.modules = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+
+/* *
+ * * get_list_products
+ * * cart_detail
+ * * manage_cart
+ * * cart_manager
+ */
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   get_list_products: async (self, data) => {
     try {
-      // console.log('*** get_product method ***')
       const request = await self.dispatch('request', {
         url: '/api/products',
         method: 'post',
@@ -17,21 +24,19 @@ __webpack_require__.r(__webpack_exports__);
       });
 
       if (request.data.status) {
-        // console.log(request.data.results, ' request.data.results')
         self.dispatch('setState', {
           payload: {
             key: 'products',
             data: request.data.results.sort((a, b) => b.priority - a.priority)
           }
-        }); // console.log(request.data, ' request.data')
-
+        });
         return true;
       }
 
       return request.data;
-    } catch (e) {
-      console.log(e);
-      return e;
+    } catch (error) {
+      console.error("@get_list_products |", error);
+      return error;
     }
   },
   cart_detail: async (self, data) => {
@@ -42,16 +47,12 @@ __webpack_require__.r(__webpack_exports__);
         data
       });
       const cart = request.data;
-      console.log(cart, ' cart full');
 
       if (cart && cart.status && cart.results) {
         if (cart.results.type === 'single-order') {
           if (cart.results.items.length) {
             const list_cart = cart.results.items.map(el => {
-              console.log(el.items, ' el items');
-              console.log(self.state, ' self.state.list_product');
               const search_product = self.state.products.filter(prod => prod.id === el.items[0].id);
-              console.log(search_product, ' search_product');
 
               if (search_product.length) {
                 search_product[0].select_date = true;
@@ -60,7 +61,6 @@ __webpack_require__.r(__webpack_exports__);
               }
             });
             const cleaned_cart = list_cart.filter(el => typeof el == 'object');
-            console.log(cleaned_cart, ' cleaned_cart');
             self.dispatch('setState', {
               payload: {
                 key: 'cart',
@@ -78,21 +78,14 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         if (cart.results.type === 'rp-order') {
-          console.log(cart.results, ' cart.results');
-
           if (cart.results.items.length) {
             const list_dates = cart.results.items.map(el => {
               const list_items = el.items.map(item => {
                 const search_product = self.state.products.filter(prod => {
-                  console.log(prod, ' prod get cart');
-                  console.log(el, ' variant get cart');
-
                   if (prod.id === item.id) {
                     return prod;
                   }
                 });
-                console.log(search_product, item, el);
-                console.log('search_product, item, el');
                 const _item = {
                   SKU: search_product[0].SKU,
                   detail_id: search_product[0].detail[0].detail_id,
@@ -132,7 +125,6 @@ __webpack_require__.r(__webpack_exports__);
                 items: merge_items
               };
             });
-            console.log(list_dates, ' list_dates');
             self.dispatch('setState', {
               payload: {
                 key: 'dates',
@@ -154,21 +146,15 @@ __webpack_require__.r(__webpack_exports__);
             }
           });
         }
-      } // const request = await self.dispatch('request', {
-      //   url: '/cache/cart',
-      //   method: 'post',
-      //   data
-      // })
-
+      }
 
       return request.data;
-    } catch (error) {// console.log(error)
+    } catch (error) {
+      console.error("@cart_detail |", error);
     }
   },
   manage_cart: async (self, data) => {
     try {
-      console.log('@manage.cart');
-      console.log('manage_cart', JSON.stringify(data, null, 2));
       const request = await self.dispatch('request', {
         url: '/cache/manage/cart',
         method: 'post',
@@ -178,7 +164,6 @@ __webpack_require__.r(__webpack_exports__);
       if ('status' in request) {
         return request;
       } else {
-        console.log('@cart_request_failed |', request);
         return {
           status: 404,
           data: {
@@ -187,50 +172,54 @@ __webpack_require__.r(__webpack_exports__);
         };
       }
     } catch (error) {
-      console.log('@manage_cart |', error);
+      console.error("@manage_cart |", error);
     }
   },
   cart_manager: async (self, data) => {
-    const request = await self.$store.dispatch('request', {
-      url: '/cart',
-      method: 'post',
-      data
-    });
-    console.log('!@cart_manager.request |', request.data);
-
-    if (request.status === 200 && request.data) {
-      self.$store.dispatch('setState', {
-        payload: {
-          key: 'order_type',
-          data: request.data.type || 'single-order'
-        }
+    try {
+      const request = await self.$store.dispatch("request", {
+        url: "/cart",
+        method: "post",
+        data
       });
-      const order_type = self.$store.state.order_type;
 
-      if (order_type === 'single-order') {
-        self.$store.dispatch('setState', {
+      if (request.status === 200 && request.data) {
+        self.$store.dispatch("setState", {
           payload: {
-            key: 'cart',
-            data: request.data.items
+            key: "order_type",
+            data: request.data.type || "single-order"
           }
         });
-      } else if (order_type === 'subscription-order') {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'subscription_cart',
-            data: request.data.items
-          }
-        });
-      } else if (order_type === 'package-order') {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'package_cart',
-            data: request.data.items
-          }
-        });
+        const order_type = self.$store.state.order_type;
+
+        if (order_type === "single-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "cart",
+              data: request.data.items
+            }
+          });
+        } else if (order_type === "subscription-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "subscription_cart",
+              data: request.data.items
+            }
+          });
+        } else if (order_type === "package-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "package_cart",
+              data: request.data.items
+            }
+          });
+        }
+
+        return request.data;
       }
-
-      return request.data;
+    } catch (error) {
+      console.error("@cart_manager |", error);
+      return null;
     }
   }
 });
@@ -268,7 +257,7 @@ function attachedRoot(node) {
 
 /***/ }),
 
-/***/ 113:
+/***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -539,7 +528,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__[/* default *
 
 /***/ }),
 
-/***/ 114:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -645,7 +634,7 @@ var VInput = __webpack_require__(129);
 var VIcon = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js + 1 modules
-var VLabel = __webpack_require__(114);
+var VLabel = __webpack_require__(113);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VMessages/VMessages.sass
 var VMessages = __webpack_require__(133);
@@ -720,7 +709,7 @@ var helpers = __webpack_require__(1);
 var binds_attrs = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
-var validatable = __webpack_require__(113);
+var validatable = __webpack_require__(112);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mergeData.js
 var mergeData = __webpack_require__(20);
@@ -1020,7 +1009,7 @@ const baseMixins = Object(mixins["a" /* default */])(binds_attrs["a" /* default 
 
 /***/ }),
 
-/***/ 124:
+/***/ 126:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -1034,7 +1023,7 @@ __webpack_require__(5).default("4f4f805e", content, true)
 
 /***/ }),
 
-/***/ 125:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1205,7 +1194,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VTextField/VTextField.sass
-var VTextField = __webpack_require__(124);
+var VTextField = __webpack_require__(126);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VInput/index.js + 3 modules
 var VInput = __webpack_require__(115);
@@ -1261,7 +1250,7 @@ var mixins = __webpack_require__(3);
 
 /* harmony default export */ var components_VCounter = (VCounter_VCounter);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js + 1 modules
-var VLabel = __webpack_require__(114);
+var VLabel = __webpack_require__(113);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/intersect/index.js
 var intersect = __webpack_require__(18);
@@ -1315,13 +1304,13 @@ function intersectable(options) {
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/loadable/index.js
-var loadable = __webpack_require__(34);
+var loadable = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
-var validatable = __webpack_require__(113);
+var validatable = __webpack_require__(112);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/resize/index.js
-var resize = __webpack_require__(125);
+var resize = __webpack_require__(127);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/ripple/index.js
 var ripple = __webpack_require__(39);
@@ -1859,13 +1848,13 @@ const dirtyTypes = ['color', 'file', 'time', 'date', 'datetime-local', 'week', '
 
 /***/ }),
 
-/***/ 213:
+/***/ 208:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(214);
+var content = __webpack_require__(209);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1873,7 +1862,7 @@ __webpack_require__(5).default("63c9496b", content, true)
 
 /***/ }),
 
-/***/ 214:
+/***/ 209:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1887,25 +1876,25 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 216:
+/***/ 212:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/merchant.84e4351.jpg";
 
 /***/ }),
 
-/***/ 240:
+/***/ 220:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/balesin-loading.889255e.gif";
 
 /***/ }),
 
-/***/ 283:
+/***/ 267:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(213);
+/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(208);
 /* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _VSheet_VSheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
@@ -2109,21 +2098,21 @@ module.exports = __webpack_require__.p + "img/balesin-loading.889255e.gif";
 
 /***/ }),
 
-/***/ 323:
+/***/ 322:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/mini.vue?vue&type=template&id=477a272e&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/mini.vue?vue&type=template&id=12684a88&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(216)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(212)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Merchant/Platforms/mini.vue?vue&type=template&id=477a272e&
+// CONCATENATED MODULE: ./components/Merchant/Platforms/mini.vue?vue&type=template&id=12684a88&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(110);
@@ -2463,8 +2452,6 @@ var General = __webpack_require__(110);
       this.scrollHeight = scrollHeight;
 
       if (scrollTop >= Math.floor(scrollHeight - clientHeight) - 1 && !this.end) {
-        console.log('im on bottom');
-        console.log(this.scroll);
         this.page += 1;
         this.get_list_merchant(this.page);
       } // this.scroll = window.scrollY || window.scrollTop
@@ -2533,7 +2520,6 @@ var General = __webpack_require__(110);
           u
         }
       } = this.$route;
-      console.log('@select_merchant |', merchant);
       this.$store.dispatch('setState', {
         payload: {
           key: 'merchant',
@@ -2543,179 +2529,7 @@ var General = __webpack_require__(110);
       this.$router.push(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`);
     }
 
-  } // computed: {
-  //   site() {
-  //     return this.$store.state.site
-  //   },
-  //   order_type() {
-  //     return this.$store.state.order_type
-  //   },
-  //   cart() {
-  //     return this.$store.state.cart
-  //   },
-  //   subscription_cart() {
-  //     return this.$store.state.subscription_cart
-  //   },
-  //   package_cart() {
-  //     return this.$store.state.package_cart
-  //   },
-  //   list_subscription_date() {
-  //     const dates = this.subscription_cart.map(el => el.date)
-  //     return dates
-  //   },
-  //   products() {
-  //     return this.$store.state.products
-  //   },
-  //   search_result() {
-  //     if (this.search_value.length) {
-  //       if (this.search_type === 'Nama') {
-  //         const results = this.products.filter(
-  //           ({ name }) => name.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //         )
-  //         return results
-  //       }
-  //       if (this.search_type === 'Kategori') {
-  //         const results = this.products.filter(
-  //           ({ category }) => category.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //         )
-  //         return results
-  //       }
-  //       if (this.search_type === 'Varian') {
-  //         const results = this.products.filter((el) => {
-  //           const find = el.variant.filter(({ name }) => name.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //           )
-  //           return find.length ? el : null
-  //         })
-  //         return results
-  //       }
-  //     }
-  //     return this.products
-  //   },
-  // },
-  // methods: {
-  //   async add_to_cart(id, detail_id, sku, qty) {
-  //     if (this.order_type === 'single-order') {
-  //       await this.add_single_order(id, detail_id, sku, qty)
-  //     } else if (this.order_type === 'subscription-order') {
-  //       this.target_subs_date = { id, detail_id, sku, qty }
-  //       this.sheet = true
-  //     }
-  //   },
-  //   async add_single_order(id, detail_id, sku, qty) {
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: true
-  //       }
-  //     })
-  //     await API.cart_manager(this, {
-  //       method: 'add',
-  //       info: {
-  //         mode: 'single-order',
-  //         item: { id, detail_id, sku, qty },
-  //         store: {
-  //           name   : this.site.store,
-  //           source : this.site.source,
-  //           uuid   : this.site.uuid,
-  //           outlet : this.site.category,
-  //         },
-  //       },
-  //     })
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: false
-  //       }
-  //     })
-  //   },
-  //   async add_subscription_order(date) {
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: true
-  //       }
-  //     })
-  //     const newval = []
-  //     this.subscription_cart.forEach(el => {
-  //       if (el.date === date) {
-  //         const list_ids = el.items.map(el => el.detail_id)
-  //         if (list_ids.includes(this.target_subs_date.detail_id)) {
-  //           el.items = el.items.filter(item => {
-  //             if (el.date === date && item.detail_id === this.target_subs_date.detail_id) {
-  //               item.qty += 1
-  //             }
-  //             return item
-  //           })
-  //         } else {
-  //           el.items.push({...this.target_subs_date, qty: 1})
-  //         }
-  //       }
-  //       newval.push(el)
-  //     })
-  //     console.log(JSON.stringify(newval, null, 2))
-  //     await API.cart_manager(this, {
-  //       method: 'set',
-  //       info: {
-  //         mode : 'subscription-order',
-  //         item : newval,
-  //         store: {
-  //           name   : this.site.store,
-  //           source : this.site.source,
-  //           uuid   : this.site.uuid,
-  //           outlet : this.site.category,
-  //         },
-  //       },
-  //     })
-  //     this.target_subs_date = null
-  //     this.sheet = false
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: false
-  //       }
-  //     })
-  //   },
-  //   count_total_order(items) {
-  //     console.log('@count_total_order |', items)
-  //     let total = 0
-  //     let item  = 0
-  //     items.forEach(el => {
-  //       const find = this.products.filter(
-  //         product => product.id === el.id && product.SKU === el.sku
-  //       )
-  //       if (find.length) {
-  //         total += (find[0].discount_price || find[0].normal_price) * el.qty
-  //         item  += el.qty
-  //       }
-  //     })
-  //     return { total, item }
-  //   },
-  //   parse_date(date) {
-  //     const list_month = [
-  //       '',
-  //       'Jan',
-  //       'Feb',
-  //       'Mar',
-  //       'Apr',
-  //       'May',
-  //       'Jun',
-  //       'Jul',
-  //       'Aug',
-  //       'Sep',
-  //       'Oct',
-  //       'Nov',
-  //       'Dec',
-  //     ]
-  //     const day = date.split('-')[2]
-  //     const month = list_month[+date.split('-')[1]]
-  //     const years = date.split('-')[0]
-  //     return `${day} ${month} ${years}`
-  //   }
-  // }
-
+  }
 });
 // CONCATENATED MODULE: ./components/Merchant/Platforms/mini.vue?vue&type=script&lang=js&
  /* harmony default export */ var Platforms_minivue_type_script_lang_js_ = (minivue_type_script_lang_js_); 
@@ -2739,10 +2553,7 @@ var VTextField = __webpack_require__(147);
 
 
 
-function injectStyles (context) {
-  
-  
-}
+
 
 /* normalize component */
 
@@ -2751,7 +2562,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   render,
   staticRenderFns,
   false,
-  injectStyles,
+  null,
   null,
   "1be5ce83"
   
@@ -2769,21 +2580,21 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 324:
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/mobile.vue?vue&type=template&id=0e948898&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/mobile.vue?vue&type=template&id=3c04095e&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(216)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(212)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Merchant/Platforms/mobile.vue?vue&type=template&id=0e948898&
+// CONCATENATED MODULE: ./components/Merchant/Platforms/mobile.vue?vue&type=template&id=3c04095e&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(110);
@@ -3123,8 +2934,6 @@ var General = __webpack_require__(110);
       this.scrollHeight = scrollHeight;
 
       if (scrollTop >= Math.floor(scrollHeight - clientHeight) - 1 && !this.end) {
-        console.log('im on bottom');
-        console.log(this.scroll);
         this.page += 1;
         this.get_list_merchant(this.page);
       } // this.scroll = window.scrollY || window.scrollTop
@@ -3193,7 +3002,6 @@ var General = __webpack_require__(110);
           u
         }
       } = this.$route;
-      console.log('@select_merchant |', merchant);
       this.$store.dispatch('setState', {
         payload: {
           key: 'merchant',
@@ -3203,179 +3011,7 @@ var General = __webpack_require__(110);
       this.$router.push(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`);
     }
 
-  } // computed: {
-  //   site() {
-  //     return this.$store.state.site
-  //   },
-  //   order_type() {
-  //     return this.$store.state.order_type
-  //   },
-  //   cart() {
-  //     return this.$store.state.cart
-  //   },
-  //   subscription_cart() {
-  //     return this.$store.state.subscription_cart
-  //   },
-  //   package_cart() {
-  //     return this.$store.state.package_cart
-  //   },
-  //   list_subscription_date() {
-  //     const dates = this.subscription_cart.map(el => el.date)
-  //     return dates
-  //   },
-  //   products() {
-  //     return this.$store.state.products
-  //   },
-  //   search_result() {
-  //     if (this.search_value.length) {
-  //       if (this.search_type === 'Nama') {
-  //         const results = this.products.filter(
-  //           ({ name }) => name.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //         )
-  //         return results
-  //       }
-  //       if (this.search_type === 'Kategori') {
-  //         const results = this.products.filter(
-  //           ({ category }) => category.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //         )
-  //         return results
-  //       }
-  //       if (this.search_type === 'Varian') {
-  //         const results = this.products.filter((el) => {
-  //           const find = el.variant.filter(({ name }) => name.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //           )
-  //           return find.length ? el : null
-  //         })
-  //         return results
-  //       }
-  //     }
-  //     return this.products
-  //   },
-  // },
-  // methods: {
-  //   async add_to_cart(id, detail_id, sku, qty) {
-  //     if (this.order_type === 'single-order') {
-  //       await this.add_single_order(id, detail_id, sku, qty)
-  //     } else if (this.order_type === 'subscription-order') {
-  //       this.target_subs_date = { id, detail_id, sku, qty }
-  //       this.sheet = true
-  //     }
-  //   },
-  //   async add_single_order(id, detail_id, sku, qty) {
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: true
-  //       }
-  //     })
-  //     await API.cart_manager(this, {
-  //       method: 'add',
-  //       info: {
-  //         mode: 'single-order',
-  //         item: { id, detail_id, sku, qty },
-  //         store: {
-  //           name   : this.site.store,
-  //           source : this.site.source,
-  //           uuid   : this.site.uuid,
-  //           outlet : this.site.category,
-  //         },
-  //       },
-  //     })
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: false
-  //       }
-  //     })
-  //   },
-  //   async add_subscription_order(date) {
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: true
-  //       }
-  //     })
-  //     const newval = []
-  //     this.subscription_cart.forEach(el => {
-  //       if (el.date === date) {
-  //         const list_ids = el.items.map(el => el.detail_id)
-  //         if (list_ids.includes(this.target_subs_date.detail_id)) {
-  //           el.items = el.items.filter(item => {
-  //             if (el.date === date && item.detail_id === this.target_subs_date.detail_id) {
-  //               item.qty += 1
-  //             }
-  //             return item
-  //           })
-  //         } else {
-  //           el.items.push({...this.target_subs_date, qty: 1})
-  //         }
-  //       }
-  //       newval.push(el)
-  //     })
-  //     console.log(JSON.stringify(newval, null, 2))
-  //     await API.cart_manager(this, {
-  //       method: 'set',
-  //       info: {
-  //         mode : 'subscription-order',
-  //         item : newval,
-  //         store: {
-  //           name   : this.site.store,
-  //           source : this.site.source,
-  //           uuid   : this.site.uuid,
-  //           outlet : this.site.category,
-  //         },
-  //       },
-  //     })
-  //     this.target_subs_date = null
-  //     this.sheet = false
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: false
-  //       }
-  //     })
-  //   },
-  //   count_total_order(items) {
-  //     console.log('@count_total_order |', items)
-  //     let total = 0
-  //     let item  = 0
-  //     items.forEach(el => {
-  //       const find = this.products.filter(
-  //         product => product.id === el.id && product.SKU === el.sku
-  //       )
-  //       if (find.length) {
-  //         total += (find[0].discount_price || find[0].normal_price) * el.qty
-  //         item  += el.qty
-  //       }
-  //     })
-  //     return { total, item }
-  //   },
-  //   parse_date(date) {
-  //     const list_month = [
-  //       '',
-  //       'Jan',
-  //       'Feb',
-  //       'Mar',
-  //       'Apr',
-  //       'May',
-  //       'Jun',
-  //       'Jul',
-  //       'Aug',
-  //       'Sep',
-  //       'Oct',
-  //       'Nov',
-  //       'Dec',
-  //     ]
-  //     const day = date.split('-')[2]
-  //     const month = list_month[+date.split('-')[1]]
-  //     const years = date.split('-')[0]
-  //     return `${day} ${month} ${years}`
-  //   }
-  // }
-
+  }
 });
 // CONCATENATED MODULE: ./components/Merchant/Platforms/mobile.vue?vue&type=script&lang=js&
  /* harmony default export */ var Platforms_mobilevue_type_script_lang_js_ = (mobilevue_type_script_lang_js_); 
@@ -3399,10 +3035,7 @@ var VTextField = __webpack_require__(147);
 
 
 
-function injectStyles (context) {
-  
-  
-}
+
 
 /* normalize component */
 
@@ -3411,7 +3044,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   render,
   staticRenderFns,
   false,
-  injectStyles,
+  null,
   null,
   "8514af64"
   
@@ -3429,21 +3062,21 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 325:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/desktop.vue?vue&type=template&id=f63797b0&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/desktop.vue?vue&type=template&id=e1093426&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(216)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(212)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Merchant/Platforms/desktop.vue?vue&type=template&id=f63797b0&
+// CONCATENATED MODULE: ./components/Merchant/Platforms/desktop.vue?vue&type=template&id=e1093426&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(110);
@@ -3783,8 +3416,6 @@ var General = __webpack_require__(110);
       this.scrollHeight = scrollHeight;
 
       if (scrollTop >= Math.floor(scrollHeight - clientHeight) - 1 && !this.end) {
-        console.log('im on bottom');
-        console.log(this.scroll);
         this.page += 1;
         this.get_list_merchant(this.page);
       } // this.scroll = window.scrollY || window.scrollTop
@@ -3853,7 +3484,6 @@ var General = __webpack_require__(110);
           u
         }
       } = this.$route;
-      console.log('@select_merchant |', merchant);
       this.$store.dispatch('setState', {
         payload: {
           key: 'merchant',
@@ -3863,179 +3493,7 @@ var General = __webpack_require__(110);
       this.$router.push(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`);
     }
 
-  } // computed: {
-  //   site() {
-  //     return this.$store.state.site
-  //   },
-  //   order_type() {
-  //     return this.$store.state.order_type
-  //   },
-  //   cart() {
-  //     return this.$store.state.cart
-  //   },
-  //   subscription_cart() {
-  //     return this.$store.state.subscription_cart
-  //   },
-  //   package_cart() {
-  //     return this.$store.state.package_cart
-  //   },
-  //   list_subscription_date() {
-  //     const dates = this.subscription_cart.map(el => el.date)
-  //     return dates
-  //   },
-  //   products() {
-  //     return this.$store.state.products
-  //   },
-  //   search_result() {
-  //     if (this.search_value.length) {
-  //       if (this.search_type === 'Nama') {
-  //         const results = this.products.filter(
-  //           ({ name }) => name.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //         )
-  //         return results
-  //       }
-  //       if (this.search_type === 'Kategori') {
-  //         const results = this.products.filter(
-  //           ({ category }) => category.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //         )
-  //         return results
-  //       }
-  //       if (this.search_type === 'Varian') {
-  //         const results = this.products.filter((el) => {
-  //           const find = el.variant.filter(({ name }) => name.toLowerCase()
-  //             .includes(this.search_value.toLowerCase())
-  //           )
-  //           return find.length ? el : null
-  //         })
-  //         return results
-  //       }
-  //     }
-  //     return this.products
-  //   },
-  // },
-  // methods: {
-  //   async add_to_cart(id, detail_id, sku, qty) {
-  //     if (this.order_type === 'single-order') {
-  //       await this.add_single_order(id, detail_id, sku, qty)
-  //     } else if (this.order_type === 'subscription-order') {
-  //       this.target_subs_date = { id, detail_id, sku, qty }
-  //       this.sheet = true
-  //     }
-  //   },
-  //   async add_single_order(id, detail_id, sku, qty) {
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: true
-  //       }
-  //     })
-  //     await API.cart_manager(this, {
-  //       method: 'add',
-  //       info: {
-  //         mode: 'single-order',
-  //         item: { id, detail_id, sku, qty },
-  //         store: {
-  //           name   : this.site.store,
-  //           source : this.site.source,
-  //           uuid   : this.site.uuid,
-  //           outlet : this.site.category,
-  //         },
-  //       },
-  //     })
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: false
-  //       }
-  //     })
-  //   },
-  //   async add_subscription_order(date) {
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: true
-  //       }
-  //     })
-  //     const newval = []
-  //     this.subscription_cart.forEach(el => {
-  //       if (el.date === date) {
-  //         const list_ids = el.items.map(el => el.detail_id)
-  //         if (list_ids.includes(this.target_subs_date.detail_id)) {
-  //           el.items = el.items.filter(item => {
-  //             if (el.date === date && item.detail_id === this.target_subs_date.detail_id) {
-  //               item.qty += 1
-  //             }
-  //             return item
-  //           })
-  //         } else {
-  //           el.items.push({...this.target_subs_date, qty: 1})
-  //         }
-  //       }
-  //       newval.push(el)
-  //     })
-  //     console.log(JSON.stringify(newval, null, 2))
-  //     await API.cart_manager(this, {
-  //       method: 'set',
-  //       info: {
-  //         mode : 'subscription-order',
-  //         item : newval,
-  //         store: {
-  //           name   : this.site.store,
-  //           source : this.site.source,
-  //           uuid   : this.site.uuid,
-  //           outlet : this.site.category,
-  //         },
-  //       },
-  //     })
-  //     this.target_subs_date = null
-  //     this.sheet = false
-  //     this.$store.dispatch('setState', {
-  //       payload: {
-  //         key: 'loading',
-  //         data: false
-  //       }
-  //     })
-  //   },
-  //   count_total_order(items) {
-  //     console.log('@count_total_order |', items)
-  //     let total = 0
-  //     let item  = 0
-  //     items.forEach(el => {
-  //       const find = this.products.filter(
-  //         product => product.id === el.id && product.SKU === el.sku
-  //       )
-  //       if (find.length) {
-  //         total += (find[0].discount_price || find[0].normal_price) * el.qty
-  //         item  += el.qty
-  //       }
-  //     })
-  //     return { total, item }
-  //   },
-  //   parse_date(date) {
-  //     const list_month = [
-  //       '',
-  //       'Jan',
-  //       'Feb',
-  //       'Mar',
-  //       'Apr',
-  //       'May',
-  //       'Jun',
-  //       'Jul',
-  //       'Aug',
-  //       'Sep',
-  //       'Oct',
-  //       'Nov',
-  //       'Dec',
-  //     ]
-  //     const day = date.split('-')[2]
-  //     const month = list_month[+date.split('-')[1]]
-  //     const years = date.split('-')[0]
-  //     return `${day} ${month} ${years}`
-  //   }
-  // }
-
+  }
 });
 // CONCATENATED MODULE: ./components/Merchant/Platforms/desktop.vue?vue&type=script&lang=js&
  /* harmony default export */ var Platforms_desktopvue_type_script_lang_js_ = (desktopvue_type_script_lang_js_); 
@@ -4089,7 +3547,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 334:
+/***/ 330:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4104,13 +3562,13 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Merchant/index.vue?vue&type=template&id=613bc644&
 
 // EXTERNAL MODULE: ./components/Merchant/Platforms/mini.vue + 4 modules
-var mini = __webpack_require__(323);
+var mini = __webpack_require__(322);
 
 // EXTERNAL MODULE: ./components/Merchant/Platforms/mobile.vue + 4 modules
-var mobile = __webpack_require__(324);
+var mobile = __webpack_require__(323);
 
 // EXTERNAL MODULE: ./components/Merchant/Platforms/desktop.vue + 4 modules
-var desktop = __webpack_require__(325);
+var desktop = __webpack_require__(324);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/index.vue?vue&type=script&lang=js&
 //
@@ -4183,7 +3641,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 387:
+/***/ 372:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4191,14 +3649,14 @@ var component = Object(componentNormalizer["a" /* default */])(
 __webpack_require__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/merchant/index.vue?vue&type=template&id=bcf44876&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-card',{staticClass:"pt-12 mb-12",attrs:{"id":"b-list-products","flat":"","tile":""}},[_c('v-progress-linear',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading),expression:"loading"}],staticStyle:{"z-index":"9999 !important"},attrs:{"color":"blue darken-2","height":"3","indeterminate":""}}),_vm._v(" "),_c('v-card',{staticClass:"pl-1 pr-1",staticStyle:{"width":"100%"},attrs:{"flat":"","tile":""}},[(_vm.loading_merchant)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"30vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(240),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n              Mohon menunggu...\n            ")])],1)])],1):_c('div',[_c('Merchant',{attrs:{"loadingmerchant":_vm.loading_merchant}})],1)],1),_vm._v(" "),_c('v-snackbar',{model:{value:(_vm.snackbar),callback:function ($$v) {_vm.snackbar=$$v},expression:"snackbar"}},[_vm._v("information")])],1)],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-card',{staticClass:"pt-12 mb-12",attrs:{"id":"b-list-products","flat":"","tile":""}},[_c('v-progress-linear',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading),expression:"loading"}],staticStyle:{"z-index":"9999 !important"},attrs:{"color":"blue darken-2","height":"3","indeterminate":""}}),_vm._v(" "),_c('v-card',{staticClass:"pl-1 pr-1",staticStyle:{"width":"100%"},attrs:{"flat":"","tile":""}},[(_vm.loading_merchant)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"30vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(220),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n              Mohon menunggu...\n            ")])],1)])],1):_c('div',[_c('Merchant',{attrs:{"loadingmerchant":_vm.loading_merchant}})],1)],1),_vm._v(" "),_c('v-snackbar',{model:{value:(_vm.snackbar),callback:function ($$v) {_vm.snackbar=$$v},expression:"snackbar"}},[_vm._v("information")])],1)],1)}
 var staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./pages/site/_store/merchant/index.vue?vue&type=template&id=bcf44876&
 
 // EXTERNAL MODULE: ./components/Merchant/index.vue + 4 modules
-var Merchant = __webpack_require__(334);
+var Merchant = __webpack_require__(330);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/merchant/index.vue?vue&type=script&lang=js&
 //
@@ -4345,7 +3803,7 @@ var VImg = __webpack_require__(57);
 var VProgressLinear = __webpack_require__(36);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js
-var VSnackbar = __webpack_require__(283);
+var VSnackbar = __webpack_require__(267);
 
 // CONCATENATED MODULE: ./pages/site/_store/merchant/index.vue
 
@@ -4369,7 +3827,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var merchant = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(component, {Merchant: __webpack_require__(334).default})
+installComponents_default()(component, {Merchant: __webpack_require__(330).default})
 
 
 /* vuetify-loader */

@@ -164,8 +164,6 @@ export default {
         this.dates.forEach(el => {
           const filtered = el.items.filter(item => item.select_date)
 
-          // console.log(filtered, ' filtered')
-
           if (filtered.length) {
             merge_cart.push(...filtered)
           }
@@ -202,8 +200,8 @@ export default {
     try {
       // console.log = () => ''
       // console.info = () => ''
-      // console.warn = () => ''
-      // console.clear()
+      console.warn = () => ''
+      console.clear()
 
       this.$store.dispatch('setState', {
         payload: {
@@ -222,9 +220,8 @@ export default {
           data: this.$route.fullPath
         }
       })
-      // console.log(, ' this.$route')
     } catch (error) {
-      // console.log(error)
+      console.error(error)
 
       return error
     }
@@ -244,8 +241,6 @@ export default {
           category: c,
         }
       })
-
-      console.log('@check_area |', check_area)
 
       if (!check_area.data.status) {
         this.$router.push('/error/link/expired')
@@ -271,7 +266,6 @@ export default {
 
     if (process.browser) {
       if (window.innerWidth <= 375) {
-        console.log('mini')
         self.$store.dispatch('setState', {
           payload: {
             key: 'screen',
@@ -279,7 +273,6 @@ export default {
           }
         })
       } else if (window.innerWidth <= 650) {
-        console.log('mobile')
         self.$store.dispatch('setState', {
           payload: {
             key: 'screen',
@@ -334,10 +327,7 @@ export default {
       const self = this
       this.windowWidth = document.documentElement.clientWidth
 
-      // console.log(this.windowWidth, ' this.windowWidth')
-
       if (this.windowWidth <= 390) {
-        console.log('mini')
         self.$store.dispatch('setState', {
           payload: {
             key: 'screen',
@@ -345,7 +335,6 @@ export default {
           }
         })
       } else if (this.windowWidth <= 650) {
-        console.log('mobile')
         self.$store.dispatch('setState', {
           payload: {
             key: 'screen',
@@ -364,14 +353,6 @@ export default {
 
     getWindowHeight(event) {
       this.windowHeight = document.documentElement.clientHeight
-    },
-
-    get_rp_total_qty() {
-
-    },
-
-    get_so_total_qty() {
-
     },
 
     async get_base_info(page) {
@@ -418,14 +399,8 @@ export default {
             data: request.data.response
           }
         })
-
-        if (this.customer.ex_callback && this.$route.name == 'site-store') {
-          // if (this.site.category != this.customer.ex_callback || this.site.category != 'all' || this.site.category.length) {
-          //   window.open(`https://shop.balesin.id/site/${this.site.store}?u=${this.site.uuid}&src=${this.site.source}&c=${this.customer.ex_callback}`, '_self')
-          // }
-        }
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     },
   }

@@ -274,7 +274,6 @@ export default {
     },
 
     subs_controller(e) {
-      // console.log('@subs_controller', e)
       if (e) {
         this.$store.dispatch('setState', {
           payload: {
@@ -283,8 +282,6 @@ export default {
           }
         })
         this.subs_mode = false
-
-        // this.update_cache('single-order')
       } else {
         this.subs_mode = e
         this.$store.dispatch('setState', {
@@ -293,7 +290,6 @@ export default {
             data: 'single-order'
           }
         })
-        // this.update_cache('rp-order')
       }
     },
 
@@ -348,7 +344,7 @@ export default {
           // }
         }
       } catch (error) {
-        console.log(error)
+        console.error(error)
       }
     },
   }

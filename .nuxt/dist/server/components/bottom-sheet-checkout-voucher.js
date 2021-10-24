@@ -1,13 +1,13 @@
 exports.ids = [5];
 exports.modules = {
 
-/***/ 126:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(127);
+var content = __webpack_require__(125);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -15,7 +15,7 @@ __webpack_require__(5).default("7132a15d", content, true)
 
 /***/ }),
 
-/***/ 127:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -33,7 +33,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(126);
+/* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(124);
 /* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 // Styles
@@ -75,19 +75,19 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 345:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=3c55c71a&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=e06e385a&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-sheet',{staticStyle:{"text-align":"left"}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"pl-2",staticStyle:{"align-self":"center","font-size":"13px","font-weight":"600"}},[_vm._v("\n      Voucher Tersedia\n    ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","text":"","color":"red"},on:{"click":function($event){return _vm.changehandler('voucher', false)}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('div',{staticClass:"pb-2",staticStyle:{"overflow-y":"scroll !important","max-height":"450px !important"}},[_vm._l((_vm.all_voucher),function(vc,idx){return _c('v-card',{key:vc.id,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n          "+_vm._s(vc.name)+"\n        ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)}),_vm._v(" "),(_vm.rp_order)?_c('div',[_vm._l((_vm.rp_voucher),function(vc,idx){return _c('v-card',{key:vc.id,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":"","disabled":!_vm.rp_order},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n            "+_vm._s(vc.name)+"\n          ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)}),_vm._v(" "),(_vm.customvoucher)?_c('v-card',{staticClass:"pa-2 pl-0",attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: true, value: true })}}},[_c('div',{staticClass:"mb-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n            Ketik Kode Voucher\n          ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("\n            Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.\n          ")])])],1):_vm._e(),_vm._v(" "),_vm._l((_vm.so_voucher),function(vc,idx){return _c('v-card',{key:vc.id,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":"","disabled":_vm.rp_order},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n            "+_vm._s(vc.name)+"\n          ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)})],2):_c('div',[_vm._l((_vm.so_voucher),function(vc,idx){return _c('v-card',{key:vc.id,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":"","disabled":_vm.rp_order},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n            "+_vm._s(vc.name)+"\n          ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)}),_vm._v(" "),(_vm.customvoucher)?_c('v-card',{staticClass:"pa-2 pl-0",attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":""},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: true, value: true })}}},[_c('div',{staticClass:"mb-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n            Ketik Kode Voucher\n          ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px"}},[_vm._v("\n            Ketik Kode Voucher yang Anda miliki untuk dapatkan promo.\n          ")])])],1):_vm._e(),_vm._v(" "),_vm._l((_vm.rp_voucher),function(vc,idx){return _c('v-card',{key:vc.id,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",attrs:{"outlined":"","disabled":!_vm.rp_order},on:{"click":function($event){return _vm.usevoucher({ is_custom_voucher: false, value: vc })}}},[_c('div',{staticClass:"pb-1",staticStyle:{"font-weight":"600","font-size":"13px"}},[_vm._v("\n            "+_vm._s(vc.name)+"\n          ")]),_vm._v(" "),_c('div',{domProps:{"innerHTML":_vm._s(vc.description)}})])],1)})],2)],2)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=3c55c71a&
+// CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=template&id=e06e385a&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/voucher.vue?vue&type=script&lang=js&
 //
@@ -265,11 +265,6 @@ var staticRenderFns = []
       required: true
     }
   },
-
-  mounted() {
-    console.log(this.listvouchers, ' this.listvouchers');
-  },
-
   computed: {
     site() {
       return this.$store.state.site;

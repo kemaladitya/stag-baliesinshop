@@ -230,8 +230,6 @@ export default {
         }
       })
 
-      console.log('product', product)
-
       return product
     },
 
@@ -299,26 +297,11 @@ export default {
     },
 
     date_parser(date) {
-      console.log(date, 'date_parser')
-      const _ = date.split('-')
-      const day = _[2]
-      const month = _[1]
-      const years = _[0]
-      const _month = [
-        '',
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ]
+      const _      = date.split('-')
+      const day    = _[2]
+      const month  = _[1]
+      const years  = _[0]
+      const _month = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
       return `${day} ${_month[+month]} ${years}`
     }

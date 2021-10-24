@@ -1,19 +1,19 @@
 exports.ids = [90];
 exports.modules = {
 
-/***/ 391:
+/***/ 375:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=ecb94bca&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=template&id=359a60ba&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-3 pt-12",staticStyle:{"overflow-y":"scroll !important","max-height":"100vh"}},[_c('center',{staticClass:"mb-8",staticStyle:{"margin-top":"20vh"}},[_c('v-img',{attrs:{"src":"https://faq.balesin.id/icon.ico","width":"210"}}),_vm._v(" "),_c('div',{staticClass:"mt-6",staticStyle:{"font-weight":"600"}},[_vm._v("\n      balesin - Shop\n    ")]),_vm._v(" "),_c('div',{staticClass:"mt-6",staticStyle:{"font-weight":"600"}},[_vm._v("\n      Silakan chat ke nomor WhatsApp store untuk membuka katalog produk.\n    ")])],1),_vm._ssrNode(" "),_c('v-card',{attrs:{"height":"5vh","flat":""}})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=ecb94bca&
+// CONCATENATED MODULE: ./pages/index.vue?vue&type=template&id=359a60ba&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/index.vue?vue&type=script&lang=js&
 //
@@ -70,7 +70,6 @@ var staticRenderFns = []
         this.$router.replace(`/site/${bot_name}?u=${uuid}&src=${find_user.data.source}&c=${find_user.data.category}`);
       } else {
         this.$router.replace(`/site/${bot_name}?u=${uuid}&src=web-url&c=all`);
-        console.log('access danied.');
       }
     },
 

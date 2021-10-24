@@ -178,10 +178,6 @@ export default {
     }
   },
 
-  mounted() {
-    console.log(this.listvouchers, ' this.listvouchers')
-  },
-
   computed: {
     site() {
       return this.$store.state.site

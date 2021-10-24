@@ -6,10 +6,17 @@ exports.modules = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+
+/* *
+ * * get_list_products
+ * * cart_detail
+ * * manage_cart
+ * * cart_manager
+ */
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   get_list_products: async (self, data) => {
     try {
-      // console.log('*** get_product method ***')
       const request = await self.dispatch('request', {
         url: '/api/products',
         method: 'post',
@@ -17,21 +24,19 @@ __webpack_require__.r(__webpack_exports__);
       });
 
       if (request.data.status) {
-        // console.log(request.data.results, ' request.data.results')
         self.dispatch('setState', {
           payload: {
             key: 'products',
             data: request.data.results.sort((a, b) => b.priority - a.priority)
           }
-        }); // console.log(request.data, ' request.data')
-
+        });
         return true;
       }
 
       return request.data;
-    } catch (e) {
-      console.log(e);
-      return e;
+    } catch (error) {
+      console.error("@get_list_products |", error);
+      return error;
     }
   },
   cart_detail: async (self, data) => {
@@ -42,16 +47,12 @@ __webpack_require__.r(__webpack_exports__);
         data
       });
       const cart = request.data;
-      console.log(cart, ' cart full');
 
       if (cart && cart.status && cart.results) {
         if (cart.results.type === 'single-order') {
           if (cart.results.items.length) {
             const list_cart = cart.results.items.map(el => {
-              console.log(el.items, ' el items');
-              console.log(self.state, ' self.state.list_product');
               const search_product = self.state.products.filter(prod => prod.id === el.items[0].id);
-              console.log(search_product, ' search_product');
 
               if (search_product.length) {
                 search_product[0].select_date = true;
@@ -60,7 +61,6 @@ __webpack_require__.r(__webpack_exports__);
               }
             });
             const cleaned_cart = list_cart.filter(el => typeof el == 'object');
-            console.log(cleaned_cart, ' cleaned_cart');
             self.dispatch('setState', {
               payload: {
                 key: 'cart',
@@ -78,21 +78,14 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         if (cart.results.type === 'rp-order') {
-          console.log(cart.results, ' cart.results');
-
           if (cart.results.items.length) {
             const list_dates = cart.results.items.map(el => {
               const list_items = el.items.map(item => {
                 const search_product = self.state.products.filter(prod => {
-                  console.log(prod, ' prod get cart');
-                  console.log(el, ' variant get cart');
-
                   if (prod.id === item.id) {
                     return prod;
                   }
                 });
-                console.log(search_product, item, el);
-                console.log('search_product, item, el');
                 const _item = {
                   SKU: search_product[0].SKU,
                   detail_id: search_product[0].detail[0].detail_id,
@@ -132,7 +125,6 @@ __webpack_require__.r(__webpack_exports__);
                 items: merge_items
               };
             });
-            console.log(list_dates, ' list_dates');
             self.dispatch('setState', {
               payload: {
                 key: 'dates',
@@ -154,21 +146,15 @@ __webpack_require__.r(__webpack_exports__);
             }
           });
         }
-      } // const request = await self.dispatch('request', {
-      //   url: '/cache/cart',
-      //   method: 'post',
-      //   data
-      // })
-
+      }
 
       return request.data;
-    } catch (error) {// console.log(error)
+    } catch (error) {
+      console.error("@cart_detail |", error);
     }
   },
   manage_cart: async (self, data) => {
     try {
-      console.log('@manage.cart');
-      console.log('manage_cart', JSON.stringify(data, null, 2));
       const request = await self.dispatch('request', {
         url: '/cache/manage/cart',
         method: 'post',
@@ -178,7 +164,6 @@ __webpack_require__.r(__webpack_exports__);
       if ('status' in request) {
         return request;
       } else {
-        console.log('@cart_request_failed |', request);
         return {
           status: 404,
           data: {
@@ -187,64 +172,68 @@ __webpack_require__.r(__webpack_exports__);
         };
       }
     } catch (error) {
-      console.log('@manage_cart |', error);
+      console.error("@manage_cart |", error);
     }
   },
   cart_manager: async (self, data) => {
-    const request = await self.$store.dispatch('request', {
-      url: '/cart',
-      method: 'post',
-      data
-    });
-    console.log('!@cart_manager.request |', request.data);
-
-    if (request.status === 200 && request.data) {
-      self.$store.dispatch('setState', {
-        payload: {
-          key: 'order_type',
-          data: request.data.type || 'single-order'
-        }
+    try {
+      const request = await self.$store.dispatch("request", {
+        url: "/cart",
+        method: "post",
+        data
       });
-      const order_type = self.$store.state.order_type;
 
-      if (order_type === 'single-order') {
-        self.$store.dispatch('setState', {
+      if (request.status === 200 && request.data) {
+        self.$store.dispatch("setState", {
           payload: {
-            key: 'cart',
-            data: request.data.items
+            key: "order_type",
+            data: request.data.type || "single-order"
           }
         });
-      } else if (order_type === 'subscription-order') {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'subscription_cart',
-            data: request.data.items
-          }
-        });
-      } else if (order_type === 'package-order') {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'package_cart',
-            data: request.data.items
-          }
-        });
+        const order_type = self.$store.state.order_type;
+
+        if (order_type === "single-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "cart",
+              data: request.data.items
+            }
+          });
+        } else if (order_type === "subscription-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "subscription_cart",
+              data: request.data.items
+            }
+          });
+        } else if (order_type === "package-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "package_cart",
+              data: request.data.items
+            }
+          });
+        }
+
+        return request.data;
       }
-
-      return request.data;
+    } catch (error) {
+      console.error("@cart_manager |", error);
+      return null;
     }
   }
 });
 
 /***/ }),
 
-/***/ 260:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/type/single-order.vue?vue&type=template&id=88400aac&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mobile/type/single-order.vue?vue&type=template&id=7df4d58c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.cart.length)?_vm._ssrNode("<div>","</div>",_vm._l((_vm.parsed_lists.product),function(item,index){return _vm._ssrNode("<div>","</div>",[_c('v-card',{staticClass:"d-flex flex-row ma-1 mb-2 pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"ma-1 pt-6",attrs:{"width":"25","flat":"","depressed":""},on:{"click":function($event){return _vm.manage_cart(item.id, item.detail_id, item.sku, 0, 'remove')}}},[_c('center',[_c('v-icon',{attrs:{"color":"red","small":""}},[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{staticClass:"ma-2 ml-0",attrs:{"flat":"","outlined":""}},[_c('v-img',{attrs:{"src":item.main_image,"width":"65","height":"65","loading":"lazy"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"13px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n              "+_vm._s(item.name)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600"}},[(item.is_promo)?_c('div',[_vm._v("\n                  Rp "+_vm._s(item.discount_price
                       .toLocaleString()
                       .replace(/,/g, '.'))+", -\n                ")]):_vm._e(),_vm._v(" "),_c('div',{style:(item.is_promo
@@ -255,7 +244,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/type/single-order.vue?vue&type=template&id=88400aac&
+// CONCATENATED MODULE: ./components/Cart/Platforms/mobile/type/single-order.vue?vue&type=template&id=7df4d58c&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(110);
@@ -450,7 +439,6 @@ var General = __webpack_require__(110);
   },
   methods: {
     async manage_cart(id, detail_id, sku, qty, method) {
-      console.log(id, detail_id, sku, qty, method);
       this.$store.dispatch('setState', {
         payload: {
           key: 'loading',

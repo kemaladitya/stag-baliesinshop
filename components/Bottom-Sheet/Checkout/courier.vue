@@ -72,18 +72,16 @@ export default {
   },
 
   mounted() {
-    console.log(this.store.courier, ' this.store.courier')
-    if (this.store.courier.length == 1) {
-      console.log(this.store.courier[0])
-      // await this.select_courier()
-    }
+    // if (this.store.courier.length == 1) {
+    //   await this.select_courier()
+    // }
   },
 
   methods: {
     async select_courier(cr) {
-      console.log(cr)
       this.changehandler('courier', false)
       this.changehandler('shipping_cost_loading', true)
+
       const pricing = await this.$store.dispatch('request', {
         url: '/deliverycost/check',
         method: 'post',

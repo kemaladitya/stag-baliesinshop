@@ -6,10 +6,17 @@ exports.modules = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+
+/* *
+ * * get_list_products
+ * * cart_detail
+ * * manage_cart
+ * * cart_manager
+ */
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   get_list_products: async (self, data) => {
     try {
-      // console.log('*** get_product method ***')
       const request = await self.dispatch('request', {
         url: '/api/products',
         method: 'post',
@@ -17,21 +24,19 @@ __webpack_require__.r(__webpack_exports__);
       });
 
       if (request.data.status) {
-        // console.log(request.data.results, ' request.data.results')
         self.dispatch('setState', {
           payload: {
             key: 'products',
             data: request.data.results.sort((a, b) => b.priority - a.priority)
           }
-        }); // console.log(request.data, ' request.data')
-
+        });
         return true;
       }
 
       return request.data;
-    } catch (e) {
-      console.log(e);
-      return e;
+    } catch (error) {
+      console.error("@get_list_products |", error);
+      return error;
     }
   },
   cart_detail: async (self, data) => {
@@ -42,16 +47,12 @@ __webpack_require__.r(__webpack_exports__);
         data
       });
       const cart = request.data;
-      console.log(cart, ' cart full');
 
       if (cart && cart.status && cart.results) {
         if (cart.results.type === 'single-order') {
           if (cart.results.items.length) {
             const list_cart = cart.results.items.map(el => {
-              console.log(el.items, ' el items');
-              console.log(self.state, ' self.state.list_product');
               const search_product = self.state.products.filter(prod => prod.id === el.items[0].id);
-              console.log(search_product, ' search_product');
 
               if (search_product.length) {
                 search_product[0].select_date = true;
@@ -60,7 +61,6 @@ __webpack_require__.r(__webpack_exports__);
               }
             });
             const cleaned_cart = list_cart.filter(el => typeof el == 'object');
-            console.log(cleaned_cart, ' cleaned_cart');
             self.dispatch('setState', {
               payload: {
                 key: 'cart',
@@ -78,21 +78,14 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         if (cart.results.type === 'rp-order') {
-          console.log(cart.results, ' cart.results');
-
           if (cart.results.items.length) {
             const list_dates = cart.results.items.map(el => {
               const list_items = el.items.map(item => {
                 const search_product = self.state.products.filter(prod => {
-                  console.log(prod, ' prod get cart');
-                  console.log(el, ' variant get cart');
-
                   if (prod.id === item.id) {
                     return prod;
                   }
                 });
-                console.log(search_product, item, el);
-                console.log('search_product, item, el');
                 const _item = {
                   SKU: search_product[0].SKU,
                   detail_id: search_product[0].detail[0].detail_id,
@@ -132,7 +125,6 @@ __webpack_require__.r(__webpack_exports__);
                 items: merge_items
               };
             });
-            console.log(list_dates, ' list_dates');
             self.dispatch('setState', {
               payload: {
                 key: 'dates',
@@ -154,21 +146,15 @@ __webpack_require__.r(__webpack_exports__);
             }
           });
         }
-      } // const request = await self.dispatch('request', {
-      //   url: '/cache/cart',
-      //   method: 'post',
-      //   data
-      // })
-
+      }
 
       return request.data;
-    } catch (error) {// console.log(error)
+    } catch (error) {
+      console.error("@cart_detail |", error);
     }
   },
   manage_cart: async (self, data) => {
     try {
-      console.log('@manage.cart');
-      console.log('manage_cart', JSON.stringify(data, null, 2));
       const request = await self.dispatch('request', {
         url: '/cache/manage/cart',
         method: 'post',
@@ -178,7 +164,6 @@ __webpack_require__.r(__webpack_exports__);
       if ('status' in request) {
         return request;
       } else {
-        console.log('@cart_request_failed |', request);
         return {
           status: 404,
           data: {
@@ -187,50 +172,54 @@ __webpack_require__.r(__webpack_exports__);
         };
       }
     } catch (error) {
-      console.log('@manage_cart |', error);
+      console.error("@manage_cart |", error);
     }
   },
   cart_manager: async (self, data) => {
-    const request = await self.$store.dispatch('request', {
-      url: '/cart',
-      method: 'post',
-      data
-    });
-    console.log('!@cart_manager.request |', request.data);
-
-    if (request.status === 200 && request.data) {
-      self.$store.dispatch('setState', {
-        payload: {
-          key: 'order_type',
-          data: request.data.type || 'single-order'
-        }
+    try {
+      const request = await self.$store.dispatch("request", {
+        url: "/cart",
+        method: "post",
+        data
       });
-      const order_type = self.$store.state.order_type;
 
-      if (order_type === 'single-order') {
-        self.$store.dispatch('setState', {
+      if (request.status === 200 && request.data) {
+        self.$store.dispatch("setState", {
           payload: {
-            key: 'cart',
-            data: request.data.items
+            key: "order_type",
+            data: request.data.type || "single-order"
           }
         });
-      } else if (order_type === 'subscription-order') {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'subscription_cart',
-            data: request.data.items
-          }
-        });
-      } else if (order_type === 'package-order') {
-        self.$store.dispatch('setState', {
-          payload: {
-            key: 'package_cart',
-            data: request.data.items
-          }
-        });
+        const order_type = self.$store.state.order_type;
+
+        if (order_type === "single-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "cart",
+              data: request.data.items
+            }
+          });
+        } else if (order_type === "subscription-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "subscription_cart",
+              data: request.data.items
+            }
+          });
+        } else if (order_type === "package-order") {
+          self.$store.dispatch("setState", {
+            payload: {
+              key: "package_cart",
+              data: request.data.items
+            }
+          });
+        }
+
+        return request.data;
       }
-
-      return request.data;
+    } catch (error) {
+      console.error("@cart_manager |", error);
+      return null;
     }
   }
 });
@@ -268,7 +257,7 @@ function attachedRoot(node) {
 
 /***/ }),
 
-/***/ 113:
+/***/ 112:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -539,7 +528,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__[/* default *
 
 /***/ }),
 
-/***/ 114:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -645,7 +634,7 @@ var VInput = __webpack_require__(129);
 var VIcon = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js + 1 modules
-var VLabel = __webpack_require__(114);
+var VLabel = __webpack_require__(113);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VMessages/VMessages.sass
 var VMessages = __webpack_require__(133);
@@ -720,7 +709,7 @@ var helpers = __webpack_require__(1);
 var binds_attrs = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
-var validatable = __webpack_require__(113);
+var validatable = __webpack_require__(112);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mergeData.js
 var mergeData = __webpack_require__(20);
@@ -1762,6 +1751,34 @@ function validateAttachTarget(val) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
+var content = __webpack_require__(125);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+__webpack_require__(5).default("7132a15d", content, true)
+
+/***/ }),
+
+/***/ 125:
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(4);
+var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, "html{scrollbar-width:thin!important;scrollbar-width:none;overflow:hidden}html .basket-background-shadow{box-shadow:0 -1px 17px 19px #fff!important}html #b-snackbar>div{width:inherit}html .b-font{font-family:Poppins,sans-serif}html .lz-load{width:100%;height:100%}html .lz-load,html .lz-stripe{border:none;background-color:#babbbc}html .lz-stripe{height:20%}html .small-stripe{width:40%}html .medium-stripe{width:70%}html .long-stripe{width:100%}html .lz-load,html .lz-stripe{animation:hintloading 1.5s ease-in-out 0s infinite reverse;-webkit-animation:hintloading 1.5s ease-in-out 0s infinite reverse}@keyframes hintloading{0%{opacity:.5}50%{opacity:1}to{opacity:.5}}@-webkit-keyframes hintloading{0%{opacity:.5}50%{opacity:1}to{opacity:.5}}html .v-toolbar__content,html .v-toolbar__extension{padding:4px 10px 4px 0}html .v-date-picker-title__date{overflow:hidden;position:relative;text-align:center;font-size:17px;font-weight:500;padding-bottom:8px;margin-bottom:-8px}html .v-date-picker-title__date div,html .v-date-picker-title__date div.picker-reverse-transition-enter-leave-active,html .v-date-picker-title__date div.picker-reverse-transition-leave-active,html .v-date-picker-title__date div.picker-transition-enter-leave-active,html .v-date-picker-title__date div.picker-transition-leave-active{width:100%;text-align:center!important}html .v-date-picker-title__date div.date-picker-header-value-transition{text-align:center!important}html .v-date-picker-title__year,html div.v-date-picker-header.theme--light>button:first-child,html div.v-date-picker-header.theme--light>button:nth-child(3){display:none}html #b-rp-date-items div>hr{background-color:transparent!important;display:none!important;color:transparent!important}html #b-checkbox-subs-product>div{margin-top:0;padding-top:0}html .pulse-button{position:relative;border:none;box-shadow:0 0 0 0 rgba(255,221,0,.7);background-size:cover;background-repeat:no-repeat;cursor:pointer;-webkit-animation:pulse 1.25s cubic-bezier(.66,0,0,1) infinite;animation:pulse 1.25s cubic-bezier(.66,0,0,1) infinite}html .pulse-button:hover{-webkit-animation:none;animation:none}@-webkit-keyframes pulse{to{box-shadow:0 0 0 20px rgba(232,76,61,0)}}@keyframes pulse{to{box-shadow:0 0 0 20px rgba(232,76,61,0)}}html #scrolling-techniques-7>div>footer{background-color:transparent!important}#b-list-products #desktop .image{border-radius:3px 2px 0 0;min-width:180px;min-height:180px}#b-list-products #desktop .image .promo-badge{padding:2px 5px;background-color:#1565c0;color:#fff;font-size:10px;font-weight:600;max-width:40%;text-align:center;border-radius:0 0 3px;box-shadow:2px 2px 2px 0 rgba(0,0,0,.25)}#b-list-products #desktop .name{font-size:14px;font-weight:600;max-width:165px;display:inline-block;min-width:80px;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis}#b-list-products #desktop .discount-price{font-size:12px;font-weight:600}#b-list-products #desktop .discount-price .lined{font-size:8px;color:#a9a9a9!important;-webkit-text-decoration-line:line-through!important;text-decoration-line:line-through!important}#b-list-products #desktop .normal-price{font-size:12px;font-weight:600}#b-list-products #desktop .show-detail{border:1px solid #ccc;color:#3f3f3f}#b-list-products #desktop .add-to-cart,#b-list-products #desktop .show-detail{text-transform:none;font-size:11px;letter-spacing:normal;width:48%}#b-list-products #desktop .product-mdi-icon{font-size:12px!important}#b-list-products #desktop .select-variant{text-transform:none;font-size:11px;letter-spacing:normal;width:100%}#b-list-products #desktop .empty-image{border-radius:5px;width:200px;height:200px}#b-list-products #desktop .empty-info{font-weight:600;background-color:#fd0;border-radius:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}#b-list-products #mobile .image{border-radius:3px 2px 0 0;min-width:180px;min-height:180px}#b-list-products #mobile .image .promo-badge{padding:2px 5px;background-color:#1565c0;color:#fff;font-size:10px;font-weight:600;max-width:40%;text-align:center;border-radius:0 0 3px;box-shadow:2px 2px 2px 0 rgba(0,0,0,.25)}#b-list-products #mobile .name{font-size:14px;font-weight:600;max-width:165px;display:inline-block;min-width:80px;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis}#b-list-products #mobile .discount-price{font-size:12px;font-weight:600}#b-list-products #mobile .discount-price .lined{font-size:8px;color:#a9a9a9!important;-webkit-text-decoration-line:line-through!important;text-decoration-line:line-through!important}#b-list-products #mobile .normal-price{font-size:12px;font-weight:600}#b-list-products #mobile .show-detail{border:1px solid #ccc;color:#3f3f3f}#b-list-products #mobile .add-to-cart,#b-list-products #mobile .show-detail{text-transform:none;font-size:11px;letter-spacing:normal;width:48%}#b-list-products #mobile .product-mdi-icon{font-size:12px!important}#b-list-products #mobile .select-variant{text-transform:none;font-size:11px;letter-spacing:normal;width:100%}#b-list-products #mobile .empty-image{border-radius:5px;width:200px;height:200px}#b-list-products #mobile .empty-info{font-weight:600;background-color:#fd0;border-radius:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}#b-list-products #mini .image{border-radius:3px 2px 0 0;min-width:180px;min-height:180px}#b-list-products #mini .image .promo-badge{padding:2px 5px;background-color:#1565c0;color:#fff;font-size:10px;font-weight:600;max-width:40%;text-align:center;border-radius:0 0 3px;box-shadow:2px 2px 2px 0 rgba(0,0,0,.25)}#b-list-products #mini .name{display:inline-block;min-width:130px;max-width:130px;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;font-weight:600}#b-list-products #mini .discount-price{font-size:12px;font-weight:600}#b-list-products #mini .discount-price .lined{font-size:8px;color:#a9a9a9!important;-webkit-text-decoration-line:line-through!important;text-decoration-line:line-through!important}#b-list-products #mini .normal-price{font-size:12px;font-weight:600}#b-list-products #mini .show-detail{border:1px solid #ccc;color:#3f3f3f}#b-list-products #mini .add-to-cart,#b-list-products #mini .show-detail{text-transform:none;font-size:11px;letter-spacing:normal;width:48%}#b-list-products #mini .product-mdi-icon{font-size:12px!important}#b-list-products #mini .select-variant{text-transform:none;font-size:11px;letter-spacing:normal;width:100%}#b-list-products #mini .empty-image{border-radius:5px;width:200px;height:200px}#b-list-products #mini .empty-info{font-weight:600;background-color:#fd0;border-radius:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}#b-products-detail #desktop .name,#b-products-detail #desktop .price{font-weight:600}#b-products-detail #desktop .variant{min-width:50%;max-width:50%}#b-products-detail #desktop .variant .label{font-size:11px}#b-products-detail #desktop .qty{min-width:50%;max-width:50%}#b-products-detail #desktop .qty .label{font-size:11px}#b-products-detail #desktop .size{font-size:16px;font-weight:600}#b-products-detail #desktop .description .label{font-size:13px;font-weight:600}#b-products-detail #desktop .description .detail{font-size:12px}#b-products-detail #desktop .action .content .continue-shop{color:#000!important;border:1px solid #ccc!important}#b-products-detail #desktop .action .content .add-to-cart,#b-products-detail #desktop .action .content .continue-shop{text-transform:capitalize;letter-spacing:normal;min-width:49.5%;width:49.5%;height:45}#b-products-detail #mobile .name,#b-products-detail #mobile .price{font-weight:600}#b-products-detail #mobile .variant{min-width:50%;max-width:50%}#b-products-detail #mobile .variant .label{font-size:11px}#b-products-detail #mobile .qty{min-width:50%;max-width:50%}#b-products-detail #mobile .qty .label{font-size:11px}#b-products-detail #mobile .size{font-size:16px;font-weight:600}#b-products-detail #mobile .description .label{font-size:13px;font-weight:600}#b-products-detail #mobile .description .detail{font-size:12px}#b-products-detail #mobile .action .content .continue-shop{color:#000!important;border:1px solid #ccc!important}#b-products-detail #mobile .action .content .add-to-cart,#b-products-detail #mobile .action .content .continue-shop{text-transform:capitalize;letter-spacing:normal;min-width:49.5%;width:49.5%;height:45}.theme--light.v-divider{border-color:rgba(0,0,0,.12)}.theme--dark.v-divider{border-color:hsla(0,0%,100%,.12)}.v-divider{display:block;flex:1 1 0px;max-width:100%;height:0;max-height:0;border:solid;border-width:thin 0 0;transition:inherit}.v-divider--inset:not(.v-divider--vertical){max-width:calc(100% - 72px)}.v-application--is-ltr .v-divider--inset:not(.v-divider--vertical){margin-left:72px}.v-application--is-rtl .v-divider--inset:not(.v-divider--vertical){margin-right:72px}.v-divider--vertical{align-self:stretch;border:solid;border-width:0 thin 0 0;display:inline-flex;height:inherit;min-height:100%;max-height:100%;max-width:0;width:0;vertical-align:text-bottom;margin:0 -1px}.v-divider--vertical.v-divider--inset{margin-top:8px;min-height:0;max-height:calc(100% - 16px)}", ""]);
+// Exports
+module.exports = ___CSS_LOADER_EXPORT___;
+
+
+/***/ }),
+
+/***/ 126:
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
 var content = __webpack_require__(140);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
@@ -1770,7 +1787,7 @@ __webpack_require__(5).default("4f4f805e", content, true)
 
 /***/ }),
 
-/***/ 125:
+/***/ 127:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1806,34 +1823,6 @@ const Resize = {
   unbind
 };
 /* harmony default export */ __webpack_exports__["a"] = (Resize);
-
-/***/ }),
-
-/***/ 126:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(127);
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-__webpack_require__(5).default("7132a15d", content, true)
-
-/***/ }),
-
-/***/ 127:
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(4);
-var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-___CSS_LOADER_EXPORT___.push([module.i, "html{scrollbar-width:thin!important;scrollbar-width:none;overflow:hidden}html .basket-background-shadow{box-shadow:0 -1px 17px 19px #fff!important}html #b-snackbar>div{width:inherit}html .b-font{font-family:Poppins,sans-serif}html .lz-load{width:100%;height:100%}html .lz-load,html .lz-stripe{border:none;background-color:#babbbc}html .lz-stripe{height:20%}html .small-stripe{width:40%}html .medium-stripe{width:70%}html .long-stripe{width:100%}html .lz-load,html .lz-stripe{animation:hintloading 1.5s ease-in-out 0s infinite reverse;-webkit-animation:hintloading 1.5s ease-in-out 0s infinite reverse}@keyframes hintloading{0%{opacity:.5}50%{opacity:1}to{opacity:.5}}@-webkit-keyframes hintloading{0%{opacity:.5}50%{opacity:1}to{opacity:.5}}html .v-toolbar__content,html .v-toolbar__extension{padding:4px 10px 4px 0}html .v-date-picker-title__date{overflow:hidden;position:relative;text-align:center;font-size:17px;font-weight:500;padding-bottom:8px;margin-bottom:-8px}html .v-date-picker-title__date div,html .v-date-picker-title__date div.picker-reverse-transition-enter-leave-active,html .v-date-picker-title__date div.picker-reverse-transition-leave-active,html .v-date-picker-title__date div.picker-transition-enter-leave-active,html .v-date-picker-title__date div.picker-transition-leave-active{width:100%;text-align:center!important}html .v-date-picker-title__date div.date-picker-header-value-transition{text-align:center!important}html .v-date-picker-title__year,html div.v-date-picker-header.theme--light>button:first-child,html div.v-date-picker-header.theme--light>button:nth-child(3){display:none}html #b-rp-date-items div>hr{background-color:transparent!important;display:none!important;color:transparent!important}html #b-checkbox-subs-product>div{margin-top:0;padding-top:0}html .pulse-button{position:relative;border:none;box-shadow:0 0 0 0 rgba(255,221,0,.7);background-size:cover;background-repeat:no-repeat;cursor:pointer;-webkit-animation:pulse 1.25s cubic-bezier(.66,0,0,1) infinite;animation:pulse 1.25s cubic-bezier(.66,0,0,1) infinite}html .pulse-button:hover{-webkit-animation:none;animation:none}@-webkit-keyframes pulse{to{box-shadow:0 0 0 20px rgba(232,76,61,0)}}@keyframes pulse{to{box-shadow:0 0 0 20px rgba(232,76,61,0)}}html #scrolling-techniques-7>div>footer{background-color:transparent!important}#b-list-products #desktop .image{border-radius:3px 2px 0 0;min-width:180px;min-height:180px}#b-list-products #desktop .image .promo-badge{padding:2px 5px;background-color:#1565c0;color:#fff;font-size:10px;font-weight:600;max-width:40%;text-align:center;border-radius:0 0 3px;box-shadow:2px 2px 2px 0 rgba(0,0,0,.25)}#b-list-products #desktop .name{font-size:14px;font-weight:600;max-width:165px;display:inline-block;min-width:80px;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis}#b-list-products #desktop .discount-price{font-size:12px;font-weight:600}#b-list-products #desktop .discount-price .lined{font-size:8px;color:#a9a9a9!important;-webkit-text-decoration-line:line-through!important;text-decoration-line:line-through!important}#b-list-products #desktop .normal-price{font-size:12px;font-weight:600}#b-list-products #desktop .show-detail{border:1px solid #ccc;color:#3f3f3f}#b-list-products #desktop .add-to-cart,#b-list-products #desktop .show-detail{text-transform:none;font-size:11px;letter-spacing:normal;width:48%}#b-list-products #desktop .product-mdi-icon{font-size:12px!important}#b-list-products #desktop .select-variant{text-transform:none;font-size:11px;letter-spacing:normal;width:100%}#b-list-products #desktop .empty-image{border-radius:5px;width:200px;height:200px}#b-list-products #desktop .empty-info{font-weight:600;background-color:#fd0;border-radius:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}#b-list-products #mobile .image{border-radius:3px 2px 0 0;min-width:180px;min-height:180px}#b-list-products #mobile .image .promo-badge{padding:2px 5px;background-color:#1565c0;color:#fff;font-size:10px;font-weight:600;max-width:40%;text-align:center;border-radius:0 0 3px;box-shadow:2px 2px 2px 0 rgba(0,0,0,.25)}#b-list-products #mobile .name{font-size:14px;font-weight:600;max-width:165px;display:inline-block;min-width:80px;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis}#b-list-products #mobile .discount-price{font-size:12px;font-weight:600}#b-list-products #mobile .discount-price .lined{font-size:8px;color:#a9a9a9!important;-webkit-text-decoration-line:line-through!important;text-decoration-line:line-through!important}#b-list-products #mobile .normal-price{font-size:12px;font-weight:600}#b-list-products #mobile .show-detail{border:1px solid #ccc;color:#3f3f3f}#b-list-products #mobile .add-to-cart,#b-list-products #mobile .show-detail{text-transform:none;font-size:11px;letter-spacing:normal;width:48%}#b-list-products #mobile .product-mdi-icon{font-size:12px!important}#b-list-products #mobile .select-variant{text-transform:none;font-size:11px;letter-spacing:normal;width:100%}#b-list-products #mobile .empty-image{border-radius:5px;width:200px;height:200px}#b-list-products #mobile .empty-info{font-weight:600;background-color:#fd0;border-radius:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}#b-list-products #mini .image{border-radius:3px 2px 0 0;min-width:180px;min-height:180px}#b-list-products #mini .image .promo-badge{padding:2px 5px;background-color:#1565c0;color:#fff;font-size:10px;font-weight:600;max-width:40%;text-align:center;border-radius:0 0 3px;box-shadow:2px 2px 2px 0 rgba(0,0,0,.25)}#b-list-products #mini .name{display:inline-block;min-width:130px;max-width:130px;white-space:nowrap;overflow:hidden!important;text-overflow:ellipsis;font-weight:600}#b-list-products #mini .discount-price{font-size:12px;font-weight:600}#b-list-products #mini .discount-price .lined{font-size:8px;color:#a9a9a9!important;-webkit-text-decoration-line:line-through!important;text-decoration-line:line-through!important}#b-list-products #mini .normal-price{font-size:12px;font-weight:600}#b-list-products #mini .show-detail{border:1px solid #ccc;color:#3f3f3f}#b-list-products #mini .add-to-cart,#b-list-products #mini .show-detail{text-transform:none;font-size:11px;letter-spacing:normal;width:48%}#b-list-products #mini .product-mdi-icon{font-size:12px!important}#b-list-products #mini .select-variant{text-transform:none;font-size:11px;letter-spacing:normal;width:100%}#b-list-products #mini .empty-image{border-radius:5px;width:200px;height:200px}#b-list-products #mini .empty-info{font-weight:600;background-color:#fd0;border-radius:5px;width:-webkit-fit-content;width:-moz-fit-content;width:fit-content}#b-products-detail #desktop .name,#b-products-detail #desktop .price{font-weight:600}#b-products-detail #desktop .variant{min-width:50%;max-width:50%}#b-products-detail #desktop .variant .label{font-size:11px}#b-products-detail #desktop .qty{min-width:50%;max-width:50%}#b-products-detail #desktop .qty .label{font-size:11px}#b-products-detail #desktop .size{font-size:16px;font-weight:600}#b-products-detail #desktop .description .label{font-size:13px;font-weight:600}#b-products-detail #desktop .description .detail{font-size:12px}#b-products-detail #desktop .action .content .continue-shop{color:#000!important;border:1px solid #ccc!important}#b-products-detail #desktop .action .content .add-to-cart,#b-products-detail #desktop .action .content .continue-shop{text-transform:capitalize;letter-spacing:normal;min-width:49.5%;width:49.5%;height:45}#b-products-detail #mobile .name,#b-products-detail #mobile .price{font-weight:600}#b-products-detail #mobile .variant{min-width:50%;max-width:50%}#b-products-detail #mobile .variant .label{font-size:11px}#b-products-detail #mobile .qty{min-width:50%;max-width:50%}#b-products-detail #mobile .qty .label{font-size:11px}#b-products-detail #mobile .size{font-size:16px;font-weight:600}#b-products-detail #mobile .description .label{font-size:13px;font-weight:600}#b-products-detail #mobile .description .detail{font-size:12px}#b-products-detail #mobile .action .content .continue-shop{color:#000!important;border:1px solid #ccc!important}#b-products-detail #mobile .action .content .add-to-cart,#b-products-detail #mobile .action .content .continue-shop{text-transform:capitalize;letter-spacing:normal;min-width:49.5%;width:49.5%;height:45}.theme--light.v-divider{border-color:rgba(0,0,0,.12)}.theme--dark.v-divider{border-color:hsla(0,0%,100%,.12)}.v-divider{display:block;flex:1 1 0px;max-width:100%;height:0;max-height:0;border:solid;border-width:thin 0 0;transition:inherit}.v-divider--inset:not(.v-divider--vertical){max-width:calc(100% - 72px)}.v-application--is-ltr .v-divider--inset:not(.v-divider--vertical){margin-left:72px}.v-application--is-rtl .v-divider--inset:not(.v-divider--vertical){margin-right:72px}.v-divider--vertical{align-self:stretch;border:solid;border-width:0 thin 0 0;display:inline-flex;height:inherit;min-height:100%;max-height:100%;max-width:0;width:0;vertical-align:text-bottom;margin:0 -1px}.v-divider--vertical.v-divider--inset{margin-top:8px;min-height:0;max-height:calc(100% - 16px)}", ""]);
-// Exports
-module.exports = ___CSS_LOADER_EXPORT___;
-
 
 /***/ }),
 
@@ -1986,7 +1975,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 var VDialog = __webpack_require__(135);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VThemeProvider/VThemeProvider.js
-var VThemeProvider = __webpack_require__(153);
+var VThemeProvider = __webpack_require__(152);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/activatable/index.js
 var activatable = __webpack_require__(118);
@@ -2717,7 +2706,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(126);
+/* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(124);
 /* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 // Styles
@@ -2765,7 +2754,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VTextField/VTextField.sass
-var VTextField = __webpack_require__(124);
+var VTextField = __webpack_require__(126);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VInput/index.js + 3 modules
 var VInput = __webpack_require__(115);
@@ -2821,7 +2810,7 @@ var mixins = __webpack_require__(3);
 
 /* harmony default export */ var components_VCounter = (VCounter_VCounter);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js + 1 modules
-var VLabel = __webpack_require__(114);
+var VLabel = __webpack_require__(113);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/intersect/index.js
 var intersect = __webpack_require__(18);
@@ -2875,13 +2864,13 @@ function intersectable(options) {
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/loadable/index.js
-var loadable = __webpack_require__(34);
+var loadable = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
-var validatable = __webpack_require__(113);
+var validatable = __webpack_require__(112);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/resize/index.js
-var resize = __webpack_require__(125);
+var resize = __webpack_require__(127);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/ripple/index.js
 var ripple = __webpack_require__(39);
@@ -3419,7 +3408,7 @@ const dirtyTypes = ['color', 'file', 'time', 'date', 'datetime-local', 'week', '
 
 /***/ }),
 
-/***/ 153:
+/***/ 152:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3515,7 +3504,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 208:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3617,13 +3606,13 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 213:
+/***/ 208:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(214);
+var content = __webpack_require__(209);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -3631,7 +3620,7 @@ __webpack_require__(5).default("63c9496b", content, true)
 
 /***/ }),
 
-/***/ 214:
+/***/ 209:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -3645,20 +3634,27 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 215:
+/***/ 210:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "img/invalid-card.21535b4.jpeg";
+
+/***/ }),
+
+/***/ 211:
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"payment_type\":{\"cod\":{\"name\":\"cod\",\"img\":null,\"desc\":\"Pastikan anda sudah menyiapkan uang cash sesuai dengan pembelian atau orderan anda.\",\"width\":55,\"height\":15,\"pt\":2,\"pl\":1},\"ovo\":{\"name\":\"ovo\",\"img\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/1200px-Logo_ovo_purple.svg.png\",\"desc\":\"Pembayaran dilakukan di bawah 55 detik dan pastikan saldo mencukupi.\",\"width\":48,\"height\":15,\"pt\":2,\"pl\":2},\"dana\":{\"name\":\"dana\",\"img\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png\",\"desc\":\"Pembayaran dilakukan di bawah 60 menit dan pastikan saldo mencukupi.\",\"width\":75,\"height\":21,\"pt\":0,\"pl\":2},\"shopeepay\":{\"name\":\"shopeepay\",\"img\":\"https://1.bp.blogspot.com/-EmJLucvvYZw/X0Gm1J37spI/AAAAAAAAC0s/Dyq4-ko9Eecvg0ostmowa2RToXZITkbcQCLcBGAsYHQ/w1200-h630-p-k-no-nu/Logo%2BShopeePay.png\",\"desc\":\"Pembayaran dilakukan di bawah 30 menit dan pastikan saldo mencukupi.\",\"width\":60,\"height\":21,\"pt\":0,\"pl\":0}}}");
 
 /***/ }),
 
-/***/ 248:
+/***/ 228:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(307);
+var content = __webpack_require__(301);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -3670,14 +3666,14 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 266:
+/***/ 249:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue?vue&type=template&id=29ea4078&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue?vue&type=template&id=72701112&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(!_vm.voucher.loading)?_c('v-expand-transition',[(_vm.list_cart.length)?_c('v-card',{staticClass:"pt-2",attrs:{"height":"100%","flat":"","tile":""}},_vm._l((_vm.list_cart),function(item,index){return _c('div',{key:index,staticClass:"mb-2",staticStyle:{"border":"1px solid #e0e0e0","border-radius":"5px"}},[_c('div',[_c('div',{staticClass:"d-flex flex-row pa-2"},[_c('div',{staticClass:"pt-2 pl-1",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n                "+_vm._s(_vm.date_parser(item.date))+"\n              ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pr-1",staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3"}},[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","color":"#2196f3","text-align":"right"}},[_c('v-spacer'),_vm._v("\n                  Rp "+_vm._s(_vm.item_parser(item.items).total
                       ? _vm.item_parser(item.items).total.toLocaleString().replace(/,/g, '.')
                       : _vm.item_parser(item.items).total)+"\n                ")],1),_vm._v(" "),_c('div',{staticStyle:{"font-size":"9px","font-weight":"600","padding-top":"2px","font-style":"italic"},style:(_vm.item_parser(item.items).total < _vm.store.min_order || _vm.item_parser(item.items).total > _vm.store.max_order ?
@@ -3694,7 +3690,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue?vue&type=template&id=29ea4078&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue?vue&type=template&id=72701112&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue?vue&type=script&lang=js&
 //
@@ -3922,7 +3918,6 @@ var staticRenderFns = []
           });
         }
       });
-      console.log('product', product);
       return product;
     },
 
@@ -3989,8 +3984,6 @@ var staticRenderFns = []
     },
 
     date_parser(date) {
-      console.log(date, 'date_parser');
-
       const _ = date.split('-');
 
       const day = _[2];
@@ -4063,7 +4056,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 267:
+/***/ 250:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4271,7 +4264,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VIcon: V
 
 /***/ }),
 
-/***/ 268:
+/***/ 251:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4559,11 +4552,11 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 283:
+/***/ 267:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(213);
+/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(208);
 /* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _VSheet_VSheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
@@ -4767,7 +4760,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 290:
+/***/ 279:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4870,7 +4863,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VIcon: VIc
 
 /***/ }),
 
-/***/ 291:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5172,28 +5165,28 @@ installComponents_default()(component, {VBottomSheet: VBottomSheet["a" /* defaul
 
 /***/ }),
 
-/***/ 292:
+/***/ 281:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=template&id=17c8e0e6&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=template&id=22aced8d&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-1 pt-2 text-left"},[_vm._ssrNode("<div style=\"font-size: 12px\">\n    DETAIL PESANAN &amp; WAKTU PENGANTARAN\n  </div> "),(_vm.order_type === 'subscription-order')?_c('Subscription',{attrs:{"voucher":_vm.voucher}}):_vm._e(),_vm._ssrNode(" "),(_vm.order_type === 'single-order')?_c('Single'):_vm._e(),_vm._ssrNode(" "),(_vm.order_type === 'package-order')?_c('Package'):_vm._e(),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"pt-2\">","</div>",[_c('v-card',{staticClass:"mt-2 pt-2 pb-2",staticStyle:{"border-top":"1px solid rgba(0, 0, 0, 0.12)","border-bottom":"1px solid rgba(0, 0, 0, 0.12)","font-size":"13px"},attrs:{"flat":"","tile":""}},[_c('div',[_vm._v("Catatan untuk penjual:")]),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600","color":"dimgray"}},[(_vm.user_notes.length)?_c('div',{staticClass:"pt-2"},[_vm._v(_vm._s(_vm.user_notes))]):_c('div',{staticClass:"pt-2"},[_vm._v("-")])])])],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row mt-3 mb-1 pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-size: 12px\"></div> "),_c('v-spacer'),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600\">Subtotal:</div>\n       \n      "),_c('v-spacer'),_vm._ssrNode(" <div style=\"font-weight: 600; color: rgb(25, 118, 210)\">"+_vm._ssrEscape("\n        Rp\n        "+_vm._s(_vm.general_total_order.toLocaleString().replace(/,/g, '.'))+"\n      ")+"</div>")],2)],2),_vm._ssrNode(" <div"+(_vm._ssrStyle({"font-size":"9px","color":"red","text-align":"center"},null, { display: (_vm.store.min_order && _vm.store.max_order) ? '' : 'none' }))+">"+_vm._ssrEscape("\n    "+_vm._s(_vm.validate_total)+"\n  ")+"</div>")],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=template&id=17c8e0e6&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=template&id=22aced8d&
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue + 4 modules
-var subscription_order = __webpack_require__(266);
+var subscription_order = __webpack_require__(249);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-type/single-order.vue + 4 modules
-var single_order = __webpack_require__(267);
+var single_order = __webpack_require__(250);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-type/package-order.vue + 4 modules
-var package_order = __webpack_require__(268);
+var package_order = __webpack_require__(251);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=script&lang=js&
 //
@@ -5367,8 +5360,7 @@ var package_order = __webpack_require__(268);
             }
           });
         });
-      } // console.log('product', product)
-
+      }
 
       return total;
     },
@@ -5387,13 +5379,10 @@ var package_order = __webpack_require__(268);
         this.subscription_cart.forEach(el => {
           if (is_valid === 1) {
             let total = 0;
-            console.log(total);
             el.items.forEach(item => {
               const find = this.list_product.filter(product => product.id === item.id && product.SKU === item.sku);
-              console.log('find', find);
               total += (find[0].discount_price || find[0].normal_price) * item.qty;
             });
-            console.log('find', total);
 
             if (total > this.store.max_order) {
               is_valid = 2;
@@ -5413,13 +5402,9 @@ var package_order = __webpack_require__(268);
 
         return '';
       } else if (this.order_type === 'package-order') {
-        console.log('masuk sini');
-
         if (this.store.customize_setup) {
-          // console.log(, ' this.store.customize_setup')
           const order_type = this.package_cart[0].type;
           const find_rules = JSON.parse(this.store.customize_setup).packaging.rules.detail.filter(el => el.type === order_type);
-          console.log("!@find_rules |", JSON.stringify(find_rules, null, 2));
 
           if (find_rules[0].min > this.general_total_order) {
             return `Minimum pembelian Rp ${find_rules[0].min.toLocaleString().replace(/,/g, '.')} belum tercapai. Silakan tambah lagi pesanan Anda.`;
@@ -5479,7 +5464,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VSpacer:
 
 /***/ }),
 
-/***/ 293:
+/***/ 282:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5695,7 +5680,7 @@ installComponents_default()(component, {VBottomSheet: VBottomSheet["a" /* defaul
 
 /***/ }),
 
-/***/ 294:
+/***/ 283:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5933,19 +5918,19 @@ installComponents_default()(component, {VBottomSheet: VBottomSheet["a" /* defaul
 
 /***/ }),
 
-/***/ 306:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(248);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(228);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_7_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_7_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_oneOf_1_2_node_modules_sass_loader_dist_cjs_js_ref_7_oneOf_1_3_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ 307:
+/***/ 301:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -5959,44 +5944,52 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 320:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/index.vue?vue&type=template&id=161be75e&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div style=\"\\n      padding-bottom: 100px;\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n      padding-bottom: 180px;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment}})],2),_vm._ssrNode(" "),_c('v-snackbar',{staticStyle:{"z-index":"999 !important"},attrs:{"id":"b-cour-unavailable","color":"error","timeout":"3000","absolute":"","multi-line":"","top":"","center":""},model:{value:(_vm.courier.unavailable_cour),callback:function ($$v) {_vm.$set(_vm.courier, "unavailable_cour", $$v)},expression:"courier.unavailable_cour"}},[_vm._v("\n    Oops.. Service is not available for your city\n  ")]),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-footer',{staticStyle:{"width":"100%"},attrs:{"fixed":"","padless":"","color":"grey lighten-3"}},[_c('div',{staticClass:"pa-1",staticStyle:{"background-color":"white !important","width":"100%"}},[_c('div',{staticClass:"d-flex flex-row pa-1"},[_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("TOTAL HARGA")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n          Rp\n          "+_vm._s(_vm.general_total_order
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/index.vue?vue&type=template&id=e2576354&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-dialog',{model:{value:(_vm.invalid_voucher),callback:function ($$v) {_vm.invalid_voucher=$$v},expression:"invalid_voucher"}},[_c('v-card',{staticStyle:{"padding":"20px"}},[_c('v-img',{attrs:{"src":__webpack_require__(210),"width":"80"}}),_vm._v(" "),_c('center',[_c('div',{staticClass:"pt-2",staticStyle:{"font-size":"16px","font-weight":"600","color":"#5a5a5a"}},[_vm._v("INVALID VOUCHER!")])])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"\\n      padding-bottom: 100px;\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n      padding-bottom: 180px;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment}})],2),_vm._ssrNode(" "),_c('v-snackbar',{staticStyle:{"z-index":"999 !important"},attrs:{"id":"b-cour-unavailable","color":"error","timeout":"3000","absolute":"","multi-line":"","top":"","center":""},model:{value:(_vm.courier.unavailable_cour),callback:function ($$v) {_vm.$set(_vm.courier, "unavailable_cour", $$v)},expression:"courier.unavailable_cour"}},[_vm._v("\n    Oops.. Service is not available for your city\n  ")]),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-footer',{staticStyle:{"width":"100%"},attrs:{"fixed":"","padless":"","color":"grey lighten-3"}},[_c('div',{staticClass:"pa-1",staticStyle:{"background-color":"white !important","width":"100%"}},[_c('div',{staticClass:"d-flex flex-row pa-1"},[_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("TOTAL HARGA")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n          Rp\n          "+_vm._s(_vm.general_total_order
               .toLocaleString()
               .replace(/,/g, '.'))+"\n        ")])],1),_vm._v(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","font-weight":"600"},attrs:{"depressed":"","color":"#FD0","min-width":"100%","height":"45","disabled":_vm.checked_button},on:{"click":_vm.execute_order}},[_vm._v("\n        Proses\n      ")])],1)])],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/index.vue?vue&type=template&id=161be75e&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/mini/index.vue?vue&type=template&id=e2576354&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(110);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/customer.vue + 4 modules
-var customer = __webpack_require__(290);
+var customer = __webpack_require__(279);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/voucher.vue + 4 modules
-var voucher = __webpack_require__(291);
+var voucher = __webpack_require__(280);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-info.vue + 4 modules
-var order_info = __webpack_require__(292);
+var order_info = __webpack_require__(281);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/courier.vue + 4 modules
-var courier = __webpack_require__(293);
+var courier = __webpack_require__(282);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/payment.vue + 4 modules
-var payment = __webpack_require__(294);
+var payment = __webpack_require__(283);
 
 // EXTERNAL MODULE: ./components/General.json
-var components_General = __webpack_require__(215);
+var components_General = __webpack_require__(211);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/index.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6119,6 +6112,7 @@ var components_General = __webpack_require__(215);
     Payment: payment["default"]
   },
   data: () => ({
+    invalid_voucher: false,
     voucher: {
       lists: [],
       is_custom_voucher: false,
@@ -6240,13 +6234,10 @@ var components_General = __webpack_require__(215);
           this.cart.forEach(el => {
             if (!is_valid) {
               let total = 0;
-              console.log(total);
               el.items.forEach(item => {
                 const find = this.products.filter(product => product.id === item.id && product.SKU === item.sku);
-                console.log('find', find);
                 total += (find[0].discount_price || find[0].normal_price) * item.qty;
               });
-              console.log('find', total);
 
               if (total < this.store.min_order || total > this.store.max_order) {
                 is_valid = true;
@@ -6255,13 +6246,9 @@ var components_General = __webpack_require__(215);
           });
           return is_valid || !this.courier.selected || !this.payment.selected;
         } else if (this.order_type === 'package-order') {
-          console.log('masuk sini');
-
           if (this.store.customize_setup) {
-            // console.log(, ' this.store.customize_setup')
             const order_type = this.package_cart[0].type;
             const find_rules = JSON.parse(this.store.customize_setup).packaging.rules.detail.filter(el => el.type === order_type);
-            console.log("!@find_rules |", JSON.stringify(find_rules, null, 2));
 
             if (find_rules.length) {
               this.custom_rules = {
@@ -6321,8 +6308,7 @@ var components_General = __webpack_require__(215);
             }
           });
         });
-      } // console.log('product', product)
-
+      }
 
       return total + +(this.courier.selected ? this.courier.selected.price : 0);
     }
@@ -6330,11 +6316,6 @@ var components_General = __webpack_require__(215);
   },
   watch: {
     store(newval, oldval) {
-      console.log('@newval |', newval);
-      console.log('@oldval |', oldval);
-      console.log('@newval.check |', newval.hasOwnProperty('courier'));
-      console.log('@oldval.check |', !oldval.hasOwnProperty('courier'));
-
       if (newval.hasOwnProperty('courier') && !oldval.hasOwnProperty('courier')) {
         this.courier.lists = newval.courier.map(el => {
           if (el.includes('custom')) {
@@ -6354,7 +6335,7 @@ var components_General = __webpack_require__(215);
   },
 
   async mounted() {
-    this.get_list_voucher();
+    await this.get_list_voucher();
     const cart = await General["default"].cart_manager(this, {
       method: 'get',
       info: {
@@ -6457,10 +6438,50 @@ var components_General = __webpack_require__(215);
       this.voucher.form = true;
     },
 
+    validate_voucher_mode(code) {
+      /**
+       ** INSERT VOUCHER CODE
+       ** MATCH VOUCHER MODE
+       **  - IF VOUCHER_MODE === ALL
+       **    RETURN TRUE
+        **  - IF VOUCHER_MODE === RP 
+       **    -> IF ORDER_TYPE === SUBSCRIPTION-ORDER 
+       **      RETURN TRUE
+       **  - ELSE IF VOUCHER_MODE === SO
+       **    -> IF ORDER_TYPE === SINGLE-ORDER
+       **      RETURN TRUE
+       **  - ELSE IF VOUCHER_MODE === PO
+       **    -> IF ORDER_TYPE === PACKAGE-ORDER
+       **      RETURN TRUE
+        **  RETURN FALSE
+       */
+      const convert_order_type = (() => {
+        if (this.order_type === 'subscription-order') return 'rp';
+        if (this.order_type === 'single-order') return 'so';
+        if (this.order_type === 'package-order') return 'so';
+        return null;
+      })();
+
+      const is_selection_mode = this.voucher.lists.filter(_ => _.show_select && _.name && _.name.toLowerCase() === code.toLowerCase());
+      const is_exist_custom_with_all_mode = this.voucher.lists.filter(_ => !_.show_select && _.sku_product.mode === 'all');
+      const is_exist_custom_without_all_mode = this.voucher.lists.filter(_ => !_.show_select && _.sku_product.mode === convert_order_type);
+      console.log("@code |", code);
+      console.log("@convert_order_type |", convert_order_type);
+      console.log("@is_selection_mode |", is_selection_mode);
+      console.log("@is_exist_custom_with_all_mode |", is_exist_custom_with_all_mode);
+      console.log("@is_exist_custom_without_all_mode |", is_exist_custom_without_all_mode);
+      console.log("@this.voucher.lists |", this.voucher.lists);
+      if (is_selection_mode.length) return true;
+      if (is_exist_custom_with_all_mode.length) return true;
+      if (is_exist_custom_without_all_mode.length) return true;
+      this.invalid_voucher = true;
+      return false;
+    },
+
     async submit_voucher(status, code) {
       this.voucher.loading = true;
 
-      if (status) {
+      if (status && this.validate_voucher_mode(code)) {
         const request = await this.$store.dispatch('request', {
           url: '/voucher/apply',
           method: 'post',
@@ -6494,15 +6515,12 @@ var components_General = __webpack_require__(215);
             });
             return el;
           });
-          console.log('new_product', new_product);
           this.$store.dispatch('setState', {
             payload: {
               key: 'products',
               data: new_product
             }
           });
-        } else {
-          console.log(request.data.message);
         }
       }
 
@@ -6631,11 +6649,17 @@ var VBottomSheet = __webpack_require__(157);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
 var VBtn = __webpack_require__(43);
 
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
+var VCard = __webpack_require__(103);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDialog/VDialog.js + 3 modules
+var VDialog = __webpack_require__(139);
+
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VDivider/VDivider.js
 var VDivider = __webpack_require__(145);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VFooter/VFooter.js
-var VFooter = __webpack_require__(208);
+var VFooter = __webpack_require__(203);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
 var VImg = __webpack_require__(57);
@@ -6644,7 +6668,7 @@ var VImg = __webpack_require__(57);
 var VSheet = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js
-var VSnackbar = __webpack_require__(283);
+var VSnackbar = __webpack_require__(267);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(109);
@@ -6655,7 +6679,7 @@ var VSpacer = __webpack_require__(109);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(306)
+  var style0 = __webpack_require__(300)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -6685,7 +6709,9 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 
 
-installComponents_default()(component, {VBottomSheet: VBottomSheet["a" /* default */],VBtn: VBtn["a" /* default */],VDivider: VDivider["a" /* default */],VFooter: VFooter["a" /* default */],VImg: VImg["a" /* default */],VSheet: VSheet["a" /* default */],VSnackbar: VSnackbar["a" /* default */],VSpacer: VSpacer["a" /* default */]})
+
+
+installComponents_default()(component, {VBottomSheet: VBottomSheet["a" /* default */],VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VDialog: VDialog["a" /* default */],VDivider: VDivider["a" /* default */],VFooter: VFooter["a" /* default */],VImg: VImg["a" /* default */],VSheet: VSheet["a" /* default */],VSnackbar: VSnackbar["a" /* default */],VSpacer: VSpacer["a" /* default */]})
 
 
 /***/ }),

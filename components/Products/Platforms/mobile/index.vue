@@ -490,7 +490,6 @@ export default {
         newval.push(el)
       })
 
-      console.log(JSON.stringify(newval, null, 2))
 
       await API.cart_manager(this, {
         method: 'set',
@@ -518,7 +517,6 @@ export default {
     },
 
     count_total_order(items) {
-      console.log('@count_total_order |', items)
       let total = 0
       let item  = 0
 
@@ -561,9 +559,6 @@ export default {
 
     select_merchant(merchant) {
       const { params: { store }, query: { market, c, src, u } } = this.$route
-   
-      console.log('@select_outlet |', merchant)
-      // this.$router.replace(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`)
 
       if (process.browser) {
         window.location.replace(`/site/${store}?market=${market}&u=${u}&src=${src}&c=${merchant.id}`)
@@ -571,7 +566,6 @@ export default {
     },
 
     select_address(address) {
-      console.log('@select_address |', address)
       this.$store.dispatch('setState', {
         payload: {
           key: 'customer',
@@ -580,10 +574,6 @@ export default {
       })
       this.alert = true
     },
-
-    add_sub_address() {
-      console.log('@add_sub_address')
-    }
   }
 }
 </script>

@@ -14,8 +14,6 @@ const _1aa22d63 = () => interopDefault(import('../pages/site/_store/cart/index.v
 const _3b853409 = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
 const _f5f913ea = () => interopDefault(import('../pages/site/_store/merchant/index.vue' /* webpackChunkName: "pages/site/_store/merchant/index" */))
 const _2f7264f1 = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
-const _4fe268fe = () => interopDefault(import('../pages/site/_store/cart/backup.vue' /* webpackChunkName: "pages/site/_store/cart/backup" */))
-const _58e6ccca = () => interopDefault(import('../pages/site/_store/checkout/backup.vue' /* webpackChunkName: "pages/site/_store/checkout/backup" */))
 const _0d6327e2 = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
 const _416141e7 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -70,14 +68,6 @@ export const routerOptions = {
     path: "/site/:store?/userprofile",
     component: _2f7264f1,
     name: "site-store-userprofile"
-  }, {
-    path: "/site/:store?/cart/backup",
-    component: _4fe268fe,
-    name: "site-store-cart-backup"
-  }, {
-    path: "/site/:store?/checkout/backup",
-    component: _58e6ccca,
-    name: "site-store-checkout-backup"
   }, {
     path: "/site/:store?/:pid",
     component: _0d6327e2,

@@ -80,7 +80,6 @@ export default {
     checked_button() {
       if (!this.processbtn) {
         if (this.customized_values && !this.rp_order) {
-          console.log('masuk this.customized_values')
           const customize_setup = JSON.parse(this.store.customize_setup).packaging.rules.detail
           const mapped_customized_values = this.customized_values.map(el => {
             const selected_mode = customize_setup.filter(setup => setup.type == el.type)
@@ -88,8 +87,6 @@ export default {
             return { ...el, min_order: selected_mode[0].min, max_order: selected_mode[0].max}
           })
           const validate_total = mapped_customized_values.filter(el => el.total > el.max_order || el.total < el.min_order)
-
-          console.log('@validate_total', validate_total)
 
           if (validate_total.length) {
             return true
@@ -99,7 +96,6 @@ export default {
         }
 
         if (this.rp_order) {
-          console.log('@rp_order | ', this.rp_order, this.grandtotal)
           const get_items = this.dates.slice(0).map(el => {
             let rp_total = 0
             const items = el.items.filter(item => item.select_date)
@@ -133,11 +129,5 @@ export default {
       return this.processbtn
     }
   },
-
-  mounted() {
-    console.log('@checkout.processbtn |', this.processbtn)
-    console.log('@checkout.grand_total | ', this.grandtotal)
-    console.log('@checkout.checked_button | ', this.checked_button)
-  }
 }
 </script>

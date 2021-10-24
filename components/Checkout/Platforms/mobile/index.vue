@@ -1,5 +1,13 @@
 <template>
   <div>
+    <v-dialog v-model="invalid_voucher">
+      <v-card style="padding: 20px;">
+        <v-img :src="require('@/assets/images/invalid-card.jpeg')" width="80" />
+        <center>
+          <div class="pt-2" style="font-size: 16px; font-weight: 600; color: #5a5a5a;">INVALID VOUCHER!</div>
+        </center>
+      </v-card>
+    </v-dialog>
     <div
       style="
         padding-bottom: 100px;
@@ -124,6 +132,7 @@ export default {
   },
 
   data: () => ({
+    invalid_voucher: false,
     voucher: {
       lists: [],
       is_custom_voucher: false,
@@ -256,19 +265,14 @@ export default {
           this.cart.forEach(el => {
             if (!is_valid) {
               let total = 0
-              console.log(total)
 
               el.items.forEach(item => {
                 const find = this.products.filter(
                   product => product.id === item.id && product.SKU === item.sku
                 )
 
-                console.log('find', find)
-
                 total += ((find[0].discount_price || find[0].normal_price) * item.qty)
               })
-
-              console.log('find', total)
 
               if (total < this.store.min_order || total > this.store.max_order) {
                 is_valid = true
@@ -278,13 +282,10 @@ export default {
 
           return is_valid || !this.courier.selected || !this.payment.selected
         } else if (this.order_type === 'package-order') {
-          console.log('masuk sini')
           if (this.store.customize_setup) {
-            // console.log(, ' this.store.customize_setup')
             const order_type = this.package_cart[0].type
             const find_rules = JSON.parse(this.store.customize_setup).packaging.rules.detail.filter(el => el.type === order_type)
 
-            console.log("!@find_rules |", JSON.stringify(find_rules, null, 2))
             if (find_rules.length) {
               this.custom_rules = {
                 min: find_rules[0].min,
@@ -349,18 +350,12 @@ export default {
         })
       }
 
-      // console.log('product', product)
-
       return total + +(this.courier.selected ? this.courier.selected.price : 0)
     },
   },
 
   watch: {
     store(newval, oldval) {
-      console.log('@newval |', newval)
-      console.log('@oldval |', oldval)
-      console.log('@newval.check |', newval.hasOwnProperty('courier'))
-      console.log('@oldval.check |', !oldval.hasOwnProperty('courier'))
       if (newval.hasOwnProperty('courier') && !oldval.hasOwnProperty('courier')) {
         this.courier.lists = newval.courier.map(el => {
           if (el.includes('custom')) {
@@ -380,7 +375,7 @@ export default {
   },
 
   async mounted() {
-    this.get_list_voucher()
+    await this.get_list_voucher()
 
     const cart = await API.cart_manager(this, {
       method: 'get',
@@ -484,10 +479,57 @@ export default {
       this.voucher.form = true
     },
 
+    validate_voucher_mode(code) {
+      /**
+       ** INSERT VOUCHER CODE
+       ** MATCH VOUCHER MODE
+       **  - IF VOUCHER_MODE === ALL
+       **    RETURN TRUE
+
+       **  - IF VOUCHER_MODE === RP 
+       **    -> IF ORDER_TYPE === SUBSCRIPTION-ORDER 
+       **      RETURN TRUE
+       **  - ELSE IF VOUCHER_MODE === SO
+       **    -> IF ORDER_TYPE === SINGLE-ORDER
+       **      RETURN TRUE
+       **  - ELSE IF VOUCHER_MODE === PO
+       **    -> IF ORDER_TYPE === PACKAGE-ORDER
+       **      RETURN TRUE
+
+       **  RETURN FALSE
+       */
+
+      const convert_order_type = (() => {
+        if (this.order_type === 'subscription-order') return 'rp'
+        if (this.order_type === 'single-order') return 'so'
+        if (this.order_type === 'package-order') return 'so'
+
+        return null;
+      })();
+      const is_selection_mode = this.voucher.lists.filter(_ => _.show_select && _.name && _.name.toLowerCase() === code.toLowerCase());
+      const is_exist_custom_with_all_mode = this.voucher.lists.filter(_ => !_.show_select && _.sku_product.mode === 'all');
+      const is_exist_custom_without_all_mode = this.voucher.lists.filter(_ => !_.show_select && _.sku_product.mode === convert_order_type);
+
+      console.log("@code |", code)
+      console.log("@convert_order_type |", convert_order_type)
+      console.log("@is_selection_mode |", is_selection_mode)
+      console.log("@is_exist_custom_with_all_mode |", is_exist_custom_with_all_mode)
+      console.log("@is_exist_custom_without_all_mode |", is_exist_custom_without_all_mode)
+      console.log("@this.voucher.lists |", this.voucher.lists)
+
+      if (is_selection_mode.length) return true;
+      if (is_exist_custom_with_all_mode.length) return true;
+      if (is_exist_custom_without_all_mode.length) return true;
+
+      this.invalid_voucher = true;
+
+      return false;
+    },
+
     async submit_voucher(status, code) {
       this.voucher.loading = true
 
-      if (status) {
+      if (status && this.validate_voucher_mode(code)) {
         const request = await this.$store.dispatch('request', {
           url: '/voucher/apply',
           method: 'post',
@@ -525,16 +567,12 @@ export default {
             return el
           })
 
-          console.log('new_product', new_product)
-
           this.$store.dispatch('setState', {
             payload: {
               key: 'products',
               data: new_product
             }
           })
-        } else {
-          console.log(request.data.message)
         }
       }
 

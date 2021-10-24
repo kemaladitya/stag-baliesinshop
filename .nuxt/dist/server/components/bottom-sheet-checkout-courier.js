@@ -1,13 +1,13 @@
 exports.ids = [2];
 exports.modules = {
 
-/***/ 126:
+/***/ 124:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(127);
+var content = __webpack_require__(125);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -15,7 +15,7 @@ __webpack_require__(5).default("7132a15d", content, true)
 
 /***/ }),
 
-/***/ 127:
+/***/ 125:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -33,7 +33,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(126);
+/* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(124);
 /* harmony import */ var _src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VDivider_VDivider_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 // Styles
@@ -75,19 +75,19 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 344:
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/courier.vue?vue&type=template&id=84da4aaa&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/courier.vue?vue&type=template&id=ceaccb7c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-sheet',[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"pl-2",staticStyle:{"align-self":"center","font-size":"13px","font-weight":"600"}},[_vm._v("\n      Pilih Kurir\n    ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"icon":"","text":"","color":"red"},on:{"click":function($event){return _vm.changehandler('courier', false)}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-divider'),_vm._v(" "),_c('div',{staticClass:"pb-2",staticStyle:{"overflow-y":"scroll !important","max-height":"450px !important"}},_vm._l((_vm.getcour()),function(cr,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[_c('v-card',{staticClass:"ml-2 pa-2",staticStyle:{"font-size":"13px","font-weight":"600"},attrs:{"outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[_vm._v("\n        "+_vm._s(cr.split('|').join(' - '))+"\n      ")])],1)}),1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/courier.vue?vue&type=template&id=84da4aaa&
+// CONCATENATED MODULE: ./components/Bottom-Sheet/Checkout/courier.vue?vue&type=template&id=ceaccb7c&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/Checkout/courier.vue?vue&type=script&lang=js&
 //
@@ -161,17 +161,13 @@ var staticRenderFns = []
 
   },
 
-  mounted() {
-    console.log(this.store.courier, ' this.store.courier');
-
-    if (this.store.courier.length == 1) {
-      console.log(this.store.courier[0]); // await this.select_courier()
-    }
+  mounted() {// if (this.store.courier.length == 1) {
+    //   await this.select_courier()
+    // }
   },
 
   methods: {
     async select_courier(cr) {
-      console.log(cr);
       this.changehandler('courier', false);
       this.changehandler('shipping_cost_loading', true);
       const pricing = await this.$store.dispatch('request', {
