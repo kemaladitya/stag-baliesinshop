@@ -4,7 +4,7 @@
       <v-card style="padding: 20px;">
         <v-img :src="require('@/assets/images/invalid-card.jpeg')" width="80" />
         <center>
-          <div class="pt-2" style="font-size: 16px; font-weight: 600; color: #5a5a5a;">INVALID VOUCHER!</div>
+          <div class="pt-2" style="font-size: 16px; font-weight: 600; color: #5a5a5a;" v-html="invalid_message" />
         </center>
       </v-card>
     </v-dialog>
@@ -132,6 +132,7 @@ export default {
 
   data: () => ({
     invalid_voucher: false,
+    invalid_message: "INVALID VOUCHER",
     voucher: {
       lists: [],
       is_custom_voucher: false,
@@ -516,6 +517,7 @@ export default {
       if (is_exist_custom_without_all_mode.length) return true;
 
       this.invalid_voucher = true;
+      this.invalid_message = `MAAF KODE VOUCHER <span style="color: #1565c0;">${code}</span>, TIDAK BERLAKU`
 
       return false;
     },
