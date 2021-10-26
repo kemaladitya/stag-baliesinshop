@@ -3695,7 +3695,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 256:
+/***/ 257:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4085,7 +4085,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 257:
+/***/ 258:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4295,7 +4295,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VIcon: V
 
 /***/ }),
 
-/***/ 258:
+/***/ 259:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5211,13 +5211,13 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Checkout/Platforms/desktop/constants/order-info.vue?vue&type=template&id=ce8b813e&
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/desktop/constants/order-type/subscription-order.vue + 4 modules
-var subscription_order = __webpack_require__(256);
+var subscription_order = __webpack_require__(257);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/desktop/constants/order-type/single-order.vue + 4 modules
-var single_order = __webpack_require__(257);
+var single_order = __webpack_require__(258);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/desktop/constants/order-type/package-order.vue + 4 modules
-var package_order = __webpack_require__(258);
+var package_order = __webpack_require__(259);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/desktop/constants/order-info.vue?vue&type=script&lang=js&
 //
@@ -5982,14 +5982,14 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/desktop/index.vue?vue&type=template&id=218c1fc3&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/desktop/index.vue?vue&type=template&id=114f9f13&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-dialog',{model:{value:(_vm.invalid_voucher),callback:function ($$v) {_vm.invalid_voucher=$$v},expression:"invalid_voucher"}},[_c('v-card',{staticStyle:{"padding":"20px"}},[_c('v-img',{attrs:{"src":__webpack_require__(211),"width":"80"}}),_vm._v(" "),_c('center',[_c('div',{staticClass:"pt-2",staticStyle:{"font-size":"16px","font-weight":"600","color":"#5a5a5a"},domProps:{"innerHTML":_vm._s(_vm.invalid_message)}})])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment}})],2),_vm._ssrNode(" "),_c('v-snackbar',{staticStyle:{"z-index":"999 !important"},attrs:{"id":"b-cour-unavailable","color":"error","timeout":"3000","absolute":"","multi-line":"","top":"","center":""},model:{value:(_vm.courier.unavailable_cour),callback:function ($$v) {_vm.$set(_vm.courier, "unavailable_cour", $$v)},expression:"courier.unavailable_cour"}},[_vm._v("\n    Oops.. Service is not available for your city\n  ")]),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-footer',{staticStyle:{"width":"100%"},attrs:{"fixed":"","padless":"","color":"grey lighten-3"}},[_c('div',{staticClass:"pa-1",staticStyle:{"background-color":"white !important","width":"100%"}},[_c('div',{staticClass:"d-flex flex-row pa-1"},[_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("TOTAL HARGA")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n          Rp\n          "+_vm._s(_vm.general_total_order
               .toLocaleString()
               .replace(/,/g, '.'))+"\n        ")])],1),_vm._v(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","font-weight":"600"},attrs:{"depressed":"","color":"#FD0","min-width":"100%","height":"45","disabled":_vm.checked_button},on:{"click":_vm.execute_order}},[_vm._v("\n        Proses\n      ")])],1)])],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/desktop/index.vue?vue&type=template&id=218c1fc3&
+// CONCATENATED MODULE: ./components/Checkout/Platforms/desktop/index.vue?vue&type=template&id=114f9f13&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(111);
@@ -6559,8 +6559,31 @@ var components_General = __webpack_require__(212);
       this.voucher.loading = false;
     },
 
+    async execute_referral() {
+      // * buat di checkout
+      const submit = await this.$store.dispatch("request", {
+        url: "/referral/redeem",
+        method: "post",
+        data: {
+          botid: this.store.bot_id,
+          source: this.site.source,
+          userloc: this.customer.city,
+          data: {
+            e_data: this.voucher.selected.name
+          },
+          uuid: this.customer.uuid
+        }
+      });
+      console.log("execute_referral", submit);
+    },
+
     async execute_order() {
       this.order_loading = true;
+
+      if (this.voucher.selected.name.includes("referral")) {
+        await this.execute_referral();
+      }
+
       const date = new Date();
       const day = date.getDate();
       const month = date.getMonth();

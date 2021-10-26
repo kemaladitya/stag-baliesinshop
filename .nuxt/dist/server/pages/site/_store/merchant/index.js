@@ -3547,7 +3547,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 331:
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3656,7 +3656,7 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./pages/site/_store/merchant/index.vue?vue&type=template&id=bcf44876&
 
 // EXTERNAL MODULE: ./components/Merchant/index.vue + 4 modules
-var Merchant = __webpack_require__(331);
+var Merchant = __webpack_require__(332);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/merchant/index.vue?vue&type=script&lang=js&
 //
@@ -3827,7 +3827,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var merchant = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(component, {Merchant: __webpack_require__(331).default})
+installComponents_default()(component, {Merchant: __webpack_require__(332).default})
 
 
 /* vuetify-loader */

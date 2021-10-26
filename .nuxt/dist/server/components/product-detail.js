@@ -8940,7 +8940,8 @@ installComponents_default()(component, {VBottomSheet: VBottomSheet["a" /* defaul
 /* 341 */,
 /* 342 */,
 /* 343 */,
-/* 344 */
+/* 344 */,
+/* 345 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
