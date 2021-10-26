@@ -50,6 +50,55 @@
         />
         <div style="font-size: 11px; color: red">{{ form_requirements.email }} &nbsp;</div>
       </div>
+      <v-dialog
+        ref="dialog"
+        v-model="birth_modal"
+        :return-value.sync="birth_date"
+        persistent
+        width="290px"
+      >
+        <template v-slot:activator="{ on, attrs }">
+          <v-text-field
+            v-model="birth_date"
+            label="Date of birth"
+            :placeholder="birth_date"
+            style="font-size: 13px; font-weight: 600; letter-spacing: normal"
+            readonly
+            v-bind="attrs"
+            v-on="on"
+          ></v-text-field>
+        </template>
+        <v-date-picker
+          v-model="birth_date"
+          scrollable
+        >
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            color="primary"
+            @click="birth_modal = false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            text
+            color="primary"
+            @click="$refs.dialog.save(birth_date)"
+          >
+            OK
+          </v-btn>
+        </v-date-picker>
+      </v-dialog>
+      <div v-show="referral.event_id" class="mt-3">
+        <v-text-field
+          label="Referral Code (Optional)"
+          hide-details
+          name="referral_code"
+          style="font-size: 13px; font-weight: 600; letter-spacing: normal"
+          v-model="referral.code"
+        />
+        <div style="font-size: 11px; color: red">{{ form_requirements.email }} &nbsp;</div>
+      </div>
       <div class="mt-3">
         <v-select
           v-model="selected_province"
@@ -232,7 +281,7 @@
               "
               rounded
               depressed
-              @click="submit"
+              @click="execute_redeem"
             >
               Lanjut
             </v-btn>
@@ -287,6 +336,73 @@
         </center>
       </v-sheet>
     </v-bottom-sheet>
+
+    <!-- referral redeem dialog -->
+    <v-dialog v-model="referral_redeem_dialog" persistent style="overflow: hidden;">
+      <v-card style="overflow: hidden;">
+        <div>
+          <v-card class="d-flex flex-row pa-1" tile flat>
+            <v-spacer />
+            <v-icon @click="referral_redeem_dialog = false">mdi-close</v-icon>
+          </v-card>
+        </div>
+        <div style="margin-top: 10px; padding-bottom: 20px;">
+          <center>
+            <v-img
+              v-if="referral.redeem.status"
+              style="width: 50px"
+              src="https://s3-ap-southeast-1.amazonaws.com/alatteknikkitaassets/logos/success.gif"
+            />
+            <v-img v-else :src="require('@/assets/images/error.png')" style="width: 45px" />
+
+            <div
+              style="
+                font-size: 14px;
+                font-weight: 500;
+                margin: 10px 0 10px 0;
+                padding: 0 30px 0 30px;
+              "
+              v-html="referral.redeem.message"
+            />
+          </center>
+        </div>
+      </v-card>
+    </v-dialog>
+    <!-- referral redeem dialog -->
+
+    <!-- referral register dialog -->
+    <v-dialog v-model="referral_register_dialog" persistent style="overflow: hidden;">
+      <v-card style="overflow: hidden;">
+        <div>
+          <v-card class="d-flex flex-row pa-1" tile flat>
+            <v-spacer />
+            <v-icon @click="referral_register_dialog = false">mdi-close</v-icon>
+          </v-card>
+        </div>
+        <div style="margin-top: 10px; padding-bottom: 20px;">
+          <center>
+            <v-img
+              v-if="referral.register.status"
+              style="width: 50px"
+              src="https://s3-ap-southeast-1.amazonaws.com/alatteknikkitaassets/logos/success.gif"
+            />
+            <v-img v-else :src="require('@/assets/images/error.png')" style="width: 45px" />
+
+            <div
+              style="
+                font-size: 14px;
+                font-weight: 500;
+                margin: 10px 0 10px 0;
+                padding: 0 30px 0 30px;
+              "
+              v-html="referral.register.message"
+            />
+          </center>
+        </div>
+      </v-card>
+    </v-dialog>
+    <!-- referral register dialog -->
+
   </div>
 </template>
 
@@ -294,6 +410,22 @@
 export default {
   data: () => ({
     mode: 'register',
+    referral_register_dialog: false,
+    referral_redeem_dialog: false,
+    referral: {
+      event_id: null,
+      code: '',
+      register: {
+        status: false,
+        message: ""
+      },
+      redeem: {
+        status: false,
+        message: ""
+      }
+    },
+    birth_modal: false,
+    birth_date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
     process: false,
     register_failed: false,
     is_updated: false,
@@ -370,6 +502,18 @@ export default {
   },
 
   watch: {
+    referral_register_dialog(_, __) {
+      if (!_ && !this.referral_register_dialog && !this.process) {
+        this.submit()
+      }
+    },
+
+    referral_redeem_dialog(_, __) {
+      if (!_ && !this.referral_redeem_dialog && !this.process) {
+        this.submit()
+      }
+    },
+
     phone(newval, oldval) {
       const self = this
 
@@ -431,6 +575,9 @@ export default {
     })
 
     await this.get_base_info("site-store-checkout")
+
+    this.get_event()
+
     await this.get_province()
     await this.get_customer_detail()
 
@@ -462,6 +609,118 @@ export default {
     change_selected_route(key, value) {
       this.is_updated = true
       this[`selected${key}`] = value
+    },
+
+    async get_event() {
+      const get = await this.$store.dispatch("request", {
+        url: "/referral/event/get_id",
+        method: "post",
+        data: {
+          event_type: "referral",
+          // bot_id: 103
+          bot_id: this.store.bot_id
+        },
+      })
+
+      if (get.data.reply.length) {
+        this.referral.event_id = get.data.reply[0].id;
+      }
+    },
+
+    async execute_redeem() {
+      if (this.referral.event_id) {
+        const regist_event = await this.register_participant_event()
+
+        if (regist_event.status == "success") {
+          const splitted = regist_event.reply.split("|")
+
+          this.referral.register.message = `${splitted[0]} <span style="color: #1867c0">${splitted[1]}</span>`
+          this.referral.register.status = true;
+          this.referral_register_dialog = true;
+        }
+
+        if (this.referral.code.length) {
+          const redeem_referral = await this.redeem_referral()
+
+          this.referral.redeem.message = redeem_referral.reply
+          this.referral.redeem.status  = redeem_referral.status == "success";
+          this.referral_redeem_dialog  = true;
+        }
+      } else {
+        this.submit();
+      }
+    },
+
+    async redeem_referral() {
+      // return {
+      //   "dtm": "Tue, 26 Oct 2021 17:07:29 GMT",
+      //   "reply": "Selamat anda berhasil redeem referal code dan mendapatkan bonus gebyar_box_referral-QHY7TG",
+      //   "status": "success"
+      // }
+      // return {
+      //   "dtm": "Tue, 26 Oct 2021 16:52:09 GMT",
+      //   "reply": "maaf anda telah mencapai limit redeem",
+      //   "status": "failed_limit"
+      // }
+
+      const request = await this.$store.dispatch("request", {
+        url: "/referral/event/redeem/referral",
+        method: "post",
+        data: {
+          botid   : this.store.bot_id,
+          source  : this.$route.query.src,
+          userloc : this.selected_city,
+          data    : { e_data  : this.referral.code },
+          uuid    : this.$route.query.u
+        }
+      })
+
+      return request.data;
+    },
+
+    async register_participant_event() {
+      // return {
+      //   "dtm": "Tue, 26 Oct 2021 11:38:35 GMT",
+      //   "reply": "Anda telah teregister dan ini referral code anda|Tauf-VTU",
+      //   "status": "failed_already_registered"
+      // }
+
+      // return {
+      //   "dtm": "Tue, 26 Oct 2021 16:50:37 GMT",
+      //   "reply": "Selamat anda sudah teregistrasi dan ini referral code anda|Mela-G26",
+      //   "status": "success"
+      // }
+
+      const request = await this.$store.dispatch("request", {
+        url: "/referral/event/reg",
+        method: "post",
+        data: {
+          chatkey    : this.$route.query.u,
+          event_id   : this.referral.event_id,
+          detail_info: {
+            mode     : this.mode,
+            uuid     : this.$route.query.u,
+            bot_id   : this.store.bot_id,
+            bot_name : this.$route.params.store,
+            store_id : this.store.id,
+            name     : this.name,
+            phone    : this.phone,
+            email    : this.email,
+            province : this.selected_province,
+            city     : this.selected_city,
+            urban    : this.selected_urban,
+            zip_code : this.postal_code,
+            address  : this.address,
+            source   : this.$route.query.src,
+            sub_district  : this.selected_sub_district,
+            date_of_birth : this.date_of_birth,
+          },
+          source: this.$route.query.src,
+          userloc: this.selected_city
+        }
+      });
+
+      return request.data;
     },
 
     async get_province() {
@@ -555,6 +814,7 @@ export default {
 
     async submit() {
       // const self = this
+      this.confirm = false
       this.process = true
 
       this.check_phone_number()

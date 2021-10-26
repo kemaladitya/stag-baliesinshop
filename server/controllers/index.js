@@ -5,6 +5,7 @@ const order   = require('./order')
 const product = require('./product')
 const voucher = require('./voucher')
 const mailer  = require('./mailer')
+const referral = require("./referral");
 const axios   = require('axios')
 const { _api, _key } = require('../../config.json')
 
@@ -32,4 +33,4 @@ async function general(request, response) {
   }
 }
 
-module.exports = { general, cart, order, product, voucher, mailer };
+module.exports = { general, cart, order, product, voucher, mailer, referral };

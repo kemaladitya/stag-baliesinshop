@@ -1,7 +1,7 @@
 exports.ids = [58,59,60,61];
 exports.modules = {
 
-/***/ 253:
+/***/ 254:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -391,7 +391,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 254:
+/***/ 255:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -601,7 +601,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VIcon: V
 
 /***/ }),
 
-/***/ 255:
+/***/ 256:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -904,13 +904,13 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=template&id=1f8c294f&
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue + 4 modules
-var subscription_order = __webpack_require__(253);
+var subscription_order = __webpack_require__(254);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue + 4 modules
-var single_order = __webpack_require__(254);
+var single_order = __webpack_require__(255);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/package-order.vue + 4 modules
-var package_order = __webpack_require__(255);
+var package_order = __webpack_require__(256);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-info.vue?vue&type=script&lang=js&
 //

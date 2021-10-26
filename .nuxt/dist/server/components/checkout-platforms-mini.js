@@ -3695,7 +3695,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 250:
+/***/ 251:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4085,7 +4085,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 251:
+/***/ 252:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4293,7 +4293,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VIcon: V
 
 /***/ }),
 
-/***/ 252:
+/***/ 253:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5209,13 +5209,13 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=template&id=22aced8d&
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue + 4 modules
-var subscription_order = __webpack_require__(250);
+var subscription_order = __webpack_require__(251);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-type/single-order.vue + 4 modules
-var single_order = __webpack_require__(251);
+var single_order = __webpack_require__(252);
 
 // EXTERNAL MODULE: ./components/Checkout/Platforms/mini/constants/order-type/package-order.vue + 4 modules
-var package_order = __webpack_require__(252);
+var package_order = __webpack_require__(253);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mini/constants/order-info.vue?vue&type=script&lang=js&
 //
