@@ -582,31 +582,8 @@ export default {
       this.voucher.loading = false
     },
 
-    async execute_referral() {
-      // * buat di checkout
-      const submit = await this.$store.dispatch("request", {
-        url: "/referral/redeem",
-        method: "post",
-        data: {
-          botid   : this.store.bot_id,
-          source  : this.site.source,
-          userloc : this.customer.city,
-          data    : { e_data: this.voucher.selected.name },
-          uuid    : this.customer.uuid
-        }
-      })
-
-      console.log("execute_referral", submit)
-    },
-
     async execute_order() {
       this.order_loading = true
-
-      if (this.voucher.selected.name.includes("referral")) {
-        await this.execute_referral()
-      }
-
-      // console.log("submit", submit)
 
       const date = new Date()
       const day = date.getDate()

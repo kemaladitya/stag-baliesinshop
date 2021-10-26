@@ -1751,7 +1751,7 @@ const baseMixins = Object(mixins["a" /* default */])(activatable["a" /* default 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(265);
+var content = __webpack_require__(264);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1763,7 +1763,7 @@ module.exports.__inject__ = function (context) {
 
 /***/ }),
 
-/***/ 246:
+/***/ 245:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1991,7 +1991,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 247:
+/***/ 246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2331,7 +2331,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 248:
+/***/ 247:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2520,7 +2520,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 249:
+/***/ 248:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2670,7 +2670,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 250:
+/***/ 249:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2784,7 +2784,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 264:
+/***/ 263:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2796,7 +2796,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 265:
+/***/ 264:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -2830,19 +2830,19 @@ var staticRenderFns = []
 var General = __webpack_require__(111);
 
 // EXTERNAL MODULE: ./components/Cart/Platforms/desktop/type/package-order/type/single.vue + 4 modules
-var single = __webpack_require__(246);
+var single = __webpack_require__(245);
 
 // EXTERNAL MODULE: ./components/Cart/Platforms/desktop/type/package-order/type/multiple.vue + 4 modules
-var multiple = __webpack_require__(247);
+var multiple = __webpack_require__(246);
 
 // EXTERNAL MODULE: ./components/Cart/Platforms/desktop/type/package-order/list-items.vue + 4 modules
-var list_items = __webpack_require__(248);
+var list_items = __webpack_require__(247);
 
 // EXTERNAL MODULE: ./components/Cart/Platforms/desktop/type/package-order/footer-detail.vue + 4 modules
-var footer_detail = __webpack_require__(249);
+var footer_detail = __webpack_require__(248);
 
 // EXTERNAL MODULE: ./components/Cart/Platforms/desktop/type/package-order/remove-package.vue + 4 modules
-var remove_package = __webpack_require__(250);
+var remove_package = __webpack_require__(249);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/desktop/type/package-order.vue?vue&type=script&lang=js&
 //
@@ -3392,7 +3392,7 @@ var VSpacer = __webpack_require__(110);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(264)
+  var style0 = __webpack_require__(263)
 if (style0.__inject__) style0.__inject__(context)
 
 }
