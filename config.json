@@ -4,7 +4,7 @@
   "base"  : "https://staging.balesin.id",
   "event" : "http://10.140.0.28:8114",
   "host"  : "0.0.0.0",
-  "port"  : "8082",
+  "port"  : "8080",
   "redis" : {
     "host"     : "10.140.0.17",
     "port"     : "6379",
