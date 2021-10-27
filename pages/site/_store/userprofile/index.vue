@@ -513,15 +513,15 @@ export default {
 
   watch: {
     referral_register_dialog(_, __) {
-      if (!_ && !this.referral_register_dialog && !this.process) {
-        this.submit()
-      }
+      // if (!_ && !this.referral_register_dialog && !this.process) {
+      this.submit()
+      // }
     },
 
     referral_redeem_dialog(_, __) {
-      if (!_ && !this.referral_redeem_dialog && !this.process) {
-        this.submit()
-      }
+      // if (!_ && !this.referral_redeem_dialog && !this.process) {
+      this.submit()
+      // }
     },
 
     phone(newval, oldval) {
@@ -693,7 +693,6 @@ export default {
       //   "reply": "Anda telah teregister dan ini referral code anda|Tauf-VTU",
       //   "status": "failed_already_registered"
       // }
-
       // return {
       //   "dtm": "Tue, 26 Oct 2021 16:50:37 GMT",
       //   "reply": "Selamat anda sudah teregistrasi dan ini referral code anda|Mela-G26",
@@ -823,46 +822,48 @@ export default {
     },
 
     async submit() {
-      // const self = this
-      this.confirm = false
-      this.process = true
+      if (!this.referral_register_dialog && !this.referral_redeem_dialog && !this.process) {
+        // const self = this
+        this.confirm = false
+        this.process = true
 
-      this.check_phone_number()
-    
-      const submit_user = await this.$store.dispatch('request', {
-        url: '/api/user/register',
-        method: 'post',
-        data: {
-          mode     : this.mode,
-          uuid     : this.$route.query.u,
-          bot_id   : this.store.bot_id,
-          bot_name : this.$route.params.store,
-          store_id : this.store.id,
-          name     : this.name,
-          phone    : this.phone,
-          email    : this.email,
-          province : this.selected_province,
-          city     : this.selected_city,
-          urban    : this.selected_urban,
-          zip_code : this.postal_code,
-          address  : this.address,
-          source   : this.$route.query.src,
-          gender   : this.gender === 'P' ? 'M' : 'F',
-          date_of_birth : this.date_of_birth,
-          sub_district: this.selected_sub_district,
-        }
-      })
+        this.check_phone_number()
+      
+        const submit_user = await this.$store.dispatch('request', {
+          url: '/api/user/register',
+          method: 'post',
+          data: {
+            mode     : this.mode,
+            uuid     : this.$route.query.u,
+            bot_id   : this.store.bot_id,
+            bot_name : this.$route.params.store,
+            store_id : this.store.id,
+            name     : this.name,
+            phone    : this.phone,
+            email    : this.email,
+            province : this.selected_province,
+            city     : this.selected_city,
+            urban    : this.selected_urban,
+            zip_code : this.postal_code,
+            address  : this.address,
+            source   : this.$route.query.src,
+            gender   : this.gender === 'P' ? 'M' : 'F',
+            date_of_birth : this.date_of_birth,
+            sub_district: this.selected_sub_district,
+          }
+        })
 
-      if (submit_user.data.status) {
-        this.process = false
-        if (this.store.registered_mode) {
-          this.$router.push(`/success/register/${this.store.phone}`)
+        if (submit_user.data.status) {
+          this.process = false
+          if (this.store.registered_mode) {
+            this.$router.push(`/success/register/${this.store.phone}`)
+          } else {
+            this.$router.replace(`/site/${this.site.store}/checkout?src=${this.site.source}&u=${this.site.uuid}&c=${this.site.category}`)
+          }
         } else {
-          this.$router.replace(`/site/${this.site.store}/checkout?src=${this.site.source}&u=${this.site.uuid}&c=${this.site.category}`)
+          this.process = false
+          this.register_failed = true
         }
-      } else {
-        this.process = false
-        this.register_failed = true
       }
     },
 
