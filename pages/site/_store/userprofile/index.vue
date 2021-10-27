@@ -60,7 +60,7 @@
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
             v-model="birth_date"
-            label="Date of birth"
+            label="Tanggal Lahir"
             :placeholder="birth_date"
             style="font-size: 13px; font-weight: 600; letter-spacing: normal"
             readonly
@@ -90,11 +90,22 @@
           </v-btn>
         </v-date-picker>
       </v-dialog>
-      <v-radio-group v-model="gender" style="height: 40px">
-        <div class="d-flex flex-row">
-          <v-radio v-for="n in list_gender" :key="n" :label="n" :value="n" style="height: 24px; width: 50%" />
+      <div class="mt-3">
+        <div
+          style="
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.6);
+            font-weight: bold;
+          "
+        >
+          Jenis Kelamin
         </div>
-      </v-radio-group>
+        <v-radio-group v-model="gender" style="height: 40px; margin-top: 0">
+          <div class="d-flex flex-row">
+            <v-radio v-for="n in list_gender" :key="n" :label="n" :value="n" style="height: 24px; width: 50%" />
+          </div>
+        </v-radio-group>
+      </div>
       <div v-show="referral.event_id">
         <v-text-field
           label="Referral Code (Optional)"
@@ -419,7 +430,7 @@ export default {
   data: () => ({
     mode: 'register',
     gender: null,
-    list_gender: ["L", "P"],
+    list_gender: ["Laki-laki", "Perempuan"],
     referral_register_dialog: false,
     referral_redeem_dialog: false,
     referral: {
@@ -720,7 +731,7 @@ export default {
             zip_code : this.postal_code,
             address  : this.address,
             source   : this.$route.query.src,
-            gender   : this.gender === 'P' ? 'M' : 'F',
+            gender   : this.gender === 'Laki-laki' ? 'M' : 'F',
             sub_district  : this.selected_sub_district,
             date_of_birth : this.date_of_birth,
           },
@@ -847,7 +858,7 @@ export default {
             zip_code : this.postal_code,
             address  : this.address,
             source   : this.$route.query.src,
-            gender   : this.gender === 'P' ? 'M' : 'F',
+            gender   : this.gender === 'Laki-laki' ? 'M' : 'F',
             date_of_birth : this.date_of_birth,
             sub_district: this.selected_sub_district,
           }

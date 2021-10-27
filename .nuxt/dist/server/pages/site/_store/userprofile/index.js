@@ -9794,11 +9794,11 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/userprofile/index.vue?vue&type=template&id=3a8c5d6c&
-var userprofilevue_type_template_id_3a8c5d6c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-12 pt-6",staticStyle:{"height":"100vh","text-align":"left","overflow-y":"scroll","padding-bottom":"150px"}},[(!_vm.customer)?_c('center',{staticClass:"mb-6",staticStyle:{"font-weight":"600"}},[_vm._v("\n    Yuk isi data terlebih dahulu\n  ")]):_c('center',{staticStyle:{"font-weight":"600"}},[_vm._v("Edit Data")]),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"pa-5 pt-2 pb-2\">","</div>",[_vm._ssrNode("<div>","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Nama","placeholder":"Nama Lengkap","hide-details":"","name":"name","rules":[_vm.rules.required]},model:{value:(_vm.name),callback:function ($$v) {_vm.name=$$v},expression:"name"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.name)+"  ")+"</div>")],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"mt-3\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"No. Telephone","placeholder":"No. Telephone / No. Handphone","hide-details":"","name":"phone","rules":[_vm.rules.required]},on:{"change":_vm.check_phone_number},model:{value:(_vm.phone),callback:function ($$v) {_vm.phone=$$v},expression:"phone"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.phone)+"  ")+"</div>")],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"mt-3\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Email","placeholder":"Alamat Email","hide-details":"","name":"email","rules":[_vm.rules.required, _vm.rules.email]},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.email)+"  ")+"</div>")],2),_vm._ssrNode(" "),_c('v-dialog',{ref:"dialog",attrs:{"return-value":_vm.birth_date,"persistent":"","width":"290px"},on:{"update:returnValue":function($event){_vm.birth_date=$event},"update:return-value":function($event){_vm.birth_date=$event}},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/userprofile/index.vue?vue&type=template&id=40410d37&
+var userprofilevue_type_template_id_40410d37_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-12 pt-6",staticStyle:{"height":"100vh","text-align":"left","overflow-y":"scroll","padding-bottom":"150px"}},[(!_vm.customer)?_c('center',{staticClass:"mb-6",staticStyle:{"font-weight":"600"}},[_vm._v("\n    Yuk isi data terlebih dahulu\n  ")]):_c('center',{staticStyle:{"font-weight":"600"}},[_vm._v("Edit Data")]),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"pa-5 pt-2 pb-2\">","</div>",[_vm._ssrNode("<div>","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Nama","placeholder":"Nama Lengkap","hide-details":"","name":"name","rules":[_vm.rules.required]},model:{value:(_vm.name),callback:function ($$v) {_vm.name=$$v},expression:"name"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.name)+"  ")+"</div>")],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"mt-3\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"No. Telephone","placeholder":"No. Telephone / No. Handphone","hide-details":"","name":"phone","rules":[_vm.rules.required]},on:{"change":_vm.check_phone_number},model:{value:(_vm.phone),callback:function ($$v) {_vm.phone=$$v},expression:"phone"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.phone)+"  ")+"</div>")],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"mt-3\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Email","placeholder":"Alamat Email","hide-details":"","name":"email","rules":[_vm.rules.required, _vm.rules.email]},model:{value:(_vm.email),callback:function ($$v) {_vm.email=$$v},expression:"email"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.email)+"  ")+"</div>")],2),_vm._ssrNode(" "),_c('v-dialog',{ref:"dialog",attrs:{"return-value":_vm.birth_date,"persistent":"","width":"290px"},on:{"update:returnValue":function($event){_vm.birth_date=$event},"update:return-value":function($event){_vm.birth_date=$event}},scopedSlots:_vm._u([{key:"activator",fn:function(ref){
 var on = ref.on;
 var attrs = ref.attrs;
-return [_c('v-text-field',_vm._g(_vm._b({staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Date of birth","placeholder":_vm.birth_date,"readonly":"","hide-details":""},model:{value:(_vm.birth_date),callback:function ($$v) {_vm.birth_date=$$v},expression:"birth_date"}},'v-text-field',attrs,false),on))]}}]),model:{value:(_vm.birth_modal),callback:function ($$v) {_vm.birth_modal=$$v},expression:"birth_modal"}},[_vm._v(" "),_c('v-date-picker',{attrs:{"scrollable":""},model:{value:(_vm.birth_date),callback:function ($$v) {_vm.birth_date=$$v},expression:"birth_date"}},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){_vm.birth_modal = false}}},[_vm._v("\n          Cancel\n        ")]),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){return _vm.$refs.dialog.save(_vm.birth_date)}}},[_vm._v("\n          OK\n        ")])],1)],1),_vm._ssrNode(" "),_c('v-radio-group',{staticStyle:{"height":"40px"},model:{value:(_vm.gender),callback:function ($$v) {_vm.gender=$$v},expression:"gender"}},[_c('div',{staticClass:"d-flex flex-row"},_vm._l((_vm.list_gender),function(n){return _c('v-radio',{key:n,staticStyle:{"height":"24px","width":"50%"},attrs:{"label":n,"value":n}})}),1)]),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.referral.event_id) ? '' : 'none' }))+">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Referral Code (Optional)","hide-details":"","name":"referral_code"},model:{value:(_vm.referral.code),callback:function ($$v) {_vm.$set(_vm.referral, "code", $$v)},expression:"referral.code"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.email)+"  ")+"</div>")],2),_vm._ssrNode(" "),_vm._ssrNode("<div>","</div>",[_c('v-select',{staticStyle:{"text-align":"left","font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Provinsi","placeholder":"Provinsi","hide-details":"","disabled":!_vm.province.length ||
+return [_c('v-text-field',_vm._g(_vm._b({staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Tanggal Lahir","placeholder":_vm.birth_date,"readonly":"","hide-details":""},model:{value:(_vm.birth_date),callback:function ($$v) {_vm.birth_date=$$v},expression:"birth_date"}},'v-text-field',attrs,false),on))]}}]),model:{value:(_vm.birth_modal),callback:function ($$v) {_vm.birth_modal=$$v},expression:"birth_modal"}},[_vm._v(" "),_c('v-date-picker',{attrs:{"scrollable":""},model:{value:(_vm.birth_date),callback:function ($$v) {_vm.birth_date=$$v},expression:"birth_date"}},[_c('v-spacer'),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){_vm.birth_modal = false}}},[_vm._v("\n          Cancel\n        ")]),_vm._v(" "),_c('v-btn',{attrs:{"text":"","color":"primary"},on:{"click":function($event){return _vm.$refs.dialog.save(_vm.birth_date)}}},[_vm._v("\n          OK\n        ")])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"mt-3\">","</div>",[_vm._ssrNode("<div style=\"\\n          font-size: 12px;\\n          color: rgba(0, 0, 0, 0.6);\\n          font-weight: bold;\\n        \">\n        Jenis Kelamin\n      </div> "),_c('v-radio-group',{staticStyle:{"height":"40px","margin-top":"0"},model:{value:(_vm.gender),callback:function ($$v) {_vm.gender=$$v},expression:"gender"}},[_c('div',{staticClass:"d-flex flex-row"},_vm._l((_vm.list_gender),function(n){return _c('v-radio',{key:n,staticStyle:{"height":"24px","width":"50%"},attrs:{"label":n,"value":n}})}),1)])],2),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.referral.event_id) ? '' : 'none' }))+">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Referral Code (Optional)","hide-details":"","name":"referral_code"},model:{value:(_vm.referral.code),callback:function ($$v) {_vm.$set(_vm.referral, "code", $$v)},expression:"referral.code"}}),_vm._ssrNode(" <div style=\"font-size: 11px; color: red\">"+_vm._ssrEscape(_vm._s(_vm.form_requirements.email)+"  ")+"</div>")],2),_vm._ssrNode(" "),_vm._ssrNode("<div>","</div>",[_c('v-select',{staticStyle:{"text-align":"left","font-size":"13px","font-weight":"600","letter-spacing":"normal"},attrs:{"label":"Provinsi","placeholder":"Provinsi","hide-details":"","disabled":!_vm.province.length ||
           _vm.loading.province ||
           _vm.loading.city ||
           _vm.loading.sub_district ||
@@ -9824,7 +9824,7 @@ return [_c('v-text-field',_vm._g(_vm._b({staticStyle:{"font-size":"13px","font-w
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/userprofile/index.vue?vue&type=template&id=3a8c5d6c&
+// CONCATENATED MODULE: ./pages/site/_store/userprofile/index.vue?vue&type=template&id=40410d37&
 
 // EXTERNAL MODULE: ./config.json
 var config = __webpack_require__(35);
@@ -10244,12 +10244,23 @@ var config = __webpack_require__(35);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ var userprofilevue_type_script_lang_js_ = ({
   data: () => ({
     mode: 'register',
     gender: null,
-    list_gender: ["L", "P"],
+    list_gender: ["Laki-laki", "Perempuan"],
     referral_register_dialog: false,
     referral_redeem_dialog: false,
     referral: {
@@ -10526,7 +10537,7 @@ var config = __webpack_require__(35);
             zip_code: this.postal_code,
             address: this.address,
             source: this.$route.query.src,
-            gender: this.gender === 'P' ? 'M' : 'F',
+            gender: this.gender === 'Laki-laki' ? 'M' : 'F',
             sub_district: this.selected_sub_district,
             date_of_birth: this.date_of_birth
           },
@@ -10644,7 +10655,7 @@ var config = __webpack_require__(35);
             zip_code: this.postal_code,
             address: this.address,
             source: this.$route.query.src,
-            gender: this.gender === 'P' ? 'M' : 'F',
+            gender: this.gender === 'Laki-laki' ? 'M' : 'F',
             date_of_birth: this.date_of_birth,
             sub_district: this.selected_sub_district
           }
@@ -11090,7 +11101,7 @@ if (style0.__inject__) style0.__inject__(context)
 
 var component = Object(componentNormalizer["a" /* default */])(
   _store_userprofilevue_type_script_lang_js_,
-  userprofilevue_type_template_id_3a8c5d6c_render,
+  userprofilevue_type_template_id_40410d37_render,
   staticRenderFns,
   false,
   injectStyles,
