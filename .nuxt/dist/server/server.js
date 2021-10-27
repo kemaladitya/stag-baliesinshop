@@ -1719,7 +1719,7 @@ const Toggleable = factory();
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var _mixins_elevatable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
 /* harmony import */ var _mixins_measurable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(27);
-/* harmony import */ var _mixins_roundable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(42);
+/* harmony import */ var _mixins_roundable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(43);
 /* harmony import */ var _mixins_themeable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _util_mixins__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(3);
 // Styles
@@ -4299,13 +4299,19 @@ const VExpandXTransition = createJavascriptTransition('expand-x-transition', exp
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VProgressLinear__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
+/* harmony import */ var _VProgressLinear__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(37);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (_VProgressLinear__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
 
 /***/ }),
 /* 35 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"b\":true,\"a\":[\"6282122104014\",\"6285747471595\",\"61402644654\",\"6281319501916\",\"628111775750\",\"6281397021508\",\"6281290354048\",\"628976203842\",\"628118010107\",\"6285885862257\",\"628118164301\"]}");
+
+/***/ }),
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4473,7 +4479,7 @@ const VExpandXTransition = createJavascriptTransition('expand-x-transition', exp
 }));
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4738,22 +4744,16 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_8__[/* default *
 }));
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-client-only");
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = require("vue-router");
-
-/***/ }),
-/* 39 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"a\":true}");
 
 /***/ }),
 /* 40 */
@@ -5148,47 +5148,6 @@ function provide(namespace, self = false) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-
-/* @vue/component */
-
-/* harmony default export */ __webpack_exports__["a"] = (vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
-  name: 'roundable',
-  props: {
-    rounded: [Boolean, String],
-    tile: Boolean
-  },
-  computed: {
-    roundedClasses() {
-      const composite = [];
-      const rounded = typeof this.rounded === 'string' ? String(this.rounded) : this.rounded === true;
-
-      if (this.tile) {
-        composite.push('rounded-0');
-      } else if (typeof rounded === 'string') {
-        const values = rounded.split(' ');
-
-        for (const value of values) {
-          composite.push(`rounded-${value}`);
-        }
-      } else if (rounded) {
-        composite.push('rounded');
-      }
-
-      return composite.length > 0 ? {
-        [composite.join(' ')]: true
-      } : {};
-    }
-
-  }
-}));
-
-/***/ }),
-/* 43 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return factory; });
 /* harmony import */ var _registrable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(41);
 // Mixins
@@ -5247,6 +5206,47 @@ const Groupable = factory('itemGroup');
 /* unused harmony default export */ var _unused_webpack_default_export = (Groupable);
 
 /***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+/* @vue/component */
+
+/* harmony default export */ __webpack_exports__["a"] = (vue__WEBPACK_IMPORTED_MODULE_0___default.a.extend({
+  name: 'roundable',
+  props: {
+    rounded: [Boolean, String],
+    tile: Boolean
+  },
+  computed: {
+    roundedClasses() {
+      const composite = [];
+      const rounded = typeof this.rounded === 'string' ? String(this.rounded) : this.rounded === true;
+
+      if (this.tile) {
+        composite.push('rounded-0');
+      } else if (typeof rounded === 'string') {
+        const values = rounded.split(' ');
+
+        for (const value of values) {
+          composite.push(`rounded-${value}`);
+        }
+      } else if (rounded) {
+        composite.push('rounded');
+      }
+
+      return composite.length > 0 ? {
+        [composite.join(' ')]: true
+      } : {};
+    }
+
+  }
+}));
+
+/***/ }),
 /* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5255,7 +5255,7 @@ const Groupable = factory('itemGroup');
 /* harmony import */ var _src_components_VBtn_VBtn_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VBtn_VBtn_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _VSheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 /* harmony import */ var _VProgressCircular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(47);
-/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(43);
+/* harmony import */ var _mixins_groupable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
 /* harmony import */ var _mixins_toggleable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(17);
 /* harmony import */ var _mixins_elevatable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(26);
 /* harmony import */ var _mixins_positionable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12);
@@ -5556,7 +5556,7 @@ function applicationable(value, events = []) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _VProgressCircular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(35);
+/* harmony import */ var _VProgressCircular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (_VProgressCircular__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]);
@@ -7838,8 +7838,8 @@ __webpack_require__.d(components_namespaceObject, "FooterCart", function() { ret
 __webpack_require__.d(components_namespaceObject, "FooterCheckout", function() { return FooterCheckout; });
 __webpack_require__.d(components_namespaceObject, "LoadingListProduct", function() { return LoadingListProduct; });
 __webpack_require__.d(components_namespaceObject, "Merchant", function() { return Merchant; });
-__webpack_require__.d(components_namespaceObject, "ProductDetail", function() { return ProductDetail; });
 __webpack_require__.d(components_namespaceObject, "PartialsHeaders", function() { return PartialsHeaders; });
+__webpack_require__.d(components_namespaceObject, "ProductDetail", function() { return ProductDetail; });
 __webpack_require__.d(components_namespaceObject, "Products", function() { return Products; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetCartProducts", function() { return BottomSheetCartProducts; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetCheckoutCourier", function() { return BottomSheetCheckoutCourier; });
@@ -8622,7 +8622,7 @@ var external_vue_meta_ = __webpack_require__(52);
 var external_vue_meta_default = /*#__PURE__*/__webpack_require__.n(external_vue_meta_);
 
 // EXTERNAL MODULE: external "vue-client-only"
-var external_vue_client_only_ = __webpack_require__(37);
+var external_vue_client_only_ = __webpack_require__(38);
 var external_vue_client_only_default = /*#__PURE__*/__webpack_require__.n(external_vue_client_only_);
 
 // EXTERNAL MODULE: external "vue-no-ssr"
@@ -8630,7 +8630,7 @@ var external_vue_no_ssr_ = __webpack_require__(29);
 var external_vue_no_ssr_default = /*#__PURE__*/__webpack_require__.n(external_vue_no_ssr_);
 
 // EXTERNAL MODULE: external "vue-router"
-var external_vue_router_ = __webpack_require__(38);
+var external_vue_router_ = __webpack_require__(39);
 var external_vue_router_default = /*#__PURE__*/__webpack_require__.n(external_vue_router_);
 
 // CONCATENATED MODULE: ./.nuxt/router.scrollBehavior.js
@@ -8709,29 +8709,29 @@ function shouldScrollToTop(route) {
 
 
 
-const _3bff402e = () => interopDefault(__webpack_require__.e(/* import() | pages/internal_test */ 91).then(__webpack_require__.bind(null, 366)));
+const _3bff402e = () => interopDefault(__webpack_require__.e(/* import() | pages/internal_test */ 91).then(__webpack_require__.bind(null, 374)));
 
-const _643b1972 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 88).then(__webpack_require__.bind(null, 367)));
+const _643b1972 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/expired */ 88).then(__webpack_require__.bind(null, 375)));
 
-const _30eeab44 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 89).then(__webpack_require__.bind(null, 368)));
+const _30eeab44 = () => interopDefault(__webpack_require__.e(/* import() | pages/error/link/invalid */ 89).then(__webpack_require__.bind(null, 376)));
 
-const _014093be = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout/_phone */ 98).then(__webpack_require__.bind(null, 369)));
+const _014093be = () => interopDefault(__webpack_require__.e(/* import() | pages/success/checkout/_phone */ 98).then(__webpack_require__.bind(null, 377)));
 
-const _2bfd6eb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register/_phone */ 99).then(__webpack_require__.bind(null, 370)));
+const _2bfd6eb8 = () => interopDefault(__webpack_require__.e(/* import() | pages/success/register/_phone */ 99).then(__webpack_require__.bind(null, 378)));
 
-const _2bfcd37c = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 95).then(__webpack_require__.bind(null, 371)));
+const _2bfcd37c = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/index */ 95).then(__webpack_require__.bind(null, 379)));
 
-const _1aa22d63 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 93).then(__webpack_require__.bind(null, 365)));
+const _1aa22d63 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/cart/index */ 93).then(__webpack_require__.bind(null, 373)));
 
-const _3b853409 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 94).then(__webpack_require__.bind(null, 372)));
+const _3b853409 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/checkout/index */ 94).then(__webpack_require__.bind(null, 380)));
 
-const _f5f913ea = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/merchant/index */ 96).then(__webpack_require__.bind(null, 373)));
+const _f5f913ea = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/merchant/index */ 96).then(__webpack_require__.bind(null, 381)));
 
-const _2f7264f1 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 97).then(__webpack_require__.bind(null, 374)));
+const _2f7264f1 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/userprofile/index */ 97).then(__webpack_require__.bind(null, 372)));
 
-const _0d6327e2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 92).then(__webpack_require__.bind(null, 375)));
+const _0d6327e2 = () => interopDefault(__webpack_require__.e(/* import() | pages/site/_store/_pid/index */ 92).then(__webpack_require__.bind(null, 382)));
 
-const _416141e7 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 90).then(__webpack_require__.bind(null, 376)));
+const _416141e7 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 90).then(__webpack_require__.bind(null, 383)));
 
 const emptyFn = () => {};
 
@@ -9092,12 +9092,12 @@ installComponents_default()(error_component, {VApp: VApp["a" /* default */]})
 // EXTERNAL MODULE: ./node_modules/@fortawesome/fontawesome-svg-core/styles.css
 var styles = __webpack_require__(66);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=c5858198&
-var defaultvue_type_template_id_c5858198_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"background-color":"rgb(253 251 238)","text-align":"-webkit-center"}},[(_vm.$nuxt.isOffline)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      padding-top: 38vh;\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgba(255, 247, 198, 0.9);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_vm._ssrNode("<div>","</div>",[_c('center',[_c('v-icon',{staticStyle:{"font-size":"70px"}},[_vm._v("mdi-signal-off")]),_vm._v(" "),_c('div',{staticStyle:{"margin-top":"5px","font-size":"14px","font-weight":"600"}},[_vm._v("\n          You are offline\n        ")])],1)],1)]):_vm._e(),_vm._ssrNode(" "),(_vm.loading)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgb(255 255 255 / 0%);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}})],1):_vm._e(),_vm._ssrNode(" "),_c('v-app',{staticClass:"b-font overflow-hidden",staticStyle:{"-webkit-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","-moz-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)"}},[_c('div',{staticClass:"pb-12"},[_c('div',[_c('Headers'),_vm._v(" "),(_vm.store)?_c('v-sheet',{staticClass:"overflow-hidden b-main-page",attrs:{"id":"scrolling-techniques-7","max-height":"100vh"}},[(_vm.general_loading)?_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}}):_c('v-card',{attrs:{"height":"3","flat":""}}),_vm._v(" "),_c('nuxt')],1):_vm._e()],1)])])],2)}
-var defaultvue_type_template_id_c5858198_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=c6f78d28&
+var defaultvue_type_template_id_c6f78d28_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"background-color":"rgb(253 251 238)","text-align":"-webkit-center"}},[(_vm.$nuxt.isOffline)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      padding-top: 38vh;\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgba(255, 247, 198, 0.9);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_vm._ssrNode("<div>","</div>",[_c('center',[_c('v-icon',{staticStyle:{"font-size":"70px"}},[_vm._v("mdi-signal-off")]),_vm._v(" "),_c('div',{staticStyle:{"margin-top":"5px","font-size":"14px","font-weight":"600"}},[_vm._v("\n          You are offline\n        ")])],1)],1)]):_vm._e(),_vm._ssrNode(" "),(_vm.loading)?_vm._ssrNode("<div class=\"b-font\" style=\"\\n      position: fixed;\\n      z-index: 9999;\\n      background-color: rgb(255 255 255 / 0%);\\n      color: rgb(95, 95, 95);\\n      border: .2px solid #fd0;\\n      width: 100%;\\n      height: 100vh;\\n      font-size: 12px;\\n      font-weight: 600;\\n    \">","</div>",[_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}})],1):_vm._e(),_vm._ssrNode(" "),_c('v-app',{staticClass:"b-font overflow-hidden",staticStyle:{"-webkit-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","-moz-box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)","box-shadow":"0px 0px 5px 0px rgba(0,0,0,0.75)"}},[_c('div',{staticClass:"pb-12"},[_c('div',[_c('Headers'),_vm._v(" "),(_vm.store)?_c('v-sheet',{staticClass:"overflow-hidden b-main-page",attrs:{"id":"scrolling-techniques-7","max-height":"100vh"}},[(_vm.general_loading)?_c('v-progress-linear',{staticStyle:{"z-index":"9999 !important"},attrs:{"color":"success","height":"3","indeterminate":""}}):_c('v-card',{attrs:{"height":"3","flat":""}}),_vm._v(" "),_c('nuxt')],1):_vm._e()],1)])])],2)}
+var defaultvue_type_template_id_c6f78d28_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./layouts/default.vue?vue&type=template&id=c5858198&
+// CONCATENATED MODULE: ./layouts/default.vue?vue&type=template&id=c6f78d28&
 
 // EXTERNAL MODULE: external "axios"
 var external_axios_ = __webpack_require__(16);
@@ -9107,7 +9107,7 @@ var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_)
 var headers = __webpack_require__(57);
 
 // EXTERNAL MODULE: ./config.json
-var config_0 = __webpack_require__(39);
+var config_0 = __webpack_require__(35);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=script&lang=js&
 //
@@ -9335,7 +9335,7 @@ var config_0 = __webpack_require__(39);
   },
 
   async mounted() {
-    console.log("recommendation_api", config_0["a" /* recommendation_api */]);
+    console.log("recommendation_api", config_0["b" /* recommendation_api */]);
     const self = this;
     const {
       name,
@@ -9358,9 +9358,11 @@ var config_0 = __webpack_require__(39);
           uid: u,
           category: c
         }
-      }); // if (!check_area.data.status) {
-      //   this.$router.push('/error/link/expired')
-      // }
+      });
+
+      if (!check_area.data.status) {
+        this.$router.push('/error/link/expired');
+      }
     }
 
     await this.get_base_info('site-store');
@@ -9380,7 +9382,7 @@ var config_0 = __webpack_require__(39);
 
     if (false) {}
 
-    if (config_0["a" /* recommendation_api */]) {
+    if (config_0["b" /* recommendation_api */]) {
       this.get_recomendation();
     }
   },
@@ -9539,7 +9541,7 @@ var VCard = __webpack_require__(104);
 var VIcon = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VProgressLinear/VProgressLinear.js
-var VProgressLinear = __webpack_require__(36);
+var VProgressLinear = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/VSheet.js
 var VSheet = __webpack_require__(18);
@@ -9559,8 +9561,8 @@ if (style0.__inject__) style0.__inject__(context)
 
 var default_component = Object(componentNormalizer["a" /* default */])(
   layouts_defaultvue_type_script_lang_js_,
-  defaultvue_type_template_id_c5858198_render,
-  defaultvue_type_template_id_c5858198_staticRenderFns,
+  defaultvue_type_template_id_c6f78d28_render,
+  defaultvue_type_template_id_c6f78d28_staticRenderFns,
   false,
   injectStyles,
   null,
@@ -9822,93 +9824,93 @@ function normalizeModule(moduleData, filePath) {
 }
 // CONCATENATED MODULE: ./.nuxt/components/index.js
 const General = () => __webpack_require__.e(/* import() | components/general */ 70).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
-const Logo = () => __webpack_require__.e(/* import() | components/logo */ 72).then(__webpack_require__.bind(null, 382)).then(c => wrapFunctional(c.default || c));
-const VuetifyLogo = () => __webpack_require__.e(/* import() | components/vuetify-logo */ 87).then(__webpack_require__.bind(null, 383)).then(c => wrapFunctional(c.default || c));
-const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 205)).then(c => wrapFunctional(c.default || c));
-const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 363)).then(c => wrapFunctional(c.default || c));
-const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 339)).then(c => wrapFunctional(c.default || c));
-const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 36).then(__webpack_require__.bind(null, 331)).then(c => wrapFunctional(c.default || c));
-const FooterCart = () => __webpack_require__.e(/* import() | components/footer-cart */ 68).then(__webpack_require__.bind(null, 377)).then(c => wrapFunctional(c.default || c));
-const FooterCheckout = () => __webpack_require__.e(/* import() | components/footer-checkout */ 69).then(__webpack_require__.bind(null, 344)).then(c => wrapFunctional(c.default || c));
-const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 71).then(__webpack_require__.bind(null, 346)).then(c => wrapFunctional(c.default || c));
-const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 73).then(__webpack_require__.bind(null, 332)).then(c => wrapFunctional(c.default || c));
-const ProductDetail = () => __webpack_require__.e(/* import() | components/product-detail */ 77).then(__webpack_require__.bind(null, 345)).then(c => wrapFunctional(c.default || c));
+const Logo = () => __webpack_require__.e(/* import() | components/logo */ 72).then(__webpack_require__.bind(null, 389)).then(c => wrapFunctional(c.default || c));
+const VuetifyLogo = () => __webpack_require__.e(/* import() | components/vuetify-logo */ 87).then(__webpack_require__.bind(null, 390)).then(c => wrapFunctional(c.default || c));
+const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 207)).then(c => wrapFunctional(c.default || c));
+const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 370)).then(c => wrapFunctional(c.default || c));
+const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 341)).then(c => wrapFunctional(c.default || c));
+const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 36).then(__webpack_require__.bind(null, 333)).then(c => wrapFunctional(c.default || c));
+const FooterCart = () => __webpack_require__.e(/* import() | components/footer-cart */ 68).then(__webpack_require__.bind(null, 384)).then(c => wrapFunctional(c.default || c));
+const FooterCheckout = () => __webpack_require__.e(/* import() | components/footer-checkout */ 69).then(__webpack_require__.bind(null, 346)).then(c => wrapFunctional(c.default || c));
+const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 71).then(__webpack_require__.bind(null, 348)).then(c => wrapFunctional(c.default || c));
+const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 73).then(__webpack_require__.bind(null, 334)).then(c => wrapFunctional(c.default || c));
 const PartialsHeaders = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 57)).then(c => wrapFunctional(c.default || c));
-const Products = () => __webpack_require__.e(/* import() | components/products */ 81).then(__webpack_require__.bind(null, 330)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCartProducts = () => __webpack_require__.e(/* import() | components/bottom-sheet-cart-products */ 1).then(__webpack_require__.bind(null, 378)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutCourier = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-courier */ 2).then(__webpack_require__.bind(null, 341)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-loading */ 3).then(__webpack_require__.bind(null, 364)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutPayment = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-payment */ 4).then(__webpack_require__.bind(null, 343)).then(c => wrapFunctional(c.default || c));
-const BottomSheetCheckoutVoucher = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-voucher */ 5).then(__webpack_require__.bind(null, 342)).then(c => wrapFunctional(c.default || c));
-const DialogsCartMaxOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-max-order */ 64).then(__webpack_require__.bind(null, 379)).then(c => wrapFunctional(c.default || c));
-const DialogsCartMinOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-min-order */ 65).then(__webpack_require__.bind(null, 380)).then(c => wrapFunctional(c.default || c));
-const DialogsCartRemoveConfirm = () => __webpack_require__.e(/* import() | components/dialogs-cart-remove-confirm */ 66).then(__webpack_require__.bind(null, 381)).then(c => wrapFunctional(c.default || c));
-const DialogsCheckoutInsertVoucherCode = () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 67).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
-const MerchantPlatformsDesktop = () => __webpack_require__.e(/* import() | components/merchant-platforms-desktop */ 74).then(__webpack_require__.bind(null, 325)).then(c => wrapFunctional(c.default || c));
-const MerchantPlatformsMini = () => __webpack_require__.e(/* import() | components/merchant-platforms-mini */ 75).then(__webpack_require__.bind(null, 323)).then(c => wrapFunctional(c.default || c));
-const MerchantPlatformsMobile = () => __webpack_require__.e(/* import() | components/merchant-platforms-mobile */ 76).then(__webpack_require__.bind(null, 324)).then(c => wrapFunctional(c.default || c));
-const ProductDetailPlatformsDesktop = () => __webpack_require__.e(/* import() | components/product-detail-platforms-desktop */ 78).then(__webpack_require__.bind(null, 328)).then(c => wrapFunctional(c.default || c));
-const ProductDetailPlatformsMini = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mini */ 79).then(__webpack_require__.bind(null, 326)).then(c => wrapFunctional(c.default || c));
-const ProductDetailPlatformsMobile = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mobile */ 80).then(__webpack_require__.bind(null, 327)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsDesktop = () => __webpack_require__.e(/* import() | components/products-platforms-desktop */ 82).then(__webpack_require__.bind(null, 316)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMini = () => __webpack_require__.e(/* import() | components/products-platforms-mini */ 83).then(__webpack_require__.bind(null, 314)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktop = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop */ 9).then(__webpack_require__.bind(null, 319)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMini = () => __webpack_require__.e(/* import() | components/cart-platforms-mini */ 18).then(__webpack_require__.bind(null, 317)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobile = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile */ 27).then(__webpack_require__.bind(null, 318)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktop = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop */ 37).then(__webpack_require__.bind(null, 322)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMini = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini */ 46).then(__webpack_require__.bind(null, 320)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobile = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile */ 55).then(__webpack_require__.bind(null, 321)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMobile = () => __webpack_require__.e(/* import() | components/products-platforms-mobile */ 84).then(__webpack_require__.bind(null, 315)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order */ 10).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-single-order */ 16).then(__webpack_require__.bind(null, 277)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-subscription-order */ 17).then(__webpack_require__.bind(null, 278)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order */ 19).then(__webpack_require__.bind(null, 273)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-single-order */ 25).then(__webpack_require__.bind(null, 271)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-subscription-order */ 26).then(__webpack_require__.bind(null, 272)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order */ 28).then(__webpack_require__.bind(null, 276)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-single-order */ 34).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-subscription-order */ 35).then(__webpack_require__.bind(null, 275)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-courier */ 38).then(__webpack_require__.bind(null, 293)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-customer */ 39).then(__webpack_require__.bind(null, 290)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-info */ 40).then(__webpack_require__.bind(null, 292)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-payment */ 44).then(__webpack_require__.bind(null, 294)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-voucher */ 45).then(__webpack_require__.bind(null, 291)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-courier */ 47).then(__webpack_require__.bind(null, 283)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-customer */ 48).then(__webpack_require__.bind(null, 280)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-info */ 49).then(__webpack_require__.bind(null, 282)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-payment */ 53).then(__webpack_require__.bind(null, 284)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-voucher */ 54).then(__webpack_require__.bind(null, 281)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-courier */ 56).then(__webpack_require__.bind(null, 288)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-customer */ 57).then(__webpack_require__.bind(null, 285)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-info */ 58).then(__webpack_require__.bind(null, 287)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-payment */ 62).then(__webpack_require__.bind(null, 289)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-voucher */ 63).then(__webpack_require__.bind(null, 286)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMobileShowTypeGrid = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-grid */ 85).then(__webpack_require__.bind(null, 270)).then(c => wrapFunctional(c.default || c));
-const ProductsPlatformsMobileShowTypeList = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-list */ 86).then(__webpack_require__.bind(null, 269)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-footer-detail */ 11).then(__webpack_require__.bind(null, 249)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-list-items */ 12).then(__webpack_require__.bind(null, 248)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-remove-package */ 13).then(__webpack_require__.bind(null, 250)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-footer-detail */ 20).then(__webpack_require__.bind(null, 239)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-list-items */ 21).then(__webpack_require__.bind(null, 238)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-remove-package */ 22).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-footer-detail */ 29).then(__webpack_require__.bind(null, 244)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-list-items */ 30).then(__webpack_require__.bind(null, 243)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-remove-package */ 31).then(__webpack_require__.bind(null, 245)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-package-order */ 41).then(__webpack_require__.bind(null, 259)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-single-order */ 42).then(__webpack_require__.bind(null, 258)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-subscription-order */ 43).then(__webpack_require__.bind(null, 257)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-package-order */ 50).then(__webpack_require__.bind(null, 253)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-single-order */ 51).then(__webpack_require__.bind(null, 252)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-subscription-order */ 52).then(__webpack_require__.bind(null, 251)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-package-order */ 59).then(__webpack_require__.bind(null, 256)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-single-order */ 60).then(__webpack_require__.bind(null, 255)).then(c => wrapFunctional(c.default || c));
-const CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-subscription-order */ 61).then(__webpack_require__.bind(null, 254)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-multiple */ 14).then(__webpack_require__.bind(null, 247)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsDesktopTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-single */ 15).then(__webpack_require__.bind(null, 246)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-multiple */ 23).then(__webpack_require__.bind(null, 237)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-single */ 24).then(__webpack_require__.bind(null, 236)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-multiple */ 32).then(__webpack_require__.bind(null, 242)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMobileTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-single */ 33).then(__webpack_require__.bind(null, 241)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
+const ProductDetail = () => __webpack_require__.e(/* import() | components/product-detail */ 77).then(__webpack_require__.bind(null, 347)).then(c => wrapFunctional(c.default || c));
+const Products = () => __webpack_require__.e(/* import() | components/products */ 81).then(__webpack_require__.bind(null, 332)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCartProducts = () => __webpack_require__.e(/* import() | components/bottom-sheet-cart-products */ 1).then(__webpack_require__.bind(null, 385)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutCourier = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-courier */ 2).then(__webpack_require__.bind(null, 343)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-loading */ 3).then(__webpack_require__.bind(null, 371)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutPayment = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-payment */ 4).then(__webpack_require__.bind(null, 345)).then(c => wrapFunctional(c.default || c));
+const BottomSheetCheckoutVoucher = () => __webpack_require__.e(/* import() | components/bottom-sheet-checkout-voucher */ 5).then(__webpack_require__.bind(null, 344)).then(c => wrapFunctional(c.default || c));
+const DialogsCartMaxOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-max-order */ 64).then(__webpack_require__.bind(null, 386)).then(c => wrapFunctional(c.default || c));
+const DialogsCartMinOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-min-order */ 65).then(__webpack_require__.bind(null, 387)).then(c => wrapFunctional(c.default || c));
+const DialogsCartRemoveConfirm = () => __webpack_require__.e(/* import() | components/dialogs-cart-remove-confirm */ 66).then(__webpack_require__.bind(null, 388)).then(c => wrapFunctional(c.default || c));
+const DialogsCheckoutInsertVoucherCode = () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 67).then(__webpack_require__.bind(null, 342)).then(c => wrapFunctional(c.default || c));
+const MerchantPlatformsDesktop = () => __webpack_require__.e(/* import() | components/merchant-platforms-desktop */ 74).then(__webpack_require__.bind(null, 327)).then(c => wrapFunctional(c.default || c));
+const MerchantPlatformsMini = () => __webpack_require__.e(/* import() | components/merchant-platforms-mini */ 75).then(__webpack_require__.bind(null, 325)).then(c => wrapFunctional(c.default || c));
+const MerchantPlatformsMobile = () => __webpack_require__.e(/* import() | components/merchant-platforms-mobile */ 76).then(__webpack_require__.bind(null, 326)).then(c => wrapFunctional(c.default || c));
+const ProductDetailPlatformsDesktop = () => __webpack_require__.e(/* import() | components/product-detail-platforms-desktop */ 78).then(__webpack_require__.bind(null, 330)).then(c => wrapFunctional(c.default || c));
+const ProductDetailPlatformsMini = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mini */ 79).then(__webpack_require__.bind(null, 328)).then(c => wrapFunctional(c.default || c));
+const ProductDetailPlatformsMobile = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mobile */ 80).then(__webpack_require__.bind(null, 329)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsDesktop = () => __webpack_require__.e(/* import() | components/products-platforms-desktop */ 82).then(__webpack_require__.bind(null, 318)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMini = () => __webpack_require__.e(/* import() | components/products-platforms-mini */ 83).then(__webpack_require__.bind(null, 316)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktop = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop */ 9).then(__webpack_require__.bind(null, 321)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMini = () => __webpack_require__.e(/* import() | components/cart-platforms-mini */ 18).then(__webpack_require__.bind(null, 319)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobile = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile */ 27).then(__webpack_require__.bind(null, 320)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktop = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop */ 37).then(__webpack_require__.bind(null, 324)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMini = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini */ 46).then(__webpack_require__.bind(null, 322)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobile = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile */ 55).then(__webpack_require__.bind(null, 323)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMobile = () => __webpack_require__.e(/* import() | components/products-platforms-mobile */ 84).then(__webpack_require__.bind(null, 317)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order */ 10).then(__webpack_require__.bind(null, 281)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-single-order */ 16).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-subscription-order */ 17).then(__webpack_require__.bind(null, 280)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order */ 19).then(__webpack_require__.bind(null, 275)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-single-order */ 25).then(__webpack_require__.bind(null, 273)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-subscription-order */ 26).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order */ 28).then(__webpack_require__.bind(null, 278)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-single-order */ 34).then(__webpack_require__.bind(null, 276)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-subscription-order */ 35).then(__webpack_require__.bind(null, 277)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-courier */ 38).then(__webpack_require__.bind(null, 295)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-customer */ 39).then(__webpack_require__.bind(null, 292)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-info */ 40).then(__webpack_require__.bind(null, 294)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-payment */ 44).then(__webpack_require__.bind(null, 296)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-voucher */ 45).then(__webpack_require__.bind(null, 293)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-courier */ 47).then(__webpack_require__.bind(null, 285)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-customer */ 48).then(__webpack_require__.bind(null, 282)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-info */ 49).then(__webpack_require__.bind(null, 284)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-payment */ 53).then(__webpack_require__.bind(null, 286)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-voucher */ 54).then(__webpack_require__.bind(null, 283)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-courier */ 56).then(__webpack_require__.bind(null, 290)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-customer */ 57).then(__webpack_require__.bind(null, 287)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-info */ 58).then(__webpack_require__.bind(null, 289)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-payment */ 62).then(__webpack_require__.bind(null, 291)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-voucher */ 63).then(__webpack_require__.bind(null, 288)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMobileShowTypeGrid = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-grid */ 85).then(__webpack_require__.bind(null, 272)).then(c => wrapFunctional(c.default || c));
+const ProductsPlatformsMobileShowTypeList = () => __webpack_require__.e(/* import() | components/products-platforms-mobile-show-type-list */ 86).then(__webpack_require__.bind(null, 271)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-footer-detail */ 11).then(__webpack_require__.bind(null, 251)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-list-items */ 12).then(__webpack_require__.bind(null, 250)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-remove-package */ 13).then(__webpack_require__.bind(null, 252)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-footer-detail */ 20).then(__webpack_require__.bind(null, 241)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-list-items */ 21).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-remove-package */ 22).then(__webpack_require__.bind(null, 242)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-footer-detail */ 29).then(__webpack_require__.bind(null, 246)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-list-items */ 30).then(__webpack_require__.bind(null, 245)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-remove-package */ 31).then(__webpack_require__.bind(null, 247)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-package-order */ 41).then(__webpack_require__.bind(null, 261)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-single-order */ 42).then(__webpack_require__.bind(null, 260)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-subscription-order */ 43).then(__webpack_require__.bind(null, 259)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-package-order */ 50).then(__webpack_require__.bind(null, 255)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-single-order */ 51).then(__webpack_require__.bind(null, 254)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-type-subscription-order */ 52).then(__webpack_require__.bind(null, 253)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-package-order */ 59).then(__webpack_require__.bind(null, 258)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-single-order */ 60).then(__webpack_require__.bind(null, 257)).then(c => wrapFunctional(c.default || c));
+const CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-mobile-constants-order-type-subscription-order */ 61).then(__webpack_require__.bind(null, 256)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-multiple */ 14).then(__webpack_require__.bind(null, 249)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsDesktopTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-type-single */ 15).then(__webpack_require__.bind(null, 248)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-multiple */ 23).then(__webpack_require__.bind(null, 239)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-type-single */ 24).then(__webpack_require__.bind(null, 238)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderTypeMultiple = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-multiple */ 32).then(__webpack_require__.bind(null, 244)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMobileTypePackageOrderTypeSingle = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-type-single */ 33).then(__webpack_require__.bind(null, 243)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
 
 function wrapFunctional(options) {
   if (!options || !options.functional) {

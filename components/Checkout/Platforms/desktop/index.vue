@@ -118,6 +118,7 @@ import OrderInfo from '@/components/Checkout/Platforms/desktop/constants/order-i
 import Courier from '@/components/Checkout/Platforms/desktop/constants/courier'
 import Payment from '@/components/Checkout/Platforms/desktop/constants/payment'
 import Format from '@/components/General.json'
+import { list_development } from "../../../../config.json"
 
 export default {
   components: {
@@ -592,7 +593,7 @@ export default {
     async execute_order() {
       this.order_loading = true
 
-      if (this.voucher.selected.name.includes("referral")) {
+      if (this.voucher.selected.name.includes("referral") && list_development.includes(this.$route.query.u)) {
         await this.execute_referral()
       }
 

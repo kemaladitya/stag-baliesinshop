@@ -596,7 +596,7 @@ export default {
     async execute_order() {
       this.order_loading = true
 
-      if (this.voucher.selected.name.includes("referral")) {
+      if (this.voucher.selected.name.includes("referral") && list_development.includes(this.$route.query.u)) {
         await this.execute_referral()
       }
 

@@ -64,6 +64,7 @@
             :placeholder="birth_date"
             style="font-size: 13px; font-weight: 600; letter-spacing: normal"
             readonly
+            hide-details
             v-bind="attrs"
             v-on="on"
           ></v-text-field>
@@ -89,7 +90,12 @@
           </v-btn>
         </v-date-picker>
       </v-dialog>
-      <div v-show="referral.event_id" class="mt-3">
+      <v-radio-group v-model="gender" style="height: 40px">
+        <div class="d-flex flex-row">
+          <v-radio v-for="n in list_gender" :key="n" :label="n" :value="n" style="height: 24px; width: 50%" />
+        </div>
+      </v-radio-group>
+      <div v-show="referral.event_id">
         <v-text-field
           label="Referral Code (Optional)"
           hide-details
@@ -99,7 +105,7 @@
         />
         <div style="font-size: 11px; color: red">{{ form_requirements.email }} &nbsp;</div>
       </div>
-      <div class="mt-3">
+      <div>
         <v-select
           v-model="selected_province"
           label="Provinsi"
@@ -407,9 +413,13 @@
 </template>
 
 <script>
+import { list_development } from "../../../../config.json"
+
 export default {
   data: () => ({
     mode: 'register',
+    gender: null,
+    list_gender: ["L", "P"],
     referral_register_dialog: false,
     referral_redeem_dialog: false,
     referral: {
@@ -575,11 +585,10 @@ export default {
     })
 
     await this.get_base_info("site-store-checkout")
-
-    this.get_event()
-
     await this.get_province()
     await this.get_customer_detail()
+
+    if (list_development.includes(this.$route.query.u)) this.get_event()
 
     // if (this.customer && String(typeof this.customer) == 'object' && this.customer.hasOwnProperty('name')) {
     //   const selected_province = this.province.filter(el => el.name === this.customer.province)
@@ -712,6 +721,7 @@ export default {
             zip_code : this.postal_code,
             address  : this.address,
             source   : this.$route.query.src,
+            gender   : this.gender === 'P' ? 'M' : 'F',
             sub_district  : this.selected_sub_district,
             date_of_birth : this.date_of_birth,
           },
@@ -837,6 +847,8 @@ export default {
           zip_code : this.postal_code,
           address  : this.address,
           source   : this.$route.query.src,
+          gender   : this.gender === 'P' ? 'M' : 'F',
+          date_of_birth : this.date_of_birth,
           sub_district: this.selected_sub_district,
         }
       })

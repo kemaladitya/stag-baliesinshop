@@ -32,11 +32,11 @@
   "Merchant": {
     "description": "Auto imported from components/Merchant/index.vue"
   },
-  "ProductDetail": {
-    "description": "Auto imported from components/Product-Detail/index.vue"
-  },
   "PartialsHeaders": {
     "description": "Auto imported from components/Partials/headers.vue"
+  },
+  "ProductDetail": {
+    "description": "Auto imported from components/Product-Detail/index.vue"
   },
   "Products": {
     "description": "Auto imported from components/Products/index.vue"

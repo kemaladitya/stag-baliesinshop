@@ -245,9 +245,9 @@ export default {
         }
       })
 
-      // if (!check_area.data.status) {
-      //   this.$router.push('/error/link/expired')
-      // }
+      if (!check_area.data.status) {
+        this.$router.push('/error/link/expired')
+      }
     }
 
     await this.get_base_info('site-store')

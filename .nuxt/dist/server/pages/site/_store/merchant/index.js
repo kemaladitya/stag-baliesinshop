@@ -261,6 +261,98 @@ function attachedRoot(node) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+
+// UNUSED EXPORTS: VLabel
+
+// EXTERNAL MODULE: ./node_modules/vuetify/src/components/VLabel/VLabel.sass
+var VLabel = __webpack_require__(132);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
+var colorable = __webpack_require__(9);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/themeable/index.js
+var themeable = __webpack_require__(7);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
+var mixins = __webpack_require__(3);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/util/helpers.js
+var helpers = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VLabel/VLabel.js
+// Styles
+ // Mixins
+
+
+
+ // Helpers
+
+
+/* @vue/component */
+
+/* harmony default export */ var VLabel_VLabel = (Object(mixins["a" /* default */])(themeable["a" /* default */]).extend({
+  name: 'v-label',
+  functional: true,
+  props: {
+    absolute: Boolean,
+    color: {
+      type: String,
+      default: 'primary'
+    },
+    disabled: Boolean,
+    focused: Boolean,
+    for: String,
+    left: {
+      type: [Number, String],
+      default: 0
+    },
+    right: {
+      type: [Number, String],
+      default: 'auto'
+    },
+    value: Boolean
+  },
+
+  render(h, ctx) {
+    const {
+      children,
+      listeners,
+      props
+    } = ctx;
+    const data = {
+      staticClass: 'v-label',
+      class: {
+        'v-label--active': props.value,
+        'v-label--is-disabled': props.disabled,
+        ...Object(themeable["b" /* functionalThemeClasses */])(ctx)
+      },
+      attrs: {
+        for: props.for,
+        'aria-hidden': !props.for
+      },
+      on: listeners,
+      style: {
+        left: Object(helpers["f" /* convertToUnit */])(props.left),
+        right: Object(helpers["f" /* convertToUnit */])(props.right),
+        position: props.absolute ? 'absolute' : 'relative'
+      },
+      ref: 'label'
+    };
+    return h('label', colorable["a" /* default */].options.methods.setTextColor(props.focused && props.color, data), children);
+  }
+
+}));
+// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js
+
+
+/* harmony default export */ var components_VLabel = __webpack_exports__["a"] = (VLabel_VLabel);
+
+/***/ }),
+
+/***/ 114:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var _colorable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _themeable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _registrable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(41);
@@ -528,99 +620,7 @@ const baseMixins = Object(_util_mixins__WEBPACK_IMPORTED_MODULE_5__[/* default *
 
 /***/ }),
 
-/***/ 114:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// UNUSED EXPORTS: VLabel
-
-// EXTERNAL MODULE: ./node_modules/vuetify/src/components/VLabel/VLabel.sass
-var VLabel = __webpack_require__(132);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/colorable/index.js
-var colorable = __webpack_require__(9);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/themeable/index.js
-var themeable = __webpack_require__(7);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
-var mixins = __webpack_require__(3);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/util/helpers.js
-var helpers = __webpack_require__(1);
-
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VLabel/VLabel.js
-// Styles
- // Mixins
-
-
-
- // Helpers
-
-
-/* @vue/component */
-
-/* harmony default export */ var VLabel_VLabel = (Object(mixins["a" /* default */])(themeable["a" /* default */]).extend({
-  name: 'v-label',
-  functional: true,
-  props: {
-    absolute: Boolean,
-    color: {
-      type: String,
-      default: 'primary'
-    },
-    disabled: Boolean,
-    focused: Boolean,
-    for: String,
-    left: {
-      type: [Number, String],
-      default: 0
-    },
-    right: {
-      type: [Number, String],
-      default: 'auto'
-    },
-    value: Boolean
-  },
-
-  render(h, ctx) {
-    const {
-      children,
-      listeners,
-      props
-    } = ctx;
-    const data = {
-      staticClass: 'v-label',
-      class: {
-        'v-label--active': props.value,
-        'v-label--is-disabled': props.disabled,
-        ...Object(themeable["b" /* functionalThemeClasses */])(ctx)
-      },
-      attrs: {
-        for: props.for,
-        'aria-hidden': !props.for
-      },
-      on: listeners,
-      style: {
-        left: Object(helpers["f" /* convertToUnit */])(props.left),
-        right: Object(helpers["f" /* convertToUnit */])(props.right),
-        position: props.absolute ? 'absolute' : 'relative'
-      },
-      ref: 'label'
-    };
-    return h('label', colorable["a" /* default */].options.methods.setTextColor(props.focused && props.color, data), children);
-  }
-
-}));
-// CONCATENATED MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js
-
-
-/* harmony default export */ var components_VLabel = __webpack_exports__["a"] = (VLabel_VLabel);
-
-/***/ }),
-
-/***/ 116:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -634,7 +634,7 @@ var VInput = __webpack_require__(130);
 var VIcon = __webpack_require__(24);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js + 1 modules
-var VLabel = __webpack_require__(114);
+var VLabel = __webpack_require__(113);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VMessages/VMessages.sass
 var VMessages = __webpack_require__(134);
@@ -709,7 +709,7 @@ var helpers = __webpack_require__(1);
 var binds_attrs = __webpack_require__(25);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
-var validatable = __webpack_require__(113);
+var validatable = __webpack_require__(114);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mergeData.js
 var mergeData = __webpack_require__(21);
@@ -1197,7 +1197,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 var VTextField = __webpack_require__(127);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VInput/index.js + 3 modules
-var VInput = __webpack_require__(116);
+var VInput = __webpack_require__(115);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VCounter/VCounter.sass
 var VCounter = __webpack_require__(142);
@@ -1250,7 +1250,7 @@ var mixins = __webpack_require__(3);
 
 /* harmony default export */ var components_VCounter = (VCounter_VCounter);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VLabel/index.js + 1 modules
-var VLabel = __webpack_require__(114);
+var VLabel = __webpack_require__(113);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/intersect/index.js
 var intersect = __webpack_require__(19);
@@ -1307,7 +1307,7 @@ function intersectable(options) {
 var loadable = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
-var validatable = __webpack_require__(113);
+var validatable = __webpack_require__(114);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/directives/resize/index.js
 var resize = __webpack_require__(128);
@@ -1848,13 +1848,13 @@ const dirtyTypes = ['color', 'file', 'time', 'date', 'datetime-local', 'week', '
 
 /***/ }),
 
-/***/ 209:
+/***/ 211:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(210);
+var content = __webpack_require__(212);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -1862,7 +1862,7 @@ __webpack_require__(5).default("63c9496b", content, true)
 
 /***/ }),
 
-/***/ 210:
+/***/ 212:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1876,25 +1876,25 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 213:
+/***/ 215:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/merchant.84e4351.jpg";
 
 /***/ }),
 
-/***/ 221:
+/***/ 223:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/balesin-loading.889255e.gif";
 
 /***/ }),
 
-/***/ 268:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(209);
+/* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(211);
 /* harmony import */ var _src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VSnackbar_VSnackbar_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _VSheet_VSheet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
 /* harmony import */ var _mixins_colorable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
@@ -2098,7 +2098,7 @@ module.exports = __webpack_require__.p + "img/balesin-loading.889255e.gif";
 
 /***/ }),
 
-/***/ 323:
+/***/ 325:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2108,7 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/mini.vue?vue&type=template&id=12684a88&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(213)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(215)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
@@ -2580,7 +2580,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 324:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2590,7 +2590,7 @@ __webpack_require__.r(__webpack_exports__);
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/mobile.vue?vue&type=template&id=3c04095e&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(213)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(215)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
@@ -3062,7 +3062,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 325:
+/***/ 327:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3072,7 +3072,7 @@ __webpack_require__.r(__webpack_exports__);
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/Platforms/desktop.vue?vue&type=template&id=e1093426&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c('v-text-field',{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(213)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c('v-card',{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c('v-img',{attrs:{"width":"40","src":merchant.image || __webpack_require__(215)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c('v-card',{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c('v-card',{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c('v-card',{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
@@ -3547,7 +3547,7 @@ installComponents_default()(component, {VCard: VCard["a" /* default */],VImg: VI
 
 /***/ }),
 
-/***/ 332:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3562,13 +3562,13 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Merchant/index.vue?vue&type=template&id=613bc644&
 
 // EXTERNAL MODULE: ./components/Merchant/Platforms/mini.vue + 4 modules
-var mini = __webpack_require__(323);
+var mini = __webpack_require__(325);
 
 // EXTERNAL MODULE: ./components/Merchant/Platforms/mobile.vue + 4 modules
-var mobile = __webpack_require__(324);
+var mobile = __webpack_require__(326);
 
 // EXTERNAL MODULE: ./components/Merchant/Platforms/desktop.vue + 4 modules
-var desktop = __webpack_require__(325);
+var desktop = __webpack_require__(327);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/index.vue?vue&type=script&lang=js&
 //
@@ -3641,7 +3641,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 373:
+/***/ 381:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3649,14 +3649,14 @@ var component = Object(componentNormalizer["a" /* default */])(
 __webpack_require__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/merchant/index.vue?vue&type=template&id=bcf44876&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-card',{staticClass:"pt-12 mb-12",attrs:{"id":"b-list-products","flat":"","tile":""}},[_c('v-progress-linear',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading),expression:"loading"}],staticStyle:{"z-index":"9999 !important"},attrs:{"color":"blue darken-2","height":"3","indeterminate":""}}),_vm._v(" "),_c('v-card',{staticClass:"pl-1 pr-1",staticStyle:{"width":"100%"},attrs:{"flat":"","tile":""}},[(_vm.loading_merchant)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"30vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(221),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n              Mohon menunggu...\n            ")])],1)])],1):_c('div',[_c('Merchant',{attrs:{"loadingmerchant":_vm.loading_merchant}})],1)],1),_vm._v(" "),_c('v-snackbar',{model:{value:(_vm.snackbar),callback:function ($$v) {_vm.snackbar=$$v},expression:"snackbar"}},[_vm._v("information")])],1)],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-card',{staticClass:"pt-12 mb-12",attrs:{"id":"b-list-products","flat":"","tile":""}},[_c('v-progress-linear',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading),expression:"loading"}],staticStyle:{"z-index":"9999 !important"},attrs:{"color":"blue darken-2","height":"3","indeterminate":""}}),_vm._v(" "),_c('v-card',{staticClass:"pl-1 pr-1",staticStyle:{"width":"100%"},attrs:{"flat":"","tile":""}},[(_vm.loading_merchant)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"30vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(223),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n              Mohon menunggu...\n            ")])],1)])],1):_c('div',[_c('Merchant',{attrs:{"loadingmerchant":_vm.loading_merchant}})],1)],1),_vm._v(" "),_c('v-snackbar',{model:{value:(_vm.snackbar),callback:function ($$v) {_vm.snackbar=$$v},expression:"snackbar"}},[_vm._v("information")])],1)],1)}
 var staticRenderFns = []
 
 
 // CONCATENATED MODULE: ./pages/site/_store/merchant/index.vue?vue&type=template&id=bcf44876&
 
 // EXTERNAL MODULE: ./components/Merchant/index.vue + 4 modules
-var Merchant = __webpack_require__(332);
+var Merchant = __webpack_require__(334);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/merchant/index.vue?vue&type=script&lang=js&
 //
@@ -3800,10 +3800,10 @@ var VCard = __webpack_require__(104);
 var VImg = __webpack_require__(58);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VProgressLinear/VProgressLinear.js
-var VProgressLinear = __webpack_require__(36);
+var VProgressLinear = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSnackbar/VSnackbar.js
-var VSnackbar = __webpack_require__(268);
+var VSnackbar = __webpack_require__(270);
 
 // CONCATENATED MODULE: ./pages/site/_store/merchant/index.vue
 
@@ -3827,7 +3827,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var merchant = __webpack_exports__["default"] = (component.exports);
 
 /* nuxt-component-imports */
-installComponents_default()(component, {Merchant: __webpack_require__(332).default})
+installComponents_default()(component, {Merchant: __webpack_require__(334).default})
 
 
 /* vuetify-loader */
