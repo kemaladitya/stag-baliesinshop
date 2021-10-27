@@ -10443,8 +10443,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 /* 328 */,
 /* 329 */,
 /* 330 */,
-/* 331 */,
-/* 332 */
+/* 331 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

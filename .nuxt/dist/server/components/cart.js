@@ -16118,8 +16118,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 /* 337 */,
 /* 338 */,
 /* 339 */,
-/* 340 */,
-/* 341 */
+/* 340 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

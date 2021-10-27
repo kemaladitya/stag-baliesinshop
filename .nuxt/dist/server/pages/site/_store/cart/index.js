@@ -16123,8 +16123,7 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 /* 337 */,
 /* 338 */,
 /* 339 */,
-/* 340 */,
-/* 341 */
+/* 340 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16208,6 +16207,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* harmony default export */ var Cart = __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
+/* 341 */,
 /* 342 */,
 /* 343 */,
 /* 344 */,
@@ -16217,21 +16217,20 @@ var component = Object(componentNormalizer["a" /* default */])(
 /* 348 */,
 /* 349 */,
 /* 350 */,
-/* 351 */,
-/* 352 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(353);
+var content = __webpack_require__(352);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(5).default("beda1088", content, true)
 
 /***/ }),
-/* 353 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -16244,6 +16243,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
+/* 353 */,
 /* 354 */,
 /* 355 */,
 /* 356 */,
@@ -16289,7 +16289,7 @@ var staticRenderFns = []
 var General = __webpack_require__(111);
 
 // EXTERNAL MODULE: ./components/Cart/index.vue + 4 modules
-var Cart = __webpack_require__(341);
+var Cart = __webpack_require__(340);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=script&lang=js&
 //
@@ -16663,7 +16663,7 @@ var VSpacer = __webpack_require__(110);
 var _selection_controls = __webpack_require__(188);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/src/components/VSwitch/VSwitch.sass
-var VSwitch = __webpack_require__(352);
+var VSwitch = __webpack_require__(351);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/selectable/index.js
 var selectable = __webpack_require__(189);

@@ -59,6 +59,7 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
+            v-show="referral.event_id && ondev"
             v-model="birth_date"
             label="Tanggal Lahir"
             :placeholder="birth_date"
@@ -90,7 +91,7 @@
           </v-btn>
         </v-date-picker>
       </v-dialog>
-      <div class="mt-3">
+      <div v-show="referral.event_id && ondev" id="select-gender" class="mt-5">
         <div
           style="
             font-size: 12px;
@@ -100,13 +101,28 @@
         >
           Jenis Kelamin
         </div>
-        <v-radio-group v-model="gender" style="height: 40px; margin-top: 0">
+        <v-radio-group
+          v-model="gender"
+          style="height: 40px; margin-top: 0"
+        >
           <div class="d-flex flex-row">
-            <v-radio v-for="n in list_gender" :key="n" :label="n" :value="n" style="height: 24px; width: 50%" />
+            <v-radio
+              v-for="n in list_gender"
+              :key="n"
+              :label="n"
+              :value="n"
+              style="
+                height: 24px;
+                width: 50%;
+                font-size: 13px;
+                font-weight: 600;
+                color: black;
+              "
+            />
           </div>
         </v-radio-group>
       </div>
-      <div v-show="referral.event_id">
+      <div v-show="referral.event_id && ondev">
         <v-text-field
           label="Referral Code (Optional)"
           hide-details
@@ -355,7 +371,7 @@
     </v-bottom-sheet>
 
     <!-- referral redeem dialog -->
-    <v-dialog v-model="referral_redeem_dialog" persistent style="overflow: hidden;">
+    <!-- <v-dialog v-model="referral_redeem_dialog" persistent style="overflow: hidden;">
       <v-card style="overflow: hidden;">
         <div>
           <v-card class="d-flex flex-row pa-1" tile flat>
@@ -384,11 +400,11 @@
           </center>
         </div>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
     <!-- referral redeem dialog -->
 
     <!-- referral register dialog -->
-    <v-dialog v-model="referral_register_dialog" persistent style="overflow: hidden;">
+    <!-- <v-dialog v-model="referral_register_dialog" persistent style="overflow: hidden;">
       <v-card style="overflow: hidden;">
         <div>
           <v-card class="d-flex flex-row pa-1" tile flat>
@@ -417,7 +433,7 @@
           </center>
         </div>
       </v-card>
-    </v-dialog>
+    </v-dialog> -->
     <!-- referral register dialog -->
 
   </div>
@@ -431,8 +447,8 @@ export default {
     mode: 'register',
     gender: null,
     list_gender: ["Laki-laki", "Perempuan"],
-    referral_register_dialog: false,
-    referral_redeem_dialog: false,
+    referral_register_dialog: true,
+    referral_redeem_dialog: true,
     referral: {
       event_id: null,
       code: '',
@@ -488,7 +504,8 @@ export default {
     selected_sub_district: null,
     selected_urban: null,
     postal_code: null,
-    dialog: true
+    dialog: true,
+    ondev: false
   }),
 
   computed: {
@@ -599,7 +616,11 @@ export default {
     await this.get_province()
     await this.get_customer_detail()
 
-    if (list_development.includes(this.$route.query.u)) this.get_event()
+    if (list_development.includes(this.$route.query.u)) {
+      this.get_event()
+
+      this.ondev = true;
+    }
 
     // if (this.customer && String(typeof this.customer) == 'object' && this.customer.hasOwnProperty('name')) {
     //   const selected_province = this.province.filter(el => el.name === this.customer.province)
@@ -626,6 +647,19 @@ export default {
   },
 
   methods: {
+    async send_notif(message) {
+      await this.$store.dispatch("request", {
+        url: "/api/send-notif",
+        method: "post",
+        data: {
+          compose_msg_order : message,
+          bot_name          : this.store.bot_name,
+          uuid              : this.$route.query.u,
+          source            : this.$route.query.src,
+        }
+      })
+    },
+
     change_selected_route(key, value) {
       this.is_updated = true
       this[`selected${key}`] = value
@@ -648,25 +682,26 @@ export default {
     },
 
     async execute_redeem() {
-      if (this.referral.event_id) {
+      if (this.referral.event_id && this.ondev) {
         const regist_event = await this.register_participant_event()
 
         if (regist_event.status == "success") {
-          const splitted = regist_event.reply.split("|")
-
-          this.referral.register.message = `${splitted[0]} <span style="color: #1867c0">${splitted[1]}</span>`
-          this.referral.register.status = true;
-          this.referral_register_dialog = true;
+          this.send_notif(regist_event.reply)
         }
+
+        this.referral_register_dialog = false;
 
         if (this.referral.code.length) {
           const redeem_referral = await this.redeem_referral()
 
-          this.referral.redeem.message = redeem_referral.reply
-          this.referral.redeem.status  = redeem_referral.status == "success";
-          this.referral_redeem_dialog  = true;
+          this.send_notif(redeem_referral.reply)
         }
+
+        this.referral_redeem_dialog  = false;
       } else {
+        this.referral_register_dialog = false
+        this.referral_redeem_dialog = false
+
         this.submit();
       }
     },
@@ -710,6 +745,11 @@ export default {
       //   "status": "success"
       // }
 
+      const parsed_date = (() => {
+        const splitted = this.birth_date.split('-')
+
+        return `${splitted[2]}-${splitted[1]}-${splitted[0]}`
+      })();
       const request = await this.$store.dispatch("request", {
         url: "/referral/event/reg",
         method: "post",
@@ -733,7 +773,7 @@ export default {
             source   : this.$route.query.src,
             gender   : this.gender === 'Laki-laki' ? 'M' : 'F',
             sub_district  : this.selected_sub_district,
-            date_of_birth : this.date_of_birth,
+            date_of_birth : parsed_date,
           },
           source: this.$route.query.src,
           userloc: this.selected_city
@@ -838,6 +878,16 @@ export default {
         this.confirm = false
         this.process = true
 
+        const parsed_date = (() => {
+          if (this.referral.event_id && this.ondev) {
+            const splitted = this.birth_date.split('-')
+
+            return `${splitted[2]}-${splitted[1]}-${splitted[0]}`
+          }
+
+          return null
+        })();
+
         this.check_phone_number()
       
         const submit_user = await this.$store.dispatch('request', {
@@ -858,8 +908,8 @@ export default {
             zip_code : this.postal_code,
             address  : this.address,
             source   : this.$route.query.src,
-            gender   : this.gender === 'Laki-laki' ? 'M' : 'F',
-            date_of_birth : this.date_of_birth,
+            gender   : this.referral.event_id ? (this.gender === 'Laki-laki' ? 'M' : 'F') : null,
+            date_of_birth : this.referral.event_id ? parsed_date : null,
             sub_district: this.selected_sub_district,
           }
         })
@@ -903,6 +953,14 @@ export default {
           this.email   = request.data.response.email
           this.address = request.data.response.address
           this.selected_province = request.data.response.province
+
+          const parsed_date = (() => {
+            const splitted = request.data.response.date_of_birth.split('-')
+
+            return `${splitted[2]}-${splitted[1]}-${splitted[0]}`
+          })()
+          this.birth_date = (new Date(parsed_date)).toISOString().substr(0, 10)
+          this.gender = request.data.response.gender === "M" ? "Laki-laki" : "Perempuan"
         }
       } catch (error) {
         console.error(error)
@@ -950,5 +1008,8 @@ export default {
 .v-list-item__title {
   font-size: 13px;
   font-weight: 600;
+}
+#select-gender > .v-input--radio-group > div > .v-input__slot > div > div > div > label {
+  font-size: 13px;
 }
 </style>
