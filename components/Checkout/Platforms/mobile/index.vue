@@ -575,6 +575,17 @@ export default {
               data: new_product
             }
           })
+        } else {
+          // /voucher/remove
+          this.voucher.selected = null;
+          this.$store.dispatch("request", {
+            url   : "/voucher/remove",
+            method: "post",
+            data: {
+              uuid     : this.customer.uuid,
+              bot_name : this.site.store
+            }
+          })
         }
       }
 

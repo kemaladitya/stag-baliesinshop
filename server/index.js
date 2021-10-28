@@ -38,6 +38,7 @@ async function start() {
   app.use("/manage/cart"       , main.cart.bot)
   app.use("/reorder"           , main.order.reorder)
   app.use("/voucher/apply"     , main.voucher.apply)
+  app.use("/voucher/remove"    , main.voucher.remmove)
   app.use("/transaction/order" , main.order.create)
   app.use("/product/search"    , main.product.product_search)
   app.use("/mailer"            , main.mailer.send)

@@ -515,6 +515,7 @@ export default {
 
       this.invalid_voucher = true;
       this.invalid_message = `MAAF KODE VOUCHER <span style="color: #1565c0;">${code}</span>, TIDAK BERLAKU`
+      // /voucher/remove
 
       return false;
     },
@@ -564,6 +565,17 @@ export default {
             payload: {
               key: 'products',
               data: new_product
+            }
+          })
+        } else {
+          // /voucher/remove
+          this.voucher.selected = null;
+          this.$store.dispatch("request", {
+            url   : "/voucher/remove",
+            method: "post",
+            data: {
+              uuid     : this.customer.uuid,
+              bot_name : this.site.store
             }
           })
         }
