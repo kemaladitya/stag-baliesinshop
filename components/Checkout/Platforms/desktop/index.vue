@@ -605,9 +605,9 @@ export default {
     async execute_order() {
       this.order_loading = true
 
-      // if (this.store.event && list_development.includes(this.$route.query.u)) {
-      //   await this.execute_referral()
-      // }
+      if (this.store.event && list_development.includes(this.$route.query.u) && this.payment.selected == 'cod') {
+        await this.execute_referral()
+      }
 
       const date = new Date()
       const day = date.getDate()

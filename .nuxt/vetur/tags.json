@@ -92,11 +92,11 @@
   "ProductsPlatformsMini": {
     "description": "Auto imported from components/Products/Platforms/mini.vue"
   },
-  "CartPlatformsMini": {
-    "description": "Auto imported from components/Cart/Platforms/mini/index.vue"
-  },
   "CartPlatformsDesktop": {
     "description": "Auto imported from components/Cart/Platforms/desktop/index.vue"
+  },
+  "CartPlatformsMini": {
+    "description": "Auto imported from components/Cart/Platforms/mini/index.vue"
   },
   "CartPlatformsMobile": {
     "description": "Auto imported from components/Cart/Platforms/mobile/index.vue"
@@ -113,15 +113,6 @@
   "ProductsPlatformsMobile": {
     "description": "Auto imported from components/Products/Platforms/mobile/index.vue"
   },
-  "CartPlatformsMiniTypePackageOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order.vue"
-  },
-  "CartPlatformsMiniTypeSingleOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/single-order.vue"
-  },
-  "CartPlatformsMiniTypeSubscriptionOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/subscription-order.vue"
-  },
   "CartPlatformsDesktopTypePackageOrder": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order.vue"
   },
@@ -130,6 +121,15 @@
   },
   "CartPlatformsDesktopTypeSubscriptionOrder": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/subscription-order.vue"
+  },
+  "CartPlatformsMiniTypePackageOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order.vue"
+  },
+  "CartPlatformsMiniTypeSingleOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/single-order.vue"
+  },
+  "CartPlatformsMiniTypeSubscriptionOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/subscription-order.vue"
   },
   "CartPlatformsMobileTypePackageOrder": {
     "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order.vue"
@@ -191,15 +191,6 @@
   "ProductsPlatformsMobileShowTypeList": {
     "description": "Auto imported from components/Products/Platforms/mobile/show-type/list.vue"
   },
-  "CartPlatformsMiniTypePackageOrderFooterDetail": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/footer-detail.vue"
-  },
-  "CartPlatformsMiniTypePackageOrderListItems": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/list-items.vue"
-  },
-  "CartPlatformsMiniTypePackageOrderRemovePackage": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/remove-package.vue"
-  },
   "CartPlatformsDesktopTypePackageOrderFooterDetail": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/footer-detail.vue"
   },
@@ -208,6 +199,15 @@
   },
   "CartPlatformsDesktopTypePackageOrderRemovePackage": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/remove-package.vue"
+  },
+  "CartPlatformsMiniTypePackageOrderFooterDetail": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/footer-detail.vue"
+  },
+  "CartPlatformsMiniTypePackageOrderListItems": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/list-items.vue"
+  },
+  "CartPlatformsMiniTypePackageOrderRemovePackage": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/remove-package.vue"
   },
   "CartPlatformsMobileTypePackageOrderFooterDetail": {
     "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/footer-detail.vue"
@@ -245,17 +245,17 @@
   "CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue"
   },
-  "CartPlatformsMiniTypePackageOrderTypeMultiple": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/type/multiple.vue"
-  },
-  "CartPlatformsMiniTypePackageOrderTypeSingle": {
-    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/type/single.vue"
-  },
   "CartPlatformsDesktopTypePackageOrderTypeMultiple": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/type/multiple.vue"
   },
   "CartPlatformsDesktopTypePackageOrderTypeSingle": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/type/single.vue"
+  },
+  "CartPlatformsMiniTypePackageOrderTypeMultiple": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/type/multiple.vue"
+  },
+  "CartPlatformsMiniTypePackageOrderTypeSingle": {
+    "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/type/single.vue"
   },
   "CartPlatformsMobileTypePackageOrderTypeMultiple": {
     "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/type/multiple.vue"
