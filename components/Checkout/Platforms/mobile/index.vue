@@ -121,6 +121,7 @@ import OrderInfo from '@/components/Checkout/Platforms/mobile/constants/order-in
 import Courier from '@/components/Checkout/Platforms/mobile/constants/courier'
 import Payment from '@/components/Checkout/Platforms/mobile/constants/payment'
 import Format from '@/components/General.json'
+import { list_development } from "../../../../config.json"
 
 export default {
   components: {

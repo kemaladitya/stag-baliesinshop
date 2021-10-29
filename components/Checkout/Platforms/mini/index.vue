@@ -120,6 +120,7 @@ import OrderInfo from '@/components/Checkout/Platforms/mini/constants/order-info
 import Courier from '@/components/Checkout/Platforms/mini/constants/courier'
 import Payment from '@/components/Checkout/Platforms/mini/constants/payment'
 import Format from '@/components/General.json'
+import { list_development } from "../../../../config.json"
 
 export default {
   components: {
