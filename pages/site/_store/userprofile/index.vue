@@ -122,16 +122,6 @@
           </div>
         </v-radio-group>
       </div>
-      <div v-show="referral.event_id && ondev">
-        <v-text-field
-          label="Referral Code (Optional)"
-          hide-details
-          name="referral_code"
-          style="font-size: 13px; font-weight: 600; letter-spacing: normal"
-          v-model="referral.code"
-        />
-        <div style="font-size: 11px; color: red">{{ form_requirements.email }} &nbsp;</div>
-      </div>
       <div>
         <v-select
           v-model="selected_province"
@@ -269,6 +259,16 @@
           v-model="address"
         />
         <div style="font-size: 11px; color: red">{{ form_requirements.address }} &nbsp;</div>
+      </div>
+      <div v-show="referral.event_id && ondev">
+        <v-text-field
+          label="★ Referral Code (OPTIONAL)"
+          hide-details
+          name="referral_code"
+          style="font-size: 13px; font-weight: 600; letter-spacing: normal"
+          v-model="referral.code"
+        />
+        <div style="font-size: 11px; color: red">{{ form_requirements.email }} &nbsp;</div>
       </div>
       <center class="mt-8 mb-6">
         <v-btn
