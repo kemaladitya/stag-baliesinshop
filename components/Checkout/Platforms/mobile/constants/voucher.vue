@@ -129,20 +129,21 @@
               !vc.categories_product.includes(site.category)
               && !vc.qty
             "
-            class="pa-2 pl-0"
             flat
           >
-            <v-card
-              v-if="vc.show_select"
-              class="ml-2 pa-2"
-              outlined
-              @click="use_voucher(true, vc.name)"
-            >
-              <div class="pb-1" style="font-weight: 600; font-size: 13px">
-                {{ vc.name }}
-              </div>
-              <div v-html="vc.description" />
-            </v-card>
+            <div :class="vc.show_select ? 'pa-2 pl-0' : null">
+              <v-card
+                v-if="vc.show_select"
+                class="ml-2 pa-2"
+                outlined
+                @click="use_voucher(true, vc.name)"
+              >
+                <div class="pb-1" style="font-weight: 600; font-size: 13px">
+                  {{ vc.name }}
+                </div>
+                <div v-html="vc.description" />
+              </v-card>
+            </div>
           </v-card>
           <v-card v-if="voucher.is_custom_voucher" class="pa-2 pl-0" flat>
             <v-card
