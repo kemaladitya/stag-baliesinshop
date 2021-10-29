@@ -591,7 +591,7 @@ export default {
     async execute_referral() {
       // * buat di checkout
       const submit = await this.$store.dispatch("request", {
-        url: "/referral/redeem",
+        url: "/referral/event/redeem/referral_ext_val",
         method: "post",
         data: {
           botid   : this.store.bot_id,
