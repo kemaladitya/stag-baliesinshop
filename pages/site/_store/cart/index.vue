@@ -129,6 +129,7 @@
 
 import API from '@/components/General'
 import CartDetail from '@/components/Cart'
+import { mode } from "../../../../config.json"
 
 export default {
   components: {
@@ -262,7 +263,7 @@ export default {
         bot_id: this.$route.params.store
       })
 
-      if (!get_product.status) {
+      if (!get_product.status && mode == "production") {
         if (get_product.message == 'Expired.') {
           this.$router.replace('/error/link/expired')
         }

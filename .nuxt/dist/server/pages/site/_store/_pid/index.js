@@ -2841,7 +2841,7 @@ function intersectable(options) {
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/loadable/index.js
-var loadable = __webpack_require__(33);
+var loadable = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
 var validatable = __webpack_require__(114);
@@ -4780,7 +4780,7 @@ var registrable = __webpack_require__(41);
 var ripple = __webpack_require__(40);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(3);
@@ -5013,7 +5013,7 @@ var VListItemAction = __webpack_require__(155);
 var VAvatar = __webpack_require__(177);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/measurable/index.js
-var measurable = __webpack_require__(27);
+var measurable = __webpack_require__(28);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/roundable/index.js
 var roundable = __webpack_require__(43);
@@ -6229,7 +6229,7 @@ var VChip = __webpack_require__(183);
 var mixins = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
 var VIcon = __webpack_require__(24);
@@ -6250,7 +6250,7 @@ var toggleable = __webpack_require__(17);
 var routable = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/sizeable/index.js
-var sizeable = __webpack_require__(28);
+var sizeable = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/console.js
 var console = __webpack_require__(2);
@@ -9149,18 +9149,21 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/_pid/index.vue?vue&type=template&id=b2b5c01a&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/_pid/index.vue?vue&type=template&id=04d69f23&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{staticClass:"pt-12 pl-2 pr-2",attrs:{"id":"b-products-detail","flat":"","tile":""}},[(_vm.loading_product)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"30vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(223),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n          Mohon menunggu...\n        ")])],1)])],1):_c('div',[_c('Detail')],1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/_pid/index.vue?vue&type=template&id=b2b5c01a&
+// CONCATENATED MODULE: ./pages/site/_store/_pid/index.vue?vue&type=template&id=04d69f23&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(111);
 
 // EXTERNAL MODULE: ./components/Product-Detail/index.vue + 4 modules
 var Product_Detail = __webpack_require__(346);
+
+// EXTERNAL MODULE: ./config.json
+var config = __webpack_require__(27);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/_pid/index.vue?vue&type=script&lang=js&
 //
@@ -9181,6 +9184,7 @@ var Product_Detail = __webpack_require__(346);
 //
 //
 //
+
 
 
 /* harmony default export */ var _pidvue_type_script_lang_js_ = ({
@@ -9269,7 +9273,7 @@ var Product_Detail = __webpack_require__(346);
           merchant: this.merchant ? this.merchant.id : 0
         });
 
-        if (!get_product.status) {
+        if (!get_product.status && config["b" /* mode */] == "production") {
           if (get_product.message == 'Expired.') {
             this.$router.replace('/error/link/expired');
           }

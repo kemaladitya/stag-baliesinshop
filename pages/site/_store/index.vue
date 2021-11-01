@@ -125,6 +125,7 @@
 import API from '@/components/General'
 import Products from '@/components/Products/index'
 import Loading from '@/components/Loading/list_product'
+import { mode } from "../../../config.json"
 
 export default {
   components: {
@@ -277,7 +278,7 @@ export default {
         merchant: this.merchant ? this.merchant.id : 0,
       })
 
-      if (!get_product.status) {
+      if (!get_product.status && mode == "production") {
         if (get_product.message == 'Expired.') {
           this.$router.replace('/error/link/expired')
         }

@@ -2841,7 +2841,7 @@ function intersectable(options) {
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/loadable/index.js
-var loadable = __webpack_require__(33);
+var loadable = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
 var validatable = __webpack_require__(114);
@@ -4756,7 +4756,7 @@ var registrable = __webpack_require__(41);
 var ripple = __webpack_require__(40);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(3);
@@ -4989,7 +4989,7 @@ var VListItemAction = __webpack_require__(155);
 var VAvatar = __webpack_require__(177);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/measurable/index.js
-var measurable = __webpack_require__(27);
+var measurable = __webpack_require__(28);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/roundable/index.js
 var roundable = __webpack_require__(43);
@@ -5743,7 +5743,7 @@ var VChip = __webpack_require__(183);
 var mixins = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
 var VIcon = __webpack_require__(24);
@@ -5764,7 +5764,7 @@ var toggleable = __webpack_require__(17);
 var routable = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/sizeable/index.js
-var sizeable = __webpack_require__(28);
+var sizeable = __webpack_require__(29);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/console.js
 var console = __webpack_require__(2);
@@ -10932,14 +10932,14 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/index.vue?vue&type=template&id=2fe11e28&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/index.vue?vue&type=template&id=63eb3f37&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-card',{staticClass:"pt-12 mb-12",attrs:{"id":"b-list-products","flat":"","tile":""}},[_c('v-progress-linear',{directives:[{name:"show",rawName:"v-show",value:(_vm.loading),expression:"loading"}],staticStyle:{"z-index":"9999 !important"},attrs:{"color":"blue darken-2","height":"3","indeterminate":""}}),_vm._v(" "),_c('v-card',{staticStyle:{"width":"100%"},attrs:{"flat":"","tile":""}},[(_vm.loading_product)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"30vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(223),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n              Mohon menunggu...\n            ")])],1)])],1):_c('div',[_c('Products',{attrs:{"productdetail":_vm.product_detail,"loadingproduct":_vm.loading_product}})],1)],1),_vm._v(" "),_c('v-snackbar',{model:{value:(_vm.snackbar),callback:function ($$v) {_vm.snackbar=$$v},expression:"snackbar"}},[_vm._v("information")])],1),_vm._ssrNode(" "),(!_vm.loading_product)?_c('transition',{attrs:{"name":"scroll-y-reverse-transition","mode":"out-in","appear":""}},[_c('div',{directives:[{name:"show",rawName:"v-show",value:((_vm.cart.length)),expression:"(cart.length)"}],staticStyle:{"position":"fixed","bottom":"0","padding":"10px 8px","width":"100%","z-index":"9"}},[_c('v-card',{staticClass:"d-flex flex-row pa-3 pr-3 pl-3",attrs:{"color":"#fd0","to":_vm.cart_url}},[_c('v-card',{staticStyle:{"font-size":"14px","font-weight":"600"},attrs:{"color":"transparent","flat":""}},[_vm._v("\n          Lihat Keranjang\n        ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-card',{staticStyle:{"font-size":"14px","font-weight":"600","color":"grey"},attrs:{"color":"transparent","flat":""}},[_vm._v("\n          "+_vm._s(_vm.order_info.qty_item)+" item\n        ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-card',{staticStyle:{"font-size":"14px","font-weight":"600"},attrs:{"color":"transparent","flat":""}},[_c('div',{staticStyle:{"font-weight":"600"}},[_vm._v("\n            Rp "+_vm._s(_vm.order_info.total
                 .toLocaleString()
                 .replace(/,/g, '.'))+"\n          ")])])],1)],1)]):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/index.vue?vue&type=template&id=2fe11e28&
+// CONCATENATED MODULE: ./pages/site/_store/index.vue?vue&type=template&id=63eb3f37&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(111);
@@ -10949,6 +10949,9 @@ var Products = __webpack_require__(331);
 
 // EXTERNAL MODULE: ./components/Loading/list_product.vue + 2 modules
 var list_product = __webpack_require__(347);
+
+// EXTERNAL MODULE: ./config.json
+var config = __webpack_require__(27);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/index.vue?vue&type=script&lang=js&
 //
@@ -11074,6 +11077,7 @@ var list_product = __webpack_require__(347);
  * * get customer info if not exist (for get cart)
  * * get cart
  */
+
 
 
 
@@ -11231,7 +11235,7 @@ var list_product = __webpack_require__(347);
         merchant: this.merchant ? this.merchant.id : 0
       });
 
-      if (!get_product.status) {
+      if (!get_product.status && config["b" /* mode */] == "production") {
         if (get_product.message == 'Expired.') {
           this.$router.replace('/error/link/expired');
         }

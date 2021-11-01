@@ -2879,7 +2879,7 @@ function intersectable(options) {
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/loadable/index.js
-var loadable = __webpack_require__(33);
+var loadable = __webpack_require__(34);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
 var validatable = __webpack_require__(114);
@@ -7081,7 +7081,7 @@ var VBtn = __webpack_require__(44);
 var VCard = __webpack_require__(104);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(22);
@@ -8093,7 +8093,7 @@ var VBtn = __webpack_require__(44);
 var VCard = __webpack_require__(104);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(22);
@@ -9109,7 +9109,7 @@ var VBtn = __webpack_require__(44);
 var VCard = __webpack_require__(104);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(22);
@@ -10804,7 +10804,7 @@ var VDialog = __webpack_require__(140);
 var VDivider = __webpack_require__(146);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(22);
@@ -12578,7 +12578,7 @@ var VDialog = __webpack_require__(140);
 var VDivider = __webpack_require__(146);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(22);
@@ -14352,7 +14352,7 @@ var VDialog = __webpack_require__(140);
 var VDivider = __webpack_require__(146);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
 var VIcon = __webpack_require__(22);
@@ -16270,7 +16270,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=template&id=01bf930a&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=template&id=8e82b416&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.loading_cart)?_c('v-card',{attrs:{"width":"100%","flat":"","tile":""}},[_c('center',{staticStyle:{"width":"100%"}},[_c('div',{staticStyle:{"width":"50%","margin-top":"35vh"}},[_c('v-img',{attrs:{"src":__webpack_require__(223),"width":"80","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"mb-2",staticStyle:{"font-size":"13px","color":"gray","padding-top":"13px","font-weight":"600"}},[_vm._v("\n          Mohon menunggu...\n        ")])],1)])],1):_c('div',[(_vm.order_type === 'package-order')?_c('v-card',{staticClass:"pr-0",class:_vm.screen == 'mini' ? 'pa-1 pl-2 pr-2' : 'pa-2',staticStyle:{"margin-top":"50px"},attrs:{"id":"b-subs-mode","color":"#dfdfdf","min-width":"100%","flat":"","tile":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"12px","padding-top":"1px","font-weight":"600"}},[_vm._v("\n          MODE PAKET\n        ")]),_vm._v(" "),_c('v-spacer')],1),_vm._v(" "),_c('div',{staticStyle:{"text-align":"left"},style:('font-size: ' + (_vm.screen == 'mini' ? '8px;' : '10px;'))},[_vm._v("\n        Tentukan variasi roti yang Anda inginkan dalam bentuk pembelian paket "),_c('br'),_vm._v("\n        Sari Roti (Kemasan Box & Parcel).\n      ")])]):_vm._e(),_vm._v(" "),(
         _vm.store.recurring_purchase
         && (
@@ -16283,13 +16283,16 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/site/_store/cart/index.vue?vue&type=template&id=01bf930a&
+// CONCATENATED MODULE: ./pages/site/_store/cart/index.vue?vue&type=template&id=8e82b416&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(111);
 
 // EXTERNAL MODULE: ./components/Cart/index.vue + 4 modules
 var Cart = __webpack_require__(340);
+
+// EXTERNAL MODULE: ./config.json
+var config = __webpack_require__(27);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/cart/index.vue?vue&type=script&lang=js&
 //
@@ -16420,6 +16423,7 @@ var Cart = __webpack_require__(340);
  * * get products if not exist
  * * get cart
  */
+
 
 
 /* harmony default export */ var cartvue_type_script_lang_js_ = ({
@@ -16554,7 +16558,7 @@ var Cart = __webpack_require__(340);
         bot_id: this.$route.params.store
       });
 
-      if (!get_product.status) {
+      if (!get_product.status && config["b" /* mode */] == "production") {
         if (get_product.message == 'Expired.') {
           this.$router.replace('/error/link/expired');
         }
@@ -16675,7 +16679,7 @@ var VInput = __webpack_require__(115);
 var touch = __webpack_require__(193);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(32);
+var transitions = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VProgressCircular/VProgressCircular.js
 var VProgressCircular = __webpack_require__(36);

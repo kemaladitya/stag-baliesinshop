@@ -33,6 +33,7 @@ import Courier from '~/components/Bottom-Sheet/Checkout/courier.vue'
 import Voucher from '~/components/Bottom-Sheet/Checkout/voucher.vue'
 import Payment from '~/components/Bottom-Sheet/Checkout/payment.vue'
 import Footer from '~/components/Footer/checkout.vue'
+import { mode } from "../../../../config.json"
 
 export default {
   components: {
@@ -115,7 +116,7 @@ export default {
           bot_id: this.$route.params.store
         })
 
-        if (!get_product.status) {
+        if (!get_product.status && mode == "production") {
           if (get_product.message == 'Expired.') {
             this.$router.replace('/error/link/expired')
           }

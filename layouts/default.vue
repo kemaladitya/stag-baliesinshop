@@ -90,7 +90,7 @@
 <script>
 import axios from 'axios';
 import Headers from '@/components/Partials/headers';
-import { recommendation_api } from '@/config.json'
+import { recommendation_api, mode } from '@/config.json'
 
 export default {
   components: {
@@ -245,7 +245,7 @@ export default {
         }
       })
 
-      if (!check_area.data.status) {
+      if (!check_area.data.status && mode == "production") {
         this.$router.push('/error/link/expired')
       }
     }

@@ -623,6 +623,7 @@ export default {
           method   : 'create',
           store_id : this.store.id,
           bot_name : this.site.store,
+          outlet   : this.$route.query.c,
           uuid     : this.site.uuid,
           source   : this.site.source,
           order    : {

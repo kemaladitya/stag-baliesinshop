@@ -19,6 +19,7 @@
 <script>
 import API from '@/components/General'
 import Detail from '@/components/Product-Detail/index'
+import { mode } from "../../../../config.json"
 
 export default {
   components: {
@@ -106,7 +107,7 @@ export default {
           merchant: this.merchant ? this.merchant.id : 0,
         })
 
-        if (!get_product.status) {
+        if (!get_product.status && mode == "production") {
           if (get_product.message == 'Expired.') {
             this.$router.replace('/error/link/expired')
           }

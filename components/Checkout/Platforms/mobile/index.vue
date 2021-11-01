@@ -630,6 +630,7 @@ export default {
         data: {
           method   : 'create',
           store_id : this.store.id,
+          outlet   : this.$route.query.c,
           bot_name : this.site.store,
           uuid     : this.site.uuid,
           source   : this.site.source,
