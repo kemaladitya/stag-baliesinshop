@@ -1,8 +1,8 @@
 {
   "mode"  : "production",
-  "_api"  : "http://0.0.0.0:3098",
+  "_api"  : "http://10.140.0.14:3098",
   "_key"  : "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
-  "base"  : "http://0.0.0.0:8082",
+  "base"  : "https://shop.balesin.id",
   "event" : "http://10.140.0.28:8114",
   "host"  : "0.0.0.0",
   "port"  : "8082",

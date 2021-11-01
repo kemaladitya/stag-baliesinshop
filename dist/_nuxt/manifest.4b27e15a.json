@@ -168,7 +168,7 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "http://0.0.0.0:8082",
+  "start_url": "https://shop.balesin.id",
   "display": "standalone",
   "background_color": "#ffffdd",
   "theme_color": "#ffffdd",
