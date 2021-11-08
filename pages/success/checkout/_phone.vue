@@ -27,6 +27,10 @@ export default {
   }),
 
   computed: {
+    site () {
+      return this.$store.state.site
+    },
+
     store () {
       return this.$store.state.store
     }
