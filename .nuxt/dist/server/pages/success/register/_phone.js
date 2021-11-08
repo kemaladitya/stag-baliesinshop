@@ -8,12 +8,12 @@ exports.modules = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/success/register/_phone.vue?vue&type=template&id=1671f6ae&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/success/register/_phone.vue?vue&type=template&id=77d99549&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-app',[_c('div',{staticClass:"b-font",staticStyle:{"padding-top":"30vh"},attrs:{"height":"100vh"}},[_c('center',[_c('v-img',{attrs:{"width":"180","height":"180","src":"https://s3-ap-southeast-1.amazonaws.com/alatteknikkitaassets/logos/success.gif"}}),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"600","font-size":"23px"}},[_vm._v("Terima Kasih")]),_vm._v(" "),_c('center',{staticStyle:{"color":"#999999","font-size":"16px"}},[_c('div',[_vm._v("Proses pencatatan diri kamu telah")]),_vm._v(" "),_c('div',[_vm._v("selesai. Kamu akan kembali ke bot secara")]),_vm._v(" "),_c('div',[_vm._v("otomatis.")])])],1)],1)])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./pages/success/register/_phone.vue?vue&type=template&id=1671f6ae&
+// CONCATENATED MODULE: ./pages/success/register/_phone.vue?vue&type=template&id=77d99549&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/success/register/_phone.vue?vue&type=script&lang=js&
 //
@@ -55,10 +55,10 @@ var staticRenderFns = []
   mounted() {
     const self = this;
     setTimeout(() => {
-      if (self.site.source === 'Whatsapp') {
+      if (self.site.source.includes('Whatsapp')) {
         window.location.replace(`https://wa.me/${self.$route.params.phone}`);
       } else {
-        this.$router.replace(`https://faq.balesin.id/bot/${self.site.store}`);
+        window.location.replace(`https://faq.balesin.id/bot/${self.site.store}`);
       }
     }, 3000);
   }

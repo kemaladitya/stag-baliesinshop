@@ -36,7 +36,11 @@ export default {
     const self = this
 
     setTimeout(() => {
-      window.location.replace(`https://wa.me/${self.$route.params.phone}`)
+      if (self.site.source.includes('Whatsapp')) {
+        window.location.replace(`https://wa.me/${self.$route.params.phone}`)
+      } else {
+        window.location.replace(`https://faq.balesin.id/bot/${self.site.store}`)
+      }
     }, 3000)
   }
 }

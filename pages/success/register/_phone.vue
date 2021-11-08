@@ -40,10 +40,10 @@ export default {
     const self = this
 
     setTimeout(() => {
-      if (self.site.source === 'Whatsapp') {
+      if (self.site.source.includes('Whatsapp')) {
         window.location.replace(`https://wa.me/${self.$route.params.phone}`)
       } else {
-        this.$router.replace(`https://faq.balesin.id/bot/${self.site.store}`)
+        window.location.replace(`https://faq.balesin.id/bot/${self.site.store}`)
       }
     }, 3000)
   }
