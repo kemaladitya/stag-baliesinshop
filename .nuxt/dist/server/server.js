@@ -3881,7 +3881,7 @@ function makeWatcher(property) {
 /* 27 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"b\":\"production\",\"c\":true,\"a\":[\"628128129856\",\"6282122104014\",\"6285747471595\",\"61402644654\",\"6281319501916\",\"628111775750\",\"6281397021508\",\"6281290354048\",\"628976203842\",\"628118010107\",\"6285885862257\",\"628118164301\",\"6281132214981\",\"60169736926\",\"6281319152872\",\"6281212500170\",\"6287877719193\",\"628111832381\",\"621132214981\",\"627788520012\",\"625313161323\",\"621290656929\",\"622154715462\",\"625920115665\",\"621289528244\",\"629636442637\"]}");
+module.exports = JSON.parse("{\"b\":\"production\",\"c\":true,\"a\":[\"628128129856\",\"6282122104014\",\"6285747471595\",\"61402644654\",\"6281319501916\",\"628111775750\",\"6281397021508\",\"6281290354048\",\"628976203842\",\"628118010107\",\"6285885862257\",\"628118164301\",\"60169736926\",\"6281319152872\",\"6281212500170\",\"6287877719193\",\"628111832381\",\"6281132214981\",\"6287788520012\",\"6285313161323\",\"6281290656929\",\"62821547154628\",\"6285920115665\",\"6281289528244\",\"6289636442637\"]}");
 
 /***/ }),
 /* 28 */
@@ -7830,9 +7830,9 @@ __webpack_require__.r(components_namespaceObject);
 __webpack_require__.d(components_namespaceObject, "General", function() { return General; });
 __webpack_require__.d(components_namespaceObject, "Logo", function() { return Logo; });
 __webpack_require__.d(components_namespaceObject, "VuetifyLogo", function() { return VuetifyLogo; });
-__webpack_require__.d(components_namespaceObject, "Cart", function() { return Cart; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetMiniCart", function() { return BottomSheetMiniCart; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetRegLoading", function() { return BottomSheetRegLoading; });
+__webpack_require__.d(components_namespaceObject, "Cart", function() { return Cart; });
 __webpack_require__.d(components_namespaceObject, "Checkout", function() { return Checkout; });
 __webpack_require__.d(components_namespaceObject, "FooterCart", function() { return FooterCart; });
 __webpack_require__.d(components_namespaceObject, "FooterCheckout", function() { return FooterCheckout; });
@@ -9826,9 +9826,9 @@ function normalizeModule(moduleData, filePath) {
 const General = () => __webpack_require__.e(/* import() | components/general */ 70).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
 const Logo = () => __webpack_require__.e(/* import() | components/logo */ 72).then(__webpack_require__.bind(null, 389)).then(c => wrapFunctional(c.default || c));
 const VuetifyLogo = () => __webpack_require__.e(/* import() | components/vuetify-logo */ 87).then(__webpack_require__.bind(null, 390)).then(c => wrapFunctional(c.default || c));
-const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
 const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 207)).then(c => wrapFunctional(c.default || c));
 const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 370)).then(c => wrapFunctional(c.default || c));
+const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
 const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 36).then(__webpack_require__.bind(null, 332)).then(c => wrapFunctional(c.default || c));
 const FooterCart = () => __webpack_require__.e(/* import() | components/footer-cart */ 68).then(__webpack_require__.bind(null, 384)).then(c => wrapFunctional(c.default || c));
 const FooterCheckout = () => __webpack_require__.e(/* import() | components/footer-checkout */ 69).then(__webpack_require__.bind(null, 345)).then(c => wrapFunctional(c.default || c));
@@ -10583,6 +10583,45 @@ async function createApp(ssrContext, config = {}) {
         "hid": "description",
         "name": "description",
         "content": "balesin - shop"
+      }, {
+        "hid": "charset",
+        "charset": "utf-8"
+      }, {
+        "hid": "mobile-web-app-capable",
+        "name": "mobile-web-app-capable",
+        "content": "yes"
+      }, {
+        "hid": "apple-mobile-web-app-title",
+        "name": "apple-mobile-web-app-title",
+        "content": "balesin - Shop"
+      }, {
+        "hid": "author",
+        "name": "author",
+        "content": "balesin.id"
+      }, {
+        "hid": "theme-color",
+        "name": "theme-color",
+        "content": "#ffffdd"
+      }, {
+        "hid": "og:type",
+        "name": "og:type",
+        "property": "og:type",
+        "content": "website"
+      }, {
+        "hid": "og:title",
+        "name": "og:title",
+        "property": "og:title",
+        "content": "balesin - Shop"
+      }, {
+        "hid": "og:site_name",
+        "name": "og:site_name",
+        "property": "og:site_name",
+        "content": "balesin - Shop"
+      }, {
+        "hid": "og:description",
+        "name": "og:description",
+        "property": "og:description",
+        "content": "balesin chat commerce."
       }],
       "link": [{
         "rel": "icon",
@@ -10592,6 +10631,19 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"
       }, {
+        "hid": "shortcut-icon",
+        "rel": "shortcut icon",
+        "href": "https:\u002F\u002Ffaq.balesin.id\u002Ficon\u002Ficon-256x256.png"
+      }, {
+        "hid": "apple-touch-icon",
+        "rel": "apple-touch-icon",
+        "href": "\u002F_nuxt\u002Ficons\u002Ficon_512x512.5821de.png",
+        "sizes": "512x512"
+      }, {
+        "rel": "manifest",
+        "href": "\u002F_nuxt\u002Fmanifest.4b27e15a.json",
+        "hid": "manifest"
+      }, {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"
@@ -10599,12 +10651,12 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
-      }, {
-        "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.9de03ee0.json"
       }],
       "script": [],
-      "style": []
+      "style": [],
+      "htmlAttrs": {
+        "lang": "en"
+      }
     },
     store,
     router,
