@@ -43,6 +43,7 @@ async function start() {
   app.use("/product/search"    , main.product.product_search)
   app.use("/mailer"            , main.mailer.send)
   app.use("/referral"          , main.referral.execute_event)
+  app.use("/callback/payment"  , main.callback.payment);
 
   app.use(nuxt.render)
 
