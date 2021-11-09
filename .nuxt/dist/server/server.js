@@ -3881,7 +3881,7 @@ function makeWatcher(property) {
 /* 27 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"b\":\"production\",\"c\":true,\"a\":[\"628128129856\",\"6282122104014\",\"6285747471595\",\"61402644654\",\"6281319501916\",\"628111775750\",\"6281397021508\",\"6281290354048\",\"628976203842\",\"628118010107\",\"6285885862257\",\"628118164301\",\"60169736926\",\"6281319152872\",\"6281212500170\",\"6287877719193\",\"628111832381\",\"6281132214981\",\"6287788520012\",\"6285313161323\",\"6281290656929\",\"62821547154628\",\"6285920115665\",\"6281289528244\",\"6289636442637\"]}");
+module.exports = JSON.parse("{\"b\":\"production\",\"c\":true,\"a\":[\"628128129856\",\"6282122104014\",\"6285747471595\",\"61402644654\",\"6281319501916\",\"628111775750\",\"6281397021508\",\"6281290354048\",\"628976203842\",\"628118010107\",\"6285885862257\",\"628118164301\",\"60169736926\",\"6281319152872\",\"6281212500170\",\"6287877719193\",\"628111832381\",\"6281132214981\",\"6287788520012\",\"6285313161323\",\"6281290656929\",\"6282154715462\",\"6285920115665\",\"6281289528244\",\"6289636442637\"]}");
 
 /***/ }),
 /* 28 */
@@ -7830,14 +7830,14 @@ __webpack_require__.r(components_namespaceObject);
 __webpack_require__.d(components_namespaceObject, "General", function() { return General; });
 __webpack_require__.d(components_namespaceObject, "Logo", function() { return Logo; });
 __webpack_require__.d(components_namespaceObject, "VuetifyLogo", function() { return VuetifyLogo; });
+__webpack_require__.d(components_namespaceObject, "Cart", function() { return Cart; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetMiniCart", function() { return BottomSheetMiniCart; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetRegLoading", function() { return BottomSheetRegLoading; });
-__webpack_require__.d(components_namespaceObject, "Cart", function() { return Cart; });
 __webpack_require__.d(components_namespaceObject, "Checkout", function() { return Checkout; });
 __webpack_require__.d(components_namespaceObject, "FooterCart", function() { return FooterCart; });
 __webpack_require__.d(components_namespaceObject, "FooterCheckout", function() { return FooterCheckout; });
-__webpack_require__.d(components_namespaceObject, "LoadingListProduct", function() { return LoadingListProduct; });
 __webpack_require__.d(components_namespaceObject, "Merchant", function() { return Merchant; });
+__webpack_require__.d(components_namespaceObject, "LoadingListProduct", function() { return LoadingListProduct; });
 __webpack_require__.d(components_namespaceObject, "PartialsHeaders", function() { return PartialsHeaders; });
 __webpack_require__.d(components_namespaceObject, "ProductDetail", function() { return ProductDetail; });
 __webpack_require__.d(components_namespaceObject, "Products", function() { return Products; });
@@ -7849,10 +7849,10 @@ __webpack_require__.d(components_namespaceObject, "BottomSheetCheckoutVoucher", 
 __webpack_require__.d(components_namespaceObject, "DialogsCartMaxOrder", function() { return DialogsCartMaxOrder; });
 __webpack_require__.d(components_namespaceObject, "DialogsCartMinOrder", function() { return DialogsCartMinOrder; });
 __webpack_require__.d(components_namespaceObject, "DialogsCartRemoveConfirm", function() { return DialogsCartRemoveConfirm; });
-__webpack_require__.d(components_namespaceObject, "DialogsCheckoutInsertVoucherCode", function() { return DialogsCheckoutInsertVoucherCode; });
 __webpack_require__.d(components_namespaceObject, "MerchantPlatformsDesktop", function() { return MerchantPlatformsDesktop; });
 __webpack_require__.d(components_namespaceObject, "MerchantPlatformsMini", function() { return MerchantPlatformsMini; });
 __webpack_require__.d(components_namespaceObject, "MerchantPlatformsMobile", function() { return MerchantPlatformsMobile; });
+__webpack_require__.d(components_namespaceObject, "DialogsCheckoutInsertVoucherCode", function() { return DialogsCheckoutInsertVoucherCode; });
 __webpack_require__.d(components_namespaceObject, "ProductDetailPlatformsDesktop", function() { return ProductDetailPlatformsDesktop; });
 __webpack_require__.d(components_namespaceObject, "ProductDetailPlatformsMini", function() { return ProductDetailPlatformsMini; });
 __webpack_require__.d(components_namespaceObject, "ProductDetailPlatformsMobile", function() { return ProductDetailPlatformsMobile; });
@@ -7868,9 +7868,6 @@ __webpack_require__.d(components_namespaceObject, "ProductsPlatformsMobile", fun
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrder", function() { return CartPlatformsDesktopTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypeSingleOrder", function() { return CartPlatformsDesktopTypeSingleOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypeSubscriptionOrder", function() { return CartPlatformsDesktopTypeSubscriptionOrder; });
-__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrder", function() { return CartPlatformsMiniTypePackageOrder; });
-__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypeSingleOrder", function() { return CartPlatformsMiniTypeSingleOrder; });
-__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypeSubscriptionOrder", function() { return CartPlatformsMiniTypeSubscriptionOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypePackageOrder", function() { return CartPlatformsMobileTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypeSingleOrder", function() { return CartPlatformsMobileTypeSingleOrder; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypeSubscriptionOrder", function() { return CartPlatformsMobileTypeSubscriptionOrder; });
@@ -7879,6 +7876,9 @@ __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConst
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderInfo", function() { return CheckoutPlatformsDesktopConstantsOrderInfo; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsPayment", function() { return CheckoutPlatformsDesktopConstantsPayment; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsVoucher", function() { return CheckoutPlatformsDesktopConstantsVoucher; });
+__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrder", function() { return CartPlatformsMiniTypePackageOrder; });
+__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypeSingleOrder", function() { return CartPlatformsMiniTypeSingleOrder; });
+__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypeSubscriptionOrder", function() { return CartPlatformsMiniTypeSubscriptionOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsCourier", function() { return CheckoutPlatformsMiniConstantsCourier; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsCustomer", function() { return CheckoutPlatformsMiniConstantsCustomer; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsMiniConstantsOrderInfo", function() { return CheckoutPlatformsMiniConstantsOrderInfo; });
@@ -7894,12 +7894,12 @@ __webpack_require__.d(components_namespaceObject, "ProductsPlatformsMobileShowTy
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrderFooterDetail", function() { return CartPlatformsDesktopTypePackageOrderFooterDetail; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrderListItems", function() { return CartPlatformsDesktopTypePackageOrderListItems; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsDesktopTypePackageOrderRemovePackage", function() { return CartPlatformsDesktopTypePackageOrderRemovePackage; });
-__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderFooterDetail", function() { return CartPlatformsMiniTypePackageOrderFooterDetail; });
-__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderListItems", function() { return CartPlatformsMiniTypePackageOrderListItems; });
-__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderRemovePackage", function() { return CartPlatformsMiniTypePackageOrderRemovePackage; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypePackageOrderFooterDetail", function() { return CartPlatformsMobileTypePackageOrderFooterDetail; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypePackageOrderListItems", function() { return CartPlatformsMobileTypePackageOrderListItems; });
 __webpack_require__.d(components_namespaceObject, "CartPlatformsMobileTypePackageOrderRemovePackage", function() { return CartPlatformsMobileTypePackageOrderRemovePackage; });
+__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderFooterDetail", function() { return CartPlatformsMiniTypePackageOrderFooterDetail; });
+__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderListItems", function() { return CartPlatformsMiniTypePackageOrderListItems; });
+__webpack_require__.d(components_namespaceObject, "CartPlatformsMiniTypePackageOrderRemovePackage", function() { return CartPlatformsMiniTypePackageOrderRemovePackage; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderTypePackageOrder", function() { return CheckoutPlatformsDesktopConstantsOrderTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder", function() { return CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder", function() { return CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder; });
@@ -9826,14 +9826,14 @@ function normalizeModule(moduleData, filePath) {
 const General = () => __webpack_require__.e(/* import() | components/general */ 70).then(__webpack_require__.bind(null, 111)).then(c => wrapFunctional(c.default || c));
 const Logo = () => __webpack_require__.e(/* import() | components/logo */ 72).then(__webpack_require__.bind(null, 389)).then(c => wrapFunctional(c.default || c));
 const VuetifyLogo = () => __webpack_require__.e(/* import() | components/vuetify-logo */ 87).then(__webpack_require__.bind(null, 390)).then(c => wrapFunctional(c.default || c));
+const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
 const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 207)).then(c => wrapFunctional(c.default || c));
 const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 370)).then(c => wrapFunctional(c.default || c));
-const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 340)).then(c => wrapFunctional(c.default || c));
 const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 36).then(__webpack_require__.bind(null, 332)).then(c => wrapFunctional(c.default || c));
 const FooterCart = () => __webpack_require__.e(/* import() | components/footer-cart */ 68).then(__webpack_require__.bind(null, 384)).then(c => wrapFunctional(c.default || c));
 const FooterCheckout = () => __webpack_require__.e(/* import() | components/footer-checkout */ 69).then(__webpack_require__.bind(null, 345)).then(c => wrapFunctional(c.default || c));
-const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 71).then(__webpack_require__.bind(null, 347)).then(c => wrapFunctional(c.default || c));
 const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 73).then(__webpack_require__.bind(null, 333)).then(c => wrapFunctional(c.default || c));
+const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 71).then(__webpack_require__.bind(null, 347)).then(c => wrapFunctional(c.default || c));
 const PartialsHeaders = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 57)).then(c => wrapFunctional(c.default || c));
 const ProductDetail = () => __webpack_require__.e(/* import() | components/product-detail */ 77).then(__webpack_require__.bind(null, 346)).then(c => wrapFunctional(c.default || c));
 const Products = () => __webpack_require__.e(/* import() | components/products */ 81).then(__webpack_require__.bind(null, 331)).then(c => wrapFunctional(c.default || c));
@@ -9845,10 +9845,10 @@ const BottomSheetCheckoutVoucher = () => __webpack_require__.e(/* import() | com
 const DialogsCartMaxOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-max-order */ 64).then(__webpack_require__.bind(null, 386)).then(c => wrapFunctional(c.default || c));
 const DialogsCartMinOrder = () => __webpack_require__.e(/* import() | components/dialogs-cart-min-order */ 65).then(__webpack_require__.bind(null, 387)).then(c => wrapFunctional(c.default || c));
 const DialogsCartRemoveConfirm = () => __webpack_require__.e(/* import() | components/dialogs-cart-remove-confirm */ 66).then(__webpack_require__.bind(null, 388)).then(c => wrapFunctional(c.default || c));
-const DialogsCheckoutInsertVoucherCode = () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 67).then(__webpack_require__.bind(null, 341)).then(c => wrapFunctional(c.default || c));
 const MerchantPlatformsDesktop = () => __webpack_require__.e(/* import() | components/merchant-platforms-desktop */ 74).then(__webpack_require__.bind(null, 327)).then(c => wrapFunctional(c.default || c));
 const MerchantPlatformsMini = () => __webpack_require__.e(/* import() | components/merchant-platforms-mini */ 75).then(__webpack_require__.bind(null, 325)).then(c => wrapFunctional(c.default || c));
 const MerchantPlatformsMobile = () => __webpack_require__.e(/* import() | components/merchant-platforms-mobile */ 76).then(__webpack_require__.bind(null, 326)).then(c => wrapFunctional(c.default || c));
+const DialogsCheckoutInsertVoucherCode = () => __webpack_require__.e(/* import() | components/dialogs-checkout-insert-voucher-code */ 67).then(__webpack_require__.bind(null, 341)).then(c => wrapFunctional(c.default || c));
 const ProductDetailPlatformsDesktop = () => __webpack_require__.e(/* import() | components/product-detail-platforms-desktop */ 78).then(__webpack_require__.bind(null, 330)).then(c => wrapFunctional(c.default || c));
 const ProductDetailPlatformsMini = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mini */ 79).then(__webpack_require__.bind(null, 328)).then(c => wrapFunctional(c.default || c));
 const ProductDetailPlatformsMobile = () => __webpack_require__.e(/* import() | components/product-detail-platforms-mobile */ 80).then(__webpack_require__.bind(null, 329)).then(c => wrapFunctional(c.default || c));
@@ -9864,9 +9864,6 @@ const ProductsPlatformsMobile = () => __webpack_require__.e(/* import() | compon
 const CartPlatformsDesktopTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order */ 10).then(__webpack_require__.bind(null, 281)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsDesktopTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-single-order */ 16).then(__webpack_require__.bind(null, 279)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsDesktopTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-subscription-order */ 17).then(__webpack_require__.bind(null, 280)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order */ 19).then(__webpack_require__.bind(null, 275)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-single-order */ 25).then(__webpack_require__.bind(null, 273)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-subscription-order */ 26).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order */ 28).then(__webpack_require__.bind(null, 278)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-single-order */ 34).then(__webpack_require__.bind(null, 276)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-subscription-order */ 35).then(__webpack_require__.bind(null, 277)).then(c => wrapFunctional(c.default || c));
@@ -9875,6 +9872,9 @@ const CheckoutPlatformsDesktopConstantsCustomer = () => __webpack_require__.e(/*
 const CheckoutPlatformsDesktopConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-info */ 40).then(__webpack_require__.bind(null, 294)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsDesktopConstantsPayment = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-payment */ 44).then(__webpack_require__.bind(null, 296)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsDesktopConstantsVoucher = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-voucher */ 45).then(__webpack_require__.bind(null, 293)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order */ 19).then(__webpack_require__.bind(null, 275)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-single-order */ 25).then(__webpack_require__.bind(null, 273)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-subscription-order */ 26).then(__webpack_require__.bind(null, 274)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsMiniConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-courier */ 47).then(__webpack_require__.bind(null, 285)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsMiniConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-customer */ 48).then(__webpack_require__.bind(null, 282)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsMiniConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-platforms-mini-constants-order-info */ 49).then(__webpack_require__.bind(null, 284)).then(c => wrapFunctional(c.default || c));
@@ -9890,12 +9890,12 @@ const ProductsPlatformsMobileShowTypeList = () => __webpack_require__.e(/* impor
 const CartPlatformsDesktopTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-footer-detail */ 11).then(__webpack_require__.bind(null, 251)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsDesktopTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-list-items */ 12).then(__webpack_require__.bind(null, 250)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsDesktopTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-desktop-type-package-order-remove-package */ 13).then(__webpack_require__.bind(null, 252)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-footer-detail */ 20).then(__webpack_require__.bind(null, 241)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-list-items */ 21).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c));
-const CartPlatformsMiniTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-remove-package */ 22).then(__webpack_require__.bind(null, 242)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsMobileTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-footer-detail */ 29).then(__webpack_require__.bind(null, 246)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsMobileTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-list-items */ 30).then(__webpack_require__.bind(null, 245)).then(c => wrapFunctional(c.default || c));
 const CartPlatformsMobileTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mobile-type-package-order-remove-package */ 31).then(__webpack_require__.bind(null, 247)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderFooterDetail = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-footer-detail */ 20).then(__webpack_require__.bind(null, 241)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderListItems = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-list-items */ 21).then(__webpack_require__.bind(null, 240)).then(c => wrapFunctional(c.default || c));
+const CartPlatformsMiniTypePackageOrderRemovePackage = () => __webpack_require__.e(/* import() | components/cart-platforms-mini-type-package-order-remove-package */ 22).then(__webpack_require__.bind(null, 242)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsDesktopConstantsOrderTypePackageOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-package-order */ 41).then(__webpack_require__.bind(null, 261)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsDesktopConstantsOrderTypeSingleOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-single-order */ 42).then(__webpack_require__.bind(null, 260)).then(c => wrapFunctional(c.default || c));
 const CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/checkout-platforms-desktop-constants-order-type-subscription-order */ 43).then(__webpack_require__.bind(null, 259)).then(c => wrapFunctional(c.default || c));
@@ -10583,45 +10583,6 @@ async function createApp(ssrContext, config = {}) {
         "hid": "description",
         "name": "description",
         "content": "balesin - shop"
-      }, {
-        "hid": "charset",
-        "charset": "utf-8"
-      }, {
-        "hid": "mobile-web-app-capable",
-        "name": "mobile-web-app-capable",
-        "content": "yes"
-      }, {
-        "hid": "apple-mobile-web-app-title",
-        "name": "apple-mobile-web-app-title",
-        "content": "balesin - Shop"
-      }, {
-        "hid": "author",
-        "name": "author",
-        "content": "balesin.id"
-      }, {
-        "hid": "theme-color",
-        "name": "theme-color",
-        "content": "#ffffdd"
-      }, {
-        "hid": "og:type",
-        "name": "og:type",
-        "property": "og:type",
-        "content": "website"
-      }, {
-        "hid": "og:title",
-        "name": "og:title",
-        "property": "og:title",
-        "content": "balesin - Shop"
-      }, {
-        "hid": "og:site_name",
-        "name": "og:site_name",
-        "property": "og:site_name",
-        "content": "balesin - Shop"
-      }, {
-        "hid": "og:description",
-        "name": "og:description",
-        "property": "og:description",
-        "content": "balesin chat commerce."
       }],
       "link": [{
         "rel": "icon",
@@ -10631,19 +10592,6 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"
       }, {
-        "hid": "shortcut-icon",
-        "rel": "shortcut icon",
-        "href": "https:\u002F\u002Ffaq.balesin.id\u002Ficon\u002Ficon-256x256.png"
-      }, {
-        "hid": "apple-touch-icon",
-        "rel": "apple-touch-icon",
-        "href": "\u002F_nuxt\u002Ficons\u002Ficon_512x512.5821de.png",
-        "sizes": "512x512"
-      }, {
-        "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.4b27e15a.json",
-        "hid": "manifest"
-      }, {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"
@@ -10651,12 +10599,12 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
+      }, {
+        "rel": "manifest",
+        "href": "\u002F_nuxt\u002Fmanifest.9de03ee0.json"
       }],
       "script": [],
-      "style": [],
-      "htmlAttrs": {
-        "lang": "en"
-      }
+      "style": []
     },
     store,
     router,
