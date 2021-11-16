@@ -8,14 +8,14 @@
   "VuetifyLogo": {
     "description": "Auto imported from components/VuetifyLogo.vue"
   },
+  "Cart": {
+    "description": "Auto imported from components/Cart/index.vue"
+  },
   "BottomSheetMiniCart": {
     "description": "Auto imported from components/Bottom-Sheet/mini-cart.vue"
   },
   "BottomSheetRegLoading": {
     "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
-  },
-  "Cart": {
-    "description": "Auto imported from components/Cart/index.vue"
   },
   "Checkout": {
     "description": "Auto imported from components/Checkout/index.vue"
@@ -35,14 +35,14 @@
   "PartialsHeaders": {
     "description": "Auto imported from components/Partials/headers.vue"
   },
+  "ProductDetail": {
+    "description": "Auto imported from components/Product-Detail/index.vue"
+  },
   "Products": {
     "description": "Auto imported from components/Products/index.vue"
   },
   "BottomSheetCartProducts": {
     "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
-  },
-  "ProductDetail": {
-    "description": "Auto imported from components/Product-Detail/index.vue"
   },
   "BottomSheetCheckoutCourier": {
     "description": "Auto imported from components/Bottom-Sheet/Checkout/courier.vue"
@@ -77,12 +77,6 @@
   "MerchantPlatformsMobile": {
     "description": "Auto imported from components/Merchant/Platforms/mobile.vue"
   },
-  "ProductsPlatformsDesktop": {
-    "description": "Auto imported from components/Products/Platforms/desktop.vue"
-  },
-  "ProductsPlatformsMini": {
-    "description": "Auto imported from components/Products/Platforms/mini.vue"
-  },
   "ProductDetailPlatformsDesktop": {
     "description": "Auto imported from components/Product-Detail/Platforms/desktop.vue"
   },
@@ -92,20 +86,26 @@
   "ProductDetailPlatformsMobile": {
     "description": "Auto imported from components/Product-Detail/Platforms/mobile.vue"
   },
+  "ProductsPlatformsDesktop": {
+    "description": "Auto imported from components/Products/Platforms/desktop.vue"
+  },
+  "ProductsPlatformsMini": {
+    "description": "Auto imported from components/Products/Platforms/mini.vue"
+  },
   "CartPlatformsDesktop": {
     "description": "Auto imported from components/Cart/Platforms/desktop/index.vue"
   },
   "CartPlatformsMini": {
     "description": "Auto imported from components/Cart/Platforms/mini/index.vue"
   },
-  "CheckoutPlatformsMini": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/index.vue"
+  "CartPlatformsMobile": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/index.vue"
   },
   "CheckoutPlatformsDesktop": {
     "description": "Auto imported from components/Checkout/Platforms/desktop/index.vue"
   },
-  "CartPlatformsMobile": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/index.vue"
+  "CheckoutPlatformsMini": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/index.vue"
   },
   "CheckoutPlatformsMobile": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/index.vue"
@@ -131,20 +131,14 @@
   "CartPlatformsMiniTypeSubscriptionOrder": {
     "description": "Auto imported from components/Cart/Platforms/mini/type/subscription-order.vue"
   },
-  "CheckoutPlatformsMiniConstantsCourier": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/courier.vue"
+  "CartPlatformsMobileTypePackageOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order.vue"
   },
-  "CheckoutPlatformsMiniConstantsCustomer": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/customer.vue"
+  "CartPlatformsMobileTypeSingleOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/single-order.vue"
   },
-  "CheckoutPlatformsMiniConstantsOrderInfo": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-info.vue"
-  },
-  "CheckoutPlatformsMiniConstantsPayment": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/payment.vue"
-  },
-  "CheckoutPlatformsMiniConstantsVoucher": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/voucher.vue"
+  "CartPlatformsMobileTypeSubscriptionOrder": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/subscription-order.vue"
   },
   "CheckoutPlatformsDesktopConstantsCourier": {
     "description": "Auto imported from components/Checkout/Platforms/desktop/constants/courier.vue"
@@ -161,14 +155,20 @@
   "CheckoutPlatformsDesktopConstantsVoucher": {
     "description": "Auto imported from components/Checkout/Platforms/desktop/constants/voucher.vue"
   },
-  "CartPlatformsMobileTypePackageOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order.vue"
+  "CheckoutPlatformsMiniConstantsCourier": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/courier.vue"
   },
-  "CartPlatformsMobileTypeSingleOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/single-order.vue"
+  "CheckoutPlatformsMiniConstantsCustomer": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/customer.vue"
   },
-  "CartPlatformsMobileTypeSubscriptionOrder": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/subscription-order.vue"
+  "CheckoutPlatformsMiniConstantsOrderInfo": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-info.vue"
+  },
+  "CheckoutPlatformsMiniConstantsPayment": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/payment.vue"
+  },
+  "CheckoutPlatformsMiniConstantsVoucher": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/voucher.vue"
   },
   "CheckoutPlatformsMobileConstantsCourier": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/constants/courier.vue"
@@ -185,6 +185,12 @@
   "CheckoutPlatformsMobileConstantsVoucher": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/constants/voucher.vue"
   },
+  "ProductsPlatformsMobileShowTypeGrid": {
+    "description": "Auto imported from components/Products/Platforms/mobile/show-type/grid.vue"
+  },
+  "ProductsPlatformsMobileShowTypeList": {
+    "description": "Auto imported from components/Products/Platforms/mobile/show-type/list.vue"
+  },
   "CartPlatformsDesktopTypePackageOrderFooterDetail": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/footer-detail.vue"
   },
@@ -193,12 +199,6 @@
   },
   "CartPlatformsDesktopTypePackageOrderRemovePackage": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/remove-package.vue"
-  },
-  "ProductsPlatformsMobileShowTypeGrid": {
-    "description": "Auto imported from components/Products/Platforms/mobile/show-type/grid.vue"
-  },
-  "ProductsPlatformsMobileShowTypeList": {
-    "description": "Auto imported from components/Products/Platforms/mobile/show-type/list.vue"
   },
   "CartPlatformsMiniTypePackageOrderFooterDetail": {
     "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/footer-detail.vue"
@@ -209,14 +209,14 @@
   "CartPlatformsMiniTypePackageOrderRemovePackage": {
     "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/remove-package.vue"
   },
-  "CheckoutPlatformsMiniConstantsOrderTypePackageOrder": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-type/package-order.vue"
+  "CartPlatformsMobileTypePackageOrderFooterDetail": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/footer-detail.vue"
   },
-  "CheckoutPlatformsMiniConstantsOrderTypeSingleOrder": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-type/single-order.vue"
+  "CartPlatformsMobileTypePackageOrderListItems": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/list-items.vue"
   },
-  "CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder": {
-    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue"
+  "CartPlatformsMobileTypePackageOrderRemovePackage": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/remove-package.vue"
   },
   "CheckoutPlatformsDesktopConstantsOrderTypePackageOrder": {
     "description": "Auto imported from components/Checkout/Platforms/desktop/constants/order-type/package-order.vue"
@@ -227,14 +227,14 @@
   "CheckoutPlatformsDesktopConstantsOrderTypeSubscriptionOrder": {
     "description": "Auto imported from components/Checkout/Platforms/desktop/constants/order-type/subscription-order.vue"
   },
-  "CartPlatformsMobileTypePackageOrderFooterDetail": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/footer-detail.vue"
+  "CheckoutPlatformsMiniConstantsOrderTypePackageOrder": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-type/package-order.vue"
   },
-  "CartPlatformsMobileTypePackageOrderListItems": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/list-items.vue"
+  "CheckoutPlatformsMiniConstantsOrderTypeSingleOrder": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-type/single-order.vue"
   },
-  "CartPlatformsMobileTypePackageOrderRemovePackage": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/remove-package.vue"
+  "CheckoutPlatformsMiniConstantsOrderTypeSubscriptionOrder": {
+    "description": "Auto imported from components/Checkout/Platforms/mini/constants/order-type/subscription-order.vue"
   },
   "CheckoutPlatformsMobileConstantsOrderTypePackageOrder": {
     "description": "Auto imported from components/Checkout/Platforms/mobile/constants/order-type/package-order.vue"

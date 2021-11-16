@@ -22,8 +22,8 @@
         depressed
         :ripple="false"
         :to="($route.name == 'site-store-checkout')
-          ? `/site/${site.store}/cart?u=${site.uuid}&mtd=view&src=${site.source}&c=${site.category}`
-          : `/site/${site.store}/checkout?u=${site.uuid}&mtd=view&src=${site.source}&c=${site.category}`
+          ? `/site/${$route.params.store}/cart?u=${$route.query.u}&mtd=view&src=${$route.query.src}&c=${$route.query.c}`
+          : `/site/${$route.params.store}/checkout?u=${$route.query.u}&mtd=view&src=${$route.query.src}&c=${$route.query.c}`
         "
       >
         <!-- :to="gotocart" -->
@@ -65,7 +65,7 @@
       text
       depressed
       :ripple="false"
-      :to="`/site/${site.store}/merchant?market=${merchant.market_id}&u=${site.uuid}&mtd=view&src=${site.source}&c=${site.category}`"
+      :to="`/site/${$route.params.store}/merchant?market=${merchant.market_id}&u=${$route.query.u}&mtd=view&src=${$route.query.src}&c=${$route.query.c}`"
     >
       <!-- :to="gotocart" -->
       <v-icon>mdi-home-search</v-icon>
