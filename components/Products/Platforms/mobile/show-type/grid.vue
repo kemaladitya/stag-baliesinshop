@@ -65,7 +65,7 @@
                 dense
                 text
                 small
-                :to="`/site/${site.store}/${item.id}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
+                @click="showdetail(item)"
               >
                 <v-icon class="product-mdi-icon">mdi-eye</v-icon> &nbsp;Lihat
               </v-btn>
@@ -90,7 +90,7 @@
                 dense
                 small
                 style="color: black; border: 1px solid #cccccc !important"
-                :to="`/site/${site.store}/${item.id}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
+                @click="showdetail(item)"
               >
                 <v-icon class="product-mdi-icon">mdi-checkbox-multiple-marked-outline</v-icon>
                 &nbsp;Pilih Variant
@@ -112,6 +112,11 @@ export default {
     },
 
     add_to_cart: {
+      type: Function,
+      required: true
+    },
+
+    showdetail: {
       type: Function,
       required: true
     },

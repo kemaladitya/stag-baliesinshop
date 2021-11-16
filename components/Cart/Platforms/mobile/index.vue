@@ -67,7 +67,7 @@
           "
           min-width="49.5%"
           max-width="49.5%"
-          :to="`/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`"
+          :to="`/site/${this.$route.params.store}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`"
         >
           Kembali Belanja
         </v-btn>

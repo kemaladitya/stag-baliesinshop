@@ -7821,7 +7821,7 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Product-Detail/Platforms/mobile.vue?vue&type=template&id=60e17d16&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Product-Detail/Platforms/mobile.vue?vue&type=template&id=a5930644&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-1",staticStyle:{"text-align":"left","min-height":"calc(100vh - 100px)","max-height":"calc(100vh - 100px)","overflow-y":"scroll"}},[(_vm.product)?_vm._ssrNode("<div>","</div>",[_c('v-card',{staticClass:"pa-12 pt-3 pb-0",attrs:{"flat":"","tile":""}},[_c('v-img',{staticClass:"ma-8",staticStyle:{"border-radius":"3px"},attrs:{"loading":"lazy","src":_vm.selected_variant.image}})],1),_vm._ssrNode(" "),_c('v-card',{staticClass:"d-flex flex-row pa-1",attrs:{"flat":"","tile":""}},[_c('div',{staticClass:"name"},[_vm._v(_vm._s(_vm.product.name))]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"price"},[_vm._v("\n        Rp "+_vm._s(_vm.selected_variant.discount_price
             ? _vm.selected_variant.discount_price.toLocaleString().replace(/,/g, '.')
             : _vm.selected_variant.normal_price.toLocaleString().replace(/,/g, '.'))+", -\n      ")])],1),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('v-card',{staticClass:"d-flex flex-row pa-1 pt-4",attrs:{"flat":"","tile":""}},[_c('div',{staticClass:"variant pr-2",staticStyle:{"text-align":"left"}},[_c('div',{staticClass:"label mb-1"},[_vm._v("Variant")]),_vm._v(" "),_c('v-select',{attrs:{"items":_vm.variant.map(function (ref) {
@@ -7834,7 +7834,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Product-Detail/Platforms/mobile.vue?vue&type=template&id=60e17d16&
+// CONCATENATED MODULE: ./components/Product-Detail/Platforms/mobile.vue?vue&type=template&id=a5930644&
 
 // EXTERNAL MODULE: ./components/General.js
 var General = __webpack_require__(111);
@@ -7987,7 +7987,7 @@ var mini_cart = __webpack_require__(207);
   computed: {
     home_url() {
       const site = this.$store.state.site;
-      return `/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`;
+      return `/site/${this.$route.params.store}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`;
     },
 
     store() {

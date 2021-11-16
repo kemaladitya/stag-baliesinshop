@@ -349,16 +349,16 @@ const cache = new Map();
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Products/Platforms/mobile/show-type/grid.vue?vue&type=template&id=63b4782a&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Products/Platforms/mobile/show-type/grid.vue?vue&type=template&id=fa243c1a&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('v-row',{style:('margin-bottom: ' + (_vm.$device.isAndroid ? '40vw !important' : '300px !important')),attrs:{"no-gutters":""}},_vm._l((_vm.search_result),function(item,index){return _c('v-col',{key:index,attrs:{"cols":"6"}},[_c('v-card',{staticClass:"ma-1 mt-2 mb-0",attrs:{"outlined":""}},[_c('v-img',{staticClass:"image",staticStyle:{"text-align":"left"},attrs:{"src":item.main_image,"height":"150","loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticClass:"mr-1"},[(item.is_promo)?_c('div',{staticStyle:{"background":"#002BBC","color":"white","font-size":"8px","width":"fit-content","min-height":"12px","align-self":"center","font-weight":"600","line-height":"1","padding":"2px","border-radius":"1px"}},[_vm._v("\n              Promo\n            ")]):_c('div',{staticStyle:{"font-size":"8px","width":"fit-content","min-height":"12px","align-self":"center","font-weight":"600","line-height":"1","padding":"2px","border-radius":"1px"}},[_vm._v(" ")])]),_vm._v(" "),_c('div',{staticClass:"name"},[_vm._v(_vm._s(item.name))]),_vm._v(" "),_c('div',{staticClass:"discount-price"},[_c('div',[(item.is_promo || item.discount_price)?_c('div',[_vm._v("\n                Rp "+_vm._s(item.discount_price
                     .toLocaleString()
                     .replace(/,/g, '.'))+"\n              ")]):_vm._e(),_vm._v(" "),_c('div',{class:item.is_promo ? 'lined' : null},[_vm._v("\n                Rp "+_vm._s(item.normal_price
                     .toLocaleString()
-                    .replace(/,/g, '.'))+"\n              ")]),_vm._v(" "),(!item.is_promo)?_c('div',{staticStyle:{"font-size":"8px"}},[_vm._v(" ")]):_vm._e()])]),_vm._v(" "),(item.variant.length === 1)?_c('div',{staticClass:"d-flex flex-row pt-3 b-product-action"},[_c('v-btn',{staticClass:"show-detail",attrs:{"depressed":"","dense":"","text":"","small":"","to":("/site/" + (_vm.site.store) + "/" + (item.id) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-eye")]),_vm._v("  Lihat\n            ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticClass:"add-to-cart",staticStyle:{"color":"black","border":"1px solid #cccccc !important"},attrs:{"color":"#fffbbb","depressed":"","dense":"","small":""},on:{"click":function($event){return _vm.add_to_cart(item.id, item.variant[0].id, item.SKU, 1)}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-basket-plus")]),_vm._v("  Tambah\n            ")],1)],1):(item.variant.length > 1)?_c('div',{staticClass:"d-flex flex-row pt-3",attrs:{"outlined":""}},[_c('v-btn',{staticClass:"select-variant",staticStyle:{"color":"black","border":"1px solid #cccccc !important"},attrs:{"color":"#FD0","depressed":"","dense":"","small":"","to":("/site/" + (_vm.site.store) + "/" + (item.id) + "?u=" + (_vm.site.uuid) + "&src=" + (_vm.site.source) + "&c=" + (_vm.site.category))}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-checkbox-multiple-marked-outline")]),_vm._v("\n               Pilih Variant\n            ")],1)],1):_vm._e()])],1)],1)}),1)],1)}
+                    .replace(/,/g, '.'))+"\n              ")]),_vm._v(" "),(!item.is_promo)?_c('div',{staticStyle:{"font-size":"8px"}},[_vm._v(" ")]):_vm._e()])]),_vm._v(" "),(item.variant.length === 1)?_c('div',{staticClass:"d-flex flex-row pt-3 b-product-action"},[_c('v-btn',{staticClass:"show-detail",attrs:{"depressed":"","dense":"","text":"","small":""},on:{"click":function($event){return _vm.showdetail(item)}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-eye")]),_vm._v("  Lihat\n            ")],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticClass:"add-to-cart",staticStyle:{"color":"black","border":"1px solid #cccccc !important"},attrs:{"color":"#fffbbb","depressed":"","dense":"","small":""},on:{"click":function($event){return _vm.add_to_cart(item.id, item.variant[0].id, item.SKU, 1)}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-basket-plus")]),_vm._v("  Tambah\n            ")],1)],1):(item.variant.length > 1)?_c('div',{staticClass:"d-flex flex-row pt-3",attrs:{"outlined":""}},[_c('v-btn',{staticClass:"select-variant",staticStyle:{"color":"black","border":"1px solid #cccccc !important"},attrs:{"color":"#FD0","depressed":"","dense":"","small":""},on:{"click":function($event){return _vm.showdetail(item)}}},[_c('v-icon',{staticClass:"product-mdi-icon"},[_vm._v("mdi-checkbox-multiple-marked-outline")]),_vm._v("\n               Pilih Variant\n            ")],1)],1):_vm._e()])],1)],1)}),1)],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Products/Platforms/mobile/show-type/grid.vue?vue&type=template&id=63b4782a&
+// CONCATENATED MODULE: ./components/Products/Platforms/mobile/show-type/grid.vue?vue&type=template&id=fa243c1a&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Products/Platforms/mobile/show-type/grid.vue?vue&type=script&lang=js&
 //
@@ -473,6 +473,10 @@ var staticRenderFns = []
       required: true
     },
     add_to_cart: {
+      type: Function,
+      required: true
+    },
+    showdetail: {
       type: Function,
       required: true
     }

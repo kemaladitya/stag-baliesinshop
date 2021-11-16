@@ -8,12 +8,12 @@ exports.modules = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/cart.vue?vue&type=template&id=0892ca20&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/cart.vue?vue&type=template&id=3ee9f658&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{staticClass:"pa-1 d-flex flex-row",staticStyle:{"width":"100%"},attrs:{"flat":"","tile":"","height":_vm.screen == 'mini' ? 45 : 53}},[_c('v-btn',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],staticStyle:{"text-transform":"capitalize","color":"black !important","border":"1px solid #ccc !important","letter-spacing":"initial"},style:(_vm.screen == 'mini' ? 'font-size: 11px' : null),attrs:{"depressed":"","min-width":"49.5%","max-width":"49.5%","to":_vm.back,"disabled":_vm.rp_order,"height":_vm.screen == 'mini' ? 35 : 45}},[_vm._v("\n    Kembali Belanja\n  ")]),_vm._v(" "),_c('v-card',{directives:[{name:"show",rawName:"v-show",value:(!_vm.rp_order),expression:"!rp_order"}],attrs:{"flat":"","min-width":"1%"}}),_vm._v(" "),_c('v-btn',{staticStyle:{"text-transform":"capitalize","letter-spacing":"initial"},style:(_vm.screen == 'mini' ? 'font-size: 11px' : null),attrs:{"depressed":"","color":"#FD0","min-width":!_vm.rp_order ? '49.5%' : '100%',"max-width":"!rp_order ? '49.5%' : '100%'","height":_vm.screen == 'mini' ? 35 : 45,"disabled":_vm.checkout_btn},on:{"click":_vm.checkout}},[_vm._v("\n    Lanjut Pembayaran\n  ")])],1)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Footer/cart.vue?vue&type=template&id=0892ca20&
+// CONCATENATED MODULE: ./components/Footer/cart.vue?vue&type=template&id=3ee9f658&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Footer/cart.vue?vue&type=script&lang=js&
 //
@@ -92,7 +92,7 @@ var staticRenderFns = []
 
     back() {
       const site = this.$store.state.site;
-      return `/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`;
+      return `/site/${this.$route.params.store}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`;
     },
 
     cart() {

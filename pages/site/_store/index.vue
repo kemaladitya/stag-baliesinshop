@@ -218,9 +218,7 @@ export default {
     },
 
     cart_url() {
-      const { store, uuid, source, category } = this.site
-
-      return `/site/${store}/cart?u=${uuid}&mtd=view&src=${source}&c=${category}`
+      return `/site/${this.$route.params.store}/cart?u=${this.$route.query.u}&mtd=view&src=${this.$route.query.src}&c=${this.$route.query.c}`
     },
   },
 

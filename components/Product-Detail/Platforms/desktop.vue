@@ -150,7 +150,7 @@ export default {
     home_url() {
       const site = this.$store.state.site
 
-      return `/site/${site.store}?u=${site.uuid}&src=${site.source}&c=${site.category}`
+      return `/site/${this.$route.params.store}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`
     },
 
     store() {
