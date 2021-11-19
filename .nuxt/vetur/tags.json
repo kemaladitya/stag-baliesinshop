@@ -8,14 +8,14 @@
   "VuetifyLogo": {
     "description": "Auto imported from components/VuetifyLogo.vue"
   },
-  "Cart": {
-    "description": "Auto imported from components/Cart/index.vue"
-  },
   "BottomSheetMiniCart": {
     "description": "Auto imported from components/Bottom-Sheet/mini-cart.vue"
   },
   "BottomSheetRegLoading": {
     "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
+  },
+  "Cart": {
+    "description": "Auto imported from components/Cart/index.vue"
   },
   "Checkout": {
     "description": "Auto imported from components/Checkout/index.vue"
