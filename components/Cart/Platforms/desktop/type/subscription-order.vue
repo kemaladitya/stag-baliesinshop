@@ -509,12 +509,13 @@ export default {
       const month = date.getMonth()
       const year = date.getFullYear()
 
-      return `${year}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`
+      return `${month === 0 ? year - 1 : year}-${month < 10 ? (month === 0 ? 12 : `0${month}`) : month}-${day < 10 ? `0${day}` : day}`
     },
 
     max_date() {
       const self = this
       const date = new Date()
+      const day_now = new Date().getDate()
 
       date.setDate(date.getDate() + self.limit_recurring_purchase.date_between)
       date.setMonth(date.getMonth() + 1)
@@ -523,7 +524,7 @@ export default {
       const month = date.getMonth()
       const year = date.getFullYear()
 
-      return `${year}-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}`
+      return `${month === 0 ? year - 1 : year}-${month < 10 ? (month === 0 ? 12 : `0${month}`) : month}-${month === 0 ? day_now : (day < 10 ? `0${day}` : day)}`
     },
 
     list_date_at_cart() {

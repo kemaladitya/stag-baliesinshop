@@ -1,9 +1,9 @@
 export const General = () => import('../../components/General.js' /* webpackChunkName: "components/general" */).then(c => wrapFunctional(c.default || c))
 export const Logo = () => import('../../components/Logo.vue' /* webpackChunkName: "components/logo" */).then(c => wrapFunctional(c.default || c))
 export const VuetifyLogo = () => import('../../components/VuetifyLogo.vue' /* webpackChunkName: "components/vuetify-logo" */).then(c => wrapFunctional(c.default || c))
+export const Cart = () => import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => wrapFunctional(c.default || c))
 export const BottomSheetMiniCart = () => import('../../components/Bottom-Sheet/mini-cart.vue' /* webpackChunkName: "components/bottom-sheet-mini-cart" */).then(c => wrapFunctional(c.default || c))
 export const BottomSheetRegLoading = () => import('../../components/Bottom-Sheet/reg_loading.vue' /* webpackChunkName: "components/bottom-sheet-reg-loading" */).then(c => wrapFunctional(c.default || c))
-export const Cart = () => import('../../components/Cart/index.vue' /* webpackChunkName: "components/cart" */).then(c => wrapFunctional(c.default || c))
 export const Checkout = () => import('../../components/Checkout/index.vue' /* webpackChunkName: "components/checkout" */).then(c => wrapFunctional(c.default || c))
 export const FooterCart = () => import('../../components/Footer/cart.vue' /* webpackChunkName: "components/footer-cart" */).then(c => wrapFunctional(c.default || c))
 export const FooterCheckout = () => import('../../components/Footer/checkout.vue' /* webpackChunkName: "components/footer-checkout" */).then(c => wrapFunctional(c.default || c))
@@ -82,10 +82,10 @@ export const CheckoutPlatformsMobileConstantsOrderTypeSingleOrder = () => import
 export const CheckoutPlatformsMobileConstantsOrderTypeSubscriptionOrder = () => import('../../components/Checkout/Platforms/mobile/constants/order-type/subscription-order.vue' /* webpackChunkName: "components/checkout-platforms-mobile-constants-order-type-subscription-order" */).then(c => wrapFunctional(c.default || c))
 export const CartPlatformsDesktopTypePackageOrderTypeMultiple = () => import('../../components/Cart/Platforms/desktop/type/package-order/type/multiple.vue' /* webpackChunkName: "components/cart-platforms-desktop-type-package-order-type-multiple" */).then(c => wrapFunctional(c.default || c))
 export const CartPlatformsDesktopTypePackageOrderTypeSingle = () => import('../../components/Cart/Platforms/desktop/type/package-order/type/single.vue' /* webpackChunkName: "components/cart-platforms-desktop-type-package-order-type-single" */).then(c => wrapFunctional(c.default || c))
-export const CartPlatformsMiniTypePackageOrderTypeMultiple = () => import('../../components/Cart/Platforms/mini/type/package-order/type/multiple.vue' /* webpackChunkName: "components/cart-platforms-mini-type-package-order-type-multiple" */).then(c => wrapFunctional(c.default || c))
-export const CartPlatformsMiniTypePackageOrderTypeSingle = () => import('../../components/Cart/Platforms/mini/type/package-order/type/single.vue' /* webpackChunkName: "components/cart-platforms-mini-type-package-order-type-single" */).then(c => wrapFunctional(c.default || c))
 export const CartPlatformsMobileTypePackageOrderTypeMultiple = () => import('../../components/Cart/Platforms/mobile/type/package-order/type/multiple.vue' /* webpackChunkName: "components/cart-platforms-mobile-type-package-order-type-multiple" */).then(c => wrapFunctional(c.default || c))
 export const CartPlatformsMobileTypePackageOrderTypeSingle = () => import('../../components/Cart/Platforms/mobile/type/package-order/type/single.vue' /* webpackChunkName: "components/cart-platforms-mobile-type-package-order-type-single" */).then(c => wrapFunctional(c.default || c))
+export const CartPlatformsMiniTypePackageOrderTypeMultiple = () => import('../../components/Cart/Platforms/mini/type/package-order/type/multiple.vue' /* webpackChunkName: "components/cart-platforms-mini-type-package-order-type-multiple" */).then(c => wrapFunctional(c.default || c))
+export const CartPlatformsMiniTypePackageOrderTypeSingle = () => import('../../components/Cart/Platforms/mini/type/package-order/type/single.vue' /* webpackChunkName: "components/cart-platforms-mini-type-package-order-type-single" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
