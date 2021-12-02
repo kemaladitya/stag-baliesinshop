@@ -77,6 +77,12 @@
   "MerchantPlatformsMobile": {
     "description": "Auto imported from components/Merchant/Platforms/mobile.vue"
   },
+  "ProductsPlatformsDesktop": {
+    "description": "Auto imported from components/Products/Platforms/desktop.vue"
+  },
+  "ProductsPlatformsMini": {
+    "description": "Auto imported from components/Products/Platforms/mini.vue"
+  },
   "ProductDetailPlatformsDesktop": {
     "description": "Auto imported from components/Product-Detail/Platforms/desktop.vue"
   },
@@ -85,12 +91,6 @@
   },
   "ProductDetailPlatformsMobile": {
     "description": "Auto imported from components/Product-Detail/Platforms/mobile.vue"
-  },
-  "ProductsPlatformsDesktop": {
-    "description": "Auto imported from components/Products/Platforms/desktop.vue"
-  },
-  "ProductsPlatformsMini": {
-    "description": "Auto imported from components/Products/Platforms/mini.vue"
   },
   "CartPlatformsDesktop": {
     "description": "Auto imported from components/Cart/Platforms/desktop/index.vue"
@@ -251,16 +251,16 @@
   "CartPlatformsDesktopTypePackageOrderTypeSingle": {
     "description": "Auto imported from components/Cart/Platforms/desktop/type/package-order/type/single.vue"
   },
-  "CartPlatformsMobileTypePackageOrderTypeMultiple": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/type/multiple.vue"
-  },
-  "CartPlatformsMobileTypePackageOrderTypeSingle": {
-    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/type/single.vue"
-  },
   "CartPlatformsMiniTypePackageOrderTypeMultiple": {
     "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/type/multiple.vue"
   },
   "CartPlatformsMiniTypePackageOrderTypeSingle": {
     "description": "Auto imported from components/Cart/Platforms/mini/type/package-order/type/single.vue"
+  },
+  "CartPlatformsMobileTypePackageOrderTypeMultiple": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/type/multiple.vue"
+  },
+  "CartPlatformsMobileTypePackageOrderTypeSingle": {
+    "description": "Auto imported from components/Cart/Platforms/mobile/type/package-order/type/single.vue"
   }
 }
