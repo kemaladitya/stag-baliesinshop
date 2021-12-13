@@ -8,14 +8,14 @@
   "VuetifyLogo": {
     "description": "Auto imported from components/VuetifyLogo.vue"
   },
-  "Cart": {
-    "description": "Auto imported from components/Cart/index.vue"
-  },
   "BottomSheetMiniCart": {
     "description": "Auto imported from components/Bottom-Sheet/mini-cart.vue"
   },
   "BottomSheetRegLoading": {
     "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
+  },
+  "Cart": {
+    "description": "Auto imported from components/Cart/index.vue"
   },
   "Checkout": {
     "description": "Auto imported from components/Checkout/index.vue"
@@ -77,12 +77,6 @@
   "MerchantPlatformsMobile": {
     "description": "Auto imported from components/Merchant/Platforms/mobile.vue"
   },
-  "ProductsPlatformsDesktop": {
-    "description": "Auto imported from components/Products/Platforms/desktop.vue"
-  },
-  "ProductsPlatformsMini": {
-    "description": "Auto imported from components/Products/Platforms/mini.vue"
-  },
   "ProductDetailPlatformsDesktop": {
     "description": "Auto imported from components/Product-Detail/Platforms/desktop.vue"
   },
@@ -91,6 +85,12 @@
   },
   "ProductDetailPlatformsMobile": {
     "description": "Auto imported from components/Product-Detail/Platforms/mobile.vue"
+  },
+  "ProductsPlatformsDesktop": {
+    "description": "Auto imported from components/Products/Platforms/desktop.vue"
+  },
+  "ProductsPlatformsMini": {
+    "description": "Auto imported from components/Products/Platforms/mini.vue"
   },
   "CartPlatformsDesktop": {
     "description": "Auto imported from components/Cart/Platforms/desktop/index.vue"

@@ -11237,7 +11237,7 @@ var config = __webpack_require__(27);
         merchant: this.merchant ? this.merchant.id : 0
       });
 
-      if (!get_product.status && config["b" /* mode */] == "production") {
+      if (!get_product.status && config["a" /* mode */] == "production") {
         if (get_product.message == 'Expired.') {
           this.$router.replace('/error/link/expired');
         }

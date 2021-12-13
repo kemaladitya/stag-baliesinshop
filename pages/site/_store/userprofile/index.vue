@@ -616,11 +616,11 @@ export default {
     await this.get_province()
     await this.get_customer_detail()
 
-    if (list_development.includes(this.$route.query.u)) {
-      this.get_event()
+    // if (list_development.includes(this.$route.query.u)) {
+    this.get_event()
 
-      this.ondev = true;
-    }
+    this.ondev = true;
+    // }
 
     // if (this.customer && String(typeof this.customer) == 'object' && this.customer.hasOwnProperty('name')) {
     //   const selected_province = this.province.filter(el => el.name === this.customer.province)

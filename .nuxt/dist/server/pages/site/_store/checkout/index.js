@@ -13923,7 +13923,7 @@ var config = __webpack_require__(27);
           bot_id: this.$route.params.store
         });
 
-        if (!get_product.status && config["b" /* mode */] == "production") {
+        if (!get_product.status && config["a" /* mode */] == "production") {
           if (get_product.message == 'Expired.') {
             this.$router.replace('/error/link/expired');
           }
