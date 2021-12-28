@@ -8120,7 +8120,7 @@ async function setContext(app, context) {
   // If context not defined, create it
   if (!app.context) {
     app.context = {
-      isStatic: true,
+      isStatic: false,
       isDev: false,
       isHMR: false,
       app,
@@ -9689,10 +9689,6 @@ const layouts = {
 
     isFetching() {
       return this.nbFetching > 0;
-    },
-
-    isPreview() {
-      return Boolean(this.$options.previewData);
     }
 
   },
