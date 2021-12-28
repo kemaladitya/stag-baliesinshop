@@ -292,9 +292,9 @@ export default {
       }
     }
 
-    if (recommendation_api) {
-      this.get_recomendation();
-    }
+    // if (recommendation_api) {
+      // this.get_recomendation();
+    // }
   },
 
   methods: {

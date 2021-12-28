@@ -2841,7 +2841,7 @@ function intersectable(options) {
   });
 }
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/loadable/index.js
-var loadable = __webpack_require__(34);
+var loadable = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/validatable/index.js
 var validatable = __webpack_require__(114);
@@ -4756,7 +4756,7 @@ var registrable = __webpack_require__(41);
 var ripple = __webpack_require__(40);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(33);
+var transitions = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/mixins.js
 var mixins = __webpack_require__(3);
@@ -4989,7 +4989,7 @@ var VListItemAction = __webpack_require__(155);
 var VAvatar = __webpack_require__(177);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/measurable/index.js
-var measurable = __webpack_require__(28);
+var measurable = __webpack_require__(27);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/roundable/index.js
 var roundable = __webpack_require__(43);
@@ -5743,7 +5743,7 @@ var VChip = __webpack_require__(183);
 var mixins = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/transitions/index.js + 2 modules
-var transitions = __webpack_require__(33);
+var transitions = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/index.js
 var VIcon = __webpack_require__(24);
@@ -5764,7 +5764,7 @@ var toggleable = __webpack_require__(17);
 var routable = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/mixins/sizeable/index.js
-var sizeable = __webpack_require__(29);
+var sizeable = __webpack_require__(28);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/util/console.js
 var console = __webpack_require__(2);
@@ -10959,7 +10959,7 @@ var Products = __webpack_require__(331);
 var list_product = __webpack_require__(347);
 
 // EXTERNAL MODULE: ./config.json
-var config = __webpack_require__(27);
+var config = __webpack_require__(35);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./pages/site/_store/index.vue?vue&type=script&lang=js&
 //
