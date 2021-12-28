@@ -3,84 +3,72 @@
     "name": "internal_test",
     "path": "/internal_test",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/internal_test.vue",
-    "chunkName": "pages/internal_test",
-    "_name": "_3bff402e"
+    "chunkName": "pages/internal_test"
   },
   {
     "name": "error-link-expired",
     "path": "/error/link/expired",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/error/link/expired.vue",
-    "chunkName": "pages/error/link/expired",
-    "_name": "_643b1972"
+    "chunkName": "pages/error/link/expired"
   },
   {
     "name": "error-link-invalid",
     "path": "/error/link/invalid",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/error/link/invalid.vue",
-    "chunkName": "pages/error/link/invalid",
-    "_name": "_30eeab44"
+    "chunkName": "pages/error/link/invalid"
   },
   {
     "name": "success-checkout-phone",
     "path": "/success/checkout/:phone?",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/success/checkout/_phone.vue",
-    "chunkName": "pages/success/checkout/_phone",
-    "_name": "_014093be"
+    "chunkName": "pages/success/checkout/_phone"
   },
   {
     "name": "success-register-phone",
     "path": "/success/register/:phone?",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/success/register/_phone.vue",
-    "chunkName": "pages/success/register/_phone",
-    "_name": "_2bfd6eb8"
+    "chunkName": "pages/success/register/_phone"
   },
   {
     "name": "site-store",
     "path": "/site/:store",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/index.vue",
-    "chunkName": "pages/site/_store/index",
-    "_name": "_2bfcd37c"
+    "chunkName": "pages/site/_store/index"
   },
   {
     "name": "site-store-cart",
     "path": "/site/:store?/cart",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/cart/index.vue",
-    "chunkName": "pages/site/_store/cart/index",
-    "_name": "_1aa22d63"
+    "chunkName": "pages/site/_store/cart/index"
   },
   {
     "name": "site-store-checkout",
     "path": "/site/:store?/checkout",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/checkout/index.vue",
-    "chunkName": "pages/site/_store/checkout/index",
-    "_name": "_3b853409"
+    "chunkName": "pages/site/_store/checkout/index"
   },
   {
     "name": "site-store-merchant",
     "path": "/site/:store?/merchant",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/merchant/index.vue",
-    "chunkName": "pages/site/_store/merchant/index",
-    "_name": "_f5f913ea"
+    "chunkName": "pages/site/_store/merchant/index"
   },
   {
     "name": "site-store-userprofile",
     "path": "/site/:store?/userprofile",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/userprofile/index.vue",
-    "chunkName": "pages/site/_store/userprofile/index",
-    "_name": "_2f7264f1"
+    "chunkName": "pages/site/_store/userprofile/index"
   },
   {
     "name": "site-store-pid",
     "path": "/site/:store?/:pid",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",
-    "chunkName": "pages/site/_store/_pid/index",
-    "_name": "_0d6327e2"
+    "chunkName": "pages/site/_store/_pid/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/development/master/Balesin-Shop-FE/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_416141e7"
+    "chunkName": "pages/index"
   }
 ]
