@@ -8120,7 +8120,7 @@ async function setContext(app, context) {
   // If context not defined, create it
   if (!app.context) {
     app.context = {
-      isStatic: false,
+      isStatic: true,
       isDev: false,
       isHMR: false,
       app,
@@ -9689,6 +9689,10 @@ const layouts = {
 
     isFetching() {
       return this.nbFetching > 0;
+    },
+
+    isPreview() {
+      return Boolean(this.$options.previewData);
     }
 
   },
@@ -10579,6 +10583,45 @@ async function createApp(ssrContext, config = {}) {
         "hid": "description",
         "name": "description",
         "content": "balesin - shop"
+      }, {
+        "hid": "charset",
+        "charset": "utf-8"
+      }, {
+        "hid": "mobile-web-app-capable",
+        "name": "mobile-web-app-capable",
+        "content": "yes"
+      }, {
+        "hid": "apple-mobile-web-app-title",
+        "name": "apple-mobile-web-app-title",
+        "content": "balesin - Shop"
+      }, {
+        "hid": "author",
+        "name": "author",
+        "content": "balesin.id"
+      }, {
+        "hid": "theme-color",
+        "name": "theme-color",
+        "content": "#ffffdd"
+      }, {
+        "hid": "og:type",
+        "name": "og:type",
+        "property": "og:type",
+        "content": "website"
+      }, {
+        "hid": "og:title",
+        "name": "og:title",
+        "property": "og:title",
+        "content": "balesin - Shop"
+      }, {
+        "hid": "og:site_name",
+        "name": "og:site_name",
+        "property": "og:site_name",
+        "content": "balesin - Shop"
+      }, {
+        "hid": "og:description",
+        "name": "og:description",
+        "property": "og:description",
+        "content": "balesin chat commerce."
       }],
       "link": [{
         "rel": "icon",
@@ -10588,6 +10631,19 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins&display=swap"
       }, {
+        "hid": "shortcut-icon",
+        "rel": "shortcut icon",
+        "href": "https:\u002F\u002Ffaq.balesin.id\u002Ficon\u002Ficon-256x256.png"
+      }, {
+        "hid": "apple-touch-icon",
+        "rel": "apple-touch-icon",
+        "href": "\u002F_nuxt\u002Ficons\u002Ficon_512x512.5821de.png",
+        "sizes": "512x512"
+      }, {
+        "rel": "manifest",
+        "href": "\u002F_nuxt\u002Fmanifest.4b27e15a.json",
+        "hid": "manifest"
+      }, {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"
@@ -10595,12 +10651,12 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
-      }, {
-        "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.9de03ee0.json"
       }],
       "script": [],
-      "style": []
+      "style": [],
+      "htmlAttrs": {
+        "lang": "en"
+      }
     },
     store,
     router,

@@ -5,7 +5,7 @@ const { mailer_list } = require('../../config.json')
 
 async function send(request, response) {
   try {
-    await axios({
+    axios({
       url: "http://10.140.0.4:3333/mailer/send",
       method: "post",
       data: {
