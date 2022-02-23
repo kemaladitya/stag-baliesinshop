@@ -1,7 +1,7 @@
 exports.ids = [25,70];
 exports.modules = {
 
-/***/ 111:
+/***/ 114:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -226,14 +226,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 273:
+/***/ 436:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mini/type/single-order.vue?vue&type=template&id=2b5cca5d&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/cart/Platforms/mini/type/single-order.vue?vue&type=template&id=108df27d&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[(_vm.cart.length)?_vm._ssrNode("<div>","</div>",_vm._l((_vm.parsed_lists.product),function(item,index){return _vm._ssrNode("<div>","</div>",[_c('v-card',{staticClass:"d-flex flex-row ma-1 mb-2 pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"ma-1 pt-6",attrs:{"width":"25","flat":"","depressed":""},on:{"click":function($event){return _vm.manage_cart(item.id, item.detail_id, item.sku, 0, 'remove')}}},[_c('center',[_c('v-icon',{attrs:{"color":"red","small":""}},[_vm._v("mdi-close")])],1)],1),_vm._v(" "),_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"13px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n              "+_vm._s(item.name)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticStyle:{"font-size":"13px","font-weight":"600"}},[(item.is_promo)?_c('div',[_vm._v("\n                  Rp "+_vm._s(item.discount_price
                       .toLocaleString()
                       .replace(/,/g, '.'))+", -\n                ")]):_vm._e(),_vm._v(" "),_c('div',{style:(item.is_promo
@@ -244,12 +244,12 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Cart/Platforms/mini/type/single-order.vue?vue&type=template&id=2b5cca5d&
+// CONCATENATED MODULE: ./components/cart/Platforms/mini/type/single-order.vue?vue&type=template&id=108df27d&
 
 // EXTERNAL MODULE: ./components/General.js
-var General = __webpack_require__(111);
+var General = __webpack_require__(114);
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Cart/Platforms/mini/type/single-order.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/cart/Platforms/mini/type/single-order.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -473,25 +473,25 @@ var General = __webpack_require__(111);
 
   }
 });
-// CONCATENATED MODULE: ./components/Cart/Platforms/mini/type/single-order.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./components/cart/Platforms/mini/type/single-order.vue?vue&type=script&lang=js&
  /* harmony default export */ var type_single_ordervue_type_script_lang_js_ = (single_ordervue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(10);
+var componentNormalizer = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(11);
+var installComponents = __webpack_require__(12);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(44);
+var VBtn = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(104);
+var VCard = __webpack_require__(102);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(22);
+var VIcon = __webpack_require__(23);
 
-// CONCATENATED MODULE: ./components/Cart/Platforms/mini/type/single-order.vue
+// CONCATENATED MODULE: ./components/cart/Platforms/mini/type/single-order.vue
 
 
 
@@ -506,7 +506,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "0a1fa64c"
+  "35d22450"
   
 )
 

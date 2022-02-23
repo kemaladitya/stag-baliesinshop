@@ -1,7 +1,7 @@
-exports.ids = [89];
+exports.ids = [90];
 exports.modules = {
 
-/***/ 376:
+/***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,14 +51,14 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./pages/error/link/invalid.vue?vue&type=script&lang=js&
  /* harmony default export */ var link_invalidvue_type_script_lang_js_ = (invalidvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(10);
+var componentNormalizer = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(11);
+var installComponents = __webpack_require__(12);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(104);
+var VCard = __webpack_require__(102);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
 var VImg = __webpack_require__(58);
@@ -78,7 +78,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "9dd209ba"
+  "21d6970e"
   
 )
 

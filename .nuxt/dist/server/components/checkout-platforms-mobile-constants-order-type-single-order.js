@@ -1,14 +1,14 @@
 exports.ids = [60];
 exports.modules = {
 
-/***/ 257:
+/***/ 472:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=template&id=6bbab623&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=template&id=1f69b643&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"mt-3"},[(_vm.cart.length)?_vm._ssrNode("<div>","</div>",_vm._l((_vm.parsed_lists.product),function(item,index){return _vm._ssrNode("<div>","</div>",[_c('v-card',{staticClass:"d-flex flex-row mb-2 pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{staticClass:"ma-2",attrs:{"flat":"","outlined":""}},[_c('v-img',{attrs:{"src":item.main_image,"width":"65","height":"65","loading":"lazy"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',[_c('div',{staticStyle:{"font-size":"12px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","font-weight":"600"}},[_vm._v("\n                "+_vm._s(item.name)+"\n              ")])]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"12px","max-width":"150px","display":"inline-block","min-width":"150px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis"}},[_vm._v("\n              "+_vm._s(item.detail_id.name)+"\n            ")]),_vm._v(" "),_c('div',{staticClass:"d-flex flex-row",staticStyle:{"font-size":"12px","font-weight":"600"}},[_c('div',[_vm._v(_vm._s(item.qty)+" x  ")]),_vm._v(" "),(item.is_promo)?_c('div',[_vm._v("\n                Rp "+_vm._s(item.discount_price
                     .toLocaleString()
                     .replace(/,/g, '.'))+", -\n              ")]):_vm._e(),_vm._v(" "),_c('div',{style:(item.is_promo
@@ -19,9 +19,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=template&id=6bbab623&
+// CONCATENATED MODULE: ./components/checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=template&id=1f69b643&
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -162,25 +162,25 @@ var staticRenderFns = []
 
   }
 });
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./components/checkout/Platforms/mobile/constants/order-type/single-order.vue?vue&type=script&lang=js&
  /* harmony default export */ var order_type_single_ordervue_type_script_lang_js_ = (single_ordervue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(10);
+var componentNormalizer = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(11);
+var installComponents = __webpack_require__(12);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(104);
+var VCard = __webpack_require__(102);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(22);
+var VIcon = __webpack_require__(23);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
 var VImg = __webpack_require__(58);
 
-// CONCATENATED MODULE: ./components/Checkout/Platforms/mobile/constants/order-type/single-order.vue
+// CONCATENATED MODULE: ./components/checkout/Platforms/mobile/constants/order-type/single-order.vue
 
 
 
@@ -195,7 +195,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "56874400"
+  "5f3ac214"
   
 )
 

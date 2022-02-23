@@ -1,7 +1,7 @@
 exports.ids = [68];
 exports.modules = {
 
-/***/ 384:
+/***/ 407:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -190,17 +190,17 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Footer/cart.vue?vue&type=script&lang=js&
  /* harmony default export */ var Footer_cartvue_type_script_lang_js_ = (cartvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(10);
+var componentNormalizer = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(11);
+var installComponents = __webpack_require__(12);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(44);
+var VBtn = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(104);
+var VCard = __webpack_require__(102);
 
 // CONCATENATED MODULE: ./components/Footer/cart.vue
 
@@ -217,7 +217,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "62f7092a"
+  "2ac1c000"
   
 )
 

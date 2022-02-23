@@ -1,7 +1,7 @@
 exports.ids = [69];
 exports.modules = {
 
-/***/ 345:
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -150,17 +150,17 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/Footer/checkout.vue?vue&type=script&lang=js&
  /* harmony default export */ var Footer_checkoutvue_type_script_lang_js_ = (checkoutvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(10);
+var componentNormalizer = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(11);
+var installComponents = __webpack_require__(12);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(44);
+var VBtn = __webpack_require__(45);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(110);
+var VSpacer = __webpack_require__(111);
 
 // CONCATENATED MODULE: ./components/Footer/checkout.vue
 
@@ -177,7 +177,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "9c496160"
+  "67500b26"
   
 )
 

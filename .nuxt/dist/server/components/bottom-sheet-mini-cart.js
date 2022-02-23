@@ -1,14 +1,14 @@
 exports.ids = [6];
 exports.modules = {
 
-/***/ 207:
+/***/ 408:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/mini-cart.vue?vue&type=template&id=510e3508&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/bottom-sheet/mini-cart.vue?vue&type=template&id=0c3dd108&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-card',{staticStyle:{"max-height":"80vh !important","overflow-y":"scroll"},attrs:{"flat":"","tile":""}},[_c('v-card',{staticClass:"ma-1",attrs:{"flat":""}},[_c('div',{staticClass:"pl-2 pt-1 pb-1",staticStyle:{"align-self":"center","font-size":"13px","font-weight":"600","text-align":"left"}},[_vm._v("\n      Detail Keranjang\n    ")]),_vm._v(" "),_c('div',{staticClass:"pb-1",staticStyle:{"overflow-y":"scroll !important","max-height":"200px !important","overflow-x":"hidden !important"}},_vm._l((_vm.parsed_lists.product),function(item,index){return _c('div',{key:index},[_c('v-card',{staticClass:"d-flex flex-row ma-1 mb-2 pr-1",attrs:{"outlined":""}},[_c('v-card',{staticClass:"d-flex flex-row",attrs:{"flat":"","width":"100%"}},[_c('v-card',{staticClass:"ma-2",attrs:{"flat":""}},[_c('v-img',{attrs:{"src":item.main_image,"width":"65","height":"65"}})],1),_vm._v(" "),_c('div',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('div',{staticStyle:{"font-size":"12px","max-width":"350px","display":"inline-block","min-width":"350px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","font-weight":"600"}},[_vm._v("\n                "+_vm._s(item.name)+"\n              ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","max-width":"350px","display":"inline-block","min-width":"350px","white-space":"nowrap","overflow":"hidden !important","text-overflow":"ellipsis","color":"grey"}},[_vm._v("\n                "+_vm._s(item.detail_id.name)+"\n              ")]),_vm._v(" "),(item.discount_price)?_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"mr-2",staticStyle:{"font-size":"13px","font-weight":"600"}},[_vm._v("\n                  "+_vm._s(item.qty)+" x Rp\n                  "+_vm._s(item.discount_price
                       .toLocaleString()
                       .replace(/,/g, '.'))+", -\n                ")]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"13px","font-weight":"600","text-decoration":"line-through","color":"#999"}},[_vm._v("\n                  Rp "+_vm._s(item.normal_price
@@ -29,9 +29,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Bottom-Sheet/mini-cart.vue?vue&type=template&id=510e3508&
+// CONCATENATED MODULE: ./components/bottom-sheet/mini-cart.vue?vue&type=template&id=0c3dd108&
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/mini-cart.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/bottom-sheet/mini-cart.vue?vue&type=script&lang=js&
 //
 //
 //
@@ -378,22 +378,22 @@ var staticRenderFns = []
 
   }
 });
-// CONCATENATED MODULE: ./components/Bottom-Sheet/mini-cart.vue?vue&type=script&lang=js&
- /* harmony default export */ var Bottom_Sheet_mini_cartvue_type_script_lang_js_ = (mini_cartvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./components/bottom-sheet/mini-cart.vue?vue&type=script&lang=js&
+ /* harmony default export */ var bottom_sheet_mini_cartvue_type_script_lang_js_ = (mini_cartvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(10);
+var componentNormalizer = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(11);
+var installComponents = __webpack_require__(12);
 var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(104);
+var VCard = __webpack_require__(102);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
 var VImg = __webpack_require__(58);
 
-// CONCATENATED MODULE: ./components/Bottom-Sheet/mini-cart.vue
+// CONCATENATED MODULE: ./components/bottom-sheet/mini-cart.vue
 
 
 
@@ -402,13 +402,13 @@ var VImg = __webpack_require__(58);
 /* normalize component */
 
 var component = Object(componentNormalizer["a" /* default */])(
-  Bottom_Sheet_mini_cartvue_type_script_lang_js_,
+  bottom_sheet_mini_cartvue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
   null,
   null,
-  "df652284"
+  "5a5b1bb0"
   
 )
 
