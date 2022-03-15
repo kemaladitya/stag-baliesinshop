@@ -1,0 +1,134 @@
+.success-dialog {
+  &--text {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  &--info {
+    font-size: 12px;
+    color: grey;
+  }
+}
+
+#payment-receipt {
+  .svg-field {
+    margin: 0; margin-top: -4px; margin-left: -10px; display: block;
+  }
+
+  .svg-wrapper {
+    max-width: 30px;
+  }
+
+  .image-loader {
+    display: none !important;
+  }
+  
+  .headers {
+    border-bottom: 1px solid lightgrey !important;
+
+    .page-title {
+      align-self: center;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .icon {
+      top: -1px;
+    }
+  }
+
+  .wrapper {
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+
+    .information {
+      font-size: 13px;
+      color: #6a6a6a;
+    }
+
+    .form {
+      &--label {
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      &--required {
+        color: red;
+      }
+
+      &--not-required {
+        color: gray;
+      }
+
+      &--field {
+        background: #e9ecef;
+        font-size: 14px;
+      }
+
+      &--details {
+        color: #28a745;
+        font-size: 12px;
+        font-weight: 400;
+      }
+
+      .image-uploaded {
+        align-self: center;
+      }
+    }
+
+    .image {
+      &--value {
+        align-self: center;
+        width: 100%;
+        font-size: 12px;
+        border-radius: 3px 0 0 3px !important;
+        font-weight: 500;
+        color: #4d4d4d;
+        overflow-y: auto;
+        height: 22px;
+        padding-top: 2px !important;
+
+        .text-uploading {
+          font-size: 12px;
+          font-weight: 500;
+          color: #717171;
+        }
+      }
+
+      &--choose-file {
+        width: 90px;
+        background: #d6f2fd;
+        font-size: 12px;
+        border-radius: 0 3px 3px 0 !important;
+
+        .choose-label {
+          align-self: center;
+          margin-top: 10px;
+          color: #66bce3;
+          font-weight: 600;
+        }
+      }
+
+      &--preview {
+        width: 50px;
+        min-width: 50px;
+        max-width: 50px;
+        font-size: 12px;
+        border-radius: 0 3px 3px 0 !important;
+        padding-top: 1px;
+
+        .preview-label {
+          align-self: center;
+          margin-top: 10px;
+          color: #66bce3;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .submit-btn {
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+}

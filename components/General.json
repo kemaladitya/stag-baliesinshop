@@ -1,5 +1,14 @@
 {
   "payment_type": {
+    "bank transfer": {
+      "name": "bank transfer",
+      "img": null,
+      "desc": "",
+      "width": 55,
+      "height": 15,
+      "pt": 2,
+      "pl": 1
+    },
     "cod": {
       "name": "cod",
       "img": null,

@@ -4,6 +4,15 @@
 html {
   scrollbar-width: thin !important;
 
+  .b-main-page {
+    scrollbar-width: 0;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   .basket-background-shadow {
     -webkit-box-shadow: 0px -1px 17px 19px rgba(255,255,255,1) !important;
     -moz-box-shadow: 0px -1px 17px 19px rgba(255,255,255,1) !important;
@@ -14,11 +23,17 @@ html {
     width: inherit;
   }
 
-  scrollbar-width: none;
+  scrollbar-width: 0;
   overflow: hidden;
 
   .b-font {
     font-family: Poppins, sans-serif;
+  }
+
+  .lined {
+    font-size: 8px;
+    color: darkgrey !important;
+    text-decoration-line: line-through !important;
   }
 
   .lz-load {

@@ -5,26 +5,20 @@
       id="mini"
     />
     <Mobile
-      v-if="screen == 'mobile'"
+      v-if="screen == 'mobile' || screen == 'desktop'"
       id="mobile"
-    />
-    <Desktop
-      v-if="screen == 'desktop'"
-      id="desktop"
     />
   </div>
 </template>
 
 <script>
-import Mini from '@/components/Cart/Platforms/mini/index'
-import Mobile from '@/components/Cart/Platforms/mobile/index'
-import Desktop from '@/components/Cart/Platforms/desktop/index'
+import Mini from "@/components/cart/screen/mini/index";
+import Mobile from "@/components/cart/screen/mobile/index";
 
 export default {
   components: {
     Mini,
     Mobile,
-    Desktop
   },
 
   computed: {

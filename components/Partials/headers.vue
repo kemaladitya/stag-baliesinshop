@@ -1,81 +1,63 @@
 <template>
   <v-app-bar
-    absolute
+    class="headers"
     color="white"
-    elevate-on-scroll
     scroll-target="#scrolling-techniques-7"
-    style="border-bottom: 1px solid #ccc !important; z-index: 9; height: 55px"
+    elevate-on-scroll
+    absolute
   >
-    <v-app-bar-nav-icon
-      depressed
-      :ripple="false"
-      class="ml-2 pa-2"
-      color="white"
-    >
+    <v-app-bar-nav-icon :ripple="false" class="ml-2 pa-2" color="white" depressed>
       <v-btn
-        v-if="($route.name == 'site-store-checkout') || ($route.name == 'site-store-userprofile' && store && !store.registered_mode)"
-        class="ml-4"
-        style="color: black !important"
+        v-if="
+          ($route.name == 'site-store-checkout')
+          || (
+            store
+            && $route.name == 'site-store-userprofile'
+            && !store.registered_mode
+          )
+        "
+        :to="($route.name == 'site-store-checkout') ? cart_url : checkout_url"
+        :ripple="false"
+        class="ml-4 headers--back"
         x-small
+        depressed
         fab
         text
-        depressed
-        :ripple="false"
-        :to="($route.name == 'site-store-checkout')
-          ? `/site/${$route.params.store}/cart?u=${$route.query.u}&mtd=view&src=${$route.query.src}&c=${$route.query.c}`
-          : `/site/${$route.params.store}/checkout?u=${$route.query.u}&mtd=view&src=${$route.query.src}&c=${$route.query.c}`
-        "
       >
-        <!-- :to="gotocart" -->
         <v-icon small>mdi-arrow-left</v-icon>
       </v-btn>
-      <!-- <v-btn
-        v-if="$route.name == 'site-store-userprofile' && store && !store.registered_mode"
-        class="ml-4"
-        style="color: black !important"
-        x-small
-        fab
-        text
-        depressed
-        :ripple="false"
-        :to="`/site/${site.store}/checkout?u=${site.uuid}&mtd=view&src=${site.source}&c=${site.category}`"
-      >
-        <v-icon small>mdi-arrow-left</v-icon>
-      </v-btn> -->
       <v-img
         v-if="store"
         :src="store.image"
+        :to="home_url"
+        class="headers--image"
         width="40"
         height="40"
         max-width="53"
         max-height="53"
-        style="border-radius: 3px"
         loading=lazy
-        :to="home_url"
       />
       <v-icon v-else>mdi-store</v-icon>
     </v-app-bar-nav-icon>
     <v-spacer />
     <v-btn
       v-if="($route.name == 'site-store') && store && store['store_type'] && merchant"
-      class="ml-4"
-      style="color: black !important"
+      :to="merchant_url"
+      :ripple="false"
+      class="ml-4 headers--merchant"
       x-small
       fab
       text
       depressed
-      :ripple="false"
-      :to="`/site/${$route.params.store}/merchant?market=${merchant.market_id}&u=${$route.query.u}&mtd=view&src=${$route.query.src}&c=${$route.query.c}`"
     >
-      <!-- :to="gotocart" -->
       <v-icon>mdi-home-search</v-icon>
     </v-btn>
     <v-badge
       v-if="cart_on_headers"
       id="b-shop-cart-badge"
+      class="headers--badge"
       top="-5px"
       color="red darken-1"
-      style="font-size: 10px"
       min-width="16px"
       height="16px"
       bordered
@@ -83,17 +65,14 @@
       :icon="cart_qty_item"
     >
       <v-btn
-        rounded
-        depressed
+        :to="cart_url"
+        :ripple="false"
         max-width="38"
         min-width="38"
         color="#fcfcfc"
-        style="
-          color: black !important;
-          border: 1px solid #fcfcfc !important;
-        "
-        :ripple="false"
-        :to="cart_url"
+        class="headers--badge--cart-icon"
+        rounded
+        depressed
       >
         <v-icon>mdi-cart-outline</v-icon>
       </v-btn>
@@ -104,6 +83,25 @@
 <script>
 export default {
   computed: {
+    cart_url() {
+      const { params, query } = this.$route;
+
+      return `/site/${params.store}/cart?u=${query.u}&mtd=view&src=${query.src}&c=${query.c}`;
+    },
+  
+    merchant_url() {
+      const { params, query } = this.$route;
+      const { market_id } = this.merchant;
+
+      return `/site/${params.store}/merchant?market=${market_id}&u=${query.u}&mtd=view&src=${query.src}&c=${query.c}`;
+    },
+
+    checkout_url() {
+      const { params, query } = this.$route;
+
+      return `/site/${params.store}/checkout?u=${query.u}&mtd=view&src=${query.src}&c=${query.c}`;
+    },
+
     site() {
       return this.$store.state.site
     },
@@ -175,3 +173,33 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.headers {
+  border-bottom: 1px solid #ccc !important;
+  z-index: 9;
+  height: 56px;
+  max-height: 56px;
+
+  &--back {
+    color: black !important;
+  }
+
+  &--image {
+    border-radius: 3px;
+  }
+
+  &--merchant {
+    color: black !important;
+  }
+
+  &--badge {
+    font-size: 10px
+
+    &--cart-icon {
+      color: black !important;
+      border: 1px solid #fcfcfc !important;
+    }
+  }
+}
+</style>

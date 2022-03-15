@@ -10,15 +10,13 @@
         </div>
       </center>
     </v-card>
-    <div v-else>
-      <Detail />
-    </div>
+    <Detail v-else class="pa-2" />
   </v-card>
 </template>
 
 <script>
-import API from '@/components/General'
-import Detail from '@/components/Product-Detail/index'
+import API from '@/components/general'
+import Detail from '@/components/product-detail/index'
 import { mode } from "../../../../config.json"
 
 export default {
@@ -97,6 +95,7 @@ export default {
 
       if (!this.customer) {
         await this.get_customer_detail(this.store.bot_id)
+        this.check_express_delivery()
       }
 
       if (!this.products.length) {
@@ -116,6 +115,33 @@ export default {
             this.$router.replace('/error/link/invalid')
           }
         }
+      }
+    },
+
+    async check_express_delivery() {
+      try {
+        console.log("jalan?");
+        const request = await this.$store.dispatch("request", {
+          url: "/express-availability",
+          method: "post",
+          data: {
+            city: this.customer.city,
+            subdistrict: this.customer.sub_district,
+            urban: this.customer.urban,
+          },
+        });
+
+        console.log("check_express_delivery", request);
+        if (request.status == 200) {
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "is_available_express",
+              data: +request.data.item.is_express
+            }
+          })
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
 

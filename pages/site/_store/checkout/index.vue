@@ -11,28 +11,27 @@
       <v-card v-if="loading_checkout" width="100%" flat tile>
         <center style="width: 100%">
           <div style="width: 50%; margin-top: 30vh">
-            <v-img :src="require('@/assets/images/loading/balesin-loading.gif')" width="80" loading="lazy" />
+            <v-img :src="require('@/assets/images/loading/balesin-loading.gif')" width="80" loading=lazy />
             <div class="mb-2" style="font-size: 13px; color: gray; padding-top: 13px; font-weight: 600">
               Mohon menunggu...
             </div>
           </div>
         </center>
       </v-card>
-      <div v-else>
-        <Checkout v-if="store && customer" />
-      </div>
+
+      <Checkout v-else-if="store && customer" />
     </div>
   </v-card>
 </template>
 
 <script>
-import API from '@/components/General'
-import Checkout from '@/components/Checkout/index'
-import InsertVoucherCode from '@/components/Dialogs/Checkout/insert-voucher-code'
-import Courier from '~/components/Bottom-Sheet/Checkout/courier.vue'
-import Voucher from '~/components/Bottom-Sheet/Checkout/voucher.vue'
-import Payment from '~/components/Bottom-Sheet/Checkout/payment.vue'
-import Footer from '~/components/Footer/checkout.vue'
+import API from "@/components/general";
+import Checkout from "@/components/checkout/index";
+import InsertVoucherCode from "@/components/dialogs/checkout/insert-voucher-code";
+import Courier from "@/components/bottom-sheet/checkout/courier";
+import Voucher from "@/components/bottom-sheet/checkout/voucher";
+import Payment from "@/components/bottom-sheet/checkout/payment";
+import Footer from "@/components/partials/footer/checkout";
 import { mode } from "../../../../config.json"
 
 export default {
@@ -107,6 +106,7 @@ export default {
 
       if (!this.customer) {
         await this.get_customer_detail(this.store.bot_id)
+        this.check_express_delivery()
       }
 
       if (!this.products.length) {
@@ -125,6 +125,33 @@ export default {
             this.$router.replace('/error/link/invalid')
           }
         }
+      }
+    },
+
+    async check_express_delivery() {
+      try {
+        console.log("jalan?");
+        const request = await this.$store.dispatch("request", {
+          url: "/express-availability",
+          method: "post",
+          data: {
+            city: this.customer.city,
+            subdistrict: this.customer.sub_district,
+            urban: this.customer.urban,
+          },
+        });
+
+        console.log("check_express_delivery", request);
+        if (request.status == 200) {
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "is_available_express",
+              data: +request.data.item.is_express
+            }
+          })
+        }
+      } catch (error) {
+        console.log(error);
       }
     },
 

@@ -1,25 +1,20 @@
-'use strict'
+"use strict"
 
-const balesin = require("../sdk")
+const balesin = require("../sdk");
 
 async function product_search(request, response) {
   try {
-    const product = await balesin.api.shop.product_search(request.body)
+    const product = await balesin.api.shop.product_search(request.body);
 
-    return response
-      .json(
-        product.data.hasOwnProperty("data")
-          ? product.data.data
-          : product.data
-      )
+    return response.json(
+      product.data.hasOwnProperty("data") ? product.data.data : product.data
+    );
   } catch (error) {
-    return response
-      .status(404)
-      .json({
-        error,
-        status : false,
-      })
+    return response.status(404).json({
+      error,
+      status: false,
+    });
   }
 }
 
-module.exports = { product_search }
+module.exports = { product_search };

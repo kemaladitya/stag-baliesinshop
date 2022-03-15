@@ -1,6 +1,6 @@
-'use strict'
+"use strict"
 
-const link = require('./link')
-const shop = require('./shop')
+const link = require("./link");
+const shop = require("./shop");
 
-module.exports = { link, shop }
+module.exports = { link, shop };

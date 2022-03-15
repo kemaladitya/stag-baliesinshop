@@ -1,5 +1,5 @@
-'use strict'
+"use strict"
 
-const order = require('./order')
+const order = require("./order");
 
-module.exports = { ...order }
+module.exports = { ...order };

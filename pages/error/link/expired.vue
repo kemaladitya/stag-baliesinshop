@@ -1,21 +1,13 @@
 <template>
   <div class="b-font">
     <center>
-      <v-card width="380" style="margin-top: 25vh" flat>
-        <!-- <div v-if="store"> -->
-          <v-img
-            :src="'https://repo-platform.s3.amazonaws.com/8466-sarirotiwagmail.com-sarirotiwa%402142020.jpeg'"
-            width="200"
-          />
-        <!-- </div> -->
-        <div style="font-size: 18px; font-weight: 600">
-          Link Expired
-        </div>
+      <v-card class="wrapper" width="380" flat>
+        <v-img src="/icon.ico" width="200" />
+        <div class="label">Link Expired</div>
         <br />
-        <div style="font-size: 14px">
+        <div class="description">
           The requested catalogue products link has expired. Please request new link in bot.
         </div>
-        <br />
       </v-card>
     </center>
   </div>
@@ -23,12 +15,28 @@
 
 <script>
 export default {
-  layout: 'empty',
+  layout: "empty",
 
   computed: {
     store() {
-      return this.$store.state.store
-    }
-  }
+      return this.$store.state.store;
+    },
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.wrapper {
+  margin-top: 25vh;
+
+  .label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+</style>

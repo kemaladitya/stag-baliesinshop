@@ -1,17 +1,20 @@
-'use strict'
+"use strict"
 
-const balesin    = require('../sdk')
-const { del_cart, get_cart, set_cart } = require("../sdk/handler")
-const axios = require('axios')
-const { _api, _key } = require('../../config.json')
-const headers = { "x-api-key": _key }
+const balesin = require("../sdk");
+const { del_cart, get_cart, set_cart } = require("../sdk/handler");
+const axios = require("axios");
+const { _api, _key } = require("../../config.json");
+const headers = { "x-api-key": _key };
 
 async function manage(request, response) {
   try {
     if (request.body.method === "del") {
-      await del_cart(`${body.uuid || body.chatkey}/${body.store_name}/cart`, "")
+      await del_cart(
+        `${body.uuid || body.chatkey}/${body.store_name}/cart`,
+        ""
+      );
 
-      return response.send(null)
+      return response.send(null);
     }
 
     const manager = await balesin.cart.store.manage(request.body);
@@ -107,7 +110,7 @@ async function cache(request, response) {
 async function bot(request, response) {
   try {
     if (request.body.method === "reorder") {
-      const reorder = await reorder_bot(request.body)
+      const reorder = await reorder_bot(request.body);
 
       return response.json(reorder);
     }
@@ -198,65 +201,68 @@ async function bot(request, response) {
 
 async function reorder_bot({ bot_id, chatkey, outlet, source }) {
   try {
-    const { data: { info: { bot_name, store_id, store_name } } } = await axios({
-      url    : _api + `/dev/storename/${bot_id}`,
-      method : "post",
+    const {
+      data: {
+        info: { bot_name, store_id, store_name },
+      },
+    } = await axios({
+      url: _api + `/dev/storename/${bot_id}`,
+      method: "post",
       headers,
-    })
-    const get_last_cart = await get_cart(`${chatkey}/${bot_name}`, "/last")
-    const result = await balesin.api.shop
-      .parse_items(
-        bot_name,
-        chatkey,
-        get_last_cart.items
-      )
+    });
+    const get_last_cart = await get_cart(`${chatkey}/${bot_name}`, "/last");
+    const result = await balesin.api.shop.parse_items(
+      bot_name,
+      chatkey,
+      get_last_cart.items
+    );
     const check_items = await balesin.api.shop.check_items({
       outlet,
       store_id,
       items: [
         {
-          date  : "-",
-          items : result.data,
+          date: "-",
+          items: result.data,
         },
       ],
-    })
+    });
 
     if (!check_items.data.status) {
       return {
-        status   : !check_items.data.status ? "failed" : "success",
-        message  : check_items.data.message,
-        response : null,
-      }
+        status: !check_items.data.status ? "failed" : "success",
+        message: check_items.data.message,
+        response: null,
+      };
     }
 
-    get_last_cart.items = check_items.data.response[0].items
+    get_last_cart.items = check_items.data.response[0].items;
 
-    await set_cart(`${chatkey}/${bot_name}`, '', get_last_cart)
+    await set_cart(`${chatkey}/${bot_name}`, "", get_last_cart);
 
     const short_link = await axios({
-      url    : "https://sh.balesin.id/shortchatkey",
-      method : "post",
+      url: "https://sh.balesin.id/shortchatkey",
+      method: "post",
       data: {
         bot_id,
         chatkey,
-        base : `https://shop.balesin.id/site/${bot_name}/checkout?src=${source}&u=${chatkey}&c=${outlet}`,
+        base: `https://shop.balesin.id/site/${bot_name}/checkout?src=${source}&u=${chatkey}&c=${outlet}`,
       },
-    })
+    });
 
     return {
-      status   : "success",
-      message  : check_items.data.message,
-      response : short_link.data,
-    }
+      status: "success",
+      message: check_items.data.message,
+      response: short_link.data,
+    };
   } catch (error) {
     console.error("@reorder.error |", error);
 
     return {
-      status   : "failed",
-      message  : String(error),
-      response : "",
-    }
+      status: "failed",
+      message: String(error),
+      response: "",
+    };
   }
 }
 
-module.exports = { manage, cache, bot }
+module.exports = { manage, cache, bot };

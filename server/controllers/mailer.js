@@ -1,7 +1,7 @@
-'use strict'
+"use strict"
 
-const axios = require('axios')
-const { mailer_list } = require('../../config.json')
+const axios = require("axios");
+const { mailer_list } = require("../../config.json");
 
 async function send(request, response) {
   try {
@@ -18,17 +18,17 @@ async function send(request, response) {
     // });
     console.log("@error-message-from-frontend: ", request.body.message);
 
-    return response.send("OK")
+    return response.send("OK");
   } catch (error) {
-    console.log(error)
+    console.log(error);
 
-    return response.send('failed')
+    return response.send("failed");
   }
 }
 
-module.exports = { send }
+module.exports = { send };
 
-/** 
+/**
  * randi@bangjoni.com
  * ovickbs@gmail.com
  * dira@bangjoni.com

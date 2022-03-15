@@ -62,13 +62,13 @@
         box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
       "
     >
-      <div class="pb-12">
+      <div>
         <div>
           <Headers />
           <v-sheet
             id="scrolling-techniques-7"
             class="overflow-hidden b-main-page"
-            max-height="100vh"
+            height="100vh"
             v-if="store"
           >
             <v-progress-linear
@@ -78,7 +78,7 @@
               height="3"
               indeterminate
             />
-            <v-card v-else height="3" flat/>
+            <v-card v-else height="3" flat />
             <nuxt />
           </v-sheet>
         </div>
@@ -89,7 +89,7 @@
 
 <script>
 import axios from 'axios';
-import Headers from '@/components/Partials/headers';
+import Headers from '@/components/partials/headers';
 import { recommendation_api, mode } from '@/config.json'
 
 export default {
@@ -400,7 +400,7 @@ export default {
           store_name: this.$route.params.store,
           page: page,
         },
-      })
+      });
 
       if (store.status != 200) {
         this.$router.replace('/error/link/invalid')

@@ -1,136 +1,48 @@
 <template>
-  <div>
-    <v-card id="b-list-products" class="pt-12 mb-12" flat tile>
-      <v-progress-linear
-        v-show="loading"
-        style="z-index: 9999 !important"
-        color="blue darken-2"
-        height="3"
-        indeterminate
-      />
-      <v-card style="width: 100%" flat tile>
-        <v-card v-if="loading_product" width="100%" flat tile>
-          <center style="width: 100%">
-            <div style="width: 50%; margin-top: 30vh">
-              <v-img :src="require('@/assets/images/loading/balesin-loading.gif')" width="80" loading="lazy" />
-              <div class="mb-2" style="font-size: 13px; color: gray; padding-top: 13px; font-weight: 600">
-                Mohon menunggu...
-              </div>
-            </div>
-          </center>
-        </v-card>
-        <div v-else>
-          <Products
-            :productdetail="product_detail"
-            :loadingproduct="loading_product"
-          />
-        </div>
-      </v-card>
-      <v-snackbar v-model="snackbar">information</v-snackbar>
-    </v-card>
+  <v-card id="b-list-products" class="pt-12 mb-12" flat tile>
+    <v-progress-linear
+      v-show="loading"
+      class="linear-loading"
+      color="blue darken-2"
+      height="3"
+      indeterminate
+    />
 
-    <transition v-if="!loading_product" name="scroll-y-reverse-transition" mode="out-in" appear>
-      <div
-        v-show="(cart.length)"
-        style="position: fixed; bottom: 0; padding: 10px 8px; width: 100%; z-index: 9;"
-      >
-        <v-card
-          class="d-flex flex-row pa-3 pr-3 pl-3"
-          color="#fd0"
-          :to="cart_url"
-        >
-          <v-card
-            color="transparent"
-            style="font-size: 14px; font-weight: 600"
-            flat
-          >
-            Lihat Keranjang
-          </v-card>
-          <v-spacer />
-          <v-card
-            color="transparent"
-            style="font-size: 14px; font-weight: 600; color: grey"
-            flat
-          >
-            {{ order_info.qty_item }} item
-          </v-card>
-          <v-spacer />
-          <v-card
-            color="transparent"
-            style="font-size: 14px; font-weight: 600"
-            flat
-          >
-            <div style="font-weight: 600">
-              Rp {{
-                order_info.total
-                  .toLocaleString()
-                  .replace(/,/g, '.')
-              }}
-            </div>
-          </v-card>
-        </v-card>
-      </div>
-    </transition>
-    <!-- <v-card
-      v-show="(!rp_order && cart.length) || rp_order && dates.length"
-      class="basket-background-shadow"
-      width="100%"
-      height="40px"
-      style="position: fixed; bottom: -5px; z-index: 8"
-      tile
-    >
-      &nbsp;
-    </v-card>
-    <v-dialog
-      max-width="290"
-      persistent
-      v-model="dialog_list_dates"
-    >
-      <v-card class="pa-2">
-        <div class="d-flex flex-row">
-          <div style="font-size: 14px; font-weight: 600;">Select date:</div>
-          <v-spacer />
-          <div class="d-flex flex-row">
-            <v-icon small color="red" @click="dialog_list_dates = false">mdi-close</v-icon>
+    <v-card class="wrapper" flat tile>
+      <v-card v-if="loading_product" class="loading loading--active" flat tile>
+        <center class="center">
+          <div class="content">
+            <v-img
+              :src="require('@/assets/images/loading/balesin-loading.gif')"
+              width="80"
+              loading=lazy
+            />
+            <div class="mb-2 status">Mohon menunggu...</div>
           </div>
-        </div>
-        <v-card
-          v-for="(item, index) in dates"
-          :key="index"
-          class="mt-1 pa-2"
-          style="
-            background-color: aliceblue;
-            border-color: #0D47A1 !important;
-            font-size: 13px;
-            font-weight: 600;
-          "
-          outlined
-          @click="add_to_rp_cart(item.date)"
-        >
-          {{ item.date }}
-        </v-card>
+        </center>
       </v-card>
-    </v-dialog> -->
-  </div>
+      <div v-else class="pa-2">
+        <products :productdetail="product_detail" :loadingproduct="loading_product" />
+      </div>
+    </v-card>
+    <v-snackbar v-model="snackbar">information</v-snackbar>
+    
+    <catalog-footer :loading_product="loading_product" />
+  </v-card>
 </template>
 
 <script>
-/** 
- * * get store info
- * * get products if not exist
- * * get customer info if not exist (for get cart)
- * * get cart
- */
-
-import API from '@/components/General'
-import Products from '@/components/Products/index'
-import Loading from '@/components/Loading/list_product'
-import { mode } from "../../../config.json"
+import API from "@/components/general";
+import Products from "@/components/product-catalog/index";
+import Loading from "@/components/loading/list_product";
+import Footer from "@/components/partials/footer/product-catalog";
+import { mode } from "../../../config.json";
 
 export default {
   components: {
     Loading,
-    Products
+    "products": Products,
+    "catalog-footer": Footer,
   },
 
   data: () => ({
@@ -175,50 +87,13 @@ export default {
     },
 
     cart() {
-      if (this.order_type === 'single-order') {
+      if (this.order_type === "single-order") {
         return this.$store.state.cart
-      } else if (this.order_type === 'subscription-order') {
+      } else if (this.order_type === "subscription-order") {
         return this.$store.state.subscription_cart
-      } else if (this.order_type === 'package-order') {
+      } else if (this.order_type === "package-order") {
         return this.$store.state.package_cart
       }
-    },
-
-    order_info() {
-      let qty_item = 0
-      let total    = 0
-
-      if (this.order_type === 'single-order' && this.cart) {
-        this.cart.forEach(el => {
-          const find = this.list_product.filter(
-            product => product.id === el.id && product.SKU === el.sku
-          )
-
-          if (find.length) {
-            qty_item += el.qty
-            total    += (find[0].discount_price || find[0].normal_price) * el.qty
-          }
-        })
-      } else if (this.order_type === 'subscription-order' && this.cart) {
-        this.cart.forEach(date => {
-          date.items.forEach(item => {
-            const find = this.list_product.filter(
-              product => product.id === item.id && product.SKU === item.sku
-            )
-
-            if (find.length) {
-              qty_item += item.qty
-              total    += (find[0].discount_price || find[0].normal_price) * item.qty
-            }
-          })
-        })
-      }
-
-      return { qty_item, total }
-    },
-
-    cart_url() {
-      return `/site/${this.$route.params.store}/cart?u=${this.$route.query.u}&mtd=view&src=${this.$route.query.src}&c=${this.$route.query.c}`
     },
   },
 
@@ -229,7 +104,7 @@ export default {
     await this.get_list_merchant(0)
 
     const cart = await API.cart_manager(this, {
-      method: 'get',
+      method: "get",
       info: {
         item: null,
         store: {
@@ -242,9 +117,9 @@ export default {
     })
 
     if (!this.$store.state.fullpath.length) {
-      this.$store.dispatch('setState', {
+      this.$store.dispatch("setState", {
         payload: {
-          key: 'fullpath',
+          key: "fullpath",
           data: this.$route.fullPath
         }
       })
@@ -257,8 +132,8 @@ export default {
     async init_page() {
       const { c, u } = this.$route.query
 
-      if (!this.store.hasOwnProperty('id')) {
-        await this.get_base_info('site-store')
+      if (!this.store.hasOwnProperty("id")) {
+        await this.get_base_info("site-store")
       }
 
       if (this.store.store_type) {
@@ -267,6 +142,7 @@ export default {
 
       if (!this.customer) {
         await this.get_customer_detail(this.store.bot_id)
+        this.check_express_delivery();
       }
 
       const get_product = await API.get_list_products(this.$store, {
@@ -277,26 +153,53 @@ export default {
       })
 
       if (!get_product.status && mode == "production") {
-        if (get_product.message == 'Expired.') {
-          this.$router.replace('/error/link/expired')
+        if (get_product.message == "Expired.") {
+          this.$router.replace("/error/link/expired")
         }
 
-        if (get_product.message == 'Invalid URL.') {
-          this.$router.replace('/error/link/invalid')
+        if (get_product.message == "Invalid URL.") {
+          this.$router.replace("/error/link/invalid")
         }
       }
     },
 
+    async check_express_delivery() {
+      try {
+        console.log("jalan?");
+        const request = await this.$store.dispatch("request", {
+          url: "/express-availability",
+          method: "post",
+          data: {
+            city: this.customer.city,
+            subdistrict: this.customer.sub_district,
+            urban: this.customer.urban,
+          },
+        });
+
+        console.log("check_express_delivery", request);
+        if (request.status == 200) {
+          this.$store.dispatch("setState", {
+            payload: {
+              key: "is_available_express",
+              data: +request.data.item.is_express
+            }
+          })
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     async get_merchant_detail(merchant_id) {
-      const request = await this.$store.dispatch('request', {
-        url: '/api/store/market/info',
-        method: 'post',
+      const request = await this.$store.dispatch("request", {
+        url: "/api/store/market/info",
+        method: "post",
         data: { merchant_id }
       })
 
-      this.$store.dispatch('setState', {
+      this.$store.dispatch("setState", {
         payload: {
-          key: 'merchant',
+          key: "merchant",
           data: request.data.response
         }
       })
@@ -304,9 +207,9 @@ export default {
 
     async get_list_merchant(page) {
       const { query: { market } } = this.$route
-      const list_merchant = await this.$store.dispatch('request', {
-        url: '/api/store/market/merchant',
-        method: 'post',
+      const list_merchant = await this.$store.dispatch("request", {
+        url: "/api/store/market/merchant",
+        method: "post",
         data: {
           bot_id: this.store.bot_id,
           market_id: market,
@@ -314,9 +217,9 @@ export default {
         }
       })
 
-      this.$store.dispatch('setState', {
+      this.$store.dispatch("setState", {
         payload: {
-          key: 'list_merchant',
+          key: "list_merchant",
           data: [ ...this.list_merchant, ...list_merchant.data.response ]
         }
       })
@@ -346,9 +249,9 @@ export default {
         return cart
       })
 
-      this.$store.dispatch('setState', {
+      this.$store.dispatch("setState", {
         payload: {
-          key: 'dates',
+          key: "dates",
           data: updated_dates
         }
       })
@@ -374,10 +277,10 @@ export default {
       API.manage_cart(this.$store, {
         store_name: this.site.store,
         source: this.site.source,
-        method: 'set',
+        method: "set",
         uuid: this.site.uuid,
         detail: {
-          type: 'rp-order',
+          type: "rp-order",
           notes: this.notes,
           items: mapped
         }
@@ -388,9 +291,9 @@ export default {
       this.loading_product = true
 
       const { c, u } = this.$route.query
-      const request = await this.$store.dispatch('request', {
-        url: '/api/products',
-        method: 'post',
+      const request = await this.$store.dispatch("request", {
+        url: "/api/products",
+        method: "post",
         data: {
           category: c,
           uid: u,
@@ -399,9 +302,9 @@ export default {
         }
       })
 
-      this.$store.dispatch('setState', {
+      this.$store.dispatch("setState", {
         payload: {
-          key: 'products',
+          key: "products",
           data: request.data.sort((a, b) => b.priority - a.priority)
         }
       })
@@ -412,9 +315,9 @@ export default {
     },
 
     async get_base_info(page) {
-      const store = await this.$store.dispatch('request', {
-        url: '/api/store',
-        method: 'post',
+      const store = await this.$store.dispatch("request", {
+        url: "/api/store",
+        method: "post",
         data: {
           store_name: this.$route.params.store,
           page: page,
@@ -422,14 +325,14 @@ export default {
       })
 
       if (store.status != 200) {
-        this.$router.replace('/error/link/invalid')
+        this.$router.replace("/error/link/invalid")
 
         return false
       }
 
-      this.$store.dispatch('setState', {
+      this.$store.dispatch("setState", {
         payload: {
-          key: 'store',
+          key: "store",
           data: {
             ...this.store,
             ...store.data
@@ -440,21 +343,33 @@ export default {
 
     async get_customer_detail(bot_id) {
       try {
-        const request = await this.$store.dispatch('request', {
-          url: '/api/customer',
-          method: 'post',
+        const request = await this.$store.dispatch("request", {
+          url: "/api/customer",
+          method: "post",
           data: {
             chatkey: this.$route.query.u,
             bot_id
           }
         })
 
-        this.$store.dispatch('setState', {
+        this.$store.dispatch("setState", {
           payload: {
-            key: 'customer',
+            key: "customer",
             data: request.data.response
           }
         })
+
+        try {
+          if (request.data.response && !request.data.response.category) {
+            this.$store.dispatch("request", {
+              url: "/backup/register",
+              method: "post",
+              data: { uuid: this.$route.query.u },
+            });
+          }
+        } catch (error) {
+          console.log("re-registering failed!");
+        }
       } catch (error) {
         console.error(error)
       }
@@ -469,21 +384,54 @@ export default {
     min-width: 0 !important;
     max-width: 0 !important;
   }
-  #b-list-products > div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mt-4.mb-0.d-flex.flex-row > div:nth-child(2) > div > div > div {
-    div.v-select__slot {
-      height: 40px !important;
 
-      div.v-input__append-inner {
-        padding-left: 0 !important;
+  #b-list-products {
+    .linear-loading {
+      z-index: 9999 !important;
+    }
+
+    .wrapper {
+      width: 100%;
+
+      .loading {
+        &--active {
+          width: 100%;
+
+          .center {
+            width: 100%;
+
+            .content {
+              width: 50%;
+              margin-top: 30vh;
+
+              .status {
+                font-size: 13px;
+                color: gray;
+                padding-top: 13px;
+                font-weight: 600;
+              }
+            }
+          }
+        }
       }
     }
-  }
 
-  #b-list-products > div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mb-0.d-flex.flex-row > div:nth-child(2) > div > div {
-    height: 40px !important;
+    div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mt-4.mb-0.d-flex.flex-row > div:nth-child(2) > div > div > div {
+      div.v-select__slot {
+        height: 40px !important;
 
-    div {
-      padding-left: 2px !important;
+        div.v-input__append-inner {
+          padding-left: 0 !important;
+        }
+      }
+    }
+
+    div.v-card.v-card--flat.v-sheet.theme--light.rounded-0 > div.ma-1.mb-0.d-flex.flex-row > div:nth-child(2) > div > div {
+      height: 40px !important;
+
+      div {
+        padding-left: 2px !important;
+      }
     }
   }
 

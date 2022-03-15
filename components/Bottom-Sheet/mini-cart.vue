@@ -84,7 +84,7 @@
           class="pt-1 pb-1"
           style="
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 500;
             border: 1.8px solid darkslategrey;
             border-radius: 3px;
             color: darkslategrey;

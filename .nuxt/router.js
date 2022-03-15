@@ -4,9 +4,10 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _e3abe158 = () => interopDefault(import('../pages/internal_test.vue' /* webpackChunkName: "pages/internal_test" */))
+const _53f84008 = () => interopDefault(import('../pages/internal-uat.vue' /* webpackChunkName: "pages/internal-uat" */))
 const _405d54e7 = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
 const _0d10e6b9 = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
+const _5ec101e4 = () => interopDefault(import('../pages/site/confirmation/_store.vue' /* webpackChunkName: "pages/site/confirmation/_store" */))
 const _43dd4868 = () => interopDefault(import('../pages/success/checkout/_phone.vue' /* webpackChunkName: "pages/success/checkout/_phone" */))
 const _6e9a2362 = () => interopDefault(import('../pages/success/register/_phone.vue' /* webpackChunkName: "pages/success/register/_phone" */))
 const _019f982d = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
@@ -29,9 +30,9 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/internal_test",
-    component: _e3abe158,
-    name: "internal_test"
+    path: "/internal-uat",
+    component: _53f84008,
+    name: "internal-uat"
   }, {
     path: "/error/link/expired",
     component: _405d54e7,
@@ -40,6 +41,10 @@ export const routerOptions = {
     path: "/error/link/invalid",
     component: _0d10e6b9,
     name: "error-link-invalid"
+  }, {
+    path: "/site/confirmation/:store?",
+    component: _5ec101e4,
+    name: "site-confirmation-store"
   }, {
     path: "/success/checkout/:phone?",
     component: _43dd4868,

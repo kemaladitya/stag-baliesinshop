@@ -1,10 +1,10 @@
 [
   {
-    "name": "internal_test",
-    "path": "/internal_test",
-    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/Balesin-Shop-FE/pages/internal_test.vue",
-    "chunkName": "pages/internal_test",
-    "_name": "_e3abe158"
+    "name": "internal-uat",
+    "path": "/internal-uat",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/Balesin-Shop-FE/pages/internal-uat.vue",
+    "chunkName": "pages/internal-uat",
+    "_name": "_53f84008"
   },
   {
     "name": "error-link-expired",
@@ -19,6 +19,13 @@
     "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/Balesin-Shop-FE/pages/error/link/invalid.vue",
     "chunkName": "pages/error/link/invalid",
     "_name": "_0d10e6b9"
+  },
+  {
+    "name": "site-confirmation-store",
+    "path": "/site/confirmation/:store?",
+    "component": "/Users/taufikhidayat/Documents/Code-Documents/balesin.id/Balesin-Shop-FE/pages/site/confirmation/_store.vue",
+    "chunkName": "pages/site/confirmation/_store",
+    "_name": "_5ec101e4"
   },
   {
     "name": "success-checkout-phone",

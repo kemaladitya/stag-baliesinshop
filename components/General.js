@@ -8,12 +8,36 @@
  */
 
 export default {
+  list_month: [
+    "",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ],
+
   get_list_products: async (self, data) => {
     try {
       const request = await self.dispatch('request', {
         url: '/api/products',
         method: 'post',
         data
+      });
+
+      request.data.results = request.data.results.map(_ => {
+        if (_.express_delivery && _.express_delivery_setup) {
+          _.express_delivery_setup = JSON.parse(_.express_delivery_setup);
+        }
+
+        return _;
       })
 
       if (request.data.status) {
@@ -231,5 +255,5 @@ export default {
 
       return null;
     }
-  }
+  },
 }

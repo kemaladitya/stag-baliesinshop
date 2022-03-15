@@ -1,14 +1,10 @@
 <template>
   <v-app>
-    <div class="b-font" height="100vh" style="padding-top: 30vh;">
+    <div id="success-checkout" class="b-font" height="100vh">
       <center>
-        <v-img
-          width="180"
-          height="180"
-          src="https://s3-ap-southeast-1.amazonaws.com/alatteknikkitaassets/logos/success.gif"
-        />
-        <div style="font-weight: 600; font-size: 23px">Pesanan Berhasil</div>
-        <center style="color: #999999; font-size: 16px">
+        <v-img width="180" height="180" src="/success.gif" />
+        <div class="title">Pesanan Berhasil</div>
+        <center class="information">
           <div>Proses pemesanan kamu telah selesai.</div>
           <div>Kamu akan kembali ke bot secara</div>
           <div>otomatis.</div>
@@ -49,3 +45,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#success-checkout {
+  padding-top: 30vh;
+
+  .title {
+    font-weight: 600;
+    font-size: 23px;
+  }
+
+  .information {
+    color: #999999;
+    font-size: 16px;
+  }
+}
+</style>
