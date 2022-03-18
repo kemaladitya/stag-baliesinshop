@@ -2091,21 +2091,21 @@ installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCa
 
 /***/ }),
 
-/***/ 293:
+/***/ 290:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=0331afbe&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=9488057e&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row mt-4 mb-4 pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600; width: 50%\">","</div>",[_c('v-btn',{class:!_vm.courier.selected ? 'pulse-button' : null,staticStyle:{"text-transform":"none","letter-spacing":"normal","font-size":"14px","border-radius":"8px"},attrs:{"color":"#fd0","block":"","depressed":""},on:{"click":function($event){_vm.select_courier_dialog = true}}},[_vm._v("\n        Kurir\n      ")])],1),_vm._ssrNode(" "),_c('v-spacer'),_vm._ssrNode(" "),(_vm.courier.loading)?_vm._ssrNode("<div class=\"pt-1\">","</div>",[_c('v-progress-circular',{attrs:{"size":"25","color":"primary","indeterminate":""}})],1):_vm._ssrNode("<div>","</div>",[(!_vm.courier.selected)?_vm._ssrNode("<div class=\"pt-2\" style=\"font-weight: 600; align-self: center\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 500; font-size: 14px\">Belum Dipilih</div>")],2):_vm._ssrNode("<div style=\"font-weight: 600; align-self: center\">","</div>",[(_vm.courier.selected.status)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c('v-spacer'),_vm._ssrNode(" <div style=\"font-size: 12px\">"+_vm._ssrEscape("\n              "+_vm._s(_vm.courier.selected.name)+"\n              "+_vm._s(_vm.courier.selected.name === "Express Delivery"
                   ? null
-                  : "| " + _vm.courier.selected.service)+"\n            ")+"</div> "),(_vm.courier.selected.name === 'Express Delivery')?_c('v-icon',{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("\n              mdi-clock-fast\n            ")]):_c('v-icon',{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-truck")])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c('v-spacer'),_vm._ssrNode(" <div style=\"font-size: 13px\">"+_vm._ssrEscape("Rp "+_vm._s(_vm.courier.selected.price.toLocaleString().replace(/,/g, '.')))+"</div> "),_c('v-icon',{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-cash")])],2),_vm._ssrNode(" "),(!_vm.courier.selected.custom)?_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c('v-spacer'),_vm._ssrNode(" <div style=\"font-size: 11px\">"+_vm._ssrEscape(_vm._s(_vm.courier.selected.range))+"</div> "),_c('v-icon',{staticClass:"ml-1",attrs:{"small":""}},[_vm._v("mdi-clock-time-four")])],2):_vm._e()],2):_vm._ssrNode(("<div style=\"font-size: 9px; max-width: 120px; color: red\">"+_vm._ssrEscape("\n          "+_vm._s(_vm.courier.selected.message)+"\n        ")+"</div>"))])])],2),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.select_courier_dialog},on:{"click:outside":function($event){_vm.select_courier_dialog = false}}},[_c('v-sheet',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('list-courier',{attrs:{"courier":_vm.courier,"icons":_vm.icons,"take_icons":_vm.take_icons,"select_courier":_vm.select_courier}})],1)],1)],2)}
+                  : "| " + _vm.courier.selected.service)+"\n            ")+"</div> "),(_vm.courier.selected.name === 'Express Delivery')?_c('v-icon',{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("\n              mdi-clock-fast\n            ")]):_c('v-icon',{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-truck")])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c('v-spacer'),_vm._ssrNode(" <div style=\"font-size: 13px\">"+_vm._ssrEscape("Rp "+_vm._s(_vm.courier.selected.price.toLocaleString().replace(/,/g, '.')))+"</div> "),_c('v-icon',{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-cash")])],2),_vm._ssrNode(" "),(!_vm.courier.selected.custom)?_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c('v-spacer'),_vm._ssrNode(" <div style=\"font-size: 11px\">"+_vm._ssrEscape(_vm._s(_vm.courier.selected.range == " day" ? "today" : _vm.courier.selected.range))+"</div> "),_c('v-icon',{staticClass:"ml-1",attrs:{"small":""}},[_vm._v("mdi-clock-time-four")])],2):_vm._e()],2):_vm._ssrNode(("<div style=\"font-size: 9px; max-width: 120px; color: red\">"+_vm._ssrEscape("\n          "+_vm._s(_vm.courier.selected.message)+"\n        ")+"</div>"))])])],2),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.select_courier_dialog},on:{"click:outside":function($event){_vm.select_courier_dialog = false}}},[_c('v-sheet',{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('list-courier',{attrs:{"courier":_vm.courier,"icons":_vm.icons,"take_icons":_vm.take_icons,"select_courier":_vm.select_courier}})],1)],1)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=0331afbe&
+// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=9488057e&
 
 // EXTERNAL MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue + 4 modules
 var list_courier = __webpack_require__(218);
@@ -2429,7 +2429,7 @@ var VIcon = __webpack_require__(23);
 var VProgressCircular = __webpack_require__(37);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/VSheet.js
-var VSheet = __webpack_require__(19);
+var VSheet = __webpack_require__(20);
 
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(115);

@@ -49,7 +49,7 @@
         :checked_button="checked_button"
       />
     </div>
-    <v-snackbar
+    <!-- <v-snackbar
       id="b-cour-unavailable"
       v-model="courier.unavailable_cour"
       color="error"
@@ -61,7 +61,7 @@
       center
     >
       Oops.. Service is not available for your city
-    </v-snackbar>
+    </v-snackbar> -->
     <v-bottom-sheet
       :value="order_loading"
       persistent
@@ -531,10 +531,11 @@ export default {
         },
       });
 
-      if (pricing.status == 200 && pricing.data.status && pricing.data.name.length) {
-        this.courier.selected = pricing.data
+      if (pricing.status == 200 && (pricing.data.status || pricing.data.service === "gojek") && pricing.data.name.length) {
+        pricing.data.status = true;
+        this.courier.selected = pricing.data;
       } else if (pricing.status == 200 && !pricing.data.status && pricing.data.name.length) {
-        this.courier.unavailable_cour = true
+        this.courier.unavailable_cour = true;
       }
 
       this.courier.loading = false;

@@ -1,7 +1,7 @@
 exports.ids = [70,68];
 exports.modules = {
 
-/***/ 253:
+/***/ 251:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69,7 +69,7 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /***/ }),
 
-/***/ 315:
+/***/ 311:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84,7 +84,7 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./components/payment-receipt/uploader.vue?vue&type=template&id=53839544&
 
 // EXTERNAL MODULE: ./components/payment-receipt/svg.vue + 4 modules
-var svg = __webpack_require__(253);
+var svg = __webpack_require__(251);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/payment-receipt/uploader.vue?vue&type=script&lang=js&
 //
