@@ -18,6 +18,7 @@
       </v-btn>
     </div>
     <div
+      v-if="!courier.loading"
       style="overflow-y: scroll !important; max-height: 450px !important;"
     >
       <v-card
@@ -38,7 +39,7 @@
         >
           <div v-if="cr.includes('custom')">
             <div
-              class="pa-1 pb-0"
+              class="pa-1 pb-0 d-flex flex-row"
               :style="
                 !!express_delivery_validator(cr)
                   ? 'color: grey;'
@@ -46,17 +47,26 @@
               "
               style="font-weight: 600; text-transform: capitalize"
             >
-              <v-icon
-                :color="
-                  !!express_delivery_validator(cr)
-                    ? 'grey'
-                    : take_icons[cr.split('|')[2]].color
-                "
-                class="mr-1"
-              >
-                {{ take_icons[cr.split('|')[2]].name }} - {{ take_icons[cr.split('|')[2]].name }}
-              </v-icon>
-              {{ cr.split('|')[1] }} - {{ cr.split('|')[2] }}
+              <div>
+                <v-icon
+                  :color="
+                    !!express_delivery_validator(cr)
+                      ? 'grey'
+                      : take_icons[cr.split('|')[2]].color
+                  "
+                  class="mr-1"
+                >
+                  {{ take_icons[cr.split('|')[2]].name }} - {{ take_icons[cr.split('|')[2]].name }}
+                </v-icon>
+              </div>
+              <div class="pt-1">
+                {{ cr.split('|')[1] }} - {{ cr.split('|')[2] }}
+              </div>
+              <v-spacer />
+              <div class="pt-1">
+                <div>IDR. {{ courier.prices[idx].price.toLocaleString().replace(/,/g, ".") }}</div>
+                <div>{{ courier.prices[idx].range }}</div>
+              </div>
               <div
                 v-if="take_icons[cr.split('|')[2]].description.length"
                 :style="!!express_delivery_validator(cr) ? 'color: grey' : 'color: black'"
@@ -85,17 +95,28 @@
               "
               style="font-weight: 600; text-transform: capitalize"
             >
-              <v-icon
-                :color="
-                  !!express_delivery_validator(cr)
-                    ? 'grey'
-                    : take_icons[cr.split('|')[0]].color
-                "
-                class="mr-1"
-              >
-                {{ take_icons[cr.split('|')[0]].name }} - {{ take_icons[cr.split('|')[0]].name }}
-              </v-icon>
-              {{ cr.split('|')[0] }} - {{ cr.split('|')[1] }}
+              <div class="d-flex flex-row">
+                <div>
+                  <v-icon
+                    :color="
+                      !!express_delivery_validator(cr)
+                        ? 'grey'
+                        : take_icons[cr.split('|')[0]].color
+                    "
+                    class="mr-1"
+                  >
+                    {{ take_icons[cr.split('|')[0]].name }} - {{ take_icons[cr.split('|')[0]].name }}
+                  </v-icon>
+                </div>
+                <div class="pt-1">
+                  {{ cr.split('|')[0] }} - {{ cr.split('|')[1] }}
+                </div>
+                <v-spacer />
+                <div class="pt-1">
+                  <div>IDR. {{ courier.prices[idx].price.toLocaleString().replace(/,/g, ".") }}</div>
+                  <div>{{ courier.prices[idx].range }}</div>
+                </div>
+              </div>
               <div
                 v-if="take_icons[cr.split('|')[0]].description.length"
                 :style="!!express_delivery_validator(cr) ? 'color: grey' : 'color: black'"

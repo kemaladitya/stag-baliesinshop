@@ -3743,28 +3743,49 @@ module.exports.__inject__ = function (context) {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=34f51e42&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_vm._ssrNode("<div class=\"pl-2\" style=\"align-self: center; font-size: 14px; font-weight: 600\">\n      Pilih Pengiriman\n    </div> "),_c('v-spacer'),_vm._ssrNode(" "),_c('v-btn',{attrs:{"color":"red","icon":"","text":""},on:{"click":function($event){_vm.select_courier_dialog = false}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],2),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"overflow-y: scroll !important; max-height: 450px !important;\">","</div>",_vm._l((_vm.courier.lists),function(cr,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[(_vm.express_delivery_validator(cr) == false)?_c('v-card',{staticClass:"ml-2 pa-3 pt-2 pb-3 mb-2",staticStyle:{"font-size":"13px","font-weight":"600","border-radius":"8px"},attrs:{"disabled":!!_vm.express_delivery_validator(cr),"outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[(cr.includes('custom'))?_c('div',[_c('div',{staticClass:"pa-1 pb-0",staticStyle:{"font-weight":"600","text-transform":"capitalize"},style:(!!_vm.express_delivery_validator(cr)
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=0d608bc6&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_vm._ssrNode("<div class=\"pl-2\" style=\"align-self: center; font-size: 14px; font-weight: 600\">\n      Pilih Pengiriman\n    </div> "),_c('v-spacer'),_vm._ssrNode(" "),_c('v-btn',{attrs:{"color":"red","icon":"","text":""},on:{"click":function($event){_vm.select_courier_dialog = false}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],2),_vm._ssrNode(" "),(!_vm.courier.loading)?_vm._ssrNode("<div style=\"overflow-y: scroll !important; max-height: 450px !important;\">","</div>",_vm._l((_vm.courier.lists),function(cr,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[(_vm.express_delivery_validator(cr) == false)?_c('v-card',{staticClass:"ml-2 pa-3 pt-2 pb-3 mb-2",staticStyle:{"font-size":"13px","font-weight":"600","border-radius":"8px"},attrs:{"disabled":!!_vm.express_delivery_validator(cr),"outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[(cr.includes('custom'))?_c('div',[_c('div',{staticClass:"pa-1 pb-0 d-flex flex-row",staticStyle:{"font-weight":"600","text-transform":"capitalize"},style:(!!_vm.express_delivery_validator(cr)
                 ? 'color: grey;'
-                : 'color: ' + _vm.take_icons[cr.split('|')[2]].color)},[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
-                  ? 'grey'
-                  : _vm.take_icons[cr.split('|')[2]].color}},[_vm._v("\n              "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+"\n            ")]),_vm._v("\n            "+_vm._s(cr.split('|')[1])+" - "+_vm._s(cr.split('|')[2])+"\n            "),(_vm.take_icons[cr.split('|')[2]].description.length)?_c('div',{staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
+                : 'color: ' + _vm.take_icons[cr.split('|')[2]].color)},[_c('div',[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
+                    ? 'grey'
+                    : _vm.take_icons[cr.split('|')[2]].color}},[_vm._v("\n                "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+"\n              ")])],1),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_vm._v("\n              "+_vm._s(cr.split('|')[1])+" - "+_vm._s(cr.split('|')[2])+"\n            ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_c('div',[_vm._v("IDR. "+_vm._s(_vm.courier.prices[idx].price.toLocaleString().replace(/,/g, ".")))]),_vm._v(" "),_c('div',[_vm._v(_vm._s(_vm.courier.prices[idx].range))])]),_vm._v(" "),(_vm.take_icons[cr.split('|')[2]].description.length)?_c('div',{staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
                   cr.split('|')[2] === 'Express Delivery'
                   && _vm.express_delivery_description().length
                 )?_c('span',{staticStyle:{"color":"#ff4f4f"}},[_vm._v("\n                "+_vm._s(_vm.express_delivery_description())+"\n              ")]):_c('span',[_vm._v(_vm._s(_vm.take_icons[cr.split('|')[2]].description))])]):_vm._e()],1)]):_c('div',[_c('div',{staticClass:"pa-1 pb-0",staticStyle:{"font-weight":"600","text-transform":"capitalize"},style:(!!_vm.express_delivery_validator(cr)
                 ? 'color: grey;'
-                : 'color: ' + _vm.take_icons[cr.split('|')[0]].color)},[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
-                  ? 'grey'
-                  : _vm.take_icons[cr.split('|')[0]].color}},[_vm._v("\n              "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+"\n            ")]),_vm._v("\n            "+_vm._s(cr.split('|')[0])+" - "+_vm._s(cr.split('|')[1])+"\n            "),(_vm.take_icons[cr.split('|')[0]].description.length)?_c('div',{staticClass:"mt-1",staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
+                : 'color: ' + _vm.take_icons[cr.split('|')[0]].color)},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
+                      ? 'grey'
+                      : _vm.take_icons[cr.split('|')[0]].color}},[_vm._v("\n                  "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+"\n                ")])],1),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_vm._v("\n                "+_vm._s(cr.split('|')[0])+" - "+_vm._s(cr.split('|')[1])+"\n              ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_c('div',[_vm._v("IDR. "+_vm._s(_vm.courier.prices[idx].price.toLocaleString().replace(/,/g, ".")))]),_vm._v(" "),_c('div',[_vm._v(_vm._s(_vm.courier.prices[idx].range))])])],1),_vm._v(" "),(_vm.take_icons[cr.split('|')[0]].description.length)?_c('div',{staticClass:"mt-1",staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
                   cr.split('|')[0] === 'Express Delivery'
                   && _vm.express_delivery_description().length
-                )?_c('span',{staticStyle:{"color":"#ff4f4f"}},[_vm._v("\n                "+_vm._s(_vm.express_delivery_description())+"\n              ")]):_c('span',[_vm._v(_vm._s(_vm.take_icons[cr.split('|')[0]].description))])]):_vm._e()],1)])]):_vm._e()],1)}),1)],2)}
+                )?_c('span',{staticStyle:{"color":"#ff4f4f"}},[_vm._v("\n                "+_vm._s(_vm.express_delivery_description())+"\n              ")]):_c('span',[_vm._v(_vm._s(_vm.take_icons[cr.split('|')[0]].description))])]):_vm._e()])])]):_vm._e()],1)}),1):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=34f51e42&
+// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=0d608bc6&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -8889,12 +8910,12 @@ module.exports = ___CSS_LOADER_EXPORT___;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mini/index.vue?vue&type=template&id=4e3d7e46&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-2"},[_c('FailedDialog',{attrs:{"show":_vm.show_dialog,"message":_vm.show_dialog_message,"event_handler":_vm.event_handler}}),_vm._ssrNode(" "),_c('v-dialog',{model:{value:(_vm.invalid_voucher),callback:function ($$v) {_vm.invalid_voucher=$$v},expression:"invalid_voucher"}},[_c('v-card',{staticStyle:{"padding":"20px"}},[_c('v-img',{attrs:{"src":__webpack_require__(234),"width":"80"}}),_vm._v(" "),_c('center',[_c('div',{staticClass:"pt-2",staticStyle:{"font-size":"16px","font-weight":"600","color":"#5a5a5a"},domProps:{"innerHTML":_vm._s(_vm.invalid_message)}})])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"\\n      padding-bottom: 100px;\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n      padding-bottom: 180px;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher,"courier":_vm.courier && _vm.courier.selected ? _vm.courier.selected : _vm.courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules,"courier":_vm.courier.selected ? _vm.courier.selected.name : '',"checked_button":_vm.checked_button}})],2),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('checkout-footer',{attrs:{"execute_order":_vm.execute_order,"general_total_order":_vm.general_total_order,"checked_button":_vm.checked_button}})],2)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mini/index.vue?vue&type=template&id=65428e08&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-2"},[_c('FailedDialog',{attrs:{"show":_vm.show_dialog,"message":_vm.show_dialog_message,"event_handler":_vm.event_handler}}),_vm._ssrNode(" "),_c('v-dialog',{model:{value:(_vm.invalid_voucher),callback:function ($$v) {_vm.invalid_voucher=$$v},expression:"invalid_voucher"}},[_c('v-card',{staticStyle:{"padding":"20px"}},[_c('v-img',{attrs:{"src":__webpack_require__(234),"width":"80"}}),_vm._v(" "),_c('center',[_c('div',{staticClass:"pt-2",staticStyle:{"font-size":"16px","font-weight":"600","color":"#5a5a5a"},domProps:{"innerHTML":_vm._s(_vm.invalid_message)}})])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"\\n      padding-bottom: 100px;\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n      padding-bottom: 180px;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher,"courier":_vm.courier && _vm.courier.selected ? _vm.courier.selected : _vm.courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),(!_vm.loading_courier)?_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules}}):_vm._e(),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules,"courier":_vm.courier.selected ? _vm.courier.selected.name : '',"checked_button":_vm.checked_button}})],2),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('checkout-footer',{attrs:{"execute_order":_vm.execute_order,"general_total_order":_vm.general_total_order,"checked_button":_vm.checked_button}})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mini/index.vue?vue&type=template&id=4e3d7e46&
+// CONCATENATED MODULE: ./components/checkout/screen/mini/index.vue?vue&type=template&id=65428e08&
 
 // EXTERNAL MODULE: ./components/checkout/screen/mini/constants/customer.vue + 4 modules
 var customer = __webpack_require__(283);
@@ -9392,6 +9413,7 @@ var components_general = __webpack_require__(128);
 //
 //
 //
+//
 
 
 
@@ -9412,6 +9434,7 @@ var components_general = __webpack_require__(128);
     FailedDialog: failed_message["default"]
   },
   data: () => ({
+    loading_courier: true,
     show_dialog: false,
     show_dialog_message: "",
     invalid_voucher: false,
@@ -9428,7 +9451,8 @@ var components_general = __webpack_require__(128);
       lists: [],
       selected: null,
       loading: false,
-      unavailable_cour: false
+      unavailable_cour: false,
+      prices: []
     },
     payment: {
       lists: general.payment_type,
@@ -9699,6 +9723,8 @@ var components_general = __webpack_require__(128);
   },
 
   async mounted() {
+    this.loading_courier = true;
+    this.courier.loading = true;
     await this.get_list_voucher();
     const cart = await components_general["default"].cart_manager(this, {
       method: 'get',
@@ -9725,7 +9751,8 @@ var components_general = __webpack_require__(128);
           // } else {
           //   return el
           // }
-        }); // console.log("courier --> ", this.courier.lists)
+        });
+        await this.get_courier_prices(this.courier.lists); // console.log("courier --> ", this.courier.lists)
         // // hardcode
         // this.courier.lists.unshift("custom|Hawker|Express Delivery|5000|1");
         // console.log("this.store.courier", this.courier.lists);
@@ -9735,11 +9762,37 @@ var components_general = __webpack_require__(128);
         }
       }
     }
+
+    this.courier.loading = false;
+    this.loading_courier = false;
   },
 
   methods: {
     event_handler(key, value) {
       this[key] = value;
+    },
+
+    async get_courier_prices(lists) {
+      for (let index = 0; index < lists.length; index++) {
+        const element = lists[index];
+        console.log("get_courier_prices", element);
+        const pricing = await this.$store.dispatch('request', {
+          url: '/api/deliverycost/check',
+          method: 'post',
+          data: {
+            name: element,
+            store_id: this.store.id,
+            store_name: this.store.name,
+            uuid: this.customer.chatkey,
+            customer_address: this.customer.address,
+            customer_city: this.customer.city,
+            customer_urban: this.customer.urban,
+            customer_sub_district: this.customer.sub_district,
+            items: this.list_product_id
+          }
+        });
+        this.courier.prices.push(pricing.data);
+      }
     },
 
     check_delivery_order() {
@@ -9781,6 +9834,7 @@ var components_general = __webpack_require__(128);
           store_id: this.store.id,
           store_name: this.store.name,
           uuid: this.customer.chatkey,
+          customer_address: this.customer.address,
           customer_city: this.customer.city,
           customer_urban: this.customer.urban,
           customer_sub_district: this.customer.sub_district,
@@ -10069,12 +10123,12 @@ installComponents_default()(mini_component, {VBottomSheet: VBottomSheet["a" /* d
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/index.vue?vue&type=template&id=dc1469a4&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-2"},[_c('FailedDialog',{attrs:{"show":_vm.show_dialog,"message":_vm.show_dialog_message,"event_handler":_vm.event_handler}}),_vm._ssrNode(" "),_c('v-dialog',{model:{value:(_vm.invalid_voucher),callback:function ($$v) {_vm.invalid_voucher=$$v},expression:"invalid_voucher"}},[_c('v-card',{staticStyle:{"padding":"20px"}},[_c('v-img',{attrs:{"src":__webpack_require__(234),"width":"80"}}),_vm._v(" "),_c('center',[_c('div',{staticClass:"pt-2",staticStyle:{"font-size":"16px","font-weight":"600","color":"#5a5a5a"},domProps:{"innerHTML":_vm._s(_vm.invalid_message)}})])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"\\n      padding-bottom: 100px;\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n      overflow-x: hidden;\\n      padding-bottom: 180px;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher,"courier":_vm.courier && _vm.courier.selected ? _vm.courier.selected : _vm.courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules,"courier":_vm.courier.selected ? _vm.courier.selected.name : '',"checked_button":_vm.checked_button}})],2),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('checkout-footer',{attrs:{"execute_order":_vm.execute_order,"general_total_order":_vm.general_total_order,"checked_button":_vm.checked_button,"subtotal":_vm.subtotal}})],2)}
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/index.vue?vue&type=template&id=e312169c&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pa-2"},[_c('FailedDialog',{attrs:{"show":_vm.show_dialog,"message":_vm.show_dialog_message,"event_handler":_vm.event_handler}}),_vm._ssrNode(" "),_c('v-dialog',{model:{value:(_vm.invalid_voucher),callback:function ($$v) {_vm.invalid_voucher=$$v},expression:"invalid_voucher"}},[_c('v-card',{staticStyle:{"padding":"20px"}},[_c('v-img',{attrs:{"src":__webpack_require__(234),"width":"80"}}),_vm._v(" "),_c('center',[_c('div',{staticClass:"pt-2",staticStyle:{"font-size":"16px","font-weight":"600","color":"#5a5a5a"},domProps:{"innerHTML":_vm._s(_vm.invalid_message)}})])],1)],1),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"\\n      padding-bottom: 100px;\\n      min-height: calc(100vh - 140px) !important;\\n      max-height: calc(100vh - 140px) !important;\\n      overflow-y: scroll;\\n      overflow-x: hidden;\\n      padding-bottom: 180px;\\n    \">","</div>",[_c('Customer'),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Voucher',{attrs:{"voucher":_vm.voucher,"submit":_vm.submit_voucher,"use_custom_voucher":_vm.use_custom_voucher}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('OrderInfo',{attrs:{"voucher":_vm.voucher,"courier":_vm.courier && _vm.courier.selected ? _vm.courier.selected : _vm.courier}}),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),(!_vm.loading_courier)?_c('Courier',{attrs:{"courier":_vm.courier,"select":_vm.select_courier,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules}}):_vm._e(),_vm._ssrNode(" "),_c('v-divider'),_vm._ssrNode(" "),_c('Payment',{attrs:{"payment":_vm.payment,"select":_vm.select_payment,"general_total_order":_vm.general_total_order,"custom_rules":_vm.custom_rules,"courier":_vm.courier.selected ? _vm.courier.selected.name : '',"checked_button":_vm.checked_button}})],2),_vm._ssrNode(" "),_c('v-bottom-sheet',{attrs:{"value":_vm.order_loading,"persistent":""}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{attrs:{"width":"130","src":"https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif"}}),_vm._v(" "),_c('div',{},[_vm._v("Pesanan kamu sedang diproses,")]),_vm._v(" "),_c('div',{},[_vm._v("harap menunggu untuk beberapa")]),_vm._v(" "),_c('div',{},[_vm._v("saat.")])],1)],1)],1),_vm._ssrNode(" "),_c('v-bottom-sheet',{model:{value:(_vm.order_failed),callback:function ($$v) {_vm.order_failed=$$v},expression:"order_failed"}},[_c('v-sheet',[_c('center',{staticClass:"pa-3"},[_c('v-img',{staticClass:"mb-4",attrs:{"width":"50","src":"https://www.clipartmax.com/png/full/120-1203855_error-handling-in-swift-error-logo-png.png"}}),_vm._v(" "),_c('div',{},[_vm._v("Proses order gagal,")]),_vm._v(" "),_c('div',{},[_vm._v("mohon untuk memuat ulang halaman")]),_vm._v(" "),_c('div',{},[_vm._v("jika tetap gagal, silahkan menghubungi customer service.")])],1)],1)],1),_vm._ssrNode(" "),_c('checkout-footer',{attrs:{"execute_order":_vm.execute_order,"general_total_order":_vm.general_total_order,"checked_button":_vm.checked_button,"subtotal":_vm.subtotal}})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mobile/index.vue?vue&type=template&id=dc1469a4&
+// CONCATENATED MODULE: ./components/checkout/screen/mobile/index.vue?vue&type=template&id=e312169c&
 
 // EXTERNAL MODULE: ./components/checkout/screen/mobile/constants/customer.vue + 4 modules
 var customer = __webpack_require__(287);
@@ -10209,6 +10263,7 @@ var components_general = __webpack_require__(128);
 //
 //
 //
+//
 
 
 
@@ -10229,6 +10284,7 @@ var components_general = __webpack_require__(128);
     FailedDialog: failed_message["default"]
   },
   data: () => ({
+    loading_courier: true,
     show_dialog: false,
     show_dialog_message: "",
     invalid_voucher: false,
@@ -10245,7 +10301,8 @@ var components_general = __webpack_require__(128);
       lists: [],
       selected: null,
       loading: false,
-      unavailable_cour: false
+      unavailable_cour: false,
+      prices: []
     },
     payment: {
       lists: general.payment_type,
@@ -10516,6 +10573,8 @@ var components_general = __webpack_require__(128);
   },
 
   async mounted() {
+    this.courier.loading = true;
+    this.loading_courier = true;
     await this.get_list_voucher();
     const cart = await components_general["default"].cart_manager(this, {
       method: 'get',
@@ -10542,7 +10601,8 @@ var components_general = __webpack_require__(128);
           // } else {
           //   return el
           // }
-        }); // console.log("courier --> ", this.courier.lists)
+        });
+        this.get_courier_prices(this.courier.lists); // console.log("courier --> ", this.courier.lists)
         // // hardcode
         // this.courier.lists.unshift("custom|Hawker|Express Delivery|5000|1");
         // console.log("this.store.courier", this.courier.lists);
@@ -10552,11 +10612,36 @@ var components_general = __webpack_require__(128);
         }
       }
     }
+
+    this.loading_courier = false;
   },
 
   methods: {
     event_handler(key, value) {
       this[key] = value;
+    },
+
+    async get_courier_prices(lists) {
+      for (let index = 0; index < lists.length; index++) {
+        const element = lists[index];
+        console.log("get_courier_prices", element);
+        const pricing = await this.$store.dispatch('request', {
+          url: '/api/deliverycost/check',
+          method: 'post',
+          data: {
+            name: element,
+            store_id: this.store.id,
+            store_name: this.store.name,
+            uuid: this.customer.chatkey,
+            customer_address: this.customer.address,
+            customer_city: this.customer.city,
+            customer_urban: this.customer.urban,
+            customer_sub_district: this.customer.sub_district,
+            items: this.list_product_id
+          }
+        });
+        this.courier.prices.push(pricing.data);
+      }
     },
 
     check_delivery_order() {

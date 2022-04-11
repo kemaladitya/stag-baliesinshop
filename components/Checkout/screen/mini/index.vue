@@ -34,6 +34,7 @@
       <OrderInfo :voucher="voucher" :courier="courier && courier.selected ? courier.selected : courier" />
       <v-divider />
       <Courier
+        v-if="!loading_courier"
         :courier="courier"
         :select="select_courier"
         :general_total_order="general_total_order"
@@ -125,6 +126,7 @@ export default {
   },
 
   data: () => ({
+    loading_courier: true,
     show_dialog: false,
     show_dialog_message: "",
     invalid_voucher: false,
@@ -142,6 +144,7 @@ export default {
       selected: null,
       loading: false,
       unavailable_cour: false,
+      prices: [],
     },
     payment: {
       lists: Format.payment_type,
@@ -433,6 +436,9 @@ export default {
   },
 
   async mounted() {
+    this.loading_courier = true;
+    this.courier.loading = true
+
     await this.get_list_voucher()
 
     const cart = await API.cart_manager(this, {
@@ -463,6 +469,8 @@ export default {
           // }
         })
 
+        await this.get_courier_prices(this.courier.lists);
+
         // console.log("courier --> ", this.courier.lists)
         // // hardcode
         // this.courier.lists.unshift("custom|Hawker|Express Delivery|5000|1");
@@ -474,11 +482,39 @@ export default {
         }
       }
     }
+
+    this.courier.loading = false
+    this.loading_courier = false;
   },
 
   methods: {
     event_handler(key, value) {
       this[key] = value;
+    },
+
+    async get_courier_prices(lists) {
+      for (let index = 0; index < lists.length; index++) {
+        const element = lists[index];
+        console.log("get_courier_prices", element);
+        
+        const pricing = await this.$store.dispatch('request', {
+          url: '/api/deliverycost/check',
+          method: 'post',
+          data: {
+            name                  : element,
+            store_id              : this.store.id,
+            store_name            : this.store.name,
+            uuid                  : this.customer.chatkey,
+            customer_address      : this.customer.address,
+            customer_city         : this.customer.city,
+            customer_urban        : this.customer.urban,
+            customer_sub_district : this.customer.sub_district,
+            items                 : this.list_product_id,
+          },
+        });
+
+        this.courier.prices.push(pricing.data);
+      }
     },
 
     check_delivery_order() {
@@ -524,6 +560,7 @@ export default {
           store_id              : this.store.id,
           store_name            : this.store.name,
           uuid                  : this.customer.chatkey,
+          customer_address      : this.customer.address,
           customer_city         : this.customer.city,
           customer_urban        : this.customer.urban,
           customer_sub_district : this.customer.sub_district,
@@ -533,9 +570,9 @@ export default {
 
       if (pricing.status == 200 && (pricing.data.status || pricing.data.service === "gojek") && pricing.data.name.length) {
         pricing.data.status = true;
-        this.courier.selected = pricing.data;
+        this.courier.selected = pricing.data
       } else if (pricing.status == 200 && !pricing.data.status && pricing.data.name.length) {
-        this.courier.unavailable_cour = true;
+        this.courier.unavailable_cour = true
       }
 
       this.courier.loading = false;

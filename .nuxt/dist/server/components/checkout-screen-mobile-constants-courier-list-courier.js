@@ -8,28 +8,49 @@ exports.modules = {
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=34f51e42&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_vm._ssrNode("<div class=\"pl-2\" style=\"align-self: center; font-size: 14px; font-weight: 600\">\n      Pilih Pengiriman\n    </div> "),_c('v-spacer'),_vm._ssrNode(" "),_c('v-btn',{attrs:{"color":"red","icon":"","text":""},on:{"click":function($event){_vm.select_courier_dialog = false}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],2),_vm._ssrNode(" "),_vm._ssrNode("<div style=\"overflow-y: scroll !important; max-height: 450px !important;\">","</div>",_vm._l((_vm.courier.lists),function(cr,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[(_vm.express_delivery_validator(cr) == false)?_c('v-card',{staticClass:"ml-2 pa-3 pt-2 pb-3 mb-2",staticStyle:{"font-size":"13px","font-weight":"600","border-radius":"8px"},attrs:{"disabled":!!_vm.express_delivery_validator(cr),"outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[(cr.includes('custom'))?_c('div',[_c('div',{staticClass:"pa-1 pb-0",staticStyle:{"font-weight":"600","text-transform":"capitalize"},style:(!!_vm.express_delivery_validator(cr)
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=0d608bc6&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_vm._ssrNode("<div class=\"pl-2\" style=\"align-self: center; font-size: 14px; font-weight: 600\">\n      Pilih Pengiriman\n    </div> "),_c('v-spacer'),_vm._ssrNode(" "),_c('v-btn',{attrs:{"color":"red","icon":"","text":""},on:{"click":function($event){_vm.select_courier_dialog = false}}},[_c('v-icon',[_vm._v("mdi-close")])],1)],2),_vm._ssrNode(" "),(!_vm.courier.loading)?_vm._ssrNode("<div style=\"overflow-y: scroll !important; max-height: 450px !important;\">","</div>",_vm._l((_vm.courier.lists),function(cr,idx){return _c('v-card',{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[(_vm.express_delivery_validator(cr) == false)?_c('v-card',{staticClass:"ml-2 pa-3 pt-2 pb-3 mb-2",staticStyle:{"font-size":"13px","font-weight":"600","border-radius":"8px"},attrs:{"disabled":!!_vm.express_delivery_validator(cr),"outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[(cr.includes('custom'))?_c('div',[_c('div',{staticClass:"pa-1 pb-0 d-flex flex-row",staticStyle:{"font-weight":"600","text-transform":"capitalize"},style:(!!_vm.express_delivery_validator(cr)
                 ? 'color: grey;'
-                : 'color: ' + _vm.take_icons[cr.split('|')[2]].color)},[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
-                  ? 'grey'
-                  : _vm.take_icons[cr.split('|')[2]].color}},[_vm._v("\n              "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+"\n            ")]),_vm._v("\n            "+_vm._s(cr.split('|')[1])+" - "+_vm._s(cr.split('|')[2])+"\n            "),(_vm.take_icons[cr.split('|')[2]].description.length)?_c('div',{staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
+                : 'color: ' + _vm.take_icons[cr.split('|')[2]].color)},[_c('div',[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
+                    ? 'grey'
+                    : _vm.take_icons[cr.split('|')[2]].color}},[_vm._v("\n                "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[2]].name)+"\n              ")])],1),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_vm._v("\n              "+_vm._s(cr.split('|')[1])+" - "+_vm._s(cr.split('|')[2])+"\n            ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_c('div',[_vm._v("IDR. "+_vm._s(_vm.courier.prices[idx].price.toLocaleString().replace(/,/g, ".")))]),_vm._v(" "),_c('div',[_vm._v(_vm._s(_vm.courier.prices[idx].range))])]),_vm._v(" "),(_vm.take_icons[cr.split('|')[2]].description.length)?_c('div',{staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
                   cr.split('|')[2] === 'Express Delivery'
                   && _vm.express_delivery_description().length
                 )?_c('span',{staticStyle:{"color":"#ff4f4f"}},[_vm._v("\n                "+_vm._s(_vm.express_delivery_description())+"\n              ")]):_c('span',[_vm._v(_vm._s(_vm.take_icons[cr.split('|')[2]].description))])]):_vm._e()],1)]):_c('div',[_c('div',{staticClass:"pa-1 pb-0",staticStyle:{"font-weight":"600","text-transform":"capitalize"},style:(!!_vm.express_delivery_validator(cr)
                 ? 'color: grey;'
-                : 'color: ' + _vm.take_icons[cr.split('|')[0]].color)},[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
-                  ? 'grey'
-                  : _vm.take_icons[cr.split('|')[0]].color}},[_vm._v("\n              "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+"\n            ")]),_vm._v("\n            "+_vm._s(cr.split('|')[0])+" - "+_vm._s(cr.split('|')[1])+"\n            "),(_vm.take_icons[cr.split('|')[0]].description.length)?_c('div',{staticClass:"mt-1",staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
+                : 'color: ' + _vm.take_icons[cr.split('|')[0]].color)},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',[_c('v-icon',{staticClass:"mr-1",attrs:{"color":!!_vm.express_delivery_validator(cr)
+                      ? 'grey'
+                      : _vm.take_icons[cr.split('|')[0]].color}},[_vm._v("\n                  "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+" - "+_vm._s(_vm.take_icons[cr.split('|')[0]].name)+"\n                ")])],1),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_vm._v("\n                "+_vm._s(cr.split('|')[0])+" - "+_vm._s(cr.split('|')[1])+"\n              ")]),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('div',{staticClass:"pt-1"},[_c('div',[_vm._v("IDR. "+_vm._s(_vm.courier.prices[idx].price.toLocaleString().replace(/,/g, ".")))]),_vm._v(" "),_c('div',[_vm._v(_vm._s(_vm.courier.prices[idx].range))])])],1),_vm._v(" "),(_vm.take_icons[cr.split('|')[0]].description.length)?_c('div',{staticClass:"mt-1",staticStyle:{"font-weight":"normal","line-height":"18px"},style:(!!_vm.express_delivery_validator(cr) ? 'color: grey' : 'color: black')},[(
                   cr.split('|')[0] === 'Express Delivery'
                   && _vm.express_delivery_description().length
-                )?_c('span',{staticStyle:{"color":"#ff4f4f"}},[_vm._v("\n                "+_vm._s(_vm.express_delivery_description())+"\n              ")]):_c('span',[_vm._v(_vm._s(_vm.take_icons[cr.split('|')[0]].description))])]):_vm._e()],1)])]):_vm._e()],1)}),1)],2)}
+                )?_c('span',{staticStyle:{"color":"#ff4f4f"}},[_vm._v("\n                "+_vm._s(_vm.express_delivery_description())+"\n              ")]):_c('span',[_vm._v(_vm._s(_vm.take_icons[cr.split('|')[0]].description))])]):_vm._e()])])]):_vm._e()],1)}),1):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=34f51e42&
+// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=0d608bc6&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
