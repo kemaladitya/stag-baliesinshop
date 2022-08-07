@@ -1,14 +1,14 @@
 exports.ids = [54];
 exports.modules = {
 
-/***/ 313:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/general/check-platform.vue?vue&type=template&id=b15b771c&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/general/check-platform.vue?vue&type=template&id=b15b771c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[])}
 var staticRenderFns = []
 
@@ -63,7 +63,7 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "36cd147a"
+  "56ac283e"
   
 )
 

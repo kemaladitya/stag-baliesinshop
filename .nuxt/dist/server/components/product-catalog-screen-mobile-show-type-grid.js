@@ -1,13 +1,13 @@
-exports.ids = [74];
+exports.ids = [75];
 exports.modules = {
 
-/***/ 192:
+/***/ 193:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(221);
+var content = __webpack_require__(216);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
@@ -15,7 +15,7 @@ __webpack_require__(5).default("b9f570ac", content, true)
 
 /***/ }),
 
-/***/ 221:
+/***/ 216:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -29,19 +29,48 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 /***/ }),
 
-/***/ 276:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/product-catalog/screen/mobile/show-type/grid.vue?vue&type=template&id=3c0bef66&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-row',{staticClass:"grid-products grid-products__mobile",class:_vm.$device.isAndroid ? 'android-device' : 'other-device',attrs:{"no-gutters":""}},_vm._l((_vm.search_result),function(item,index){return _c('v-col',{key:index,attrs:{"cols":_vm.screen == 'desktop' ? 2 : 6}},[_c('v-card',{staticClass:"ma-1 mt-2 mb-0",attrs:{"outlined":""}},[_c('v-img',{staticClass:"image",attrs:{"src":item.main_image,"loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"pa-2 item-information-wrapper"},[_c('div',{staticClass:"mr-1"},[(item.is_promo)?_c('div',{staticClass:"promo-badge promo-badge--active"},[_vm._v("Promo")]):_c('div',{staticClass:"promo-badge promo-badge--nonactive"})]),_vm._v(" "),_c('div',{staticClass:"name"},[_vm._v(_vm._s(item.name))]),_vm._v(" "),_c('div',{staticClass:"price"},[(item.is_promo || item.discount_price)?_c('div',[_vm._v("\n            Rp "+_vm._s(item.discount_price
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
+var VBtn = __webpack_require__(46);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
+var VCard = __webpack_require__(106);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VCol.js
+var VCol = __webpack_require__(272);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
+var VIcon = __webpack_require__(22);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
+var VImg = __webpack_require__(58);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
+var VRow = __webpack_require__(271);
+
+// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
+var VSpacer = __webpack_require__(115);
+
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/product-catalog/screen/mobile/show-type/grid.vue?vue&type=template&id=3c0bef66&
+
+
+
+
+
+
+
+
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(VRow["a" /* default */],{staticClass:"grid-products grid-products__mobile",class:_vm.$device.isAndroid ? 'android-device' : 'other-device',attrs:{"no-gutters":""}},_vm._l((_vm.search_result),function(item,index){return _c(VCol["a" /* default */],{key:index,attrs:{"cols":_vm.screen == 'desktop' ? 2 : 6}},[_c(VCard["a" /* default */],{staticClass:"ma-1 mt-2 mb-0",attrs:{"outlined":""}},[_c(VImg["a" /* default */],{staticClass:"image",attrs:{"src":item.main_image,"loading":"lazy"}}),_vm._v(" "),_c('div',{staticClass:"pa-2 item-information-wrapper"},[_c('div',{staticClass:"mr-1"},[(item.is_promo)?_c('div',{staticClass:"promo-badge promo-badge--active"},[_vm._v("Promo")]):_c('div',{staticClass:"promo-badge promo-badge--nonactive"})]),_vm._v(" "),_c('div',{staticClass:"name"},[_vm._v(_vm._s(item.name))]),_vm._v(" "),_c('div',{staticClass:"price"},[(item.is_promo || item.discount_price)?_c('div',[_vm._v("\n            Rp "+_vm._s(item.discount_price
                 .toLocaleString()
                 .replace(/,/g, '.'))+"\n          ")]):_vm._e(),_vm._v(" "),_c('div',{class:item.is_promo ? 'lined' : null},[_vm._v("\n            Rp "+_vm._s(item.normal_price
                 .toLocaleString()
-                .replace(/,/g, '.'))+"\n          ")]),_vm._v(" "),(!item.is_promo)?_c('div',{staticClass:"promo-spacer"}):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"express-delivery"},[(item.express_delivery && item.express_delivery_setup && _vm.is_available_express)?_c('div',[_c('div',{staticClass:"label"},[_c('v-icon',{staticClass:"icon",attrs:{"small":""}},[_vm._v("mdi-clock-fast")]),_vm._v("\n              "+_vm._s(item.express_delivery_setup.name)+"\n            ")],1),_vm._v(" "),_c('div',{staticClass:"caption"},[_vm._v(_vm._s(item.express_delivery_setup.caption))])]):_vm._e()]),_vm._v(" "),(item.variant.length === 1)?_c('div',{staticClass:"d-flex flex-row pt-3"},[_c('v-btn',{staticClass:"action--show-detail",attrs:{"dense":"","text":"","small":"","depressed":""},on:{"click":function($event){return _vm.showdetail(item)}}},[_c('v-icon',{staticClass:"icon mr-1",attrs:{"x-small":""}},[_vm._v("mdi-eye")]),_vm._v(" "),_c('span',[_vm._v("Lihat")])],1),_vm._v(" "),_c('v-spacer'),_vm._v(" "),_c('v-btn',{staticClass:"action--add-to-cart",attrs:{"dense":"","small":"","depressed":""},on:{"click":function($event){return _vm.add_to_cart(item.id, item.variant[0].id, item.SKU, 1)}}},[_c('v-icon',{staticClass:"icon mr-1",attrs:{"x-small":""}},[_vm._v("mdi-basket-plus")]),_vm._v(" "),_c('span',[_vm._v("Tambah")])],1)],1):(item.variant.length > 1)?_c('div',{staticClass:"d-flex flex-row pt-3",attrs:{"outlined":""}},[_c('v-btn',{staticClass:"action--select-variant",attrs:{"dense":"","small":"","depressed":""},on:{"click":function($event){return _vm.showdetail(item)}}},[_c('v-icon',{staticClass:"icon mr-1",attrs:{"x-small":""}},[_vm._v("\n              mdi-checkbox-multiple-marked-outline\n            ")]),_vm._v(" "),_c('span',[_vm._v("Pilih Variant")])],1)],1):_vm._e()])],1)],1)}),1)}
+                .replace(/,/g, '.'))+"\n          ")]),_vm._v(" "),(!item.is_promo)?_c('div',{staticClass:"promo-spacer"}):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"express-delivery"},[(item.express_delivery && item.express_delivery_setup && _vm.is_available_express)?_c('div',[_c('div',{staticClass:"label"},[_c(VIcon["a" /* default */],{staticClass:"icon",attrs:{"small":""}},[_vm._v("mdi-clock-fast")]),_vm._v("\n              "+_vm._s(item.express_delivery_setup.name)+"\n            ")],1),_vm._v(" "),_c('div',{staticClass:"caption"},[_vm._v(_vm._s(item.express_delivery_setup.caption))])]):_vm._e()]),_vm._v(" "),(item.variant.length === 1)?_c('div',{staticClass:"d-flex flex-row pt-3"},[_c(VBtn["a" /* default */],{staticClass:"action--show-detail",attrs:{"dense":"","text":"","small":"","depressed":""},on:{"click":function($event){return _vm.showdetail(item)}}},[_c(VIcon["a" /* default */],{staticClass:"icon mr-1",attrs:{"x-small":""}},[_vm._v("mdi-eye")]),_vm._v(" "),_c('span',[_vm._v("Lihat")])],1),_vm._v(" "),_c(VSpacer["a" /* default */]),_vm._v(" "),_c(VBtn["a" /* default */],{staticClass:"action--add-to-cart",attrs:{"dense":"","small":"","depressed":""},on:{"click":function($event){return _vm.add_to_cart(item.id, item.variant[0].id, item.SKU, 1)}}},[_c(VIcon["a" /* default */],{staticClass:"icon mr-1",attrs:{"x-small":""}},[_vm._v("mdi-basket-plus")]),_vm._v(" "),_c('span',[_vm._v("Tambah")])],1)],1):(item.variant.length > 1)?_c('div',{staticClass:"d-flex flex-row pt-3",attrs:{"outlined":""}},[_c(VBtn["a" /* default */],{staticClass:"action--select-variant",attrs:{"dense":"","small":"","depressed":""},on:{"click":function($event){return _vm.showdetail(item)}}},[_c(VIcon["a" /* default */],{staticClass:"icon mr-1",attrs:{"x-small":""}},[_vm._v("\n              mdi-checkbox-multiple-marked-outline\n            ")]),_vm._v(" "),_c('span',[_vm._v("Pilih Variant")])],1)],1):_vm._e()])],1)],1)}),1)}
 var staticRenderFns = []
 
 
@@ -175,31 +204,6 @@ var staticRenderFns = []
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(11);
 
-// EXTERNAL MODULE: ./node_modules/vuetify-loader/lib/runtime/installComponents.js
-var installComponents = __webpack_require__(12);
-var installComponents_default = /*#__PURE__*/__webpack_require__.n(installComponents);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VBtn/VBtn.js
-var VBtn = __webpack_require__(47);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VCard/VCard.js
-var VCard = __webpack_require__(106);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VCol.js
-var VCol = __webpack_require__(295);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VIcon/VIcon.js
-var VIcon = __webpack_require__(23);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
-var VImg = __webpack_require__(60);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VRow.js
-var VRow = __webpack_require__(296);
-
-// EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
-var VSpacer = __webpack_require__(115);
-
 // CONCATENATED MODULE: ./components/product-catalog/screen/mobile/show-type/grid.vue
 
 
@@ -215,35 +219,178 @@ var component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "d93d2366"
+  "b4354c2a"
   
 )
 
 /* harmony default export */ var grid = __webpack_exports__["default"] = (component.exports);
 
-/* vuetify-loader */
-
-
-
-
-
-
-
-
-installComponents_default()(component, {VBtn: VBtn["a" /* default */],VCard: VCard["a" /* default */],VCol: VCol["a" /* default */],VIcon: VIcon["a" /* default */],VImg: VImg["a" /* default */],VRow: VRow["a" /* default */],VSpacer: VSpacer["a" /* default */]})
-
-
 /***/ }),
 
-/***/ 295:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(192);
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(193);
 /* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
+/* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
+/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
+
+
+
+ // no xs
+
+const breakpoints = ['sm', 'md', 'lg', 'xl'];
+const ALIGNMENT = ['start', 'end', 'center'];
+
+function makeProps(prefix, def) {
+  return breakpoints.reduce((props, val) => {
+    props[prefix + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__[/* upperFirst */ "z"])(val)] = def();
+    return props;
+  }, {});
+}
+
+const alignValidator = str => [...ALIGNMENT, 'baseline', 'stretch'].includes(str);
+
+const alignProps = makeProps('align', () => ({
+  type: String,
+  default: null,
+  validator: alignValidator
+}));
+
+const justifyValidator = str => [...ALIGNMENT, 'space-between', 'space-around'].includes(str);
+
+const justifyProps = makeProps('justify', () => ({
+  type: String,
+  default: null,
+  validator: justifyValidator
+}));
+
+const alignContentValidator = str => [...ALIGNMENT, 'space-between', 'space-around', 'stretch'].includes(str);
+
+const alignContentProps = makeProps('alignContent', () => ({
+  type: String,
+  default: null,
+  validator: alignContentValidator
+}));
+const propMap = {
+  align: Object.keys(alignProps),
+  justify: Object.keys(justifyProps),
+  alignContent: Object.keys(alignContentProps)
+};
+const classMap = {
+  align: 'align',
+  justify: 'justify',
+  alignContent: 'align-content'
+};
+
+function breakpointClass(type, prop, val) {
+  let className = classMap[type];
+
+  if (val == null) {
+    return undefined;
+  }
+
+  if (prop) {
+    // alignSm -> Sm
+    const breakpoint = prop.replace(type, '');
+    className += `-${breakpoint}`;
+  } // .align-items-sm-center
+
+
+  className += `-${val}`;
+  return className.toLowerCase();
+}
+
+const cache = new Map();
+/* harmony default export */ __webpack_exports__["a"] = (vue__WEBPACK_IMPORTED_MODULE_1___default.a.extend({
+  name: 'v-row',
+  functional: true,
+  props: {
+    tag: {
+      type: String,
+      default: 'div'
+    },
+    dense: Boolean,
+    noGutters: Boolean,
+    align: {
+      type: String,
+      default: null,
+      validator: alignValidator
+    },
+    ...alignProps,
+    justify: {
+      type: String,
+      default: null,
+      validator: justifyValidator
+    },
+    ...justifyProps,
+    alignContent: {
+      type: String,
+      default: null,
+      validator: alignContentValidator
+    },
+    ...alignContentProps
+  },
+
+  render(h, {
+    props,
+    data,
+    children
+  }) {
+    // Super-fast memoization based on props, 5x faster than JSON.stringify
+    let cacheKey = '';
+
+    for (const prop in props) {
+      cacheKey += String(props[prop]);
+    }
+
+    let classList = cache.get(cacheKey);
+
+    if (!classList) {
+      classList = []; // Loop through `align`, `justify`, `alignContent` breakpoint props
+
+      let type;
+
+      for (type in propMap) {
+        propMap[type].forEach(prop => {
+          const value = props[prop];
+          const className = breakpointClass(type, prop, value);
+          if (className) classList.push(className);
+        });
+      }
+
+      classList.push({
+        'no-gutters': props.noGutters,
+        'row--dense': props.dense,
+        [`align-${props.align}`]: props.align,
+        [`justify-${props.justify}`]: props.justify,
+        [`align-content-${props.alignContent}`]: props.alignContent
+      });
+      cache.set(cacheKey, classList);
+    }
+
+    return h(props.tag, Object(_util_mergeData__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(data, {
+      staticClass: 'row',
+      class: classList
+    }), children);
+  }
+
+}));
+
+/***/ }),
+
+/***/ 272:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(193);
+/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
 /* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
 
 
@@ -385,161 +532,6 @@ const cache = new Map();
     }
 
     return h(props.tag, Object(_util_mergeData__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(data, {
-      class: classList
-    }), children);
-  }
-
-}));
-
-/***/ }),
-
-/***/ 296:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(192);
-/* harmony import */ var _src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_components_VGrid_VGrid_sass__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _util_mergeData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
-/* harmony import */ var _util_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1);
-
-
-
- // no xs
-
-const breakpoints = ['sm', 'md', 'lg', 'xl'];
-const ALIGNMENT = ['start', 'end', 'center'];
-
-function makeProps(prefix, def) {
-  return breakpoints.reduce((props, val) => {
-    props[prefix + Object(_util_helpers__WEBPACK_IMPORTED_MODULE_3__[/* upperFirst */ "z"])(val)] = def();
-    return props;
-  }, {});
-}
-
-const alignValidator = str => [...ALIGNMENT, 'baseline', 'stretch'].includes(str);
-
-const alignProps = makeProps('align', () => ({
-  type: String,
-  default: null,
-  validator: alignValidator
-}));
-
-const justifyValidator = str => [...ALIGNMENT, 'space-between', 'space-around'].includes(str);
-
-const justifyProps = makeProps('justify', () => ({
-  type: String,
-  default: null,
-  validator: justifyValidator
-}));
-
-const alignContentValidator = str => [...ALIGNMENT, 'space-between', 'space-around', 'stretch'].includes(str);
-
-const alignContentProps = makeProps('alignContent', () => ({
-  type: String,
-  default: null,
-  validator: alignContentValidator
-}));
-const propMap = {
-  align: Object.keys(alignProps),
-  justify: Object.keys(justifyProps),
-  alignContent: Object.keys(alignContentProps)
-};
-const classMap = {
-  align: 'align',
-  justify: 'justify',
-  alignContent: 'align-content'
-};
-
-function breakpointClass(type, prop, val) {
-  let className = classMap[type];
-
-  if (val == null) {
-    return undefined;
-  }
-
-  if (prop) {
-    // alignSm -> Sm
-    const breakpoint = prop.replace(type, '');
-    className += `-${breakpoint}`;
-  } // .align-items-sm-center
-
-
-  className += `-${val}`;
-  return className.toLowerCase();
-}
-
-const cache = new Map();
-/* harmony default export */ __webpack_exports__["a"] = (vue__WEBPACK_IMPORTED_MODULE_1___default.a.extend({
-  name: 'v-row',
-  functional: true,
-  props: {
-    tag: {
-      type: String,
-      default: 'div'
-    },
-    dense: Boolean,
-    noGutters: Boolean,
-    align: {
-      type: String,
-      default: null,
-      validator: alignValidator
-    },
-    ...alignProps,
-    justify: {
-      type: String,
-      default: null,
-      validator: justifyValidator
-    },
-    ...justifyProps,
-    alignContent: {
-      type: String,
-      default: null,
-      validator: alignContentValidator
-    },
-    ...alignContentProps
-  },
-
-  render(h, {
-    props,
-    data,
-    children
-  }) {
-    // Super-fast memoization based on props, 5x faster than JSON.stringify
-    let cacheKey = '';
-
-    for (const prop in props) {
-      cacheKey += String(props[prop]);
-    }
-
-    let classList = cache.get(cacheKey);
-
-    if (!classList) {
-      classList = []; // Loop through `align`, `justify`, `alignContent` breakpoint props
-
-      let type;
-
-      for (type in propMap) {
-        propMap[type].forEach(prop => {
-          const value = props[prop];
-          const className = breakpointClass(type, prop, value);
-          if (className) classList.push(className);
-        });
-      }
-
-      classList.push({
-        'no-gutters': props.noGutters,
-        'row--dense': props.dense,
-        [`align-${props.align}`]: props.align,
-        [`justify-${props.justify}`]: props.justify,
-        [`align-content-${props.alignContent}`]: props.alignContent
-      });
-      cache.set(cacheKey, classList);
-    }
-
-    return h(props.tag, Object(_util_mergeData__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(data, {
-      staticClass: 'row',
       class: classList
     }), children);
   }

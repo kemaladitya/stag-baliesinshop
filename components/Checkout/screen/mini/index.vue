@@ -173,6 +173,10 @@ export default {
       return this.$store.state.order_type
     },
 
+    merchant() {
+      return this.$store.state.merchant
+    },
+
     customer() {
       return this.$store.state.customer
     },
@@ -426,18 +430,18 @@ export default {
           }
         })
 
-        this.select_courier(this.courier.lists[0])
+        // this.select_courier(this.courier.lists[0])
       }
     },
 
-    cart(newval, oldval) {
-      this.select_courier(this.courier.lists[0])
-    },
+    // cart(newval, oldval) {
+    //   this.select_courier(this.courier.lists[0])
+    // },
   },
 
   async mounted() {
-    this.loading_courier = true;
     this.courier.loading = true
+    this.loading_courier = true
 
     await this.get_list_voucher()
 
@@ -469,7 +473,7 @@ export default {
           // }
         })
 
-        await this.get_courier_prices(this.courier.lists);
+        this.get_courier_prices(this.courier.lists);
 
         // console.log("courier --> ", this.courier.lists)
         // // hardcode
@@ -477,14 +481,26 @@ export default {
 
         // console.log("this.store.courier", this.courier.lists);
 
-        if (this.courier.lists.length === 1) {
-          this.select_courier(this.courier.lists[0])
-        }
+        // if (this.courier.lists.length === 1) {
+        //   this.select_courier(this.courier.lists[0])
+        // }
+      }
+
+      if (this.store.store_type) {
+        const store = this.store;
+
+        store.payment_type = this.merchant.payment.split(",");
+
+        this.$store.dispatch("setState", {
+          payload: {
+            key : "store",
+            data: this.store
+          }
+        })
       }
     }
 
-    this.courier.loading = false
-    this.loading_courier = false;
+    this.loading_courier = false
   },
 
   methods: {
@@ -493,27 +509,45 @@ export default {
     },
 
     async get_courier_prices(lists) {
-      for (let index = 0; index < lists.length; index++) {
-        const element = lists[index];
-        console.log("get_courier_prices", element);
-        
-        const pricing = await this.$store.dispatch('request', {
-          url: '/api/deliverycost/check',
-          method: 'post',
-          data: {
-            name                  : element,
-            store_id              : this.store.id,
-            store_name            : this.store.name,
-            uuid                  : this.customer.chatkey,
-            customer_address      : this.customer.address,
-            customer_city         : this.customer.city,
-            customer_urban        : this.customer.urban,
-            customer_sub_district : this.customer.sub_district,
-            items                 : this.list_product_id,
-          },
-        });
+      if (this.store.store_type) {
+        this.courier.loading = true;
 
-        this.courier.prices.push(pricing.data);
+        const pricing = await this.$store.dispatch('request', {
+            url: '/api/courier',
+            method: 'post',
+            data: {
+              merchant : this.$route.query.c,
+              customer : this.customer.id,
+            },
+          });
+
+        console.log(pricing);
+        this.courier.lists = pricing.data;
+
+        this.courier.loading = false;
+      } else {
+        for (let index = 0; index < lists.length; index++) {
+          const element = lists[index];
+          console.log("get_courier_prices", element);
+          
+          const pricing = await this.$store.dispatch('request', {
+            url: '/api/deliverycost/check',
+            method: 'post',
+            data: {
+              name                  : element,
+              store_id              : this.store.id,
+              store_name            : this.store.name,
+              uuid                  : this.customer.chatkey,
+              customer_address      : this.customer.address,
+              customer_city         : this.customer.city,
+              customer_urban        : this.customer.urban,
+              customer_sub_district : this.customer.sub_district,
+              items                 : this.list_product_id,
+            },
+          });
+  
+          this.courier.prices.push(pricing.data);
+        }
       }
     },
 
@@ -531,51 +565,62 @@ export default {
       return list_items.length;
     },
 
-    async select_courier(cour) {
-      this.courier.loading = true
+    // async
+    select_courier(cour) {
+      // this.courier.loading = true
       console.log(cour)
 
-      if (cour === "custom|Hawker|Express Delivery|5000|1") {
-        this.courier.selected = {
-          "custom"  : true,
-          "message" : null,
-          "name"    : "Express Delivery",
-          "price"   : 5000,
-          "range"   : "Today",
-          "service" : "Sari Roti",
-          "status"  : true,
-        };
-        this.courier.loading = false;
-
-        return true;
+      this.courier.selected = {
+        custom  : false,
+        message : cour.range,
+        name    : cour.name,
+        price   : cour.final_price,
+        range   : cour.range,
+        service : cour.service,
+        status  : true,
       }
 
-      console.log("cour check bablas")
+      // if (cour === "custom|Hawker|Express Delivery|5000|1") {
+      //   this.courier.selected = {
+      //     "custom"  : true,
+      //     "message" : null,
+      //     "name"    : "Express Delivery",
+      //     "price"   : 5000,
+      //     "range"   : "Today",
+      //     "service" : "Sari Roti",
+      //     "status"  : true,
+      //   };
+      //   this.courier.loading = false;
 
-      const pricing = await this.$store.dispatch('request', {
-        url: '/api/deliverycost/check',
-        method: 'post',
-        data: {
-          name                  : cour,
-          store_id              : this.store.id,
-          store_name            : this.store.name,
-          uuid                  : this.customer.chatkey,
-          customer_address      : this.customer.address,
-          customer_city         : this.customer.city,
-          customer_urban        : this.customer.urban,
-          customer_sub_district : this.customer.sub_district,
-          items                 : this.list_product_id,
-        },
-      });
+      //   return true;
+      // }
 
-      if (pricing.status == 200 && (pricing.data.status || pricing.data.service === "gojek") && pricing.data.name.length) {
-        pricing.data.status = true;
-        this.courier.selected = pricing.data
-      } else if (pricing.status == 200 && !pricing.data.status && pricing.data.name.length) {
-        this.courier.unavailable_cour = true
-      }
+      // console.log("cour check bablas")
 
-      this.courier.loading = false;
+      // const pricing = await this.$store.dispatch('request', {
+      //   url: '/api/deliverycost/check',
+      //   method: 'post',
+      //   data: {
+      //     name                  : cour,
+      //     store_id              : this.store.id,
+      //     store_name            : this.store.name,
+      //     uuid                  : this.customer.chatkey,
+      //     customer_address      : this.customer.address,
+      //     customer_city         : this.customer.city,
+      //     customer_urban        : this.customer.urban,
+      //     customer_sub_district : this.customer.sub_district,
+      //     items                 : this.list_product_id,
+      //   },
+      // });
+
+      // if (pricing.status == 200 && (pricing.data.status || pricing.data.service === "gojek") && pricing.data.name.length) {
+      //   pricing.data.status = true;
+      //   this.courier.selected = pricing.data
+      // } else if (pricing.status == 200 && !pricing.data.status && pricing.data.name.length) {
+      //   this.courier.unavailable_cour = true
+      // }
+
+      // this.courier.loading = false;
     },
 
     select_payment(type) {
@@ -679,7 +724,7 @@ export default {
             store_name: this.store.name,
             bot_name: this.store.bot_name,
             uuid: this.customer.chatkey,
-            category: this.site.category,
+            category: this.$route.query.c,
             voucher_code: code,
           }
         })

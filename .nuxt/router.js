@@ -4,19 +4,19 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _53f84008 = () => interopDefault(import('../pages/internal-uat.vue' /* webpackChunkName: "pages/internal-uat" */))
-const _405d54e7 = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
-const _0d10e6b9 = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
-const _5ec101e4 = () => interopDefault(import('../pages/site/confirmation/_store.vue' /* webpackChunkName: "pages/site/confirmation/_store" */))
-const _43dd4868 = () => interopDefault(import('../pages/success/checkout/_phone.vue' /* webpackChunkName: "pages/success/checkout/_phone" */))
-const _6e9a2362 = () => interopDefault(import('../pages/success/register/_phone.vue' /* webpackChunkName: "pages/success/register/_phone" */))
-const _019f982d = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
-const _5b9fa658 = () => interopDefault(import('../pages/site/_store/cart/index.vue' /* webpackChunkName: "pages/site/_store/cart/index" */))
-const _5e832a7e = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
-const _affd2700 = () => interopDefault(import('../pages/site/_store/merchant/index.vue' /* webpackChunkName: "pages/site/_store/merchant/index" */))
-const _3f5dde5c = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
-const _3a4be504 = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
-const _944ae75c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _36e446e3 = () => interopDefault(import('../pages/internal-uat.vue' /* webpackChunkName: "pages/internal-uat" */))
+const _2ebce8fc = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
+const _9555c558 = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
+const _5bea983f = () => interopDefault(import('../pages/site/confirmation/_store.vue' /* webpackChunkName: "pages/site/confirmation/_store" */))
+const _2303e3de = () => interopDefault(import('../pages/success/checkout/_phone.vue' /* webpackChunkName: "pages/success/checkout/_phone" */))
+const _4dc0bed8 = () => interopDefault(import('../pages/success/register/_phone.vue' /* webpackChunkName: "pages/success/register/_phone" */))
+const _7606bb9c = () => interopDefault(import('../pages/site/_store/index.vue' /* webpackChunkName: "pages/site/_store/index" */))
+const _43611773 = () => interopDefault(import('../pages/site/_store/cart/index.vue' /* webpackChunkName: "pages/site/_store/cart/index" */))
+const _90bed3ce = () => interopDefault(import('../pages/site/_store/checkout/index.vue' /* webpackChunkName: "pages/site/_store/checkout/index" */))
+const _011ed81b = () => interopDefault(import('../pages/site/_store/merchant/index.vue' /* webpackChunkName: "pages/site/_store/merchant/index" */))
+const _b3e9ee3e = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
+const _220d561f = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
+const _731ab5d7 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -31,55 +31,55 @@ export const routerOptions = {
 
   routes: [{
     path: "/internal-uat",
-    component: _53f84008,
+    component: _36e446e3,
     name: "internal-uat"
   }, {
     path: "/error/link/expired",
-    component: _405d54e7,
+    component: _2ebce8fc,
     name: "error-link-expired"
   }, {
     path: "/error/link/invalid",
-    component: _0d10e6b9,
+    component: _9555c558,
     name: "error-link-invalid"
   }, {
     path: "/site/confirmation/:store?",
-    component: _5ec101e4,
+    component: _5bea983f,
     name: "site-confirmation-store"
   }, {
     path: "/success/checkout/:phone?",
-    component: _43dd4868,
+    component: _2303e3de,
     name: "success-checkout-phone"
   }, {
     path: "/success/register/:phone?",
-    component: _6e9a2362,
+    component: _4dc0bed8,
     name: "success-register-phone"
   }, {
     path: "/site/:store",
-    component: _019f982d,
+    component: _7606bb9c,
     name: "site-store"
   }, {
     path: "/site/:store?/cart",
-    component: _5b9fa658,
+    component: _43611773,
     name: "site-store-cart"
   }, {
     path: "/site/:store?/checkout",
-    component: _5e832a7e,
+    component: _90bed3ce,
     name: "site-store-checkout"
   }, {
     path: "/site/:store?/merchant",
-    component: _affd2700,
+    component: _011ed81b,
     name: "site-store-merchant"
   }, {
     path: "/site/:store?/userprofile",
-    component: _3f5dde5c,
+    component: _b3e9ee3e,
     name: "site-store-userprofile"
   }, {
     path: "/site/:store?/:pid",
-    component: _3a4be504,
+    component: _220d561f,
     name: "site-store-pid"
   }, {
     path: "/",
-    component: _944ae75c,
+    component: _731ab5d7,
     name: "index"
   }],
 

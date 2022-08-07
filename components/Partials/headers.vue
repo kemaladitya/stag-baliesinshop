@@ -159,12 +159,6 @@ export default {
       return String(total_item)
     },
 
-    cart_url() {
-      const { store, uuid, source, category } = this.$store.state.site
-
-      return `/site/${store}/cart?u=${uuid}&mtd=view&src=${source}&c=${category}`
-    },
-
     home_url() {
       const { store, uuid, source, category } = this.$store.state.site
 

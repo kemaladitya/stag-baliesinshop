@@ -93,6 +93,21 @@ export default {
       },
     })
 
+    if (+this.store.store_type) {
+      const request = await this.$store.dispatch("request", {
+        url: "/api/store/market/info",
+        method: "post",
+        data: { merchant_id: this.$route.query.c }
+      })
+  
+      this.$store.dispatch("setState", {
+        payload: {
+          key: "merchant",
+          data: request.data.response
+        }
+      })
+    }
+
     this.loading_checkout = false
   },
 

@@ -1,6 +1,6 @@
 {
   "mode"  : "production",
-  "_api"  : "http://10.140.0.14:3098",
+  "_api"  : "http://10.140.0.14:3088",
   "_key"  : "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
   "base"  : "https://shop.balesin.id",
   "event" : "http://10.140.0.28:8114",

@@ -54,7 +54,7 @@
             </div>
             <div v-if="!courier.selected.custom" class="d-flex flex-row">
               <v-spacer />
-              <div style="font-size: 11px">{{ courier.selected.range == " day" ? "today" : courier.selected.range }}</div>
+              <div style="font-size: 11px">{{ courier.selected.range }}</div>
               <v-icon class="ml-1" small>mdi-clock-time-four</v-icon>
             </div>
           </div>

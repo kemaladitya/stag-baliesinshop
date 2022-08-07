@@ -26,10 +26,28 @@
         :key="idx"
         :class="!idx ? 'pb-0' : null"
         class="pa-2 pl-0"
+        style="text-align: left;"
         flat
-        style="text-align: left"
       >
         <v-card
+          class="d-flex flex-row ml-2 pa-3 pt-1 pb-1 mb-2"
+          style="border-radius: 8px;"
+          flat
+          outlined
+          @click="select_courier(cr)"
+        >
+          <div style="display: grid; padding: 0 15px;">
+            <img :src="cr.logo" alt="" style="height: 22px; width: 60px; align-self: center;">
+          </div>
+          <div class="pa-3" style="font-size: 12px; padding: 5px 0 0 10px;">
+            <div style="font-weight: 500;">
+              {{ cr.name }} - {{ cr.service }}
+            </div>
+            <div style="font-weight: 500;">Rp {{ cr.final_price.toLocaleString().replace(/,/g, ".") }}</div>
+            <div style="font-weight: 400; padding-top: 7px">{{ cr.description }}</div>
+          </div>
+        </v-card>
+        <!-- <v-card
           v-if="express_delivery_validator(cr) == false"
           :disabled="!!express_delivery_validator(cr)"
           class="ml-2 pa-3 pt-2 pb-3 mb-2"
@@ -136,49 +154,7 @@
               </div>
             </div>
           </div>
-          <!-- <div v-if="cr.split('|').length > 2"> -->
-            <!-- <div v-if="icons.includes(cr.split('|')[2])">
-              <div
-                class="pa-1 pb-0"
-                :style="
-                  !!express_delivery_validator(cr)
-                    ? 'color: grey;'
-                    : 'color: ' + take_icons[cr.split('|')[2]].color
-                "
-                style="font-weight: 600; text-transform: capitalize"
-              >
-                <v-icon
-                  :color="
-                    !!express_delivery_validator(cr)
-                      ? 'grey'
-                      : take_icons[cr.split('|')[2]].color
-                  "
-                  class="mr-1"
-                >
-                  {{ take_icons[cr.split('|')[2]].name }} - {{ take_icons[cr.split('|')[2]].name }}
-                </v-icon>
-                {{ cr.split('|')[1] }} - {{ cr.split('|')[2] }}
-                <div
-                  v-if="take_icons[cr.split('|')[0]].description.length"
-                  :style="!!express_delivery_validator(cr) ? 'color: grey' : 'color: black'"
-                  class="mt-1"
-                  style="font-weight: normal; line-height: 18px;"
-                >
-                  <span
-                    v-if="
-                      cr.split('|')[2] === 'Express Delivery'
-                      && express_delivery_description().length
-                    "
-                    style="color: #ff4f4f"
-                  >
-                    {{ express_delivery_description() }}
-                  </span>
-                  <span v-else>{{ take_icons[cr.split('|')[2]].description }}</span>
-                </div>
-              </div>
-            </div> -->
-          <!-- </div> -->
-        </v-card>
+        </v-card> -->
       </v-card>
     </div>
   </div>
