@@ -11,23 +11,23 @@
   "Cart": {
     "description": "Auto imported from components/Cart/index.vue"
   },
-  "Checkout": {
-    "description": "Auto imported from components/Checkout/index.vue"
-  },
   "DialogsFailedMessage": {
     "description": "Auto imported from components/Dialogs/failed-message.vue"
   },
+  "Checkout": {
+    "description": "Auto imported from components/Checkout/index.vue"
+  },
   "LoadingListProduct": {
     "description": "Auto imported from components/Loading/list_product.vue"
-  },
-  "PartialsHeaders": {
-    "description": "Auto imported from components/Partials/headers.vue"
   },
   "Merchant": {
     "description": "Auto imported from components/Merchant/index.vue"
   },
   "ProductDetail": {
     "description": "Auto imported from components/Product-Detail/index.vue"
+  },
+  "PartialsHeaders": {
+    "description": "Auto imported from components/Partials/headers.vue"
   },
   "PaymentReceipt": {
     "description": "Auto imported from components/payment-receipt/index.vue"
@@ -83,18 +83,6 @@
   "DialogsCheckoutInsertVoucherCode": {
     "description": "Auto imported from components/Dialogs/Checkout/insert-voucher-code.vue"
   },
-  "PartialsFooterCart": {
-    "description": "Auto imported from components/Partials/footer/cart.vue"
-  },
-  "PartialsFooterCheckout": {
-    "description": "Auto imported from components/Partials/footer/checkout.vue"
-  },
-  "PartialsFooterProductCatalog": {
-    "description": "Auto imported from components/Partials/footer/product-catalog.vue"
-  },
-  "PartialsFooterProductDetail": {
-    "description": "Auto imported from components/Partials/footer/product-detail.vue"
-  },
   "MerchantScreenDesktop": {
     "description": "Auto imported from components/Merchant/screen/desktop.vue"
   },
@@ -109,6 +97,18 @@
   },
   "ProductDetailScreenMobile": {
     "description": "Auto imported from components/Product-Detail/screen/mobile.vue"
+  },
+  "PartialsFooterCart": {
+    "description": "Auto imported from components/Partials/footer/cart.vue"
+  },
+  "PartialsFooterCheckout": {
+    "description": "Auto imported from components/Partials/footer/checkout.vue"
+  },
+  "PartialsFooterProductCatalog": {
+    "description": "Auto imported from components/Partials/footer/product-catalog.vue"
+  },
+  "PartialsFooterProductDetail": {
+    "description": "Auto imported from components/Partials/footer/product-detail.vue"
   },
   "ProductCatalogScreenMini": {
     "description": "Auto imported from components/product-catalog/screen/mini.vue"
