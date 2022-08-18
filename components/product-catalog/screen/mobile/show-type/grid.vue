@@ -6,10 +6,16 @@
   >
     <v-col v-for="(item, index) in search_result" :key="index" :cols="screen == 'desktop' ? 2 : 6">
       <v-card class="ma-1 mt-2 mb-0" outlined>
-        <v-img
+        <img
           :src="item.main_image"
           loading=lazy
           class="image"
+          style="
+            height: 175px !important;
+            width: 100% !important;
+            min-height: 175px !important;
+            max-height: 175px !important;
+          "
         />
 
         <div class="pa-2 item-information-wrapper">

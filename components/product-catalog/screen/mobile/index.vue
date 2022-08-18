@@ -145,7 +145,7 @@
           </v-list>
         </v-menu>
         <!--  -->
-        <v-card height="90" style="background: #fd0" flat tile>
+        <v-card class="pb-1" style="background: #fd0" flat tile>
           <div>
             <div v-if="customer" class="pa-3 pb-0 text-left" style="font-size: 12px">
               Hi {{ customer.name.split(' ')[0] }}, kamu sedang belanja di <span style="font-weight: 600">{{ merchant.name }}</span> 
@@ -241,7 +241,17 @@
               outlined
             >
               <!-- :to="`/site/${site.store}/${item.id}?u=${$route.query.u}&src=${$route.query.src}&c=${$route.query.c}`" -->
-              <v-img class="image" :src="item.main_image" height="150" loading=lazy style="text-align: left" />
+              <img
+                class="image"
+                :src="item.main_image"
+                loading=lazy
+                style="
+                  height: 175px !important;
+                  width: 100% !important;
+                  min-height: 175px !important;
+                  max-height: 175px !important;
+                "
+              />
               <div class="pa-2" style="text-align: left">
                 <div class="mr-1">
                   <div

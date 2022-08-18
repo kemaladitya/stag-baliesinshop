@@ -65,7 +65,19 @@
             flat
             outlined
           >
-            <v-img :src="item.main_image" loading=lazy style="text-align: left" />
+            <img
+              :src="item.main_image"
+              loading=lazy
+              style="
+                text-align: left;
+                height: 150px !important;
+                width: 150px !important;
+                min-height: 150px !important;
+                min-width: 150px !important;
+                max-height: 150px !important;
+                max-width: 150px !important;
+              "
+            />
             <div class="pa-2" style="text-align: left">
               <div class="mr-1">
                 <div
@@ -183,7 +195,7 @@
               max-width: 110px;
               font-weight: 600;
               text-align: left;
-              min-width: 100%;
+              width: 100%;
             "
           >
             Produk {{ store.name }}
@@ -196,7 +208,17 @@
       <v-row v-if="search_result.length" style="margin-bottom: 200px !important" no-gutters>
         <v-col v-for="(item, index) in search_result" :key="index" cols="6">
           <v-card class="ma-1 mt-2 mb-0" outlined>
-            <v-img :src="item.main_image" loading=lazy style="text-align: left" />
+            <img
+              :src="item.main_image"
+              loading=lazy
+              style="
+                text-align: left;
+                height: 165px !important;
+                min-height: 165px !important;
+                max-height: 165px !important;
+                width: 100%;
+              "
+            />
             <div class="pa-2" style="text-align: left">
               <div class="mr-1">
                 <div
