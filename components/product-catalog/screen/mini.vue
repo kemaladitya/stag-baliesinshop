@@ -76,6 +76,7 @@
                 min-width: 150px !important;
                 max-height: 150px !important;
                 max-width: 150px !important;
+                object-fit: cover;
               "
             />
             <div class="pa-2" style="text-align: left">
@@ -217,6 +218,7 @@
                 min-height: 165px !important;
                 max-height: 165px !important;
                 width: 100%;
+                object-fit: cover;
               "
             />
             <div class="pa-2" style="text-align: left">

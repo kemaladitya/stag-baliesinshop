@@ -15,6 +15,7 @@
             width: 100% !important;
             min-height: 175px !important;
             max-height: 175px !important;
+            object-fit: cover;
           "
         />
 

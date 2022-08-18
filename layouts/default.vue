@@ -246,7 +246,7 @@ export default {
       })
 
       if (!check_area.data.status && mode == "production") {
-        // this.$router.push('/error/link/expired')
+        this.$router.push('/error/link/expired')
       }
     }
 
