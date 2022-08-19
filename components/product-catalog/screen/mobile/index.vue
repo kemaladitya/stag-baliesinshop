@@ -216,7 +216,7 @@
     </div>
 
     <div class="pl-1 pr-1" style="min-height: calc(100vh - 130px); max-height: calc(100vh - 130px); overflow-y: scroll">
-      <div v-if="search_result.length" class="pb-6">
+      <div v-if="search_result.length" class="pb-12">
         <div v-if="recomendation_items">
           <div
             class="pa-1"
