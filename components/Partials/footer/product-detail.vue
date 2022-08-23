@@ -20,9 +20,9 @@ export default {
 
   computed: {
     home_url() {
-      const site = this.$store.state.site
+      const { params, query } = this.$route;
 
-      return `/site/${this.$route.params.store}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`
+      return `/site/${params.store}?u=${query.u}&src=${query.src}&c=${query.c}`;
     },
   },
 }
