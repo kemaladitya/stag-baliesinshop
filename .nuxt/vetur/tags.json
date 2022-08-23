@@ -11,17 +11,17 @@
   "Cart": {
     "description": "Auto imported from components/Cart/index.vue"
   },
-  "DialogsFailedMessage": {
-    "description": "Auto imported from components/Dialogs/failed-message.vue"
-  },
   "Checkout": {
     "description": "Auto imported from components/Checkout/index.vue"
   },
-  "Merchant": {
-    "description": "Auto imported from components/Merchant/index.vue"
+  "DialogsFailedMessage": {
+    "description": "Auto imported from components/Dialogs/failed-message.vue"
   },
   "LoadingListProduct": {
     "description": "Auto imported from components/Loading/list_product.vue"
+  },
+  "Merchant": {
+    "description": "Auto imported from components/Merchant/index.vue"
   },
   "PartialsHeaders": {
     "description": "Auto imported from components/Partials/headers.vue"
@@ -128,15 +128,6 @@
   "ProductCatalogScreenMobile": {
     "description": "Auto imported from components/product-catalog/screen/mobile/index.vue"
   },
-  "CartScreenMiniTypePackageOrder": {
-    "description": "Auto imported from components/Cart/screen/mini/type/package-order.vue"
-  },
-  "CartScreenMiniTypeSingleOrder": {
-    "description": "Auto imported from components/Cart/screen/mini/type/single-order.vue"
-  },
-  "CartScreenMiniTypeSubscriptionOrder": {
-    "description": "Auto imported from components/Cart/screen/mini/type/subscription-order.vue"
-  },
   "CartScreenMobileTypePackageOrder": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order.vue"
   },
@@ -145,6 +136,15 @@
   },
   "CartScreenMobileTypeSubscriptionOrder": {
     "description": "Auto imported from components/Cart/screen/mobile/type/subscription-order.vue"
+  },
+  "CartScreenMiniTypePackageOrder": {
+    "description": "Auto imported from components/Cart/screen/mini/type/package-order.vue"
+  },
+  "CartScreenMiniTypeSingleOrder": {
+    "description": "Auto imported from components/Cart/screen/mini/type/single-order.vue"
+  },
+  "CartScreenMiniTypeSubscriptionOrder": {
+    "description": "Auto imported from components/Cart/screen/mini/type/subscription-order.vue"
   },
   "CheckoutScreenMiniConstantsCourier": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/__courier.vue"

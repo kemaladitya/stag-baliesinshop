@@ -27,13 +27,18 @@
       <v-card
         v-for="(merchant, idx) in list_merchant"
         :key="idx"
+        :disabled="is_in_operational(merchant)"
         class="mt-2 mb-1"
         outlined
         @click="select_merchant(merchant)"
       >
         <div class="d-flex flex-row">
           <div class="ma-2 pa-2" style="border: 0.5px solid lightgrey; border-radius: 3px">
-            <v-img width="40" :src="merchant.image || require('@/assets/images/merchant.jpg')" />
+            <v-img
+              width="40"
+              :src="merchant.image || require('@/assets/images/merchant.jpg')"
+              :style="is_in_operational(merchant) ? 'filter: grayscale(100%);' : ''"
+            />
           </div>
           <div style="align-self: center">
             <div style="font-size: 14px; color: black; text-align: left">{{ merchant.name }}</div>
@@ -288,6 +293,12 @@ export default {
   }),
 
   computed: {
+    time_today() {
+      const list_day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+      return list_day[new Date().getDay()];
+    },
+
     store() {
       return this.$store.state.store
     },
@@ -325,6 +336,35 @@ export default {
   },
 
   methods: {
+    is_in_operational(merchant) {
+      console.log("is_in_operational");
+      try {
+        const [target] = this.list_merchant.filter(_ => _.id === merchant.id);
+        const schedule = target.params.operational;
+
+        if (!schedule.length) return true;
+
+        const schedule_today = schedule.filter(_ => _.day === this.time_today);
+  
+        if (!schedule_today.length) return true;
+
+        const now = new Date().toString().slice(16, 21);
+
+        console.log("schedule_today.open_hour  ", schedule_today[0].open_hour.replace(":", ""))
+        console.log("now                       ", now.replace(":", ""))
+        console.log("schedule_today.close_hour ", schedule_today[0].close_hour.replace(":", ""))
+
+        if (+schedule_today[0].open_hour.replace(":", "") <= +now.replace(":", "") && +schedule_today[0].close_hour.replace(":", "") >= +now.replace(":", "")) {
+          return false
+        }
+
+        return true;
+      } catch (error) {
+        console.log("error:is_in_operational", error);
+        return true;
+      }
+    },
+
     handleScroll({ target: { scrollTop, clientHeight, scrollHeight }}) {
       this.scrollTop = scrollTop
       this.clientHeight = clientHeight
@@ -337,6 +377,7 @@ export default {
     },
 
     async get_list_merchant(page) {
+      console.log("ini get list merchant :: component/mini")
       this.loading_merchant = true
       this.$store.dispatch('setState', {
         payload: {
@@ -356,6 +397,21 @@ export default {
         }
       })
 
+      console.log("list_merchant.data.response", list_merchant.data.response);
+
+      try {
+        list_merchant.data.response = list_merchant.data.response.map(_ => {
+          if (_.params) {
+            console.log("parse params merchant");
+            _.params = JSON.parse(_.params);
+          }
+  
+          return _;
+        });
+      } catch (error) {
+        console.log("error.parse");
+      }
+
       this.loading_merchant = false
       this.$store.dispatch('setState', {
         payload: {
@@ -368,10 +424,21 @@ export default {
         this.end = true
       }
 
+      let results = [ ...this.list_merchant, ...list_merchant.data.response ];
+      const filter_merchant = [];
+      const _list_merchant = [];
+
+      results.forEach(_ => {
+        if (!filter_merchant.includes(_.id)) {
+          _list_merchant.push(_);
+          filter_merchant.push(_.id);
+        }
+      });
+
       this.$store.dispatch('setState', {
         payload: {
           key: 'list_merchant',
-          data: [ ...this.list_merchant, ...list_merchant.data.response ]
+          data: _list_merchant,
         }
       })
     },

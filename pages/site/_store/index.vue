@@ -206,6 +206,7 @@ export default {
     },
 
     async get_list_merchant(page) {
+      console.log("ini get list merchant :: pages")
       const { query: { market } } = this.$route
       const list_merchant = await this.$store.dispatch("request", {
         url: "/api/store/market/merchant",
@@ -215,12 +216,37 @@ export default {
           market_id: market,
           page
         }
-      })
+      });
+      console.log("list_merchant.data.response", list_merchant.data.response);
 
-      this.$store.dispatch("setState", {
+      try {
+        list_merchant.data.response = list_merchant.data.response.map(_ => {
+          if (_.params) {
+            console.log("parse params merchant");
+            _.params = JSON.parse(_.params);
+          }
+  
+          return _;
+        });
+      } catch (error) {
+        console.log("error.parse");
+      }
+
+      let results = [ ...this.list_merchant, ...list_merchant.data.response ];
+      const filter_merchant = [];
+      const _list_merchant = [];
+
+      results.forEach(_ => {
+        if (!filter_merchant.includes(_.id)) {
+          _list_merchant.push(_);
+          filter_merchant.push(_.id);
+        }
+      });
+
+      this.$store.dispatch('setState', {
         payload: {
-          key: "list_merchant",
-          data: [ ...this.list_merchant, ...list_merchant.data.response ]
+          key: 'list_merchant',
+          data: _list_merchant,
         }
       })
     },

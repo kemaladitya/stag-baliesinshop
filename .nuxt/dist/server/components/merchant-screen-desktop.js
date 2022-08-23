@@ -1665,7 +1665,7 @@ var VImg = __webpack_require__(58);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
 var VTextField = __webpack_require__(154);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/screen/desktop.vue?vue&type=template&id=223a382c&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/screen/desktop.vue?vue&type=template&id=08454b82&
 
 
 
@@ -1676,7 +1676,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Merchant/screen/desktop.vue?vue&type=template&id=223a382c&
+// CONCATENATED MODULE: ./components/Merchant/screen/desktop.vue?vue&type=template&id=08454b82&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Merchant/screen/desktop.vue?vue&type=script&lang=js&
 //
@@ -2019,6 +2019,7 @@ var staticRenderFns = []
     },
 
     async get_list_merchant(page) {
+      console.log("ini get list merchant :: component/desktop");
       this.loading_merchant = true;
       this.$store.dispatch('setState', {
         payload: {
@@ -2040,6 +2041,21 @@ var staticRenderFns = []
           page
         }
       });
+      console.log("list_merchant.data.response", list_merchant.data.response);
+
+      try {
+        list_merchant.data.response = list_merchant.data.response.map(_ => {
+          if (_.params) {
+            console.log("parse params merchant");
+            _.params = JSON.parse(_.params);
+          }
+
+          return _;
+        });
+      } catch (error) {
+        console.log("error.parse");
+      }
+
       this.loading_merchant = false;
       this.$store.dispatch('setState', {
         payload: {
@@ -2052,10 +2068,20 @@ var staticRenderFns = []
         this.end = true;
       }
 
+      let results = [...this.list_merchant, ...list_merchant.data.response];
+      const filter_merchant = [];
+      const _list_merchant = [];
+      results.forEach(_ => {
+        if (!filter_merchant.includes(_.id)) {
+          _list_merchant.push(_);
+
+          filter_merchant.push(_.id);
+        }
+      });
       this.$store.dispatch('setState', {
         payload: {
           key: 'list_merchant',
-          data: [...this.list_merchant, ...list_merchant.data.response]
+          data: _list_merchant
         }
       });
     },

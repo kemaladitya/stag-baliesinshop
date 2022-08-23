@@ -337,6 +337,7 @@ export default {
     },
 
     async get_list_merchant(page) {
+      console.log("ini get list merchant :: component/desktop")
       this.loading_merchant = true
       this.$store.dispatch('setState', {
         payload: {
@@ -356,6 +357,21 @@ export default {
         }
       })
 
+      console.log("list_merchant.data.response", list_merchant.data.response);
+
+      try {
+        list_merchant.data.response = list_merchant.data.response.map(_ => {
+          if (_.params) {
+            console.log("parse params merchant");
+            _.params = JSON.parse(_.params);
+          }
+  
+          return _;
+        });
+      } catch (error) {
+        console.log("error.parse");
+      }
+
       this.loading_merchant = false
       this.$store.dispatch('setState', {
         payload: {
@@ -368,10 +384,21 @@ export default {
         this.end = true
       }
 
+      let results = [ ...this.list_merchant, ...list_merchant.data.response ];
+      const filter_merchant = [];
+      const _list_merchant = [];
+
+      results.forEach(_ => {
+        if (!filter_merchant.includes(_.id)) {
+          _list_merchant.push(_);
+          filter_merchant.push(_.id);
+        }
+      });
+
       this.$store.dispatch('setState', {
         payload: {
           key: 'list_merchant',
-          data: [ ...this.list_merchant, ...list_merchant.data.response ]
+          data: _list_merchant,
         }
       })
     },

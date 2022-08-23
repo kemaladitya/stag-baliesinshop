@@ -123,7 +123,7 @@
             :to="`/site/${site.store}/${item.id}?u=${$route.query.u}&src=${$route.query.src}&c=${$route.query.c}`"
           >
             <center style="width: 126px">
-              <v-img :src="item.main_image" />
+              <img :src="item.main_image" style="width: 126px; height: 126px" />
             </center>
             <div class="pa-2">
               <div
@@ -176,7 +176,7 @@
             @click="product_detail(item)"
           >
             <center style="width: 126px">
-              <v-img :src="item.main_image" />
+              <img :src="item.main_image" style="width: 126px; height: 126px" />
             </center>
             <div class="pa-2">
               <div

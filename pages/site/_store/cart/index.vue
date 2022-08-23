@@ -88,13 +88,13 @@
           && !loading_cart
           && cart.length
         "
-        class="ma-2 mt-2 d-flex flex-row pa-2 pb-0"
+        class="ma-2 mt-0 d-flex flex-row pa-2 pb-0"
         flat
       >
-        <v-card style="font-size: 12px; font-weight: 600" flat>
+        <!-- <v-card style="font-size: 12px; font-weight: 600" flat>
           Waktu Pengantaran :
-        </v-card>
-        <v-card
+        </v-card> -->
+        <!-- <v-card
           class="ml-2"
           style="
             color: grey;
@@ -105,7 +105,7 @@
           flat
         >
           jam 08.00 - 17.00
-        </v-card>
+        </v-card> -->
       </v-card>
       <div 
         :style="

@@ -12,7 +12,7 @@
         icon
         text
         color="red"
-        @click="changehandler('courier', false)"
+        @click="changehandler('select_courier_dialog', false)"
       >
         <v-icon>mdi-close</v-icon>
       </v-btn>

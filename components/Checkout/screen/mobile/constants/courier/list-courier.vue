@@ -12,7 +12,7 @@
         color="red"
         icon
         text
-        @click="select_courier_dialog = false"
+        @click="change_handler('select_courier_dialog', false)"
       >
         <v-icon>mdi-close</v-icon>
       </v-btn>
@@ -167,6 +167,7 @@ export default {
     icons: Array,
     take_icons: Object,
     select_courier: Function,
+    change_handler: Function,
   },
 
   data: () => ({

@@ -73,6 +73,7 @@
     >
       <v-sheet class="pa-2" style="text-align: left">
         <list-courier
+          :change_handler="change_handler"
           :courier="courier"
           :icons="icons"
           :take_icons="take_icons"
@@ -311,6 +312,10 @@ export default {
   },
 
   methods: {
+    change_handler(key, value) {
+      this[key] = value;
+    },
+
     select_courier(cour) {
       this.select(cour)
       this.select_courier_dialog = false

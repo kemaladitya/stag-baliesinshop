@@ -836,11 +836,7 @@ export default {
       this.order_loading = false
 
       if (request.status === 200 && request.data.status) {
-        if (request.data.redirect && process.browser) {
-          window.location.replace(request.data.redirect);
-        } else {
-          this.$router.push(`/success/checkout/${this.store.phone}`)
-        }
+        this.$router.push(`/success/checkout/${this.store.phone}`)
       } else {
         this.order_failed = true
       }

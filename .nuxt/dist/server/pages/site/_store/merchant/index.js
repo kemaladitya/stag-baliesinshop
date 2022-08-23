@@ -1670,20 +1670,25 @@ var VImg = __webpack_require__(58);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
 var VTextField = __webpack_require__(154);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/merchant/screen/mini.vue?vue&type=template&id=2157f2a7&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/merchant/screen/mini.vue?vue&type=template&id=95527192&
 
 
 
 
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c(VTextField["a" /* default */],{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c(VCard["a" /* default */],{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c(VImg["a" /* default */],{attrs:{"width":"40","src":merchant.image || __webpack_require__(220)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c(VCard["a" /* default */],{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c(VCard["a" /* default */],{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c(VCard["a" /* default */],{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c(VCard["a" /* default */],{key:idx,staticClass:"mt-2 mb-1",attrs:{"disabled":_vm.is_in_operational(merchant),"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c(VImg["a" /* default */],{style:(_vm.is_in_operational(merchant) ? 'filter: grayscale(100%);' : ''),attrs:{"width":"40","src":merchant.image || __webpack_require__(220)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c(VCard["a" /* default */],{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c(VCard["a" /* default */],{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c(VCard["a" /* default */],{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/merchant/screen/mini.vue?vue&type=template&id=2157f2a7&
+// CONCATENATED MODULE: ./components/merchant/screen/mini.vue?vue&type=template&id=95527192&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/merchant/screen/mini.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1970,6 +1975,11 @@ var staticRenderFns = []
     select_search_type: []
   }),
   computed: {
+    time_today() {
+      const list_day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+      return list_day[new Date().getDay()];
+    },
+
     store() {
       return this.$store.state.store;
     },
@@ -2005,6 +2015,31 @@ var staticRenderFns = []
   },
 
   methods: {
+    is_in_operational(merchant) {
+      console.log("is_in_operational");
+
+      try {
+        const [target] = this.list_merchant.filter(_ => _.id === merchant.id);
+        const schedule = target.params.operational;
+        if (!schedule.length) return true;
+        const schedule_today = schedule.filter(_ => _.day === this.time_today);
+        if (!schedule_today.length) return true;
+        const now = new Date().toString().slice(16, 21);
+        console.log("schedule_today.open_hour  ", schedule_today[0].open_hour.replace(":", ""));
+        console.log("now                       ", now.replace(":", ""));
+        console.log("schedule_today.close_hour ", schedule_today[0].close_hour.replace(":", ""));
+
+        if (+schedule_today[0].open_hour.replace(":", "") <= +now.replace(":", "") && +schedule_today[0].close_hour.replace(":", "") >= +now.replace(":", "")) {
+          return false;
+        }
+
+        return true;
+      } catch (error) {
+        console.log("error:is_in_operational", error);
+        return true;
+      }
+    },
+
     handleScroll({
       target: {
         scrollTop,
@@ -2024,6 +2059,7 @@ var staticRenderFns = []
     },
 
     async get_list_merchant(page) {
+      console.log("ini get list merchant :: component/mini");
       this.loading_merchant = true;
       this.$store.dispatch('setState', {
         payload: {
@@ -2045,6 +2081,21 @@ var staticRenderFns = []
           page
         }
       });
+      console.log("list_merchant.data.response", list_merchant.data.response);
+
+      try {
+        list_merchant.data.response = list_merchant.data.response.map(_ => {
+          if (_.params) {
+            console.log("parse params merchant");
+            _.params = JSON.parse(_.params);
+          }
+
+          return _;
+        });
+      } catch (error) {
+        console.log("error.parse");
+      }
+
       this.loading_merchant = false;
       this.$store.dispatch('setState', {
         payload: {
@@ -2057,10 +2108,20 @@ var staticRenderFns = []
         this.end = true;
       }
 
+      let results = [...this.list_merchant, ...list_merchant.data.response];
+      const filter_merchant = [];
+      const _list_merchant = [];
+      results.forEach(_ => {
+        if (!filter_merchant.includes(_.id)) {
+          _list_merchant.push(_);
+
+          filter_merchant.push(_.id);
+        }
+      });
       this.$store.dispatch('setState', {
         payload: {
           key: 'list_merchant',
-          data: [...this.list_merchant, ...list_merchant.data.response]
+          data: _list_merchant
         }
       });
     },
@@ -2138,20 +2199,25 @@ var VImg = __webpack_require__(58);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VTextField/VTextField.js + 3 modules
 var VTextField = __webpack_require__(154);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/merchant/screen/mobile.vue?vue&type=template&id=5bda673c&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/merchant/screen/mobile.vue?vue&type=template&id=f7bb2bbe&
 
 
 
 
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"pb-12",staticStyle:{}},[_vm._ssrNode("<div id=\"b-find-merchant\" class=\"ma-1 mb-0 d-flex flex-row\" style=\"margin-top: 13px !important\">","</div>",[_vm._ssrNode("<div style=\"width: 100%\">","</div>",[_c(VTextField["a" /* default */],{staticStyle:{"font-size":"13px"},attrs:{"append-icon":"mdi-magnify","placeholder":"Cari nama toko","dense":"","outlined":"","hide-details":""},model:{value:(_vm.search_value),callback:function ($$v) {_vm.search_value=$$v},expression:"search_value"}})],1)]),_vm._ssrNode(" "),_vm._ssrNode("<div id=\"b-list-merchant\" class=\"ma-1 mt-2\""+(_vm._ssrStyle({"overflow-y":"scroll"},_vm.loading_merchant
         ? 'height: calc(100vh - 180px);'
-        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c(VCard["a" /* default */],{key:idx,staticClass:"mt-2 mb-1",attrs:{"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c(VImg["a" /* default */],{attrs:{"width":"40","src":merchant.image || __webpack_require__(220)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c(VCard["a" /* default */],{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c(VCard["a" /* default */],{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c(VCard["a" /* default */],{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
+        : 'height: calc(100vh - 120px);', null))+">","</div>",[_vm._l((_vm.list_merchant),function(merchant,idx){return _c(VCard["a" /* default */],{key:idx,staticClass:"mt-2 mb-1",attrs:{"disabled":_vm.is_in_operational(merchant),"outlined":""},on:{"click":function($event){return _vm.select_merchant(merchant)}}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px"}},[_c(VImg["a" /* default */],{style:(_vm.is_in_operational(merchant) ? 'filter: grayscale(100%);' : ''),attrs:{"width":"40","src":merchant.image || __webpack_require__(220)}})],1),_vm._v(" "),_c('div',{staticStyle:{"align-self":"center"}},[_c('div',{staticStyle:{"font-size":"14px","color":"black","text-align":"left"}},[_vm._v(_vm._s(merchant.name))]),_vm._v(" "),_c('div',{staticStyle:{"font-size":"11px","color":"#999999","text-align":"left"}},[_vm._v(_vm._s(merchant.description))])])])])}),_vm._ssrNode(" "),_vm._ssrNode("<div"+(_vm._ssrStyle(null,null, { display: (_vm.loading_merchant) ? '' : 'none' }))+">","</div>",_vm._l((3),function(num){return _c(VCard["a" /* default */],{key:num,staticClass:"mt-2 mb-1",attrs:{"min-height":"75","max-height":"75","outlined":""}},[_c('div',{staticClass:"d-flex flex-row"},[_c('div',{staticClass:"ma-2 pa-2",staticStyle:{"border":"0.5px solid lightgrey","border-radius":"3px","height":"57px","width":"57px","background":"lightgrey"}},[_vm._v("\n             \n          ")]),_vm._v(" "),_c('div',{staticStyle:{"padding-top":"20px"}},[_c(VCard["a" /* default */],{staticClass:"mb-2",staticStyle:{"background":"lightgrey"},attrs:{"height":"14","min-width":"130","max-width":"130","flat":""}},[_vm._v(" ")]),_vm._v(" "),_c(VCard["a" /* default */],{staticStyle:{"background":"lightgrey"},attrs:{"height":"11","min-width":"180","max-width":"180","flat":""}},[_vm._v(" ")])],1)])])}),1),_vm._ssrNode(" <div style=\"min-height: 110px\"> </div>")],2)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/merchant/screen/mobile.vue?vue&type=template&id=5bda673c&
+// CONCATENATED MODULE: ./components/merchant/screen/mobile.vue?vue&type=template&id=f7bb2bbe&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/merchant/screen/mobile.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2438,6 +2504,11 @@ var staticRenderFns = []
     select_search_type: []
   }),
   computed: {
+    time_today() {
+      const list_day = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+      return list_day[new Date().getDay()];
+    },
+
     store() {
       return this.$store.state.store;
     },
@@ -2473,6 +2544,31 @@ var staticRenderFns = []
   },
 
   methods: {
+    is_in_operational(merchant) {
+      console.log("is_in_operational");
+
+      try {
+        const [target] = this.list_merchant.filter(_ => _.id === merchant.id);
+        const schedule = target.params.operational;
+        if (!schedule.length) return true;
+        const schedule_today = schedule.filter(_ => _.day === this.time_today);
+        if (!schedule_today.length) return true;
+        const now = new Date().toString().slice(16, 21);
+        console.log("schedule_today.open_hour  ", schedule_today[0].open_hour.replace(":", ""));
+        console.log("now                       ", now.replace(":", ""));
+        console.log("schedule_today.close_hour ", schedule_today[0].close_hour.replace(":", ""));
+
+        if (+schedule_today[0].open_hour.replace(":", "") <= +now.replace(":", "") && +schedule_today[0].close_hour.replace(":", "") >= +now.replace(":", "")) {
+          return false;
+        }
+
+        return true;
+      } catch (error) {
+        console.log("error:is_in_operational", error);
+        return true;
+      }
+    },
+
     handleScroll({
       target: {
         scrollTop,
@@ -2492,6 +2588,7 @@ var staticRenderFns = []
     },
 
     async get_list_merchant(page) {
+      console.log("ini get list merchant :: component/mobile");
       this.loading_merchant = true;
       this.$store.dispatch('setState', {
         payload: {
@@ -2513,6 +2610,21 @@ var staticRenderFns = []
           page
         }
       });
+      console.log("list_merchant.data.response", list_merchant.data.response);
+
+      try {
+        list_merchant.data.response = list_merchant.data.response.map(_ => {
+          if (_.params) {
+            console.log("parse params merchant");
+            _.params = JSON.parse(_.params);
+          }
+
+          return _;
+        });
+      } catch (error) {
+        console.log("error.parse");
+      }
+
       this.loading_merchant = false;
       this.$store.dispatch('setState', {
         payload: {
@@ -2525,10 +2637,20 @@ var staticRenderFns = []
         this.end = true;
       }
 
+      let results = [...this.list_merchant, ...list_merchant.data.response];
+      const filter_merchant = [];
+      const _list_merchant = [];
+      results.forEach(_ => {
+        if (!filter_merchant.includes(_.id)) {
+          _list_merchant.push(_);
+
+          filter_merchant.push(_.id);
+        }
+      });
       this.$store.dispatch('setState', {
         payload: {
           key: 'list_merchant',
-          data: [...this.list_merchant, ...list_merchant.data.response]
+          data: _list_merchant
         }
       });
     },

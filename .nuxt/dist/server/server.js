@@ -6705,10 +6705,10 @@ __webpack_require__.d(components_namespaceObject, "General", function() { return
 __webpack_require__.d(components_namespaceObject, "BottomSheetMiniCart", function() { return BottomSheetMiniCart; });
 __webpack_require__.d(components_namespaceObject, "BottomSheetRegLoading", function() { return BottomSheetRegLoading; });
 __webpack_require__.d(components_namespaceObject, "Cart", function() { return Cart; });
-__webpack_require__.d(components_namespaceObject, "DialogsFailedMessage", function() { return DialogsFailedMessage; });
 __webpack_require__.d(components_namespaceObject, "Checkout", function() { return Checkout; });
-__webpack_require__.d(components_namespaceObject, "Merchant", function() { return Merchant; });
+__webpack_require__.d(components_namespaceObject, "DialogsFailedMessage", function() { return DialogsFailedMessage; });
 __webpack_require__.d(components_namespaceObject, "LoadingListProduct", function() { return LoadingListProduct; });
+__webpack_require__.d(components_namespaceObject, "Merchant", function() { return Merchant; });
 __webpack_require__.d(components_namespaceObject, "PartialsHeaders", function() { return PartialsHeaders; });
 __webpack_require__.d(components_namespaceObject, "ProductDetail", function() { return ProductDetail; });
 __webpack_require__.d(components_namespaceObject, "GeneralCheckPlatform", function() { return GeneralCheckPlatform; });
@@ -6744,12 +6744,12 @@ __webpack_require__.d(components_namespaceObject, "CartScreenMobile", function()
 __webpack_require__.d(components_namespaceObject, "CheckoutScreenMini", function() { return CheckoutScreenMini; });
 __webpack_require__.d(components_namespaceObject, "CheckoutScreenMobile", function() { return CheckoutScreenMobile; });
 __webpack_require__.d(components_namespaceObject, "ProductCatalogScreenMobile", function() { return ProductCatalogScreenMobile; });
-__webpack_require__.d(components_namespaceObject, "CartScreenMiniTypePackageOrder", function() { return CartScreenMiniTypePackageOrder; });
-__webpack_require__.d(components_namespaceObject, "CartScreenMiniTypeSingleOrder", function() { return CartScreenMiniTypeSingleOrder; });
-__webpack_require__.d(components_namespaceObject, "CartScreenMiniTypeSubscriptionOrder", function() { return CartScreenMiniTypeSubscriptionOrder; });
 __webpack_require__.d(components_namespaceObject, "CartScreenMobileTypePackageOrder", function() { return CartScreenMobileTypePackageOrder; });
 __webpack_require__.d(components_namespaceObject, "CartScreenMobileTypeSingleOrder", function() { return CartScreenMobileTypeSingleOrder; });
 __webpack_require__.d(components_namespaceObject, "CartScreenMobileTypeSubscriptionOrder", function() { return CartScreenMobileTypeSubscriptionOrder; });
+__webpack_require__.d(components_namespaceObject, "CartScreenMiniTypePackageOrder", function() { return CartScreenMiniTypePackageOrder; });
+__webpack_require__.d(components_namespaceObject, "CartScreenMiniTypeSingleOrder", function() { return CartScreenMiniTypeSingleOrder; });
+__webpack_require__.d(components_namespaceObject, "CartScreenMiniTypeSubscriptionOrder", function() { return CartScreenMiniTypeSubscriptionOrder; });
 __webpack_require__.d(components_namespaceObject, "CheckoutScreenMiniConstantsCourier", function() { return CheckoutScreenMiniConstantsCourier; });
 __webpack_require__.d(components_namespaceObject, "CheckoutScreenMiniConstantsCustomer", function() { return CheckoutScreenMiniConstantsCustomer; });
 __webpack_require__.d(components_namespaceObject, "CheckoutScreenMiniConstantsOrderInfo", function() { return CheckoutScreenMiniConstantsOrderInfo; });
@@ -8925,10 +8925,10 @@ const General = () => __webpack_require__.e(/* import() | components/general */ 
 const BottomSheetMiniCart = () => __webpack_require__.e(/* import() | components/bottom-sheet-mini-cart */ 6).then(__webpack_require__.bind(null, 436)).then(c => wrapFunctional(c.default || c));
 const BottomSheetRegLoading = () => __webpack_require__.e(/* import() | components/bottom-sheet-reg-loading */ 7).then(__webpack_require__.bind(null, 421)).then(c => wrapFunctional(c.default || c));
 const Cart = () => __webpack_require__.e(/* import() | components/cart */ 8).then(__webpack_require__.bind(null, 437)).then(c => wrapFunctional(c.default || c));
-const DialogsFailedMessage = () => __webpack_require__.e(/* import() | components/dialogs-failed-message */ 52).then(__webpack_require__.bind(null, 438)).then(c => wrapFunctional(c.default || c));
 const Checkout = () => __webpack_require__.e(/* import() | components/checkout */ 27).then(__webpack_require__.bind(null, 356)).then(c => wrapFunctional(c.default || c));
-const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 59).then(__webpack_require__.bind(null, 357)).then(c => wrapFunctional(c.default || c));
+const DialogsFailedMessage = () => __webpack_require__.e(/* import() | components/dialogs-failed-message */ 52).then(__webpack_require__.bind(null, 438)).then(c => wrapFunctional(c.default || c));
 const LoadingListProduct = () => __webpack_require__.e(/* import() | components/loading-list-product */ 58).then(__webpack_require__.bind(null, 496)).then(c => wrapFunctional(c.default || c));
+const Merchant = () => __webpack_require__.e(/* import() | components/merchant */ 59).then(__webpack_require__.bind(null, 357)).then(c => wrapFunctional(c.default || c));
 const PartialsHeaders = () => __webpack_require__.e(/* import() | components/partials-headers */ 67).then(__webpack_require__.bind(null, 439)).then(c => wrapFunctional(c.default || c));
 const ProductDetail = () => __webpack_require__.e(/* import() | components/product-detail */ 77).then(__webpack_require__.bind(null, 440)).then(c => wrapFunctional(c.default || c));
 const GeneralCheckPlatform = () => __webpack_require__.e(/* import() | components/general-check-platform */ 54).then(__webpack_require__.bind(null, 305)).then(c => wrapFunctional(c.default || c));
@@ -8964,12 +8964,12 @@ const CartScreenMobile = () => __webpack_require__.e(/* import() | components/ca
 const CheckoutScreenMini = () => __webpack_require__.e(/* import() | components/checkout-screen-mini */ 28).then(__webpack_require__.bind(null, 460)).then(c => wrapFunctional(c.default || c));
 const CheckoutScreenMobile = () => __webpack_require__.e(/* import() | components/checkout-screen-mobile */ 38).then(__webpack_require__.bind(null, 461)).then(c => wrapFunctional(c.default || c));
 const ProductCatalogScreenMobile = () => __webpack_require__.e(/* import() | components/product-catalog-screen-mobile */ 74).then(__webpack_require__.bind(null, 307)).then(c => wrapFunctional(c.default || c));
-const CartScreenMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mini-type-package-order */ 10).then(__webpack_require__.bind(null, 462)).then(c => wrapFunctional(c.default || c));
-const CartScreenMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mini-type-single-order */ 16).then(__webpack_require__.bind(null, 463)).then(c => wrapFunctional(c.default || c));
-const CartScreenMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mini-type-subscription-order */ 17).then(__webpack_require__.bind(null, 464)).then(c => wrapFunctional(c.default || c));
-const CartScreenMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mobile-type-package-order */ 19).then(__webpack_require__.bind(null, 465)).then(c => wrapFunctional(c.default || c));
-const CartScreenMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mobile-type-single-order */ 25).then(__webpack_require__.bind(null, 466)).then(c => wrapFunctional(c.default || c));
-const CartScreenMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mobile-type-subscription-order */ 26).then(__webpack_require__.bind(null, 467)).then(c => wrapFunctional(c.default || c));
+const CartScreenMobileTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mobile-type-package-order */ 19).then(__webpack_require__.bind(null, 462)).then(c => wrapFunctional(c.default || c));
+const CartScreenMobileTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mobile-type-single-order */ 25).then(__webpack_require__.bind(null, 463)).then(c => wrapFunctional(c.default || c));
+const CartScreenMobileTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mobile-type-subscription-order */ 26).then(__webpack_require__.bind(null, 464)).then(c => wrapFunctional(c.default || c));
+const CartScreenMiniTypePackageOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mini-type-package-order */ 10).then(__webpack_require__.bind(null, 465)).then(c => wrapFunctional(c.default || c));
+const CartScreenMiniTypeSingleOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mini-type-single-order */ 16).then(__webpack_require__.bind(null, 466)).then(c => wrapFunctional(c.default || c));
+const CartScreenMiniTypeSubscriptionOrder = () => __webpack_require__.e(/* import() | components/cart-screen-mini-type-subscription-order */ 17).then(__webpack_require__.bind(null, 467)).then(c => wrapFunctional(c.default || c));
 const CheckoutScreenMiniConstantsCourier = () => __webpack_require__.e(/* import() | components/checkout-screen-mini-constants-courier */ 29).then(__webpack_require__.bind(null, 468)).then(c => wrapFunctional(c.default || c));
 const CheckoutScreenMiniConstantsCustomer = () => __webpack_require__.e(/* import() | components/checkout-screen-mini-constants-customer */ 31).then(__webpack_require__.bind(null, 469)).then(c => wrapFunctional(c.default || c));
 const CheckoutScreenMiniConstantsOrderInfo = () => __webpack_require__.e(/* import() | components/checkout-screen-mini-constants-order-info */ 32).then(__webpack_require__.bind(null, 470)).then(c => wrapFunctional(c.default || c));
@@ -9678,45 +9678,6 @@ async function createApp(ssrContext, config = {}) {
         "hid": "description",
         "name": "description",
         "content": "Chat Commerce di WhatsApp yang dapat membantu bisnis untuk berjualan lebih efektif "
-      }, {
-        "hid": "charset",
-        "charset": "utf-8"
-      }, {
-        "hid": "mobile-web-app-capable",
-        "name": "mobile-web-app-capable",
-        "content": "yes"
-      }, {
-        "hid": "apple-mobile-web-app-title",
-        "name": "apple-mobile-web-app-title",
-        "content": "balesin - Shop"
-      }, {
-        "hid": "author",
-        "name": "author",
-        "content": "balesin.id"
-      }, {
-        "hid": "theme-color",
-        "name": "theme-color",
-        "content": "#ffffdd"
-      }, {
-        "hid": "og:type",
-        "name": "og:type",
-        "property": "og:type",
-        "content": "website"
-      }, {
-        "hid": "og:title",
-        "name": "og:title",
-        "property": "og:title",
-        "content": "balesin - Shop"
-      }, {
-        "hid": "og:site_name",
-        "name": "og:site_name",
-        "property": "og:site_name",
-        "content": "balesin - Shop"
-      }, {
-        "hid": "og:description",
-        "name": "og:description",
-        "property": "og:description",
-        "content": "balesin chat commerce."
       }],
       "link": [{
         "rel": "icon",
@@ -9726,19 +9687,6 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,300,400,500,700,900&display=swap"
       }, {
-        "hid": "shortcut-icon",
-        "rel": "shortcut icon",
-        "href": "https:\u002F\u002Ffaq.balesin.id\u002Ficon\u002Ficon-256x256.png"
-      }, {
-        "hid": "apple-touch-icon",
-        "rel": "apple-touch-icon",
-        "href": "\u002F_nuxt\u002Ficons\u002Ficon_512x512.5821de.png",
-        "sizes": "512x512"
-      }, {
-        "rel": "manifest",
-        "href": "\u002F_nuxt\u002Fmanifest.4b27e15a.json",
-        "hid": "manifest"
-      }, {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"
@@ -9746,12 +9694,12 @@ async function createApp(ssrContext, config = {}) {
         "rel": "stylesheet",
         "type": "text\u002Fcss",
         "href": "https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"
+      }, {
+        "rel": "manifest",
+        "href": "\u002F_nuxt\u002Fmanifest.9de03ee0.json"
       }],
       "script": [],
-      "style": [],
-      "htmlAttrs": {
-        "lang": "en"
-      }
+      "style": []
     },
     store,
     router,

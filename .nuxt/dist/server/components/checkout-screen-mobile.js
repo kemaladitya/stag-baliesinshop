@@ -3725,17 +3725,17 @@ var VIcon = __webpack_require__(22);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(115);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=1fc56962&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=4c99b848&
 
 
 
 
 
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_vm._ssrNode("<div class=\"pl-2\" style=\"align-self: center; font-size: 14px; font-weight: 600\">\n      Pilih Pengiriman\n    </div> "),_c(VSpacer["a" /* default */]),_vm._ssrNode(" "),_c(VBtn["a" /* default */],{attrs:{"color":"red","icon":"","text":""},on:{"click":function($event){_vm.select_courier_dialog = false}}},[_c(VIcon["a" /* default */],[_vm._v("mdi-close")])],1)],2),_vm._ssrNode(" "),(!_vm.courier.loading)?_vm._ssrNode("<div style=\"overflow-y: scroll !important; max-height: 450px !important;\">","</div>",_vm._l((_vm.courier.lists),function(cr,idx){return _c(VCard["a" /* default */],{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[_c(VCard["a" /* default */],{staticClass:"d-flex flex-row ml-2 pa-3 pt-1 pb-1 mb-2",staticStyle:{"border-radius":"8px"},attrs:{"flat":"","outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[_c('div',{staticStyle:{"display":"grid","padding":"0 15px"}},[_c('img',{staticStyle:{"height":"22px","width":"60px","align-self":"center"},attrs:{"src":cr.logo,"alt":""}})]),_vm._v(" "),_c('div',{staticClass:"pa-3",staticStyle:{"font-size":"12px","padding":"5px 0 0 10px"}},[_c('div',{staticStyle:{"font-weight":"500"}},[_vm._v("\n            "+_vm._s(cr.name)+" - "+_vm._s(cr.service)+"\n          ")]),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"500"}},[_vm._v("Rp "+_vm._s(cr.final_price.toLocaleString().replace(/,/g, ".")))]),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"400","padding-top":"7px"}},[_vm._v(_vm._s(cr.description))])])])],1)}),1):_vm._e()],2)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_vm._ssrNode("<div class=\"pl-2\" style=\"align-self: center; font-size: 14px; font-weight: 600\">\n      Pilih Pengiriman\n    </div> "),_c(VSpacer["a" /* default */]),_vm._ssrNode(" "),_c(VBtn["a" /* default */],{attrs:{"color":"red","icon":"","text":""},on:{"click":function($event){return _vm.change_handler('select_courier_dialog', false)}}},[_c(VIcon["a" /* default */],[_vm._v("mdi-close")])],1)],2),_vm._ssrNode(" "),(!_vm.courier.loading)?_vm._ssrNode("<div style=\"overflow-y: scroll !important; max-height: 450px !important;\">","</div>",_vm._l((_vm.courier.lists),function(cr,idx){return _c(VCard["a" /* default */],{key:idx,staticClass:"pa-2 pl-0",class:!idx ? 'pb-0' : null,staticStyle:{"text-align":"left"},attrs:{"flat":""}},[_c(VCard["a" /* default */],{staticClass:"d-flex flex-row ml-2 pa-3 pt-1 pb-1 mb-2",staticStyle:{"border-radius":"8px"},attrs:{"flat":"","outlined":""},on:{"click":function($event){return _vm.select_courier(cr)}}},[_c('div',{staticStyle:{"display":"grid","padding":"0 15px"}},[_c('img',{staticStyle:{"height":"22px","width":"60px","align-self":"center"},attrs:{"src":cr.logo,"alt":""}})]),_vm._v(" "),_c('div',{staticClass:"pa-3",staticStyle:{"font-size":"12px","padding":"5px 0 0 10px"}},[_c('div',{staticStyle:{"font-weight":"500"}},[_vm._v("\n            "+_vm._s(cr.name)+" - "+_vm._s(cr.service)+"\n          ")]),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"500"}},[_vm._v("Rp "+_vm._s(cr.final_price.toLocaleString().replace(/,/g, ".")))]),_vm._v(" "),_c('div',{staticStyle:{"font-weight":"400","padding-top":"7px"}},[_vm._v(_vm._s(cr.description))])])])],1)}),1):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=1fc56962&
+// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=template&id=4c99b848&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/list-courier.vue?vue&type=script&lang=js&
 //
@@ -3905,7 +3905,8 @@ var staticRenderFns = []
     courier: Object,
     icons: Array,
     take_icons: Object,
-    select_courier: Function
+    select_courier: Function,
+    change_handler: Function
   },
   data: () => ({
     is_all_express: true,
@@ -5979,7 +5980,7 @@ var VSheet = __webpack_require__(19);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VGrid/VSpacer.js
 var VSpacer = __webpack_require__(115);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=0331afbe&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=e1c802f2&
 
 
 
@@ -5990,16 +5991,17 @@ var VSpacer = __webpack_require__(115);
 
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._ssrNode("<div class=\"d-flex flex-row mt-4 mb-4 pa-1\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 600; width: 50%\">","</div>",[_c(VBtn["a" /* default */],{class:!_vm.courier.selected ? 'pulse-button' : null,staticStyle:{"text-transform":"none","letter-spacing":"normal","font-size":"14px","border-radius":"8px"},attrs:{"color":"#fd0","block":"","depressed":""},on:{"click":function($event){_vm.select_courier_dialog = true}}},[_vm._v("\n        Kurir\n      ")])],1),_vm._ssrNode(" "),_c(VSpacer["a" /* default */]),_vm._ssrNode(" "),(_vm.courier.loading)?_vm._ssrNode("<div class=\"pt-1\">","</div>",[_c(VProgressCircular["a" /* default */],{attrs:{"size":"25","color":"primary","indeterminate":""}})],1):_vm._ssrNode("<div>","</div>",[(!_vm.courier.selected)?_vm._ssrNode("<div class=\"pt-2\" style=\"font-weight: 600; align-self: center\">","</div>",[_vm._ssrNode("<div style=\"font-weight: 500; font-size: 14px\">Belum Dipilih</div>")],2):_vm._ssrNode("<div style=\"font-weight: 600; align-self: center\">","</div>",[(_vm.courier.selected.status)?_vm._ssrNode("<div>","</div>",[_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c(VSpacer["a" /* default */]),_vm._ssrNode(" <div style=\"font-size: 12px\">"+_vm._ssrEscape("\n              "+_vm._s(_vm.courier.selected.name)+"\n              "+_vm._s(_vm.courier.selected.name === "Express Delivery"
                   ? null
-                  : "| " + _vm.courier.selected.service)+"\n            ")+"</div> "),(_vm.courier.selected.name === 'Express Delivery')?_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("\n              mdi-clock-fast\n            ")]):_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-truck")])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c(VSpacer["a" /* default */]),_vm._ssrNode(" <div style=\"font-size: 13px\">"+_vm._ssrEscape("Rp "+_vm._s(_vm.courier.selected.price.toLocaleString().replace(/,/g, '.')))+"</div> "),_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-cash")])],2),_vm._ssrNode(" "),(!_vm.courier.selected.custom)?_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c(VSpacer["a" /* default */]),_vm._ssrNode(" <div style=\"font-size: 11px\">"+_vm._ssrEscape(_vm._s(_vm.courier.selected.range))+"</div> "),_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"small":""}},[_vm._v("mdi-clock-time-four")])],2):_vm._e()],2):_vm._ssrNode(("<div style=\"font-size: 9px; max-width: 120px; color: red\">"+_vm._ssrEscape("\n          "+_vm._s(_vm.courier.selected.message)+"\n        ")+"</div>"))])])],2),_vm._ssrNode(" "),_c(VDivider["a" /* default */]),_vm._ssrNode(" "),_c(VBottomSheet["a" /* default */],{attrs:{"value":_vm.select_courier_dialog},on:{"click:outside":function($event){_vm.select_courier_dialog = false}}},[_c(VSheet["a" /* default */],{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('list-courier',{attrs:{"courier":_vm.courier,"icons":_vm.icons,"take_icons":_vm.take_icons,"select_courier":_vm.select_courier}})],1)],1)],2)}
+                  : "| " + _vm.courier.selected.service)+"\n            ")+"</div> "),(_vm.courier.selected.name === 'Express Delivery')?_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("\n              mdi-clock-fast\n            ")]):_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-truck")])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c(VSpacer["a" /* default */]),_vm._ssrNode(" <div style=\"font-size: 13px\">"+_vm._ssrEscape("Rp "+_vm._s(_vm.courier.selected.price.toLocaleString().replace(/,/g, '.')))+"</div> "),_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"color":"black","small":""}},[_vm._v("mdi-cash")])],2),_vm._ssrNode(" "),(!_vm.courier.selected.custom)?_vm._ssrNode("<div class=\"d-flex flex-row\">","</div>",[_c(VSpacer["a" /* default */]),_vm._ssrNode(" <div style=\"font-size: 11px\">"+_vm._ssrEscape(_vm._s(_vm.courier.selected.range))+"</div> "),_c(VIcon["a" /* default */],{staticClass:"ml-1",attrs:{"small":""}},[_vm._v("mdi-clock-time-four")])],2):_vm._e()],2):_vm._ssrNode(("<div style=\"font-size: 9px; max-width: 120px; color: red\">"+_vm._ssrEscape("\n          "+_vm._s(_vm.courier.selected.message)+"\n        ")+"</div>"))])])],2),_vm._ssrNode(" "),_c(VDivider["a" /* default */]),_vm._ssrNode(" "),_c(VBottomSheet["a" /* default */],{attrs:{"value":_vm.select_courier_dialog},on:{"click:outside":function($event){_vm.select_courier_dialog = false}}},[_c(VSheet["a" /* default */],{staticClass:"pa-2",staticStyle:{"text-align":"left"}},[_c('list-courier',{attrs:{"change_handler":_vm.change_handler,"courier":_vm.courier,"icons":_vm.icons,"take_icons":_vm.take_icons,"select_courier":_vm.select_courier}})],1)],1)],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=0331afbe&
+// CONCATENATED MODULE: ./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=template&id=e1c802f2&
 
 // EXTERNAL MODULE: ./components/checkout/screen/mobile/constants/courier/list-courier.vue + 4 modules
 var list_courier = __webpack_require__(222);
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/checkout/screen/mobile/constants/courier/index.vue?vue&type=script&lang=js&
+//
 //
 //
 //
@@ -6286,6 +6288,10 @@ var list_courier = __webpack_require__(222);
 
   },
   methods: {
+    change_handler(key, value) {
+      this[key] = value;
+    },
+
     select_courier(cour) {
       this.select(cour);
       this.select_courier_dialog = false;
@@ -6708,7 +6714,7 @@ var VImg = __webpack_require__(58);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/VSheet.js
 var VSheet = __webpack_require__(19);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/screen/mobile/index.vue?vue&type=template&id=9e5321e2&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/screen/mobile/index.vue?vue&type=template&id=c1f2a4e4&
 
 
 
@@ -6720,7 +6726,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/screen/mobile/index.vue?vue&type=template&id=9e5321e2&
+// CONCATENATED MODULE: ./components/Checkout/screen/mobile/index.vue?vue&type=template&id=c1f2a4e4&
 
 // EXTERNAL MODULE: ./components/checkout/screen/mobile/constants/customer.vue + 4 modules
 var customer = __webpack_require__(298);
@@ -7525,11 +7531,7 @@ var components_general = __webpack_require__(138);
       this.order_loading = false;
 
       if (request.status === 200 && request.data.status) {
-        if (request.data.redirect && false) {
-          window.location.replace(request.data.redirect);
-        } else {
-          this.$router.push(`/success/checkout/${this.store.phone}`);
-        }
+        this.$router.push(`/success/checkout/${this.store.phone}`);
       } else {
         this.order_failed = true;
       }
