@@ -299,7 +299,9 @@ export default {
   methods: {
     product_detail(item) {
       console.log('*** product_detail method ***')
-      const { uuid, source, category, store } = this.site
+      // const { uuid, source, category, store } = this.site
+      const { params, query } = this.$route;
+
       this.$store.dispatch('setState', {
         payload: {
           key : 'mini_cart',
@@ -307,13 +309,15 @@ export default {
         }
       })
       this.$router.replace(
-        `/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`
+        `/site/${params.store}/${item.id}?u=${query.u}&src=${query.src}&c=${query.c}`
       )
     },
     gotocart() {
-      const { store, uuid, source, category } = this.$store.state.site
+      const { params, query } = this.$route;
+
+      // const { store, uuid, source, category } = this.$store.state.site
       this.$router.replace(
-        `/site/${this.$route.params.store}/cart?u=${this.$route.query.u}&mtd=view&src=${this.$route.query.src}&c=${this.$route.query.c}`
+        `/site/${params.store}/cart?u=${query.u}&mtd=view&src=${query.src}&c=${query.c}`
       )
     },
   }

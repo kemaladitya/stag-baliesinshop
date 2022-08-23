@@ -1,7 +1,7 @@
 exports.ids = [6];
 exports.modules = {
 
-/***/ 436:
+/***/ 437:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14,7 +14,7 @@ var VCard = __webpack_require__(106);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VImg/VImg.js + 2 modules
 var VImg = __webpack_require__(58);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/mini-cart.vue?vue&type=template&id=7e247739&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/mini-cart.vue?vue&type=template&id=61eed099&
 
 
 
@@ -38,7 +38,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Bottom-Sheet/mini-cart.vue?vue&type=template&id=7e247739&
+// CONCATENATED MODULE: ./components/Bottom-Sheet/mini-cart.vue?vue&type=template&id=61eed099&
 
 // CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Bottom-Sheet/mini-cart.vue?vue&type=script&lang=js&
 //
@@ -359,30 +359,28 @@ var staticRenderFns = []
   },
   methods: {
     product_detail(item) {
-      console.log('*** product_detail method ***');
+      console.log('*** product_detail method ***'); // const { uuid, source, category, store } = this.site
+
       const {
-        uuid,
-        source,
-        category,
-        store
-      } = this.site;
+        params,
+        query
+      } = this.$route;
       this.$store.dispatch('setState', {
         payload: {
           key: 'mini_cart',
           data: false
         }
       });
-      this.$router.replace(`/site/${store}/${item.id}?u=${uuid}&src=${source}&c=${category}`);
+      this.$router.replace(`/site/${params.store}/${item.id}?u=${query.u}&src=${query.src}&c=${query.c}`);
     },
 
     gotocart() {
       const {
-        store,
-        uuid,
-        source,
-        category
-      } = this.$store.state.site;
-      this.$router.replace(`/site/${this.$route.params.store}/cart?u=${this.$route.query.u}&mtd=view&src=${this.$route.query.src}&c=${this.$route.query.c}`);
+        params,
+        query
+      } = this.$route; // const { store, uuid, source, category } = this.$store.state.site
+
+      this.$router.replace(`/site/${params.store}/cart?u=${query.u}&mtd=view&src=${query.src}&c=${query.c}`);
     }
 
   }
