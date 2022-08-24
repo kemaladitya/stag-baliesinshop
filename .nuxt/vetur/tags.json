@@ -2,14 +2,14 @@
   "General": {
     "description": "Auto imported from components/General.js"
   },
-  "Cart": {
-    "description": "Auto imported from components/Cart/index.vue"
-  },
   "BottomSheetMiniCart": {
     "description": "Auto imported from components/Bottom-Sheet/mini-cart.vue"
   },
   "BottomSheetRegLoading": {
     "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
+  },
+  "Cart": {
+    "description": "Auto imported from components/Cart/index.vue"
   },
   "Checkout": {
     "description": "Auto imported from components/Checkout/index.vue"
@@ -23,11 +23,11 @@
   "Merchant": {
     "description": "Auto imported from components/Merchant/index.vue"
   },
-  "PartialsHeaders": {
-    "description": "Auto imported from components/Partials/headers.vue"
-  },
   "ProductDetail": {
     "description": "Auto imported from components/Product-Detail/index.vue"
+  },
+  "PartialsHeaders": {
+    "description": "Auto imported from components/Partials/headers.vue"
   },
   "GeneralCheckPlatform": {
     "description": "Auto imported from components/general/check-platform.vue"
@@ -41,9 +41,6 @@
   "GeneralTextarea": {
     "description": "Auto imported from components/general/textarea.vue"
   },
-  "ProductCatalog": {
-    "description": "Auto imported from components/product-catalog/index.vue"
-  },
   "PaymentReceipt": {
     "description": "Auto imported from components/payment-receipt/index.vue"
   },
@@ -55,6 +52,9 @@
   },
   "PaymentReceiptUploader": {
     "description": "Auto imported from components/payment-receipt/uploader.vue"
+  },
+  "ProductCatalog": {
+    "description": "Auto imported from components/product-catalog/index.vue"
   },
   "BottomSheetCartProducts": {
     "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
@@ -92,6 +92,12 @@
   "MerchantScreenMobile": {
     "description": "Auto imported from components/Merchant/screen/mobile.vue"
   },
+  "ProductDetailScreenMini": {
+    "description": "Auto imported from components/Product-Detail/screen/mini.vue"
+  },
+  "ProductDetailScreenMobile": {
+    "description": "Auto imported from components/Product-Detail/screen/mobile.vue"
+  },
   "PartialsFooterCart": {
     "description": "Auto imported from components/Partials/footer/cart.vue"
   },
@@ -104,12 +110,6 @@
   "PartialsFooterProductDetail": {
     "description": "Auto imported from components/Partials/footer/product-detail.vue"
   },
-  "ProductDetailScreenMini": {
-    "description": "Auto imported from components/Product-Detail/screen/mini.vue"
-  },
-  "ProductDetailScreenMobile": {
-    "description": "Auto imported from components/Product-Detail/screen/mobile.vue"
-  },
   "ProductCatalogScreenMini": {
     "description": "Auto imported from components/product-catalog/screen/mini.vue"
   },
@@ -119,14 +119,23 @@
   "CartScreenMobile": {
     "description": "Auto imported from components/Cart/screen/mobile/index.vue"
   },
-  "CheckoutScreenMini": {
-    "description": "Auto imported from components/Checkout/screen/mini/index.vue"
-  },
   "CheckoutScreenMobile": {
     "description": "Auto imported from components/Checkout/screen/mobile/index.vue"
   },
+  "CheckoutScreenMini": {
+    "description": "Auto imported from components/Checkout/screen/mini/index.vue"
+  },
   "ProductCatalogScreenMobile": {
     "description": "Auto imported from components/product-catalog/screen/mobile/index.vue"
+  },
+  "CartScreenMobileTypePackageOrder": {
+    "description": "Auto imported from components/Cart/screen/mobile/type/package-order.vue"
+  },
+  "CartScreenMobileTypeSingleOrder": {
+    "description": "Auto imported from components/Cart/screen/mobile/type/single-order.vue"
+  },
+  "CartScreenMobileTypeSubscriptionOrder": {
+    "description": "Auto imported from components/Cart/screen/mobile/type/subscription-order.vue"
   },
   "CartScreenMiniTypePackageOrder": {
     "description": "Auto imported from components/Cart/screen/mini/type/package-order.vue"
@@ -137,14 +146,17 @@
   "CartScreenMiniTypeSubscriptionOrder": {
     "description": "Auto imported from components/Cart/screen/mini/type/subscription-order.vue"
   },
-  "CartScreenMobileTypePackageOrder": {
-    "description": "Auto imported from components/Cart/screen/mobile/type/package-order.vue"
+  "CheckoutScreenMobileConstantsCustomer": {
+    "description": "Auto imported from components/Checkout/screen/mobile/constants/customer.vue"
   },
-  "CartScreenMobileTypeSingleOrder": {
-    "description": "Auto imported from components/Cart/screen/mobile/type/single-order.vue"
+  "CheckoutScreenMobileConstantsOrderInfo": {
+    "description": "Auto imported from components/Checkout/screen/mobile/constants/order-info.vue"
   },
-  "CartScreenMobileTypeSubscriptionOrder": {
-    "description": "Auto imported from components/Cart/screen/mobile/type/subscription-order.vue"
+  "CheckoutScreenMobileConstantsPayment": {
+    "description": "Auto imported from components/Checkout/screen/mobile/constants/payment.vue"
+  },
+  "CheckoutScreenMobileConstantsVoucher": {
+    "description": "Auto imported from components/Checkout/screen/mobile/constants/voucher.vue"
   },
   "CheckoutScreenMiniConstantsCourier": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/__courier.vue"
@@ -161,32 +173,11 @@
   "CheckoutScreenMiniConstantsVoucher": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/voucher.vue"
   },
-  "CheckoutScreenMobileConstantsCustomer": {
-    "description": "Auto imported from components/Checkout/screen/mobile/constants/customer.vue"
-  },
-  "CheckoutScreenMobileConstantsOrderInfo": {
-    "description": "Auto imported from components/Checkout/screen/mobile/constants/order-info.vue"
-  },
-  "CheckoutScreenMobileConstantsPayment": {
-    "description": "Auto imported from components/Checkout/screen/mobile/constants/payment.vue"
-  },
-  "CheckoutScreenMobileConstantsVoucher": {
-    "description": "Auto imported from components/Checkout/screen/mobile/constants/voucher.vue"
-  },
   "ProductCatalogScreenMobileShowTypeGrid": {
     "description": "Auto imported from components/product-catalog/screen/mobile/show-type/grid.vue"
   },
   "ProductCatalogScreenMobileShowTypeList": {
     "description": "Auto imported from components/product-catalog/screen/mobile/show-type/list.vue"
-  },
-  "CartScreenMiniTypePackageOrderFooterDetail": {
-    "description": "Auto imported from components/Cart/screen/mini/type/package-order/footer-detail.vue"
-  },
-  "CartScreenMiniTypePackageOrderListItems": {
-    "description": "Auto imported from components/Cart/screen/mini/type/package-order/list-items.vue"
-  },
-  "CartScreenMiniTypePackageOrderRemovePackage": {
-    "description": "Auto imported from components/Cart/screen/mini/type/package-order/remove-package.vue"
   },
   "CartScreenMobileTypePackageOrderFooterDetail": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order/footer-detail.vue"
@@ -197,17 +188,14 @@
   "CartScreenMobileTypePackageOrderRemovePackage": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order/remove-package.vue"
   },
-  "CheckoutScreenMiniConstantsCourierListCourier": {
-    "description": "Auto imported from components/Checkout/screen/mini/constants/courier/list-courier.vue"
+  "CartScreenMiniTypePackageOrderFooterDetail": {
+    "description": "Auto imported from components/Cart/screen/mini/type/package-order/footer-detail.vue"
   },
-  "CheckoutScreenMiniConstantsOrderTypePackageOrder": {
-    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/package-order.vue"
+  "CartScreenMiniTypePackageOrderListItems": {
+    "description": "Auto imported from components/Cart/screen/mini/type/package-order/list-items.vue"
   },
-  "CheckoutScreenMiniConstantsOrderTypeSingleOrder": {
-    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/single-order.vue"
-  },
-  "CheckoutScreenMiniConstantsOrderTypeSubscriptionOrder": {
-    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/subscription-order.vue"
+  "CartScreenMiniTypePackageOrderRemovePackage": {
+    "description": "Auto imported from components/Cart/screen/mini/type/package-order/remove-package.vue"
   },
   "CheckoutScreenMobileConstantsCourier": {
     "description": "Auto imported from components/Checkout/screen/mobile/constants/courier/index.vue"
@@ -224,16 +212,28 @@
   "CheckoutScreenMobileConstantsOrderTypeSubscriptionOrder": {
     "description": "Auto imported from components/Checkout/screen/mobile/constants/order-type/subscription-order.vue"
   },
-  "CartScreenMiniTypePackageOrderTypeMultiple": {
-    "description": "Auto imported from components/Cart/screen/mini/type/package-order/type/multiple.vue"
+  "CheckoutScreenMiniConstantsCourierListCourier": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/courier/list-courier.vue"
   },
-  "CartScreenMiniTypePackageOrderTypeSingle": {
-    "description": "Auto imported from components/Cart/screen/mini/type/package-order/type/single.vue"
+  "CheckoutScreenMiniConstantsOrderTypePackageOrder": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/package-order.vue"
+  },
+  "CheckoutScreenMiniConstantsOrderTypeSingleOrder": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/single-order.vue"
+  },
+  "CheckoutScreenMiniConstantsOrderTypeSubscriptionOrder": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/subscription-order.vue"
   },
   "CartScreenMobileTypePackageOrderTypeMultiple": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order/type/multiple.vue"
   },
   "CartScreenMobileTypePackageOrderTypeSingle": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order/type/single.vue"
+  },
+  "CartScreenMiniTypePackageOrderTypeMultiple": {
+    "description": "Auto imported from components/Cart/screen/mini/type/package-order/type/multiple.vue"
+  },
+  "CartScreenMiniTypePackageOrderTypeSingle": {
+    "description": "Auto imported from components/Cart/screen/mini/type/package-order/type/single.vue"
   }
 }

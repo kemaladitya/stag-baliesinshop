@@ -5,7 +5,7 @@
         class="pl-2"
         style="align-self: center; font-size: 14px; font-weight: 600"
       >
-        Pilih Pengiriman
+        Pilih Kurir
       </div>
       <v-spacer />
       <v-btn
@@ -30,21 +30,21 @@
         flat
       >
         <v-card
-          class="d-flex flex-row ml-2 pa-3 pt-1 pb-1 mb-2"
+          class="ml-2 pa-3 pt-1 pb-1 mb-2"
           style="border-radius: 8px;"
           flat
           outlined
           @click="select_courier(cr)"
         >
-          <div style="display: grid; padding: 0 15px;">
+          <div style="display: grid; padding: 8px 10px 2px 9px;">
             <img :src="cr.logo" alt="" style="height: 22px; width: 60px; align-self: center;">
           </div>
-          <div class="pa-3" style="font-size: 12px; padding: 5px 0 0 10px;">
+          <div class="pa-2" style="font-size: 10px; padding: 5px 0px 0px 10px;">
             <div style="font-weight: 500;">
               {{ cr.name }} - {{ cr.service }}
             </div>
             <div style="font-weight: 500;">Rp {{ cr.final_price.toLocaleString().replace(/,/g, ".") }}</div>
-            <div style="font-weight: 400; padding-top: 7px">{{ cr.description }}</div>
+            <!-- <div style="padding-top: 7px">{{ cr.description }}</div> -->
           </div>
         </v-card>
         <!-- <v-card
