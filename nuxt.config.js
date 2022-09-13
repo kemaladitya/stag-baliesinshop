@@ -32,7 +32,7 @@ module.exports = {
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,700,900&display=swap",
+          "https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700,900&display=swap",
       },
     ],
     script: [],
@@ -331,6 +331,7 @@ module.exports = {
 
   vuetify: {
     customVariables: [
+      "~/assets/styles/global.scss",
       "~/assets/styles/balesin.scss",
       "~/assets/styles/products.scss",
       "~/assets/styles/product-detail.scss",

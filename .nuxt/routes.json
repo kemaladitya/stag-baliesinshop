@@ -2,92 +2,113 @@
   {
     "name": "internal-uat",
     "path": "/internal-uat",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/internal-uat.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/internal-uat.vue",
     "chunkName": "pages/internal-uat",
-    "_name": "_36e446e3"
+    "_name": "_6e414435"
+  },
+  {
+    "name": "play",
+    "path": "/play",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/play.vue",
+    "chunkName": "pages/play",
+    "_name": "_6f66be11"
   },
   {
     "name": "error-link-expired",
     "path": "/error/link/expired",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/error/link/expired.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/error/link/expired.vue",
     "chunkName": "pages/error/link/expired",
-    "_name": "_2ebce8fc"
+    "_name": "_b5687958"
   },
   {
     "name": "error-link-invalid",
     "path": "/error/link/invalid",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/error/link/invalid.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/error/link/invalid.vue",
     "chunkName": "pages/error/link/invalid",
-    "_name": "_9555c558"
+    "_name": "_71ff5526"
   },
   {
     "name": "site-confirmation-store",
     "path": "/site/confirmation/:store?",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/confirmation/_store.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/confirmation/_store.vue",
     "chunkName": "pages/site/confirmation/_store",
-    "_name": "_5bea983f"
+    "_name": "_4cac2a91"
   },
   {
     "name": "success-checkout-phone",
     "path": "/success/checkout/:phone?",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/success/checkout/_phone.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/success/checkout/_phone.vue",
     "chunkName": "pages/success/checkout/_phone",
-    "_name": "_2303e3de"
+    "_name": "_66102d02"
   },
   {
     "name": "success-register-phone",
     "path": "/success/register/:phone?",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/success/register/_phone.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/success/register/_phone.vue",
     "chunkName": "pages/success/register/_phone",
-    "_name": "_4dc0bed8"
+    "_name": "_90cd07fc"
   },
   {
     "name": "site-store",
     "path": "/site/:store",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/_store/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/index.vue",
     "chunkName": "pages/site/_store/index",
-    "_name": "_7606bb9c"
+    "_name": "_0d232820"
   },
   {
     "name": "site-store-cart",
     "path": "/site/:store?/cart",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/_store/cart/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/cart/index.vue",
     "chunkName": "pages/site/_store/cart/index",
-    "_name": "_43611773"
+    "_name": "_a4b1d376"
   },
   {
     "name": "site-store-checkout",
     "path": "/site/:store?/checkout",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/_store/checkout/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/checkout/index.vue",
     "chunkName": "pages/site/_store/checkout/index",
-    "_name": "_90bed3ce"
+    "_name": "_7e46dbeb"
+  },
+  {
+    "name": "site-store-draftesd",
+    "path": "/site/:store?/draftesd",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/draftesd.vue",
+    "chunkName": "pages/site/_store/draftesd",
+    "_name": "_6a89c6d7"
   },
   {
     "name": "site-store-merchant",
     "path": "/site/:store?/merchant",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/_store/merchant/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/merchant/index.vue",
     "chunkName": "pages/site/_store/merchant/index",
-    "_name": "_011ed81b"
+    "_name": "_7075c426"
+  },
+  {
+    "name": "site-store-tok",
+    "path": "/site/:store?/tok",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/tok.vue",
+    "chunkName": "pages/site/_store/tok",
+    "_name": "_331f471e"
   },
   {
     "name": "site-store-userprofile",
     "path": "/site/:store?/userprofile",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/_store/userprofile/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/userprofile/index.vue",
     "chunkName": "pages/site/_store/userprofile/index",
-    "_name": "_b3e9ee3e"
+    "_name": "_953bcc62"
   },
   {
     "name": "site-store-pid",
     "path": "/site/:store?/:pid",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/site/_store/_pid/index.vue",
     "chunkName": "pages/site/_store/_pid/index",
-    "_name": "_220d561f"
+    "_name": "_e759561e"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/user/Documents/works/balesin/shop/Balesin-Shop-FE/pages/index.vue",
+    "component": "/Users/kemaladitya/Documents/BALESIN.ID/Balesin-Shop-FE/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_731ab5d7"
+    "_name": "_804f9e76"
   }
 ]

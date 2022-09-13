@@ -1,79 +1,30 @@
 <template>
-  <v-app-bar
-    class="headers"
-    color="white"
-    scroll-target="#scrolling-techniques-7"
-    elevate-on-scroll
-    absolute
-  >
+  <v-app-bar class="headers" color="white" scroll-target="#scrolling-techniques-7" elevate-on-scroll absolute>
     <v-app-bar-nav-icon :ripple="false" class="ml-2 pa-2" color="white" depressed>
-      <v-btn
-        v-if="
-          ($route.name == 'site-store-checkout')
-          || (
-            store
-            && $route.name == 'site-store-userprofile'
-            && !store.registered_mode
-          )
-        "
-        :to="($route.name == 'site-store-checkout') ? cart_url : checkout_url"
-        :ripple="false"
-        class="ml-4 headers--back"
-        x-small
-        depressed
-        fab
-        text
-      >
+      <v-btn v-if="
+        ($route.name == 'site-store-checkout')
+        || (
+          store
+          && $route.name == 'site-store-userprofile'
+          && !store.registered_mode
+        )
+      " :to="($route.name == 'site-store-checkout') ? cart_url : checkout_url" :ripple="false"
+        class="ml-4 headers--back" x-small depressed fab text>
         <v-icon small>mdi-arrow-left</v-icon>
       </v-btn>
-      <v-img
-        v-if="store"
-        :src="store.image"
-        :to="home_url"
-        class="headers--image"
-        width="40"
-        height="40"
-        max-width="53"
-        max-height="53"
-        loading=lazy
-      />
+      <v-img v-if="store" :src="store.image" :to="home_url" class="headers--image" width="40" height="40" max-width="53"
+        max-height="53" loading=lazy />
       <v-icon v-else>mdi-store</v-icon>
     </v-app-bar-nav-icon>
     <v-spacer />
-    <v-btn
-      v-if="($route.name == 'site-store') && store && store['store_type'] && merchant"
-      :to="merchant_url"
-      :ripple="false"
-      class="ml-4 headers--merchant"
-      x-small
-      fab
-      text
-      depressed
-    >
+    <v-btn v-if="($route.name == 'site-store') && store && store['store_type'] && merchant" :to="merchant_url"
+      :ripple="false" class="ml-4 headers--merchant" x-small fab text depressed>
       <v-icon>mdi-home-search</v-icon>
     </v-btn>
-    <v-badge
-      v-if="cart_on_headers"
-      id="b-shop-cart-badge"
-      class="headers--badge"
-      top="-5px"
-      color="red darken-1"
-      min-width="16px"
-      height="16px"
-      bordered
-      overlap
-      :icon="cart_qty_item"
-    >
-      <v-btn
-        :to="cart_url"
-        :ripple="false"
-        max-width="38"
-        min-width="38"
-        color="#fcfcfc"
-        class="headers--badge--cart-icon"
-        rounded
-        depressed
-      >
+    <v-badge v-if="cart_on_headers" id="b-shop-cart-badge" class="headers--badge" top="-5px" color="red darken-1"
+      min-width="16px" height="16px" bordered overlap :icon="cart_qty_item">
+      <v-btn :to="cart_url" :ripple="false" max-width="38" min-width="38" color="#fcfcfc"
+        class="headers--badge--cart-icon" rounded depressed>
         <v-icon>mdi-cart-outline</v-icon>
       </v-btn>
     </v-badge>
@@ -88,7 +39,7 @@ export default {
 
       return `/site/${params.store}/cart?u=${query.u}&mtd=view&src=${query.src}&c=${query.c}`;
     },
-  
+
     merchant_url() {
       const { params, query } = this.$route;
       const { market_id } = this.merchant;
@@ -188,9 +139,7 @@ export default {
   }
 
   &--badge {
-    font-size: 10px
-
-    &--cart-icon {
+    font-size: 10px &--cart-icon {
       color: black !important;
       border: 1px solid #fcfcfc !important;
     }

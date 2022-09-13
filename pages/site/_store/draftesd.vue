@@ -1,26 +1,26 @@
 <template>
   <v-card id="b-list-products" class="pt-12 mb-12" flat tile>
-    <!-- <v-card v-if="loading_product" flat tile> -->
-    <div v-if="loading_product">
-      <Loadingv2 />
-    </div>
-    <!-- </v-card> -->
-    <div v-else>
-      <!-- <h1>fsdfafa</h1>
-          <small>
+    <v-progress-linear v-show="loading" class="linear-loading" color="blue darken-2" height="3" indeterminate />
+    <v-card class="wrapper" flat tile>
+      <v-card v-if="loading_product" class="loading loading--active" flat tile>
+        <center class="center">
+          <div class="content">
+            <v-img :src="require('@/assets/images/loading/balesin-loading.gif')" width="80" loading=lazy />
+            <div class="mb-2 status">Mohon menunggu...</div>
+          </div>
+        </center>
+      </v-card>
+      <div v-else class="pa-2">
+        <!-- <h1>fsdfafa</h1>
+        <small>
           <pre>{{JSON.stringify(list_product, null,2)}}</pre>
         </small> -->
-      <SendToBar />
-      <HelloBar />
-      <SlickProduct />
-      <v-progress-linear v-show="loading" class="linear-loading" color="blue darken-2" height="3" indeterminate />
-      <ListProductCategory :list_product="list_product" />
-      <FloatItemButton />
-    </div>
-
+        <products :productdetail="product_detail" :loadingproduct="loading_product" />
+      </div>
+    </v-card>
     <v-snackbar v-model="snackbar">information</v-snackbar>
 
-    <!-- <catalog-footer :loading_product="loading_product" /> -->
+    <catalog-footer :loading_product="loading_product" />
   </v-card>
 </template>
 
@@ -30,26 +30,12 @@ import Products from "@/components/product-catalog/index";
 import Loading from "@/components/loading/list_product";
 import Footer from "@/components/partials/footer/product-catalog";
 import { mode } from "../../../config.json";
-import ListProductCategory from "~/components/product/ListProductCategory.vue";
-import HelloBar from "~/components/product/HelloBar.vue";
-import SendToBar from "~/components/product/SendToBar.vue";
-import Loadingv2 from "~/components/shared/Loadingv2.vue";
-import SlickProduct from "~/components/product/SlickProduct.vue";
-import FloatItemButton from "~/components/product/FloatItemButton.vue";
 
 export default {
-  layout: "layoutv2",
-
   components: {
     Loading,
     "products": Products,
     "catalog-footer": Footer,
-    ListProductCategory,
-    HelloBar,
-    SendToBar,
-    Loadingv2,
-    SlickProduct,
-    FloatItemButton
   },
 
   data: () => ({
@@ -412,17 +398,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.productv2 {
-  position: relative;
-}
-
-.center {
-  height: 100vh;
-}
-</style>
-
-<!-- <style lang="scss">
+<style lang="scss">
 #b-search-product-by {
   width: 0 !important;
   min-width: 0 !important;
@@ -503,4 +479,4 @@ export default {
     min-width: 100% !important;
   }
 }
-</style> -->
+</style>

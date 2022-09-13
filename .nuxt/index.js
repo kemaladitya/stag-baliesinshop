@@ -13,14 +13,12 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_1cb85a51 from 'nuxt_plugin_plugin_1cb85a51' // Source: ./components/plugin.js (mode: 'all')
-import nuxt_plugin_workbox_28590e43 from 'nuxt_plugin_workbox_28590e43' // Source: ./workbox.js (mode: 'client')
-import nuxt_plugin_plugin_cb7f1986 from 'nuxt_plugin_plugin_cb7f1986' // Source: ./vuetify/plugin.js (mode: 'all')
-import nuxt_plugin_templatesplugin3a7f9e7c_d37dd8bc from 'nuxt_plugin_templatesplugin3a7f9e7c_d37dd8bc' // Source: ./templates.plugin.3a7f9e7c.js (mode: 'all')
-import nuxt_plugin_metaplugin_0cad6256 from 'nuxt_plugin_metaplugin_0cad6256' // Source: ./pwa/meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_115507ca from 'nuxt_plugin_iconplugin_115507ca' // Source: ./pwa/icon.plugin.js (mode: 'all')
-import nuxt_plugin_axios_5b4a9232 from 'nuxt_plugin_axios_5b4a9232' // Source: ./axios.js (mode: 'all')
-import nuxt_plugin_deviceplugin_5d9c7772 from 'nuxt_plugin_deviceplugin_5d9c7772' // Source: ./device.plugin.js (mode: 'all')
+import nuxt_plugin_plugin_37d25ea3 from 'nuxt_plugin_plugin_37d25ea3' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_workbox_734af115 from 'nuxt_plugin_workbox_734af115' // Source: ./workbox.js (mode: 'client')
+import nuxt_plugin_plugin_4e83202b from 'nuxt_plugin_plugin_4e83202b' // Source: ./vuetify/plugin.js (mode: 'all')
+import nuxt_plugin_templatesplugin663776ea_2278d9ca from 'nuxt_plugin_templatesplugin663776ea_2278d9ca' // Source: ./templates.plugin.663776ea.js (mode: 'all')
+import nuxt_plugin_axios_2fab2639 from 'nuxt_plugin_axios_2fab2639' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_deviceplugin_d60d1678 from 'nuxt_plugin_deviceplugin_d60d1678' // Source: ./device.plugin.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -88,7 +86,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"","title":"balesin - shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"http-equiv":"cache-control","content":"no-cache"},{"name":"google","content":"notranslate"},{"hid":"description","name":"description","content":"Chat Commerce di WhatsApp yang dapat membantu bisnis untuk berjualan lebih efektif "}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.9de03ee0.json"}],"script":[],"style":[]},
+    head: {"titleTemplate":"","title":"balesin - shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"http-equiv":"cache-control","content":"no-cache"},{"name":"google","content":"notranslate"},{"hid":"description","name":"description","content":"Chat Commerce di WhatsApp yang dapat membantu bisnis untuk berjualan lebih efektif "}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,300,400,600,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.0c1e832d.json"}],"script":[],"style":[]},
 
     store,
     router,
@@ -217,36 +215,28 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_1cb85a51 === 'function') {
-    await nuxt_plugin_plugin_1cb85a51(app.context, inject)
+  if (typeof nuxt_plugin_plugin_37d25ea3 === 'function') {
+    await nuxt_plugin_plugin_37d25ea3(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_workbox_28590e43 === 'function') {
-    await nuxt_plugin_workbox_28590e43(app.context, inject)
+  if (process.client && typeof nuxt_plugin_workbox_734af115 === 'function') {
+    await nuxt_plugin_workbox_734af115(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_plugin_cb7f1986 === 'function') {
-    await nuxt_plugin_plugin_cb7f1986(app.context, inject)
+  if (typeof nuxt_plugin_plugin_4e83202b === 'function') {
+    await nuxt_plugin_plugin_4e83202b(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_templatesplugin3a7f9e7c_d37dd8bc === 'function') {
-    await nuxt_plugin_templatesplugin3a7f9e7c_d37dd8bc(app.context, inject)
+  if (typeof nuxt_plugin_templatesplugin663776ea_2278d9ca === 'function') {
+    await nuxt_plugin_templatesplugin663776ea_2278d9ca(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_metaplugin_0cad6256 === 'function') {
-    await nuxt_plugin_metaplugin_0cad6256(app.context, inject)
+  if (typeof nuxt_plugin_axios_2fab2639 === 'function') {
+    await nuxt_plugin_axios_2fab2639(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_iconplugin_115507ca === 'function') {
-    await nuxt_plugin_iconplugin_115507ca(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_axios_5b4a9232 === 'function') {
-    await nuxt_plugin_axios_5b4a9232(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_deviceplugin_5d9c7772 === 'function') {
-    await nuxt_plugin_deviceplugin_5d9c7772(app.context, inject)
+  if (typeof nuxt_plugin_deviceplugin_d60d1678 === 'function') {
+    await nuxt_plugin_deviceplugin_d60d1678(app.context, inject)
   }
 
   // Lock enablePreview in context

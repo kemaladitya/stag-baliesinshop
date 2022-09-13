@@ -1,18 +1,9 @@
 <template>
   <div>
     <Platform v-if="store && customer" />
-    <Mini
-      v-if="screen === 'mini'"
-      id="mini"
-      :productdetail="productdetail"
-      :loadingproduct="loadingproduct"
-    />
-    <Mobile
-      v-if="screen === 'mobile' || screen === 'desktop'"
-      id="mobile"
-      :productdetail="productdetail"
-      :loadingproduct="loadingproduct"
-    />
+    <Mini v-if="screen === 'mini'" id="mini" :productdetail="productdetail" :loadingproduct="loadingproduct" />
+    <Mobile v-if="screen === 'mobile' || screen === 'desktop'" id="mobile" :productdetail="productdetail"
+      :loadingproduct="loadingproduct" />
   </div>
 </template>
 

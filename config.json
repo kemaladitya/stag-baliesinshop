@@ -1,16 +1,15 @@
 {
-  "mode"  : "production",
-  "_api"  : "http://10.140.0.14:3088",
-  "_key"  : "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
-  "base"  : "https://shop.balesin.id",
-  "event" : "http://10.140.0.28:8114",
-  "host"  : "0.0.0.0",
-  "port"  : "8082",
-  "redis" : {
-    "host"     : "10.140.0.17",
-    "port"     : "6379",
-    "password" : "e3b09b99b954eafe552c71635a03de6fb49ae93f",
-    "db"       : 1
+  "mode": "production",
+  "_api": "http://10.140.0.14:3088",
+  "_key": "iCEsjhMfFHGi2DJchrdEwdq3AmTLvwNB",
+  "base": "https://shop.balesin.id",
+  "event": "http://10.140.0.28:8114",
+  "host": "0.0.0.0",
+  "port": "8082",
+  "redis": {
+    "host": "127.0.0.1",
+    "port": "6379",
+    "db": 1
   },
   "mailer_list": [
     "irvan@bjtech.io",

@@ -1,16 +1,11 @@
 <template>
-  <div
-    style="
+  <div style="
       background-color: rgb(253 251 238);
       text-align: center;
       text-align: -moz-center;
       text-align: -webkit-center;
-    "
-  >
-    <div
-      v-if="$nuxt.isOffline"
-      class="b-font"
-      style="
+    ">
+    <div v-if="$nuxt.isOffline" class="b-font" style="
         padding-top: 38vh;
         position: fixed;
         z-index: 9999;
@@ -21,8 +16,7 @@
         height: 100vh;
         font-size: 12px;
         font-weight: 600;
-      "
-    >
+      ">
       <div>
         <center>
           <v-icon style="font-size: 70px">mdi-signal-off</v-icon>
@@ -32,10 +26,7 @@
         </center>
       </div>
     </div>
-    <div
-      v-if="loading"
-      class="b-font"
-      style="
+    <div v-if="loading" class="b-font" style="
         position: fixed;
         z-index: 9999;
         background-color: rgb(255 255 255 / 0%);
@@ -45,39 +36,20 @@
         height: 100vh;
         font-size: 12px;
         font-weight: 600;
-      "
-    >
-      <v-progress-linear
-        style="z-index: 9999 !important"
-        color="success"
-        height="3"
-        indeterminate
-      />
+      ">
+      <v-progress-linear style="z-index: 9999 !important" color="success" height="3" indeterminate />
     </div>
-    <v-app
-      class="b-font overflow-hidden"
-      style="
+    <v-app class="b-font overflow-hidden" style="
         -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-      "
-    >
+      ">
       <div>
         <div>
           <Headers />
-          <v-sheet
-            id="scrolling-techniques-7"
-            class="overflow-hidden b-main-page"
-            height="100vh"
-            v-if="store"
-          >
-            <v-progress-linear
-              v-if="general_loading"
-              style="z-index: 9999 !important"
-              color="success"
-              height="3"
-              indeterminate
-            />
+          <v-sheet id="scrolling-techniques-7" class="overflow-hidden b-main-page" height="100vh" v-if="store">
+            <v-progress-linear v-if="general_loading" style="z-index: 9999 !important" color="success" height="3"
+              indeterminate />
             <v-card v-else height="3" flat />
             <nuxt />
           </v-sheet>
@@ -229,7 +201,7 @@ export default {
     }
   },
 
-  async mounted () {
+  async mounted() {
     console.log("recommendation_api", recommendation_api)
     const self = this
     const { name, params: { store }, query: { c, src, u } } = this.$route
@@ -240,7 +212,7 @@ export default {
         method: 'post',
         data: {
           bot_id: store,
-          uid : u,
+          uid: u,
           category: c,
         }
       })
@@ -251,7 +223,7 @@ export default {
     }
 
     await this.get_base_info('site-store')
-    
+
     if (this.$route.name === 'site-store-userprofile') {
       this.cart_btn = null
     } else {
@@ -293,7 +265,7 @@ export default {
     }
 
     // if (recommendation_api) {
-      // this.get_recomendation();
+    // this.get_recomendation();
     // }
   },
 
@@ -305,7 +277,7 @@ export default {
           url: 'https://master.balesin.id/profiling',
           method: 'post',
           data: {
-            "uuid"  : self.$route.query.u,
+            "uuid": self.$route.query.u,
             "bot_id": self.store.bot_id,
           }
         });
@@ -448,12 +420,12 @@ export default {
 html {
   scrollbar-width: none;
 
-  #app > div > div.pb-12 > div > header > div {
+  #app>div>div.pb-12>div>header>div {
     height: 55px !important;
   }
 }
 
-#b-shop-cart-badge > span > span {
+#b-shop-cart-badge>span>span {
   top: -5px !important;
   height: 18px;
   min-width: 18px;

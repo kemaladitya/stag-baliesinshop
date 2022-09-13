@@ -23,7 +23,6 @@ export default {
     "Nov",
     "Dec",
   ],
-
   get_list_products: async (self, data) => {
     try {
       const request = await self.dispatch('request', {
@@ -66,7 +65,7 @@ export default {
         method: 'post',
         data
       })
-      const cart =  request.data
+      const cart = request.data
 
       if (cart && cart.status && cart.results) {
         if (cart.results.type === 'single-order') {
@@ -126,34 +125,34 @@ export default {
 
                 return _item
               })
-              
-                const merge_items = self.state.products.map(el => {
-                  const find_selected = list_items.filter(s_el => s_el.id == el.id)
 
-                  if (find_selected.length) return find_selected[0]
+              const merge_items = self.state.products.map(el => {
+                const find_selected = list_items.filter(s_el => s_el.id == el.id)
 
-                  const _item = {
-                    SKU: el.SKU,
-                    detail_id: el.detail[0].detail_id,
-                    discount_price: el.detail[0].discount_price,
-                    id: el.id,
-                    main_image: el.detail[0].main_image,
-                    name: el.name,
-                    normal_price: el.detail[0].normal_price,
-                    product_id: el.id,
-                    qty: 0,
-                    select_date: false,
-                    variant: el.detail[0].variant
-                  }
+                if (find_selected.length) return find_selected[0]
 
-                  return _item
-                })
-
-                return {
-                  date: el.delivery_date,
-                  delivery_time: el.delivery_time,
-                  items: merge_items
+                const _item = {
+                  SKU: el.SKU,
+                  detail_id: el.detail[0].detail_id,
+                  discount_price: el.detail[0].discount_price,
+                  id: el.id,
+                  main_image: el.detail[0].main_image,
+                  name: el.name,
+                  normal_price: el.detail[0].normal_price,
+                  product_id: el.id,
+                  qty: 0,
+                  select_date: false,
+                  variant: el.detail[0].variant
                 }
+
+                return _item
+              })
+
+              return {
+                date: el.delivery_date,
+                delivery_time: el.delivery_time,
+                items: merge_items
+              }
             })
 
             self.dispatch('setState', {
@@ -198,8 +197,8 @@ export default {
         return request
       } else {
         return {
-          status : 404,
-          data   : { status: false }
+          status: 404,
+          data: { status: false }
         }
       }
     } catch (error) {
