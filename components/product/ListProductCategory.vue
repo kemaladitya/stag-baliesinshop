@@ -2,6 +2,8 @@
 
 <script>
 import { rupiahFormat } from "@/middleware/helper"
+import API from "@/components/general";
+
 export default {
     // props: ["handleAdd", "list_product"],
     data() {
@@ -13,6 +15,12 @@ export default {
         list_product() {
             console.log(this.$store.state.products)
             return this.$store.state.products
+        },
+        order_type() {
+            return this.$store.state.order_type;
+        },
+        site() {
+            return this.$store.state.site;
         },
     },
     mounted() {
@@ -31,7 +39,38 @@ export default {
     methods: {
         handleRupiahFormat(val) {
             return rupiahFormat(val)
-        }
+        },
+        async add_to_cart(id, detail_id, sku, qty) {
+            if (this.order_type === 'single-order') {
+                await this.add_single_order(id, detail_id, sku, qty);
+            } else if (this.order_type === 'subscription-order') {
+                this.target_subs_date = { id, detail_id, sku, qty };
+                this.sheet = true;
+            }
+        },
+        async add_single_order(id, detail_id, sku, qty) {
+            this.$store.dispatch('setState', {
+                payload: { key: 'loading', data: true },
+            });
+
+            await API.cart_manager(this, {
+                method: 'add',
+                info: {
+                    mode: 'single-order',
+                    item: { id, detail_id, sku, qty },
+                    store: {
+                        name: this.site.store,
+                        source: this.site.source,
+                        uuid: this.site.uuid,
+                        outlet: this.site.category,
+                    },
+                },
+            });
+
+            this.$store.dispatch('setState', {
+                payload: { key: 'loading', data: false },
+            });
+        },
     },
 
 
@@ -62,7 +101,8 @@ export default {
                     <div class="rightcon">
                         <div class="wrapimg">
                             <img :src="val.main_image" alt="">
-                            <v-btn depressed block class="bt-primary" color="#fd0">
+                            <v-btn depressed block class="bt-primary" color="#fd0"
+                                @click="add_to_cart(val.id, val.variant[0].id, val.SKU, 1)">
                                 Tambah
                             </v-btn>
                         </div>
