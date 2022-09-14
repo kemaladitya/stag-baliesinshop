@@ -1,11 +1,25 @@
 //colors
-
 $yellow : #fd0;
 $light-grey : #CCCCCC;
+$smoke: #E8E8E8;
 $blue : #206AEC;
+$green: #4caf50;
 
-body {
+
+
+body,
+button,
+p {
     font-family: Poppins, sans-serif !important;
+}
+
+button>span {
+    font-family: Poppins, sans-serif !important;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .pl {
@@ -29,9 +43,17 @@ b {
     font-weight: 600;
 }
 
-p.title {
-    font-size: 14px;
-    font-weight: 600;
+p.title,
+.title {
+    font-size: 14px !important;
+    font-family: Poppins, sans-serif !important;
+    font-weight: 600 !important;
+    line-height: unset !important;
+}
+
+.v-menu__content {
+    font-family: Poppins, sans-serif !important;
+
 }
 
 p.title-blue {
@@ -67,10 +89,17 @@ p.desc {
 
 .btn-lg {
     height: 40px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+
 }
 
 a {
     text-decoration: none;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 

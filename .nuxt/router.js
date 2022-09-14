@@ -4,6 +4,7 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _58fe1124 = () => interopDefault(import('../pages/detail.vue' /* webpackChunkName: "pages/detail" */))
 const _6e414435 = () => interopDefault(import('../pages/internal-uat.vue' /* webpackChunkName: "pages/internal-uat" */))
 const _6f66be11 = () => interopDefault(import('../pages/play.vue' /* webpackChunkName: "pages/play" */))
 const _b5687958 = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
@@ -19,6 +20,7 @@ const _7075c426 = () => interopDefault(import('../pages/site/_store/merchant/ind
 const _331f471e = () => interopDefault(import('../pages/site/_store/tok.vue' /* webpackChunkName: "pages/site/_store/tok" */))
 const _953bcc62 = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
 const _e759561e = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
+const _20f4fa72 = () => interopDefault(import('../pages/site/_store/_pid/drafted_index.vue' /* webpackChunkName: "pages/site/_store/_pid/drafted_index" */))
 const _804f9e76 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -33,6 +35,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/detail",
+    component: _58fe1124,
+    name: "detail"
+  }, {
     path: "/internal-uat",
     component: _6e414435,
     name: "internal-uat"
@@ -92,6 +98,10 @@ export const routerOptions = {
     path: "/site/:store?/:pid",
     component: _e759561e,
     name: "site-store-pid"
+  }, {
+    path: "/site/:store?/:pid/drafted_index",
+    component: _20f4fa72,
+    name: "site-store-pid-drafted_index"
   }, {
     path: "/",
     component: _804f9e76,

@@ -51,6 +51,9 @@ export default {
     //     }
     // },
     methods: {
+        handleDetailLink(item) {
+            this.$router.push(`/site/${this.site.store}/${item.id}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`);
+        },
         handleRupiahFormat(val) {
             return rupiahFormat(val)
         },
@@ -99,8 +102,8 @@ export default {
 
         <VueSlickCarousel v-bind="settings" v-if="list_product.length >0">
             <div v-for="item in list_product" :key="item.id" class="boxcard">
-                <img :src="item.main_image" alt="">
-                <p class="prodtitle name">{{item.name}}</p>
+                <img :src="item.main_image" alt="" class="pointer" @click="handleDetailLink(item)">
+                <p class="prodtitle name pointer" @click="handleDetailLink(item)">{{item.name}}</p>
                 <p class="prodtitle price">{{handleRupiahFormat(item.normal_price)}}</p>
                 <v-btn depressed block class="bt-primary" color="#fd0"
                     @click="add_to_cart(item.id, item.variant[0].id, item.SKU, 1)">

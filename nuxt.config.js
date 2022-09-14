@@ -331,10 +331,10 @@ module.exports = {
 
   vuetify: {
     customVariables: [
-      "~/assets/styles/global.scss",
       "~/assets/styles/balesin.scss",
       "~/assets/styles/products.scss",
       "~/assets/styles/product-detail.scss",
+      "~/assets/styles/global.scss",
     ],
     theme: { dark: false, themes: {} },
   },

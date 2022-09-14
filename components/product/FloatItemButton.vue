@@ -124,6 +124,7 @@ export default {
 
         p {
             font-weight: 700;
+            font-size: 14px !important;
         }
     }
 }

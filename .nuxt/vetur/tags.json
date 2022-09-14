@@ -41,21 +41,6 @@
   "PaymentReceiptUploader": {
     "description": "Auto imported from components/payment-receipt/uploader.vue"
   },
-  "ProductFloatItemButton": {
-    "description": "Auto imported from components/product/FloatItemButton.vue"
-  },
-  "ProductHelloBar": {
-    "description": "Auto imported from components/product/HelloBar.vue"
-  },
-  "ProductListProductCategory": {
-    "description": "Auto imported from components/product/ListProductCategory.vue"
-  },
-  "ProductSendToBar": {
-    "description": "Auto imported from components/product/SendToBar.vue"
-  },
-  "ProductSlickProduct": {
-    "description": "Auto imported from components/product/SlickProduct.vue"
-  },
   "GeneralCheckPlatform": {
     "description": "Auto imported from components/general/check-platform.vue"
   },
@@ -68,14 +53,35 @@
   "GeneralTextarea": {
     "description": "Auto imported from components/general/textarea.vue"
   },
+  "ProductFloatItemButton": {
+    "description": "Auto imported from components/product/FloatItemButton.vue"
+  },
+  "ProductHelloBar": {
+    "description": "Auto imported from components/product/HelloBar.vue"
+  },
+  "ProductListProductCategory": {
+    "description": "Auto imported from components/product/ListProductCategory.vue"
+  },
+  "ProductDetailv2": {
+    "description": "Auto imported from components/product/ProductDetailv2.vue"
+  },
+  "ProductSendToBar": {
+    "description": "Auto imported from components/product/SendToBar.vue"
+  },
+  "ProductSlickProduct": {
+    "description": "Auto imported from components/product/SlickProduct.vue"
+  },
+  "ProductCatalog": {
+    "description": "Auto imported from components/product-catalog/index.vue"
+  },
   "SharedLoadingv2": {
     "description": "Auto imported from components/shared/Loadingv2.vue"
   },
   "SharedNavbar": {
     "description": "Auto imported from components/shared/Navbar.vue"
   },
-  "ProductCatalog": {
-    "description": "Auto imported from components/product-catalog/index.vue"
+  "SharedTitleBar": {
+    "description": "Auto imported from components/shared/TitleBar.vue"
   },
   "BottomSheetCartProducts": {
     "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
@@ -131,9 +137,6 @@
   "ProductDetailScreenMobile": {
     "description": "Auto imported from components/Product-Detail/screen/mobile.vue"
   },
-  "ProductCatalogScreenMini": {
-    "description": "Auto imported from components/product-catalog/screen/mini.vue"
-  },
   "CartScreenMini": {
     "description": "Auto imported from components/Cart/screen/mini/index.vue"
   },
@@ -145,9 +148,6 @@
   },
   "CheckoutScreenMobile": {
     "description": "Auto imported from components/Checkout/screen/mobile/index.vue"
-  },
-  "ProductCatalogScreenMobile": {
-    "description": "Auto imported from components/product-catalog/screen/mobile/index.vue"
   },
   "CartScreenMiniTypePackageOrder": {
     "description": "Auto imported from components/Cart/screen/mini/type/package-order.vue"
@@ -193,12 +193,6 @@
   },
   "CheckoutScreenMobileConstantsVoucher": {
     "description": "Auto imported from components/Checkout/screen/mobile/constants/voucher.vue"
-  },
-  "ProductCatalogScreenMobileShowTypeGrid": {
-    "description": "Auto imported from components/product-catalog/screen/mobile/show-type/grid.vue"
-  },
-  "ProductCatalogScreenMobileShowTypeList": {
-    "description": "Auto imported from components/product-catalog/screen/mobile/show-type/list.vue"
   },
   "CartScreenMiniTypePackageOrderFooterDetail": {
     "description": "Auto imported from components/Cart/screen/mini/type/package-order/footer-detail.vue"
@@ -256,5 +250,17 @@
   },
   "CartScreenMobileTypePackageOrderTypeSingle": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order/type/single.vue"
+  },
+  "ProductCatalogScreenMini": {
+    "description": "Auto imported from components/product-catalog/screen/mini.vue"
+  },
+  "ProductCatalogScreenMobile": {
+    "description": "Auto imported from components/product-catalog/screen/mobile/index.vue"
+  },
+  "ProductCatalogScreenMobileShowTypeGrid": {
+    "description": "Auto imported from components/product-catalog/screen/mobile/show-type/grid.vue"
+  },
+  "ProductCatalogScreenMobileShowTypeList": {
+    "description": "Auto imported from components/product-catalog/screen/mobile/show-type/list.vue"
   }
 }

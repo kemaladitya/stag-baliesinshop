@@ -1,13 +1,13 @@
 
 <template>
-
-    <v-container xs class="layoutv2">
-        <Navbar />
-        <div v-if="store">
-            <nuxt />
-        </div>
-    </v-container>
-
+    <v-app class="pt-0">
+        <v-container xs class="layoutv2">
+            <Navbar />
+            <div v-if="store">
+                <nuxt />
+            </div>
+        </v-container>
+    </v-app>
 </template>
   
 

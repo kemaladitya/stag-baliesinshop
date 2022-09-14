@@ -22,6 +22,25 @@ export default {
         site() {
             return this.$store.state.site;
         },
+        products() {
+            return this.$store.state.products
+        },
+        // recomendation_items() {
+        //     if (this.products.length && this.$store.state.recomendation_items) {
+        //         const items = [];
+
+        //         this.$store.state.recomendation_items.forEach(item => {
+        //             const filtered_product = this.products
+        //                 .filter(_ => _.name == item.name || _.SKU == item.sku);
+
+        //             if (filtered_product.length) items.push(filtered_product[0]);
+        //         });
+
+        //         if (items.length) return items;
+        //     }
+
+        //     return null;
+        // },
     },
     mounted() {
         if (this.$store.state.products.length !== 0) {
@@ -37,6 +56,9 @@ export default {
         }
     },
     methods: {
+        handleDetailLink(item) {
+            this.$router.push(`/site/${this.site.store}/${item.id}?u=${this.$route.query.u}&src=${this.$route.query.src}&c=${this.$route.query.c}`);
+        },
         handleRupiahFormat(val) {
             return rupiahFormat(val)
         },
@@ -81,7 +103,7 @@ export default {
     <div class="list-product-category">
         <small>
             <!-- {{ handleRupiahFormat(3000)}} -->
-            <!-- <pre>{{JSON.stringify(list_product, null,2)}}</pre> -->
+            <!-- <pre>{{JSON.stringify(recomendation_items, null,2)}}</pre> -->
         </small>
         <div v-if="dataWithCategory.length > 0" v-for="(item,i) in dataWithCategory" :key="i">
             <p class="title-blue px">{{item.category}}</p>
@@ -89,10 +111,11 @@ export default {
             <div v-for="(val, j) in item.data" :key="j" class="border-bottom">
                 <div class="wrap-prod px">
                     <div class="leftcon">
-                        <p class=" prodtitle name">{{val.name}}</p>
+                        <p class=" prodtitle name pointer" @click="handleDetailLink(val)">{{val.name}}</p>
                         <div class="wrapdesc">
 
-                            <p class="desc">Bakmi Ayam Oven dengan Sambal Matah + Jeruk Limau dan lain lain oke mantap
+                            <p class="desc">
+                                Bakmi Ayam Oven dengan Sambal Matah + Jeruk Limau dan lain lain oke mantap
                             </p>
                         </div>
                         <p class="prodtitle price">{{handleRupiahFormat(val.normal_price)}}</p>
@@ -100,8 +123,8 @@ export default {
                     </div>
                     <div class="rightcon">
                         <div class="wrapimg">
-                            <img :src="val.main_image" alt="">
-                            <v-btn depressed block class="bt-primary" color="#fd0"
+                            <img :src="val.main_image" class="pointer mb-1" alt="" @click="handleDetailLink(val)">
+                            <v-btn depressed block class=" bt-primary" color="#fd0"
                                 @click="add_to_cart(val.id, val.variant[0].id, val.SKU, 1)">
                                 Tambah
                             </v-btn>

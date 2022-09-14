@@ -1,5 +1,5 @@
 <template>
-  <v-card id="b-list-products" class="pt-12 mb-12" flat tile>
+  <div>
     <!-- <v-card v-if="loading_product" flat tile> -->
     <div v-if="loading_product">
       <Loadingv2 />
@@ -21,7 +21,7 @@
     <v-snackbar v-model="snackbar">information</v-snackbar>
 
     <!-- <catalog-footer :loading_product="loading_product" /> -->
-  </v-card>
+  </div>
 </template>
 
 <script>
