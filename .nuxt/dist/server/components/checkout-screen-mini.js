@@ -6695,7 +6695,7 @@ var VImg = __webpack_require__(58);
 // EXTERNAL MODULE: ./node_modules/vuetify/lib/components/VSheet/VSheet.js
 var VSheet = __webpack_require__(19);
 
-// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/screen/mini/index.vue?vue&type=template&id=685991f6&
+// CONCATENATED MODULE: ./node_modules/vuetify-loader/lib/loader.js??ref--4!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Checkout/screen/mini/index.vue?vue&type=template&id=d8f7bca6&
 
 
 
@@ -6707,7 +6707,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./components/Checkout/screen/mini/index.vue?vue&type=template&id=685991f6&
+// CONCATENATED MODULE: ./components/Checkout/screen/mini/index.vue?vue&type=template&id=d8f7bca6&
 
 // EXTERNAL MODULE: ./components/checkout/screen/mini/constants/customer.vue + 4 modules
 var customer = __webpack_require__(293);
@@ -7218,7 +7218,8 @@ var components_general = __webpack_require__(138);
           method: 'post',
           data: {
             merchant: this.$route.query.c,
-            customer: this.customer.id
+            customer: this.customer.id,
+            items: this.cart
           }
         });
         console.log(pricing);
