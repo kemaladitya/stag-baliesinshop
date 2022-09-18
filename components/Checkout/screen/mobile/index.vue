@@ -520,6 +520,7 @@ export default {
             data: {
               merchant : this.$route.query.c,
               customer : this.customer.id,
+              items    : this.cart,
             },
           });
 
