@@ -19,6 +19,8 @@ const _6a89c6d7 = () => interopDefault(import('../pages/site/_store/draftesd.vue
 const _7075c426 = () => interopDefault(import('../pages/site/_store/merchant/index.vue' /* webpackChunkName: "pages/site/_store/merchant/index" */))
 const _331f471e = () => interopDefault(import('../pages/site/_store/tok.vue' /* webpackChunkName: "pages/site/_store/tok" */))
 const _953bcc62 = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
+const _7d6c27c6 = () => interopDefault(import('../pages/site/_store/cart/drafted_index.vue' /* webpackChunkName: "pages/site/_store/cart/drafted_index" */))
+const _0cd6e76c = () => interopDefault(import('../pages/site/_store/checkout/drafted_index.vue' /* webpackChunkName: "pages/site/_store/checkout/drafted_index" */))
 const _e759561e = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
 const _20f4fa72 = () => interopDefault(import('../pages/site/_store/_pid/drafted_index.vue' /* webpackChunkName: "pages/site/_store/_pid/drafted_index" */))
 const _804f9e76 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
@@ -94,6 +96,14 @@ export const routerOptions = {
     path: "/site/:store?/userprofile",
     component: _953bcc62,
     name: "site-store-userprofile"
+  }, {
+    path: "/site/:store?/cart/drafted_index",
+    component: _7d6c27c6,
+    name: "site-store-cart-drafted_index"
+  }, {
+    path: "/site/:store?/checkout/drafted_index",
+    component: _0cd6e76c,
+    name: "site-store-checkout-drafted_index"
   }, {
     path: "/site/:store?/:pid",
     component: _e759561e,

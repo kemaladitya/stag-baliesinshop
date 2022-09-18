@@ -2,15 +2,24 @@
   <div>
     <div class="d-flex flex-row mt-4 mb-4 pa-1">
       <div style="font-weight: 600; width: 50%">
-        <v-btn :class="!courier.selected ? 'pulse-button' : null" color="#fd0"
-          style="text-transform: none; letter-spacing: normal; font-size: 14px; border-radius: 8px" block depressed
-          @click="select_courier_dialog = true">
+        <v-btn
+          :class="!courier.selected ? 'pulse-button' : null"
+          color="#fd0"
+          style="text-transform: none; letter-spacing: normal; font-size: 14px; border-radius: 8px"
+          block
+          depressed
+          @click="select_courier_dialog = true"
+        >
           Kurir
         </v-btn>
       </div>
       <v-spacer />
       <div v-if="courier.loading" class="pt-1">
-        <v-progress-circular size="25" color="primary" indeterminate />
+        <v-progress-circular
+          size="25"
+          color="primary"
+          indeterminate
+        />
       </div>
       <div v-else>
         <div v-if="!courier.selected" class="pt-2" style="font-weight: 600; align-self: center">
@@ -23,12 +32,17 @@
               <div style="font-size: 12px">
                 {{ courier.selected.name }}
                 {{
-                courier.selected.name === "Express Delivery"
-                ? null
-                : "| " + courier.selected.service
+                  courier.selected.name === "Express Delivery"
+                    ? null
+                    : "| " + courier.selected.service
                 }}
               </div>
-              <v-icon v-if="courier.selected.name === 'Express Delivery'" class="ml-1" color="black" small>
+              <v-icon
+                v-if="courier.selected.name === 'Express Delivery'"
+                class="ml-1"
+                color="black"
+                small
+              >
                 mdi-clock-fast
               </v-icon>
               <v-icon v-else class="ml-1" color="black" small>mdi-truck</v-icon>
@@ -53,16 +67,24 @@
 
     <v-divider />
 
-    <v-bottom-sheet :value="select_courier_dialog" @click:outside="select_courier_dialog = false">
+    <v-bottom-sheet
+      :value="select_courier_dialog"
+      @click:outside="select_courier_dialog = false"
+    >
       <v-sheet class="pa-2" style="text-align: left">
-        <list-courier :courier="courier" :icons="icons" :take_icons="take_icons" :select_courier="select_courier" />
+        <list-courier
+          :courier="courier"
+          :icons="icons"
+          :take_icons="take_icons"
+          :select_courier="select_courier"
+        />
       </v-sheet>
     </v-bottom-sheet>
   </div>
 </template>
 
 <script>
-import ListCourier from "@/components/checkout/screen/mini/constants/courier/list-courier"
+import ListCourier from "@/components/checkout/screen/mobile/constants/courier/list-courier"
 
 export default {
   components: { "list-courier": ListCourier },
@@ -183,15 +205,15 @@ export default {
 
         if (find.length) {
           product.push({
-            id: find[0].id,
-            sku: find[0].SKU,
-            detail_id: find[0].variant[0],
-            main_image: find[0].main_image,
-            name: find[0].name,
-            normal_price: find[0].normal_price,
-            discount_price: find[0].discount_price,
-            is_promo: find[0].is_promo,
-            qty: el.qty,
+            id             : find[0].id,
+            sku            : find[0].SKU,
+            detail_id      : find[0].variant[0],
+            main_image     : find[0].main_image,
+            name           : find[0].name,
+            normal_price   : find[0].normal_price,
+            discount_price : find[0].discount_price,
+            is_promo       : find[0].is_promo,
+            qty            : el.qty,
             express_delivery: find[0].express_delivery,
             express_delivery_setup: find[0].express_delivery_setup,
           })

@@ -23,7 +23,9 @@
 
         <!-- <pre>
                 <small>
-                    {{JSON.stringify(selected_variant, null,2)}}
+                    cart:{{JSON.stringify(cart, null,2)}}
+                    variant_selected:{{JSON.stringify(selected_variant, null,2)}}
+                    variant:{{JSON.stringify(variant, null,2)}}
                 </small>
             </pre> -->
 
@@ -108,6 +110,9 @@ export default {
         store() {
             return this.$store.state.store
         },
+        cart() {
+            return this.$store.state.cart
+        },
         home_url() {
             const { params, query } = this.$route;
             return `/site/${params.store}?u=${query.u}&src=${query.src}&c=${query.c}`;
@@ -131,9 +136,16 @@ export default {
             this.variant = request.data.response.variant;
             this.selected_variant = this.variant.length ? this.variant[0] : null;
         }
+        // await this.handleSameProductIncart()
     },
 
     methods: {
+        // handleSameProductIncart() {
+        //     if (this.cart[0]?.detail_id === this.selected_variant.id) {
+
+        //         this.qty = this.cart[0].qty
+        //     }
+        // },
         handleBackHomeStore() {
             return this.$router.push(this.home_url)
         },

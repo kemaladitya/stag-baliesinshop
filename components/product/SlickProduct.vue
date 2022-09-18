@@ -18,7 +18,7 @@ export default {
                 "focusOnSelect": false,
                 "infinite": false,
                 "speed": 500,
-                "slidesToShow": 2.5,
+                "slidesToShow": 2.55,
                 "slidesToScroll": 1,
                 "touchThreshold": 5
             }
@@ -96,8 +96,8 @@ export default {
 
     
 <template>
-    <div class="border-bottom slick-product">
-        <p class="title-blue px">Produk Favorit</p>
+    <div class="border-bottom slick-product pt-1">
+        <p class="title-blue px ">Produk Favorit</p>
         <!-- <div v-if="dataProd.length > 0"> -->
 
         <VueSlickCarousel v-bind="settings" v-if="list_product.length >0">

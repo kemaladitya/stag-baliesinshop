@@ -112,12 +112,13 @@ export default {
     top: 0;
     width: 100%;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
     // box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 
     .logo {
         height: 40px;
         object-fit: contain;
+        border-radius: 100%;
     }
 }
 </style>
