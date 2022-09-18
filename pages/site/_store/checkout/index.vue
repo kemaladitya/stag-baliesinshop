@@ -217,112 +217,111 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.checkoutv2 {
-    padding-bottom: 30px;
+// .checkoutv2 {
+//     .box {
+//         .wrap-add {
+//             max-width: 182px;
+//         }
+//     }
 
-    .box {
-        .wrap-add {
-            max-width: 182px;
-        }
-    }
+//     .wrap-order {
+//         padding-top: 10px;
+//         padding-bottom: 14px;
 
-    .wrap-order {
-        padding-top: 10px;
-        padding-bottom: 14px;
+//         .boxprod {
+//             border: 1px solid $light-grey;
+//             display: flex;
+//             justify-content: space-between;
+//             padding: 11px 16px;
+//             border-radius: 12px;
+//             margin-bottom: 12px;
 
-        .boxprod {
-            border: 1px solid $light-grey;
-            display: flex;
-            justify-content: space-between;
-            padding: 11px 16px;
-            border-radius: 12px;
-            margin-bottom: 12px;
+//             &:last-of-type {
+//                 margin-bottom: 0;
+//             }
 
-            &:last-of-type {
-                margin-bottom: 0;
-            }
+//             .left {
+//                 .name {
+//                     height: 40px;
+//                     max-width: 80%;
+//                 }
 
-            .left {
-                .name {
-                    height: 40px;
-                    max-width: 80%;
-                }
+//                 .price {
+//                     margin-bottom: 10px;
+//                 }
 
-                .price {
-                    margin-bottom: 10px;
-                }
+//                 .pointer {
+//                     color: $light-grey;
+//                 }
+//             }
 
-                .pointer {
-                    color: $light-grey;
-                }
-            }
+//             img {
+//                 width: 80px;
+//                 border-radius: 12px;
+//                 aspect-ratio: 1 / 1;
+//                 object-fit: cover;
+//                 // margin-left: 16px;
+//             }
+//         }
+//     }
 
-            img {
-                width: 80px;
-                border-radius: 12px;
-                aspect-ratio: 1 / 1;
-                object-fit: cover;
-                // margin-left: 16px;
-            }
-        }
-    }
+//     .wrap-vcr {
+//         padding: 14px 16px;
 
-    .wrap-vcr {
-        padding: 14px 16px;
+//         .voucherbut {
+//             background-color: $red;
+//             border-radius: 100px;
+//             height: 50px;
+//             display: flex;
+//             justify-content: space-between;
 
-        .voucherbut {
-            background-color: $red;
-            border-radius: 100px;
-            height: 50px;
-            display: flex;
-            justify-content: space-between;
+//             .wraptitle {
+//                 display: flex;
+//                 align-items: center;
 
-            .wraptitle {
-                display: flex;
-                align-items: center;
+//                 .imagevcr {
+//                     height: 36px;
+//                     width: 36px;
+//                     background-color: white;
+//                     display: flex;
+//                     justify-content: center;
+//                     align-items: center;
+//                     border-radius: 100%;
+//                     margin-right: 8px;
 
-                .imagevcr {
-                    height: 36px;
-                    width: 36px;
-                    background-color: white;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border-radius: 100%;
-                    margin-right: 8px;
+//                     img {
+//                         height: 28px;
+//                         object-fit: contain;
+//                     }
+//                 }
 
-                    img {
-                        height: 28px;
-                        object-fit: contain;
-                    }
-                }
+//                 p {
+//                     color: white;
+//                     text-transform: capitalize;
+//                     letter-spacing: normal;
+//                     font-size: 12px;
+//                     font-weight: 600;
+//                 }
+//             }
 
-                p {
-                    color: white;
-                    text-transform: capitalize;
-                    letter-spacing: normal;
-                    font-size: 12px;
-                    font-weight: 600;
-                }
-            }
+//         }
 
-        }
+//     }
 
-    }
 
-    .total {
-        font-size: 16px;
-        font-weight: 700 !important;
-    }
+//     .total {
+//         font-size: 16px;
+//         font-weight: 700 !important;
+//     }
 
-    .text-blue {
-        cursor: pointer;
-        color: $blue;
-        font-size: 12px;
-        font-weight: 700;
-    }
+//     .text-blue {
+//         cursor: pointer;
+//         color: $blue;
+//         font-size: 12px;
+//         font-weight: 700;
+//     }
 
-}
+// }
 
 .bottom-sheet {
     padding-bottom: 40px;

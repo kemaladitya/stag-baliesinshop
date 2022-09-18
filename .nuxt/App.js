@@ -10,9 +10,10 @@ import '../node_modules/vuetify/dist/vuetify.css'
 
 import _6f6c098b from '../layouts/default.vue'
 import _77430317 from '../layouts/empty.vue'
+import _9ae2b81a from '../layouts/emptyV2.vue'
 import _0ab71d1c from '../layouts/layoutv2.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b),"_empty": sanitizeComponent(_77430317),"_layoutv2": sanitizeComponent(_0ab71d1c) }
+const layouts = { "_default": sanitizeComponent(_6f6c098b),"_empty": sanitizeComponent(_77430317),"_emptyV2": sanitizeComponent(_9ae2b81a),"_layoutv2": sanitizeComponent(_0ab71d1c) }
 
 export default {
   render (h, props) {

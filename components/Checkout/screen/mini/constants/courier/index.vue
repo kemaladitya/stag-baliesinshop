@@ -1,6 +1,15 @@
 <template>
   <div>
-    <div class="d-flex flex-row mt-4 mb-4 pa-1">
+    <div class="boxsub border-bottom px d-flex justify-space-between align-center">
+      <p class="">Kurir</p>
+      <p class="text-blue" v-if="!courier.selected" @click="select_courier_dialog = true">Pilih Kurir ></p>
+      <p class="prodtitle d-flex align-center pointer" v-else @click="select_courier_dialog = true">
+        <img :src="courier.selected.logo" alt="" class="courierlogo pointer">
+        {{handleRupiahFormat(courier.selected.price) }}
+      </p>
+    </div>
+
+    <!-- <div class="d-flex flex-row mt-4 mb-4 pa-1">
       <div style="font-weight: 600; width: 50%">
         <v-btn :class="!courier.selected ? 'pulse-button' : null" color="#fd0"
           style="text-transform: none; letter-spacing: normal; font-size: 14px; border-radius: 8px" block depressed
@@ -49,20 +58,24 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <v-divider />
+    <!-- <v-divider /> -->
 
-    <v-bottom-sheet :value="select_courier_dialog" @click:outside="select_courier_dialog = false">
+    <v-bottom-sheet inset max-width="420px" :value="select_courier_dialog"
+      @click:outside="select_courier_dialog = false">
       <v-sheet class="pa-2" style="text-align: left">
-        <list-courier :courier="courier" :icons="icons" :take_icons="take_icons" :select_courier="select_courier" />
+        <list-courier :change_handler="change_handler" :courier="courier" :icons="icons" :take_icons="take_icons"
+          :select_courier="select_courier" />
       </v-sheet>
     </v-bottom-sheet>
   </div>
 </template>
 
 <script>
-import ListCourier from "@/components/checkout/screen/mini/constants/courier/list-courier"
+import ListCourier from "@/components/checkout/screen/mobile/constants/courier/list-courier"
+
+import { rupiahFormat } from '~/middleware/helper'
 
 export default {
   components: { "list-courier": ListCourier },
@@ -289,6 +302,13 @@ export default {
   },
 
   methods: {
+    handleRupiahFormat(val) {
+      return rupiahFormat(val)
+    },
+    change_handler(key, value) {
+      this[key] = value;
+    },
+
     select_courier(cour) {
       this.select(cour)
       this.select_courier_dialog = false
@@ -296,3 +316,26 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.courierlogo {
+  height: 16px;
+  margin-right: 8px;
+  object-fit: contain;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.text-blue {
+  cursor: pointer;
+  color: $blue;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.boxsub {
+  height: 57px !important;
+}
+</style>

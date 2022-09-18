@@ -1,23 +1,23 @@
 <template>
-  <div class="d-flex flex-row mt-4 pa-1" style="height: 100px">
-    <div style="font-weight: 600; width: 50%">
-      <v-btn :class="!payment.selected ? 'pulse-button' : null" color="#fd0"
-        style="text-transform: none; letter-spacing: normal; font-size: 14px; border-radius: 8px" block depressed
-        @click="select_payment_dialog = true">
-        Pilih Pembayaran
-      </v-btn>
-    </div>
-    <v-spacer />
-    <div class="pt-2" style="font-weight: 600">
-      <div v-if="!payment.selected" style="font-weight: 500; font-size: 14px">
-        Belum Dipilih
-      </div>
-      <div v-else style="font-size: 14px; text-transform: uppercase">
-        {{ payment.selected }}
+  <div>
+    <div class="boxsub border-bottom px d-flex justify-space-between align-center">
+      <p class="">Pembayaran</p>
+
+      <p class="text-blue" v-if="!payment.selected" @click="select_payment_dialog = true">Pilih Pembayaran ></p>
+      <div class="" v-else @click="select_payment_dialog = true">
+        <img v-if="payment.lists[payment.selected].img.length !== 0" :src="payment.lists[payment.selected].img" alt=""
+          class="paymentlogo pointer">
+        <span v-else> {{ payment.selected }}</span>
+        <!-- {{ payment.selected }}
+      <pre>
+          {{JSON.stringify(payment.lists[payment.selected].img, null,2)}}
+        </pre> -->
+        <!-- {{payment}} -->
       </div>
     </div>
 
-    <v-bottom-sheet :value="select_payment_dialog" @click:outside="select_payment_dialog = false">
+    <v-bottom-sheet inset max-width="420px" :value="select_payment_dialog"
+      @click:outside="select_payment_dialog = false">
       <v-sheet class="pa-2" style="text-align: left">
         <div class="d-flex flex-row">
           <div class="pl-2" style="align-self: center; font-size: 13px; font-weight: 600">
@@ -71,6 +71,82 @@
         </div>
       </v-sheet>
     </v-bottom-sheet>
+
+    <!-- <div class="d-flex flex-row mt-4 pa-1"> -->
+
+    <!-- <div style="font-weight: 600; width: 50%">
+        <v-btn :class="!payment.selected ? 'pulse-button' : null" color="#fd0"
+          style="text-transform: none; letter-spacing: normal; font-size: 14px; border-radius: 8px" block depressed
+          @click="select_payment_dialog = true">
+          Pilih Pembayaran
+        </v-btn>
+      </div>
+      <v-spacer />
+      <div class="pt-2" style="font-weight: 600">
+        <div v-if="!payment.selected" style="font-weight: 500; font-size: 14px">
+          Belum Dipilih
+        </div>
+        <div v-else style="font-size: 14px; text-transform: uppercase">
+          {{ payment.selected }}
+        </div>
+      </div> -->
+
+    <!-- <v-bottom-sheet inset max-width="420px" :value="select_payment_dialog"
+        @click:outside="select_payment_dialog = false">
+        <v-sheet class="pa-2" style="text-align: left">
+          <div class="d-flex flex-row">
+            <div class="pl-2" style="align-self: center; font-size: 13px; font-weight: 600">
+              Pilih Pembayaran
+            </div>
+            <v-spacer />
+            <v-btn color="red" icon text @click="select_payment_dialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </div>
+          <div class="pb-2" style="overflow-y: scroll !important; max-height: 450px !important;">
+            <v-card v-for="(pm, idx) in store.payment_type" :key="payment.lists[pm.toLowerCase()].name"
+              :class="!idx ? 'pb-0' : null" class="pa-2 pl-0 pb-2" flat>
+              <div v-if="order_type === 'subscription-order'">
+                <v-card v-if="pm != 'COD'" :disabled="payment.selected === payment.lists[pm.toLowerCase()].name"
+                  class="ml-2 pa-2" style="text-align: left; border-radius: 8px;" outlined
+                  @click="select_payment(payment.lists[pm.toLowerCase()].name)">
+                  <div :class="'pt-1 pl-' + payment.lists[pm.toLowerCase()].pl">
+                    <div v-if="payment.lists[pm.toLowerCase()].img">
+                      <v-img :src="payment.lists[pm.toLowerCase()].img" :height="payment.lists[pm.toLowerCase()].height"
+                        :width="payment.lists[pm.toLowerCase()].width" />
+                    </div>
+                    <div v-else class="pl-1">{{ pm.toUpperCase() }}</div>
+                  </div>
+                  <div class="pt-2 pl-2" style="font-size: 12px">
+                    {{ payment.lists[pm.toLowerCase()].desc }}
+                  </div>
+                </v-card>
+              </div>
+              <v-card v-else :disabled="validate_payment_express(payment.lists[pm.toLowerCase()].name)"
+                class="ml-2 pa-2" style="text-align: left; border-radius: 8px;" outlined
+                @click="select_payment(payment.lists[pm.toLowerCase()].name)">
+                <div style="padding: 1px 1px 0px 0px">
+                  <div :class="'pt-1 pl-' + payment.lists[pm.toLowerCase()].pl">
+                    <div v-if="payment.lists[pm.toLowerCase()].img">
+                      <v-img :style="
+                        payment.selected === payment.lists[pm.toLowerCase()].name && courier
+                          ? '-webkit-filter: grayscale(100%); filter: grayscale(100%);'
+                          : null
+                      " :src="payment.lists[pm.toLowerCase()].img" :height="payment.lists[pm.toLowerCase()].height"
+                        :width="payment.lists[pm.toLowerCase()].width" />
+                    </div>
+                    <div v-else class="pl-1" style="font-weight: 600">{{ pm.toUpperCase() }}</div>
+                  </div>
+                </div>
+                <div class="pt-2 pl-2" style="font-size: 12px">
+                  {{ payment.lists[pm.toLowerCase()].desc }}
+                </div>
+              </v-card>
+            </v-card>
+          </div>
+        </v-sheet>
+      </v-bottom-sheet> -->
+    <!-- </div> -->
   </div>
 </template>
 
@@ -212,3 +288,21 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.paymentlogo {
+  height: 10px;
+  object-fit: contain;
+}
+
+.text-blue {
+  cursor: pointer;
+  color: $blue;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.boxsub {
+  height: 57px !important;
+}
+</style>

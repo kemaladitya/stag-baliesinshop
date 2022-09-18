@@ -1,41 +1,19 @@
 <template>
   <div>
     <div class="d-flex flex-row">
-      <div
-        class="pl-2"
-        style="align-self: center; font-size: 14px; font-weight: 600"
-      >
+      <div class="pl-2" style="align-self: center; font-size: 14px; font-weight: 600">
         Pilih Pengiriman
       </div>
       <v-spacer />
-      <v-btn
-        color="red"
-        icon
-        text
-        @click="select_courier_dialog = false"
-      >
+      <v-btn color="red" icon text @click="select_courier_dialog = false">
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </div>
-    <div
-      v-if="!courier.loading"
-      style="overflow-y: scroll !important; max-height: 450px !important;"
-    >
-      <v-card
-        v-for="(cr, idx) in courier.lists"
-        :key="idx"
-        :class="!idx ? 'pb-0' : null"
-        class="pa-2 pl-0"
-        style="text-align: left;"
-        flat
-      >
-        <v-card
-          class="d-flex flex-row ml-2 pa-3 pt-1 pb-1 mb-2"
-          style="border-radius: 8px;"
-          flat
-          outlined
-          @click="select_courier(cr)"
-        >
+    <div v-if="!courier.loading" style="overflow-y: scroll !important; max-height: 450px !important;">
+      <v-card v-for="(cr, idx) in courier.lists" :key="idx" :class="!idx ? 'pb-0' : null" class="pa-2 pl-0"
+        style="text-align: left;" flat>
+        <v-card class="d-flex flex-row ml-2 pa-3 pt-1 pb-1 mb-2" style="border-radius: 8px;" flat outlined
+          @click="select_courier(cr)">
           <div style="display: grid; padding: 0 15px;">
             <img :src="cr.logo" alt="" style="height: 22px; width: 60px; align-self: center;">
           </div>
@@ -254,12 +232,12 @@ export default {
 
         this.parsed_product.product
           .forEach(({ express_delivery_setup: { days } }) => {
-            days.forEach(day => 
+            days.forEach(day =>
               !list_days.includes(day)
                 ? list_days.push(day)
                 : null
-              );
-        });
+            );
+          });
 
         console.log("start check");
         if (list_days.length == 1 && list_days[0] == "*") {
@@ -294,8 +272,8 @@ export default {
         const time_now = (
           now.getHours() < 10 ? "0" + now.getHours() : now.getHours()
         ) + ":" + (
-          now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()
-        );
+            now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes()
+          );
 
         express_delivery_items.forEach(item => {
           const checker = +time_now.replace(":", "") > +item.express_delivery_setup.time.start.replace(":", "")
@@ -337,15 +315,15 @@ export default {
 
         if (find.length) {
           product.push({
-            id             : find[0].id,
-            sku            : find[0].SKU,
-            detail_id      : find[0].variant[0],
-            main_image     : find[0].main_image,
-            name           : find[0].name,
-            normal_price   : find[0].normal_price,
-            discount_price : find[0].discount_price,
-            is_promo       : find[0].is_promo,
-            qty            : el.qty,
+            id: find[0].id,
+            sku: find[0].SKU,
+            detail_id: find[0].variant[0],
+            main_image: find[0].main_image,
+            name: find[0].name,
+            normal_price: find[0].normal_price,
+            discount_price: find[0].discount_price,
+            is_promo: find[0].is_promo,
+            qty: el.qty,
             express_delivery: find[0].express_delivery,
             express_delivery_setup: find[0].express_delivery_setup,
           });

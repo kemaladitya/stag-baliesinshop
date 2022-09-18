@@ -77,11 +77,20 @@
   "ProductCatalog": {
     "description": "Auto imported from components/product-catalog/index.vue"
   },
+  "SharedEmptyCart": {
+    "description": "Auto imported from components/shared/EmptyCart.vue"
+  },
   "SharedLoadingv2": {
     "description": "Auto imported from components/shared/Loadingv2.vue"
   },
   "SharedNavbar": {
     "description": "Auto imported from components/shared/Navbar.vue"
+  },
+  "SharedOrderFailed": {
+    "description": "Auto imported from components/shared/OrderFailed.vue"
+  },
+  "SharedOrderLoading": {
+    "description": "Auto imported from components/shared/OrderLoading.vue"
   },
   "SharedTitleBar": {
     "description": "Auto imported from components/shared/TitleBar.vue"
@@ -178,6 +187,9 @@
   },
   "CheckoutScreenMiniConstantsOrderInfoV2": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/OrderInfoV2.vue"
+  },
+  "CheckoutScreenMiniConstantsPaymentV2": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/PaymentV2.vue"
   },
   "CheckoutScreenMiniConstantsVoucherV2": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/VoucherV2.vue"

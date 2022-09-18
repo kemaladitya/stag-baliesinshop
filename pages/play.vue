@@ -1,5 +1,5 @@
 <template>
-    <div class="checkoutv2">
+    <div class="playcheckout">
         <TitleBar title="Checkout" />
         <div class="box px border-bottom py">
             <p class="title mb-1">
@@ -121,7 +121,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.checkoutv2 {
+.playcheckout {
     padding-bottom: 30px;
 
     .box {

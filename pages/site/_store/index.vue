@@ -1,19 +1,13 @@
 <template>
   <div>
-    <!-- <v-card v-if="loading_product" flat tile> -->
     <div v-if="loading_product">
       <Loadingv2 />
     </div>
-    <!-- </v-card> -->
     <div v-else>
-      <!-- <h1>fsdfafa</h1>
-          <small>
-          <pre>{{JSON.stringify(list_product, null,2)}}</pre>
-        </small> -->
       <SendToBar />
       <HelloBar />
-      <SlickProduct />
       <v-progress-linear v-show="loading" class="linear-loading" color="blue darken-2" height="3" indeterminate />
+      <SlickProduct />
       <ListProductCategory :list_product="list_product" />
       <FloatItemButton />
     </div>

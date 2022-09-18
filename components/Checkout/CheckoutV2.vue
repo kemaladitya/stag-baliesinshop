@@ -1,73 +1,69 @@
 <template>
     <div class="checkoutv2">
-        <SendToBar />
-        <TitleBar title="Checkout" />
 
-        <div class="box px border-bottom py" v-if="customer">
-            <p class="title mb-1">
-                Detail Pengiriman
-            </p>
-            <p class="desc">{{customer.name}}</p>
-            <div class="wrap-add ">
-                <p class="desc">{{ customer.phone }}</p>
-                <p class="desc">{{ customer.email }}</p>
-                <p class="desc">{{ customer.address }}</p>
-                <p class="desc">{{ customer.urban }}, {{ customer.sub_district }}, {{ customer.city }} ({{
-                customer.zip_code }})</p>
+        <div v-if="order_failed">
+            <OrderFailed />
+        </div>
+
+        <div v-else-if="order_loading">
+            <OrderLoading />
+        </div>
+
+        <div v-else>
+            <div v-if="cart.length !== 0">
+                <SendToBar />
+                <TitleBar title="Checkout" />
+                <div class="box px border-bottom py" v-if="customer">
+                    <p class="title mb-1">
+                        Detail Pengiriman
+                    </p>
+                    <p class="desc">{{customer.name}}</p>
+                    <div class="wrap-add ">
+                        <p class="desc">{{ customer.phone }}</p>
+                        <p class="desc">{{ customer.email }}</p>
+                        <p class="desc">{{ customer.address }}</p>
+                        <p class="desc">{{ customer.urban }}, {{ customer.sub_district }}, {{ customer.city }} ({{
+                        customer.zip_code }})</p>
+                    </div>
+
+                </div>
+
+                <OrderInfoV2 :voucher="voucher" :courier="courier && courier.selected ? courier.selected : courier" />
+                <VoucherV2 :voucher="voucher" :submit="submit_voucher" :use_custom_voucher="use_custom_voucher" />
+                <div class="boxsub px d-flex justify-space-between align-center">
+                    <p class="prodtitle">Subtotal</p>
+                    <p class="prodtitle">{{handleRupiahFormat(subtotal)}}</p>
+                </div>
+                <div class=" boxsub border-bottom px d-flex justify-space-between align-center">
+                    <p class="">Voucher</p>
+                    <p class="text-blue">Choose Voucher ></p>
+                </div>
+                <Courier v-if="!loading_courier" :courier="courier" :select="select_courier"
+                    :general_total_order="general_total_order" :custom_rules="custom_rules" />
+
+                <PaymentV2 :payment="payment" :select="select_payment" :general_total_order="general_total_order"
+                    :custom_rules="custom_rules" :courier="courier.selected ? courier.selected.name : ''"
+                    :checked_button="checked_button" />
+
+                <div class="box-total">
+                    <div class="boxsub px d-flex justify-space-between align-center">
+                        <p class="total">TOTAL HARGA</p>
+                        <p class="total">{{handleRupiahFormat(general_total_order)}}</p>
+                    </div>
+
+                    <div class="px btn-totalpay">
+                        <v-btn block class="btn-lg" :disabled="checked_button" @click="execute_order" color="#fd0">
+                            Proses Pembayaran
+                        </v-btn>
+                    </div>
+                </div>
+
+            </div>
+            <div v-else>
+                <EmptyCart />
             </div>
 
         </div>
-
-
-        <pre>
-            <small style="font-size: 10px">
-                {{JSON.stringify(cart , null,2)}}
-            </small>
-        </pre>
-
-        <OrderInfoV2 :voucher="voucher" :courier="courier && courier.selected ? courier.selected : courier" />
-
-        <VoucherV2 :voucher="voucher" :submit="submit_voucher" :use_custom_voucher="use_custom_voucher" />
-
-        <Courier v-if="!loading_courier" :courier="courier" :select="select_courier"
-            :general_total_order="general_total_order" :custom_rules="custom_rules" />
-
-        <div class="boxsub px py d-flex justify-space-between">
-            <p class="prodtitle">Subtotal</p>
-            <p class="prodtitle">Rp {{subtotal}}</p>
-        </div>
-
-        <div class="boxsub border-bottom px py d-flex justify-space-between">
-            <p class="prodtitle">Voucher</p>
-            <p class="text-blue">Choose Voucher ></p>
-        </div>
-
-        <div class="boxsub border-bottom px py d-flex justify-space-between">
-            <p class="prodtitle">Kurir</p>
-            <p class="text-blue">Pilih Kurir ></p>
-        </div>
-
-        <div class="boxsub border-bottom px py d-flex justify-space-between">
-            <p class="prodtitle">Pembayaran</p>
-            <p class="text-blue">Pilih Pembayaran ></p>
-        </div>
-
-        <div class="boxsub px py d-flex justify-space-between">
-            <p class="total">TOTAL HARGA</p>
-            <p class="total">Rp {{general_total_order}}</p>
-        </div>
-        <div class="px">
-            <v-btn block class="btn-lg" disabled>Proses Pembayaran</v-btn>
-        </div>
-
-        <v-bottom-sheet inset max-width="420px" v-model="sheet">
-            <div class="bottom-sheet px">
-                <h1>sheet dottom</h1>
-                <h1>sheet dottom</h1>
-                <h1>sheet dottom</h1>
-                <h1>sheet dottom</h1>
-            </div>
-        </v-bottom-sheet>
 
     </div>
 </template>
@@ -81,16 +77,32 @@ import Format from "@/components/general.json";
 import VoucherV2 from './screen/mini/constants/VoucherV2.vue';
 // import Courier from './screen/mobile/constants/courier/index.vue';
 import Courier from './screen/mini/constants/courier/index.vue';
+import PaymentV2 from './screen/mini/constants/paymentV2.vue';
+
+import { rupiahFormat } from '~/middleware/helper'
+import OrderLoading from '../shared/OrderLoading.vue';
+import OrderFailed from '../shared/OrderFailed.vue';
+import EmptyCart from '../shared/EmptyCart.vue';
 
 
 export default {
-    layout: "layoutv2",
-    components: { TitleBar, SendToBar, OrderInfoV2, VoucherV2, Courier },
-
-    ////////////
+    components: {
+        TitleBar,
+        SendToBar,
+        OrderInfoV2,
+        Courier,
+        Format,
+        // "checkout-footer": Footer,
+        VoucherV2
+        // FailedDialog,
+        ,
+        PaymentV2,
+        OrderLoading,
+        OrderFailed,
+        EmptyCart
+    },
 
     data: () => ({
-        sheet: false,
         loading_courier: true,
         show_dialog: false,
         show_dialog_message: "",
@@ -469,8 +481,8 @@ export default {
     },
 
     methods: {
-        handleSheetVoucher() {
-            this.sheet = !this.sheet
+        handleRupiahFormat(val) {
+            return rupiahFormat(val)
         },
         event_handler(key, value) {
             this[key] = value;
@@ -486,6 +498,7 @@ export default {
                     data: {
                         merchant: this.$route.query.c,
                         customer: this.customer.id,
+                        items: this.cart,
                     },
                 });
 
@@ -546,6 +559,7 @@ export default {
                 range: cour.range,
                 service: cour.service,
                 status: true,
+                logo: cour.logo,
             }
 
             // if (cour === "custom|Hawker|Express Delivery|5000|1") {
@@ -810,20 +824,12 @@ export default {
             }
         }
     }
-
-
-
-
-
-
 }
 
 </script>
 
 <style lang="scss" scoped>
 .checkoutv2 {
-    padding-bottom: 30px;
-
     .box {
         .wrap-add {
             // max-width: 182px;
@@ -915,9 +921,20 @@ export default {
 
     // }
 
-    .total {
-        font-size: 16px;
-        font-weight: 700 !important;
+    .box-total {
+        position: sticky;
+        bottom: 0;
+        padding-bottom: 30px;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 35%, rgba(255, 255, 255, 1) 100%);
+
+
+        .total {
+            font-size: 16px;
+            font-weight: 700 !important;
+
+        }
+
     }
 
     .text-blue {
@@ -927,6 +944,16 @@ export default {
         font-weight: 700;
     }
 
+}
+
+.btn-totalpay {
+    button {
+        letter-spacing: unset !important;
+    }
+}
+
+.boxsub {
+    height: 57px !important;
 }
 
 .bottom-sheet {

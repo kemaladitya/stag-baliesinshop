@@ -1,33 +1,33 @@
 <template>
-  <v-app>
-    <div id="success-checkout" class="b-font" height="100vh">
-      <center>
-        <v-img width="180" height="180" src="/success.gif" />
-        <div class="title">Pesanan Berhasil</div>
-        <center class="information">
-          <div>Proses pemesanan kamu telah selesai.</div>
-          <div>Kamu akan kembali ke bot secara</div>
-          <div>otomatis.</div>
-        </center>
+
+  <div id="success-checkout" class="b-font" height="100vh">
+    <center>
+      <img width="100" height="180" src="/success.gif" />
+      <div class="title">Pesanan Berhasil</div>
+      <center class="information">
+        <div>Proses pemesanan kamu telah selesai.</div>
+        <div>Kamu akan kembali ke bot secara</div>
+        <div>otomatis.</div>
       </center>
-    </div>
-  </v-app>
+    </center>
+  </div>
+
 </template>
 
 <script>
 export default {
-  layout: 'empty',
+  layout: 'emptyV2',
 
   data: () => ({
     bs: true
   }),
 
   computed: {
-    site () {
+    site() {
       return this.$store.state.site
     },
 
-    store () {
+    store() {
       return this.$store.state.store
     }
   },
@@ -50,14 +50,19 @@ export default {
 #success-checkout {
   padding-top: 30vh;
 
+  img {
+    width: 150px;
+    object-fit: contain;
+  }
+
   .title {
     font-weight: 600;
-    font-size: 23px;
+    font-size: 14px;
   }
 
   .information {
     color: #999999;
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 </style>

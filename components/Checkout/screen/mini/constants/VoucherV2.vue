@@ -47,12 +47,12 @@
 
         <!-- {{subtotal}} -->
 
-
+        <!-- 
         <pre>
             <small>
                 {{JSON.stringify(voucher, null,2)}}
             </small>
-        </pre>
+        </pre> -->
 
         <!-- 
         <v-btn style="background: #fd0; font-weight: 600" depressed block @click="select_voucher = true">
@@ -214,5 +214,9 @@ export default {
 
     }
 
+}
+
+.boxsub {
+    height: 57px !important;
 }
 </style>
