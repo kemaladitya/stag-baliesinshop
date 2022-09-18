@@ -86,6 +86,9 @@
   "SharedTitleBar": {
     "description": "Auto imported from components/shared/TitleBar.vue"
   },
+  "BottomSheetCartProducts": {
+    "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
+  },
   "BottomSheetCheckoutCourier": {
     "description": "Auto imported from components/Bottom-Sheet/Checkout/courier.vue"
   },
@@ -97,9 +100,6 @@
   },
   "BottomSheetCheckoutVoucher": {
     "description": "Auto imported from components/Bottom-Sheet/Checkout/voucher.vue"
-  },
-  "BottomSheetCartProducts": {
-    "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
   },
   "DialogsCartMaxOrder": {
     "description": "Auto imported from components/Dialogs/Cart/max-order.vue"
