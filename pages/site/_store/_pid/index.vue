@@ -7,7 +7,6 @@
         <div v-else>
             <ProductDetailv2 />
         </div>
-
     </div>
 </template>
 
