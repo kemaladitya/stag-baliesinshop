@@ -2,7 +2,7 @@
     <div>
         <div class="wrap-order px border-bottom" v-if="cart.length">
             <p class="title mb-1">
-                Detail Pesanan -single order
+                Detail Pesanan
             </p>
             <div class="boxprod " v-for="(item, index) in parsed_lists.product" :key="index">
                 <div class="left">

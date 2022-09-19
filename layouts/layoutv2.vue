@@ -214,13 +214,15 @@ export default {
             }
         }
 
-        // if (recommendation_api) {
-        // this.get_recomendation();
-        // }
+        if (recommendation_api) {
+            this.get_recomendation();
+        }
     },
 
     methods: {
         async get_recomendation() {
+            console.log(this.$route.query.u, 'uuid >>>>')
+            console.log(this.store.bot_id, 'bot_id >>>>')
             try {
                 const self = this;
                 const request = await axios({
@@ -231,6 +233,7 @@ export default {
                         "bot_id": self.store.bot_id,
                     }
                 });
+                console.log(request.data, 'REC API >>>>')
                 if (request.status == 200) {
                     this.$store.dispatch("setState", {
                         payload: {

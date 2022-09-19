@@ -26,35 +26,35 @@ export default () => {
   return new Vuex.Store({
     /* Initial State */
     state: {
-      is_available_express : 0,
-      screen               : "mobile",
-      order_type           : "single-order",
-      delivery_time_normal : "08:00 - 17:00",
-      fullpath             : "",
-      user_notes           : "",
-      min_rp               : "",
-      max_rp               : "",
-      loading              : false,
-      site                 : null,
-      store                : null,
-      customer             : null,
-      customized_values    : null,
-      merchant             : null,
-      device_info          : null,
-      rp_order             : false,
-      mini_cart            : false,
-      general_loading      : false,
-      package_cart         : [],
-      subscription_cart    : [],
-      cart                 : [],
-      products             : [],
-      list_merchant        : [],
-      recomendation_items  : [],
-      frequent_items       : [],
-      mt_address           : [],
-      alert                : { status: false, text: "" },
-      single_delivery_date : date.toISOString(),
-      month                : month,
+      is_available_express: 0,
+      screen: "mobile",
+      order_type: "single-order",
+      delivery_time_normal: "08:00 - 17:00",
+      fullpath: "",
+      user_notes: "",
+      min_rp: "",
+      max_rp: "",
+      loading: false,
+      site: null,
+      store: null,
+      customer: null,
+      customized_values: null,
+      merchant: null,
+      device_info: null,
+      rp_order: false,
+      mini_cart: false,
+      general_loading: false,
+      package_cart: [],
+      subscription_cart: [],
+      cart: [],
+      products: [],
+      list_merchant: [],
+      recomendation_items: [],
+      frequent_items: [],
+      mt_address: [],
+      alert: { status: false, text: "" },
+      single_delivery_date: date.toISOString(),
+      month: month,
     },
 
     mutations: {
@@ -70,6 +70,8 @@ export default () => {
     actions: {
       setState({ commit }, { payload: { key, data } }) {
         try {
+          // console.log(key, '=======>>>> payload')
+          // console.log(data, '=======>>>> payload')
           commit("setState", { key, data });
         } catch (error) {
           console.log(error);

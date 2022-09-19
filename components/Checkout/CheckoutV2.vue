@@ -36,7 +36,8 @@
                 </div>
                 <div class=" boxsub border-bottom px d-flex justify-space-between align-center">
                     <p class="">Voucher</p>
-                    <p class="text-blue">Choose Voucher ></p>
+                    <p v-if="!voucher.selected" class="text-blue">Choose Voucher ></p>
+                    <p v-else class="text-red font-light">- {{handleRupiahFormat(voucher.selected.value)}}</p>
                 </div>
                 <Courier v-if="!loading_courier" :courier="courier" :select="select_courier"
                     :general_total_order="general_total_order" :custom_rules="custom_rules" />

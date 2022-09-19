@@ -18,6 +18,7 @@ import nuxt_plugin_workbox_734af115 from 'nuxt_plugin_workbox_734af115' // Sourc
 import nuxt_plugin_plugin_4e83202b from 'nuxt_plugin_plugin_4e83202b' // Source: ./vuetify/plugin.js (mode: 'all')
 import nuxt_plugin_templatesplugin663776ea_2278d9ca from 'nuxt_plugin_templatesplugin663776ea_2278d9ca' // Source: ./templates.plugin.663776ea.js (mode: 'all')
 import nuxt_plugin_axios_2fab2639 from 'nuxt_plugin_axios_2fab2639' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_datefns_42e33cf3 from 'nuxt_plugin_datefns_42e33cf3' // Source: ./date-fns.js (mode: 'all')
 import nuxt_plugin_deviceplugin_d60d1678 from 'nuxt_plugin_deviceplugin_d60d1678' // Source: ./device.plugin.js (mode: 'all')
 
 // Component: <ClientOnly>
@@ -233,6 +234,10 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_2fab2639 === 'function') {
     await nuxt_plugin_axios_2fab2639(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_datefns_42e33cf3 === 'function') {
+    await nuxt_plugin_datefns_42e33cf3(app.context, inject)
   }
 
   if (typeof nuxt_plugin_deviceplugin_d60d1678 === 'function') {

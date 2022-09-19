@@ -30,19 +30,24 @@
 
         <div class="wrap-vcr border-bottom">
             <v-btn block class="voucherbut" dense @click="select_voucher = true" :disabled="voucher.lists.length===0"
-                :style="!voucher.selected ?'background: #CC0000' : 'background: #4caf50'">
+                :style="!voucher.selected ?'background: #CC0000' : 'background: #009900'">
                 <div class="wraptitle">
                     <div class="imagevcr">
-                        <img src="~/assets/images/checkout/redVoucher.png" />
+                        <img v-if="!voucher.selected" src="~/assets/images/checkout/redVoucher.png" />
+                        <img v-else src="~/assets/images/checkout/greenVoucher.png" />
                     </div>
                     <p v-if="voucher.selected">1 Voucher Applied</p>
                     <p v-else>You have {{voucher.lists.length}} available vouchers</p>
                 </div>
-                <p v-if="voucher.selected">{{ voucher.selected.value.toLocaleString().replace(/,/g, '.') }}</p>
+                <p class="offtext" v-if="voucher.selected">{{ voucher.selected.name.replaceAll('OFF', '% OFF') }}</p>
                 <v-icon v-else color="white">mdi-chevron-right</v-icon>
 
             </v-btn>
         </div>
+        <!-- <small>
+            <pre>{{JSON.stringify(voucher.selected, null,2)}}</pre>
+        </small> -->
+        <v-progress-linear v-if="voucher.loading" class="mt-1" color="primary" indeterminate />
 
 
         <!-- {{subtotal}} -->
@@ -58,7 +63,6 @@
         <v-btn style="background: #fd0; font-weight: 600" depressed block @click="select_voucher = true">
             GUNAKAN VOUCHER
         </v-btn> -->
-        <v-progress-linear v-if="voucher.loading" class="mt-1" color="primary" indeterminate />
         <!-- <div v-else>
             <br v-if="!voucher.selected" />
             <div v-if="voucher.selected" style="text-align: left">
@@ -84,31 +88,34 @@
                 </div>
             </div>
         </div> -->
-        <v-bottom-sheet :value="select_voucher" @click:outside="select_voucher = false">
-            <v-sheet style="text-align: left">
-                <div class="d-flex flex-row">
-                    <div class="pl-2" style="align-self: center; font-size: 13px; font-weight: 600">
-                        Voucher Tersedia
+
+        <v-bottom-sheet inset max-width="420px" class="" :value="select_voucher"
+            @click:outside="select_voucher = false">
+            <div class="px bottomsheet">
+                <div class="d-flex header mt-1">
+                    <div class="d-flex align-center">
+                        <img class="logo" src="~/assets/images/checkout/redVoucher.png" /> Available Voucher
                     </div>
-                    <v-spacer />
                     <v-btn icon text color="red" @click="select_voucher = false">
                         <v-icon>mdi-close</v-icon>
                     </v-btn>
                 </div>
-                <v-divider />
-                <div class="pb-2" style="overflow-y: scroll !important; max-height: 450px !important;">
+                <div class="pb-5" style="overflow-y: scroll !important; max-height: 400px !important;">
                     <v-card v-for="(vc, idx) in voucher.lists" :key="vc.id" :class="!idx ? 'pb-0' : null" :disabled="
                       !vc.categories_product.includes(site.category)
                       && !vc.qty
                     " flat>
-                        <div :class="vc.show_select ? 'pa-2 pl-0' : null">
-                            <v-card v-if="vc.show_select" class="ml-2 pa-2" outlined
-                                @click="use_voucher(true, vc.name)">
-                                <div class="pb-1" style="font-weight: 600; font-size: 13px">
-                                    {{ vc.name }}
-                                </div>
-                                <div v-html="vc.description" />
-                            </v-card>
+                        <div :class="vc.show_select ? '' : null">
+                            <div v-if="vc.show_select" class="vocard" outlined @click="use_voucher(true, vc.name)">
+                                <p class="vocname">
+                                    {{ vc.name.replaceAll('OFF', ' OFF') }}
+                                </p>
+                                <p class="desc" v-html="vc.description" />
+                                <!-- <p class="desc">· Berlaku sampai {{ $dateFns.format(new Date(), 'dd MMMM') }}</p> -->
+                                <!-- <small>
+                                    <pre>{{JSON.stringify(vc, null,2)}}</pre>
+                                </small> -->
+                            </div>
                         </div>
                     </v-card>
                     <v-card v-if="voucher.is_custom_voucher" class="pa-2 pl-0" flat>
@@ -123,7 +130,7 @@
                         </v-card>
                     </v-card>
                 </div>
-            </v-sheet>
+            </div>
         </v-bottom-sheet>
     </div>
 </template>
@@ -174,8 +181,47 @@ export default {
 
 
 <style lang="scss" scoped>
+.bottomsheet {
+    background: white;
+
+    .vocard {
+        padding: 5px 16px;
+        border-radius: 6px;
+        border: 1px solid $smoke;
+        cursor: pointer;
+
+        .desc {
+            font-weight: 700 !important;
+            font-size: 10px;
+        }
+
+        .vocname {
+            color: $red;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    .header {
+        font-size: 12px;
+        font-weight: 700;
+        justify-content: space-between;
+
+        .logo {
+            margin-right: 8px;
+            height: 20px;
+            object-fit: contain;
+        }
+    }
+}
+
 .wrap-vcr {
     padding: 14px 16px;
+
+    .offtext {
+        font-weight: 700;
+        color: white;
+    }
 
     .voucherbut {
         border-radius: 100px;

@@ -8,6 +8,11 @@
       <HelloBar />
       <v-progress-linear v-show="loading" class="linear-loading" color="blue darken-2" height="3" indeterminate />
       <SlickProduct />
+      <!-- <pre>
+        <small>
+          {{JSON.stringify(recomendation_items, null,2)}}
+        </small>
+      </pre> -->
       <ListProductCategory :list_product="list_product" />
       <FloatItemButton />
     </div>
@@ -78,6 +83,12 @@ export default {
     list_product() {
       return this.$store.state.products
     },
+    products() {
+      return this.$store.state.products
+    },
+    recomendation_items() {
+      return this.$store.state.recomendation_items
+    },
 
     list_merchant() {
       return this.$store.state.list_merchant
@@ -86,6 +97,19 @@ export default {
     merchant() {
       return this.$store.state.merchant
     },
+    // recomendation_items() {
+    //   if (this.products.length && this.$store.state.recomendation_items) {
+    //     const items = [];
+    //     this.$store.state.recomendation_items.forEach(item => {
+    //       const filtered_product = this.products.filter(_ => _.name == item.name || _.SKU == item.sku)
+    //       if (filtered_product.length) {
+    //         items.push(filtered_product[0])
+    //       };
+    //     });
+    //     if (items.length) return items;
+    //   }
+    //   return null
+    // },
 
     cart() {
       if (this.order_type === "single-order") {

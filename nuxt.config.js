@@ -48,7 +48,7 @@ module.exports = {
 
   components: true,
 
-  buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/device"],
+  buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/device", '@nuxtjs/date-fns',],
 
   modules: [
     "@nuxtjs/axios",
