@@ -7,9 +7,9 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<General>` | `<general>` (components/General.js)
+- `<Cart>` | `<cart>` (components/Cart/index.vue)
 - `<BottomSheetMiniCart>` | `<bottom-sheet-mini-cart>` (components/Bottom-Sheet/mini-cart.vue)
 - `<BottomSheetRegLoading>` | `<bottom-sheet-reg-loading>` (components/Bottom-Sheet/reg_loading.vue)
-- `<Cart>` | `<cart>` (components/Cart/index.vue)
 - `<CheckoutV2>` | `<checkout-v2>` (components/Checkout/CheckoutV2.vue)
 - `<Checkout>` | `<checkout>` (components/Checkout/index.vue)
 - `<DialogsFailedMessage>` | `<dialogs-failed-message>` (components/Dialogs/failed-message.vue)
@@ -92,6 +92,7 @@ You can directly use them in pages and other components without the need to impo
 - `<CheckoutScreenMiniConstantsCourierListCourier>` | `<checkout-screen-mini-constants-courier-list-courier>` (components/Checkout/screen/mini/constants/courier/list-courier.vue)
 - `<CheckoutScreenMiniConstantsOrderTypePackageOrderV2>` | `<checkout-screen-mini-constants-order-type-package-order-v2>` (components/Checkout/screen/mini/constants/order-type/PackageOrderV2.vue)
 - `<CheckoutScreenMiniConstantsOrderTypeSingleOrderV2>` | `<checkout-screen-mini-constants-order-type-single-order-v2>` (components/Checkout/screen/mini/constants/order-type/SingleOrderV2.vue)
+- `<CheckoutScreenMiniConstantsOrderTypeSubcriptionOrderV2>` | `<checkout-screen-mini-constants-order-type-subcription-order-v2>` (components/Checkout/screen/mini/constants/order-type/SubcriptionOrderV2.vue)
 - `<CheckoutScreenMiniConstantsOrderTypePackageOrder>` | `<checkout-screen-mini-constants-order-type-package-order>` (components/Checkout/screen/mini/constants/order-type/package-order.vue)
 - `<CheckoutScreenMiniConstantsOrderTypeSingleOrder>` | `<checkout-screen-mini-constants-order-type-single-order>` (components/Checkout/screen/mini/constants/order-type/single-order.vue)
 - `<CheckoutScreenMiniConstantsOrderTypeSubscriptionOrder>` | `<checkout-screen-mini-constants-order-type-subscription-order>` (components/Checkout/screen/mini/constants/order-type/subscription-order.vue)

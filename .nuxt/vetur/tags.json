@@ -2,14 +2,14 @@
   "General": {
     "description": "Auto imported from components/General.js"
   },
+  "Cart": {
+    "description": "Auto imported from components/Cart/index.vue"
+  },
   "BottomSheetMiniCart": {
     "description": "Auto imported from components/Bottom-Sheet/mini-cart.vue"
   },
   "BottomSheetRegLoading": {
     "description": "Auto imported from components/Bottom-Sheet/reg_loading.vue"
-  },
-  "Cart": {
-    "description": "Auto imported from components/Cart/index.vue"
   },
   "CheckoutV2": {
     "description": "Auto imported from components/Checkout/CheckoutV2.vue"
@@ -256,6 +256,9 @@
   },
   "CheckoutScreenMiniConstantsOrderTypeSingleOrderV2": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/SingleOrderV2.vue"
+  },
+  "CheckoutScreenMiniConstantsOrderTypeSubcriptionOrderV2": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/SubcriptionOrderV2.vue"
   },
   "CheckoutScreenMiniConstantsOrderTypePackageOrder": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/order-type/package-order.vue"

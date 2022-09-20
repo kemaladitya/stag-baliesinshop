@@ -2,6 +2,7 @@
     <div>
         <PackageOrderV2 v-if="order_type === 'package-order'" />
         <SingleOrderV2 v-if="order_type === 'single-order'" />
+        <SubcriptionOrderV2 v-if="order_type === 'subscription-order'" :voucher="voucher" />
     </div>
 
 </template>
@@ -10,6 +11,7 @@
 import PackageOrderV2 from './order-type/PackageOrderV2.vue'
 
 import SingleOrderV2 from './order-type/SingleOrderV2.vue'
+import SubcriptionOrderV2 from './order-type/SubcriptionOrderV2.vue'
 export default {
     props: {
         voucher: {
@@ -24,7 +26,8 @@ export default {
 
     components: {
         PackageOrderV2,
-        SingleOrderV2
+        SingleOrderV2,
+        SubcriptionOrderV2
     },
 
     computed: {

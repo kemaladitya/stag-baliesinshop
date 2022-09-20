@@ -12,7 +12,9 @@
         <div v-else>
             <div v-if="cart.length !== 0">
                 <SendToBar />
-                <TitleBar title="Checkout" />
+                <div class="titlebar-float">
+                    <TitleBar title="Checkout" />
+                </div>
                 <div class="box px border-bottom py" v-if="customer">
                     <p class="title mb-1">
                         Detail Pengiriman
@@ -961,5 +963,10 @@ export default {
     padding-bottom: 40px;
     background-color: white;
     // border-radius: 0 0 20px 20px;
+}
+
+.titlebar-float {
+    position: sticky;
+    top: 55px + 35px;
 }
 </style>
