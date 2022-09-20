@@ -1,13 +1,9 @@
 <template>
-  <div class="mt-1" style="text-align: left; min-height: calc(100vh - 100px); max-height: calc(100vh - 100px); overflow-y: scroll">
+  <div class="mt-1"
+    style="text-align: left; min-height: calc(100vh - 100px); max-height: calc(100vh - 100px); overflow-y: scroll">
     <div v-if="product">
       <v-card class="pa-12 pt-3 pb-0" flat tile>
-        <v-img
-          class="ma-8"
-          loading=lazy
-          style="border-radius: 8px"
-          :src="selected_variant.image"
-        />
+        <v-img class="ma-8" loading=lazy style="border-radius: 8px" :src="selected_variant.image" />
       </v-card>
       <v-card class="d-flex flex-row pa-1" flat tile>
         <div class="name" style="font-size: 14px; font-weight: 600">
@@ -17,9 +13,9 @@
 
         <div class="price" style="font-size: 14px; font-weight: 600">
           Rp {{
-            selected_variant.discount_price
-              ? selected_variant.discount_price.toLocaleString().replace(/,/g, '.')
-              : selected_variant.normal_price.toLocaleString().replace(/,/g, '.')
+          selected_variant.discount_price
+          ? selected_variant.discount_price.toLocaleString().replace(/,/g, '.')
+          : selected_variant.normal_price.toLocaleString().replace(/,/g, '.')
           }}, -
         </div>
       </v-card>
@@ -29,33 +25,18 @@
       <v-card class="d-flex flex-row pa-1 pt-4" flat tile>
         <div class="variant pr-2" style="text-align: left; font-size: 12px">
           <div class="label mb-1">Variant</div>
-          <v-select
-            :items="variant.map(({ name }) => name)"
-            :label="selected_variant.name"
-            min-width="50%"
-            max-width="50%"
-            outlined
-            dense
-            @change="select_variant"
-          />
+          <v-select :items="variant.map(({ name }) => name)" :label="selected_variant.name" min-width="50%"
+            max-width="50%" outlined dense @change="select_variant" />
         </div>
         <div class="qty pl-2" style="text-align: left; font-size: 12px">
           <div class="label mb-1">Qty.</div>
-          <v-select
-            :items="
-              Array.from(Array(selected_variant.stock).keys()).slice(1, 11)
-            "
-            :label="
+          <v-select :items="
+            Array.from(Array(selected_variant.stock).keys()).slice(1, 11)
+          " :label="
               String(
                 Array.from(Array(selected_variant.stock).keys()).slice(1)[0]
               )
-            "
-            min-width="50%"
-            max-width="50%"
-            outlined
-            dense
-            @change="select_qty"
-          />
+            " min-width="50%" max-width="50%" outlined dense @change="select_qty" />
         </div>
       </v-card>
 
@@ -81,18 +62,10 @@
 
     <product-detail-footer :manage_cart="manage_cart" />
 
-    <v-bottom-sheet
-      :value="mini_cart"
-      @click:outside="show_mini_cart(false)"
-    >
+    <v-bottom-sheet :value="mini_cart" @click:outside="show_mini_cart(false)">
       <div class="d-flex flex-row" style="background-color: white">
         <v-spacer />
-        <v-btn
-          icon
-          text
-          color="red"
-          @click="mini_cart = false"
-        >
+        <v-btn icon text color="red" @click="mini_cart = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </div>
@@ -103,7 +76,7 @@
 </template>
 
 <script>
-import MiniCart from "@/components/bottom-sheet/mini-cart"
+import MiniCart from "@/components/bottom-sheet/MiniCart"
 import Footer from "@/components/partials/footer/product-detail";
 import API from "@/components/general"
 
@@ -179,10 +152,10 @@ export default {
             qty: this.qty,
           },
           store: {
-            name   : store,
-            source : src,
-            uuid   : u,
-            outlet : c,
+            name: store,
+            source: src,
+            uuid: u,
+            outlet: c,
           },
         },
       });
@@ -198,12 +171,12 @@ export default {
 </script>
 
 <style lang="scss">
-#app > div.v-menu__content.theme--light {
+#app>div.v-menu__content.theme--light {
   text-align: left !important;
 }
 
 @media (min-width: 481px) {
-  
+
   /* CSS */
   #footer-product-detail {
     min-width: 635px !important;
@@ -216,7 +189,7 @@ export default {
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-  
+
   /* CSS */
   #footer-product-detail {
     min-width: 100% !important;

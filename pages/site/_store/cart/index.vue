@@ -81,7 +81,7 @@
                 <v-progress-linear v-show="loading && order_type !== 'package-order'" style="z-index: 9999 !important;"
                     color="blue darken-2" height="3" indeterminate />
 
-                <CartDetail />
+                <cart />
             </div>
         </div>
     </div>
@@ -89,12 +89,12 @@
   
 <script>
 import API from '@/components/general'
-import CartDetail from '@/components/cart'
+import cart from '@/components/cart'
 import { mode } from "../../../../config.json"
 
 export default {
     components: {
-        CartDetail,
+        cart,
     },
 
     data: () => ({

@@ -1,28 +1,22 @@
 <template>
   <div>
-    <Mini
-      v-if="screen == 'mini'"
-      id="mini"
-    />
-    <Mobile
-      v-if="screen == 'mobile' || screen == 'desktop'"
-      id="mobile"
-    />
+    <mini v-if="screen == 'mini'" id="mini" />
+    <mobile v-if="screen == 'mobile' || screen == 'desktop'" id="mobile" />
   </div>
 </template>
 
 <script>
-import Mini from "@/components/cart/screen/mini/index";
-import Mobile from "@/components/cart/screen/mobile/index";
+import mini from "@/components/cart/screen/mini";
+import mobile from "@/components/cart/screen/mobile";
 
 export default {
   components: {
-    Mini,
-    Mobile,
+    mini,
+    mobile,
   },
 
   computed: {
-    screen () {
+    screen() {
       return this.$store.state.screen
     }
   }
