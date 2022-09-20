@@ -32,18 +32,6 @@
   "ProductDetail": {
     "description": "Auto imported from components/Product-Detail/index.vue"
   },
-  "GeneralCheckPlatform": {
-    "description": "Auto imported from components/general/check-platform.vue"
-  },
-  "GeneralSelect": {
-    "description": "Auto imported from components/general/select.vue"
-  },
-  "GeneralTextField": {
-    "description": "Auto imported from components/general/text-field.vue"
-  },
-  "GeneralTextarea": {
-    "description": "Auto imported from components/general/textarea.vue"
-  },
   "PaymentReceipt": {
     "description": "Auto imported from components/payment-receipt/index.vue"
   },
@@ -77,6 +65,33 @@
   "ProductCatalog": {
     "description": "Auto imported from components/product-catalog/index.vue"
   },
+  "GeneralCheckPlatform": {
+    "description": "Auto imported from components/general/check-platform.vue"
+  },
+  "GeneralSelect": {
+    "description": "Auto imported from components/general/select.vue"
+  },
+  "GeneralTextField": {
+    "description": "Auto imported from components/general/text-field.vue"
+  },
+  "GeneralTextarea": {
+    "description": "Auto imported from components/general/textarea.vue"
+  },
+  "BottomSheetCartProducts": {
+    "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
+  },
+  "BottomSheetCheckoutCourier": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/courier.vue"
+  },
+  "BottomSheetCheckoutLoading": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/loading.vue"
+  },
+  "BottomSheetCheckoutPayment": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/payment.vue"
+  },
+  "BottomSheetCheckoutVoucher": {
+    "description": "Auto imported from components/Bottom-Sheet/Checkout/voucher.vue"
+  },
   "SharedEmptyCart": {
     "description": "Auto imported from components/shared/EmptyCart.vue"
   },
@@ -94,21 +109,6 @@
   },
   "SharedTitleBar": {
     "description": "Auto imported from components/shared/TitleBar.vue"
-  },
-  "BottomSheetCartProducts": {
-    "description": "Auto imported from components/Bottom-Sheet/Cart/products.vue"
-  },
-  "BottomSheetCheckoutCourier": {
-    "description": "Auto imported from components/Bottom-Sheet/Checkout/courier.vue"
-  },
-  "BottomSheetCheckoutLoading": {
-    "description": "Auto imported from components/Bottom-Sheet/Checkout/loading.vue"
-  },
-  "BottomSheetCheckoutPayment": {
-    "description": "Auto imported from components/Bottom-Sheet/Checkout/payment.vue"
-  },
-  "BottomSheetCheckoutVoucher": {
-    "description": "Auto imported from components/Bottom-Sheet/Checkout/voucher.vue"
   },
   "DialogsCartMaxOrder": {
     "description": "Auto imported from components/Dialogs/Cart/max-order.vue"
@@ -245,8 +245,8 @@
   "CartScreenMobileTypePackageOrderRemovePackage": {
     "description": "Auto imported from components/Cart/screen/mobile/type/package-order/remove-package.vue"
   },
-  "CheckoutScreenMiniConstantsCourierDraftedKurirIndex": {
-    "description": "Auto imported from components/Checkout/screen/mini/constants/courier/drafted_kurir_index.vue"
+  "CheckoutScreenMiniConstantsCourierDraftedkuririndex": {
+    "description": "Auto imported from components/Checkout/screen/mini/constants/courier/draftedkuririndex.vue"
   },
   "CheckoutScreenMiniConstantsCourierListCourier": {
     "description": "Auto imported from components/Checkout/screen/mini/constants/courier/list-courier.vue"

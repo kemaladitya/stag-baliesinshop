@@ -17,8 +17,6 @@ import nuxt_plugin_plugin_37d25ea3 from 'nuxt_plugin_plugin_37d25ea3' // Source:
 import nuxt_plugin_workbox_734af115 from 'nuxt_plugin_workbox_734af115' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_plugin_4e83202b from 'nuxt_plugin_plugin_4e83202b' // Source: ./vuetify/plugin.js (mode: 'all')
 import nuxt_plugin_templatesplugin663776ea_2278d9ca from 'nuxt_plugin_templatesplugin663776ea_2278d9ca' // Source: ./templates.plugin.663776ea.js (mode: 'all')
-import nuxt_plugin_metaplugin_3e7f59b0 from 'nuxt_plugin_metaplugin_3e7f59b0' // Source: ./pwa/meta.plugin.js (mode: 'all')
-import nuxt_plugin_iconplugin_35300ec8 from 'nuxt_plugin_iconplugin_35300ec8' // Source: ./pwa/icon.plugin.js (mode: 'all')
 import nuxt_plugin_axios_2fab2639 from 'nuxt_plugin_axios_2fab2639' // Source: ./axios.js (mode: 'all')
 import nuxt_plugin_datefns_42e33cf3 from 'nuxt_plugin_datefns_42e33cf3' // Source: ./date-fns.js (mode: 'all')
 import nuxt_plugin_deviceplugin_d60d1678 from 'nuxt_plugin_deviceplugin_d60d1678' // Source: ./device.plugin.js (mode: 'all')
@@ -89,7 +87,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"titleTemplate":"","title":"balesin - shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"http-equiv":"cache-control","content":"no-cache"},{"name":"google","content":"notranslate"},{"hid":"description","name":"description","content":"Chat Commerce di WhatsApp yang dapat membantu bisnis untuk berjualan lebih efektif "}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,300,400,600,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.9de03ee0.json"}],"script":[],"style":[]},
+    head: {"titleTemplate":"","title":"balesin - shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"http-equiv":"cache-control","content":"no-cache"},{"name":"google","content":"notranslate"},{"hid":"description","name":"description","content":"Chat Commerce di WhatsApp yang dapat membantu bisnis untuk berjualan lebih efektif "}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Poppins:100,300,400,600,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.0c1e832d.json"}],"script":[],"style":[]},
 
     store,
     router,
@@ -232,14 +230,6 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_templatesplugin663776ea_2278d9ca === 'function') {
     await nuxt_plugin_templatesplugin663776ea_2278d9ca(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_metaplugin_3e7f59b0 === 'function') {
-    await nuxt_plugin_metaplugin_3e7f59b0(app.context, inject)
-  }
-
-  if (typeof nuxt_plugin_iconplugin_35300ec8 === 'function') {
-    await nuxt_plugin_iconplugin_35300ec8(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_2fab2639 === 'function') {

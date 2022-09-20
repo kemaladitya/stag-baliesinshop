@@ -6,7 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _58fe1124 = () => interopDefault(import('../pages/detail.vue' /* webpackChunkName: "pages/detail" */))
 const _6e414435 = () => interopDefault(import('../pages/internal-uat.vue' /* webpackChunkName: "pages/internal-uat" */))
-const _6f66be11 = () => interopDefault(import('../pages/play.vue' /* webpackChunkName: "pages/play" */))
+const _b010a48e = () => interopDefault(import('../pages/static_checkoutpage.vue' /* webpackChunkName: "pages/static_checkoutpage" */))
 const _b5687958 = () => interopDefault(import('../pages/error/link/expired.vue' /* webpackChunkName: "pages/error/link/expired" */))
 const _71ff5526 = () => interopDefault(import('../pages/error/link/invalid.vue' /* webpackChunkName: "pages/error/link/invalid" */))
 const _4cac2a91 = () => interopDefault(import('../pages/site/confirmation/_store.vue' /* webpackChunkName: "pages/site/confirmation/_store" */))
@@ -19,8 +19,8 @@ const _6a89c6d7 = () => interopDefault(import('../pages/site/_store/draftesd.vue
 const _7075c426 = () => interopDefault(import('../pages/site/_store/merchant/index.vue' /* webpackChunkName: "pages/site/_store/merchant/index" */))
 const _331f471e = () => interopDefault(import('../pages/site/_store/tok.vue' /* webpackChunkName: "pages/site/_store/tok" */))
 const _953bcc62 = () => interopDefault(import('../pages/site/_store/userprofile/index.vue' /* webpackChunkName: "pages/site/_store/userprofile/index" */))
-const _7d6c27c6 = () => interopDefault(import('../pages/site/_store/cart/drafted_index.vue' /* webpackChunkName: "pages/site/_store/cart/drafted_index" */))
-const _0cd6e76c = () => interopDefault(import('../pages/site/_store/checkout/drafted_index.vue' /* webpackChunkName: "pages/site/_store/checkout/drafted_index" */))
+const _5c64d02f = () => interopDefault(import('../pages/site/_store/cart/draftedindex.vue' /* webpackChunkName: "pages/site/_store/cart/draftedindex" */))
+const _0e7083c9 = () => interopDefault(import('../pages/site/_store/checkout/draftedindex.vue' /* webpackChunkName: "pages/site/_store/checkout/draftedindex" */))
 const _e759561e = () => interopDefault(import('../pages/site/_store/_pid/index.vue' /* webpackChunkName: "pages/site/_store/_pid/index" */))
 const _20f4fa72 = () => interopDefault(import('../pages/site/_store/_pid/drafted_index.vue' /* webpackChunkName: "pages/site/_store/_pid/drafted_index" */))
 const _804f9e76 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
@@ -45,9 +45,9 @@ export const routerOptions = {
     component: _6e414435,
     name: "internal-uat"
   }, {
-    path: "/play",
-    component: _6f66be11,
-    name: "play"
+    path: "/static_checkoutpage",
+    component: _b010a48e,
+    name: "static_checkoutpage"
   }, {
     path: "/error/link/expired",
     component: _b5687958,
@@ -97,13 +97,13 @@ export const routerOptions = {
     component: _953bcc62,
     name: "site-store-userprofile"
   }, {
-    path: "/site/:store?/cart/drafted_index",
-    component: _7d6c27c6,
-    name: "site-store-cart-drafted_index"
+    path: "/site/:store?/cart/draftedindex",
+    component: _5c64d02f,
+    name: "site-store-cart-draftedindex"
   }, {
-    path: "/site/:store?/checkout/drafted_index",
-    component: _0cd6e76c,
-    name: "site-store-checkout-drafted_index"
+    path: "/site/:store?/checkout/draftedindex",
+    component: _0e7083c9,
+    name: "site-store-checkout-draftedindex"
   }, {
     path: "/site/:store?/:pid",
     component: _e759561e,

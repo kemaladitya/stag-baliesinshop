@@ -55,7 +55,10 @@ module.exports = {
 
   workbox: {},
 
-  components: true,
+  // components: true,
+  components: [
+    { path: '@/components/', extensions: ['vue'] }
+  ],
 
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/device", '@nuxtjs/date-fns',],
 
