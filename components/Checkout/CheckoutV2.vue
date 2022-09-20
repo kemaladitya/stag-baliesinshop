@@ -80,7 +80,7 @@ import Format from "@/components/general.json";
 import VoucherV2 from './screen/mini/constants/VoucherV2.vue';
 // import Courier from './screen/mobile/constants/courier/index.vue';
 import Courier from './screen/mini/constants/courier/index.vue';
-import PaymentV2 from './screen/mini/constants/paymentV2.vue';
+import PaymentV2 from './screen/mini/constants/PaymentV2.vue';
 
 import { rupiahFormat } from '~/middleware/helper'
 import OrderLoading from '../shared/OrderLoading.vue';
