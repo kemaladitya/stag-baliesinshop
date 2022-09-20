@@ -343,7 +343,13 @@ module.exports = {
   build: {
     friendlyErrors: false,
     babel: {
-      plugins: [["@babel/plugin-proposal-private-methods", "@babel/plugin-proposal-private-property-in-object", { loose: true }]],
+      plugins: [
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-private-methods',
+
+        // or with JUST the line below 
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
+      ],
     },
   },
 
