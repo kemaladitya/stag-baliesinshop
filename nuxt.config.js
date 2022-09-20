@@ -2,19 +2,17 @@
 // const pkg = require("./package")
 const path = require('path')
 const { base, host, port } = require("./config.json");
-function resolve(dir) {
-  return path.join(__dirname, '..', dir)
-}
+
 
 module.exports = {
   mode: "universal",
   ssr: true,
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: [".ts", ".tsx", ".js", ".vue", ".json"],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-    }
+      "@/": path.resolve(__dirname, "src"),
+      "@/vuex": path.resolve(__dirname, "src/vuex"),
+    },
   },
 
   target: "server",
