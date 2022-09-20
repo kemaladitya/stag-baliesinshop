@@ -6,6 +6,13 @@ const { base, host, port } = require("./config.json");
 module.exports = {
   mode: "universal",
   ssr: true,
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+    }
+  },
 
   target: "server",
 
