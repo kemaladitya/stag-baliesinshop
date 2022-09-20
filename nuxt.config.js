@@ -5,6 +5,7 @@ const { base, host, port } = require("./config.json");
 
 module.exports = {
   mode: "universal",
+  ssr: true,
 
   target: "server",
 
