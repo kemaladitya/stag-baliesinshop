@@ -8,7 +8,7 @@ module.exports = {
   mode: "universal",
   ssr: true,
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".vue", ".json"],
+    extensions: ["*", ".ts", ".tsx", ".js", ".vue", ".json"],
     alias: {
       "@/": path.resolve(__dirname, "src"),
       "@/vuex": path.resolve(__dirname, "src/vuex"),
@@ -55,10 +55,7 @@ module.exports = {
 
   workbox: {},
 
-  // components: true,
-  components: [
-    { path: '@/components/', extensions: ['vue'] }
-  ],
+  components: true,
 
   buildModules: ["@nuxtjs/eslint-module", "@nuxtjs/vuetify", "@nuxtjs/device", '@nuxtjs/date-fns',],
 
