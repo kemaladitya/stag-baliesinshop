@@ -312,7 +312,7 @@ export default {
             }
 
             .iconbar-qty {
-                border: 1px solid $green;
+                border: 1px solid $green-balesin;
             }
         }
     }

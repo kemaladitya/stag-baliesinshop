@@ -196,7 +196,7 @@ export default {
         }
 
         .vocname {
-            color: $red;
+            color: $red-balesin;
             text-transform: uppercase;
             font-weight: 700;
         }

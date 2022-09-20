@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .sendtobar {
-    background-color: $yellow;
+    background-color: $yellow-balesin;
     height: 35px;
     display: flex;
     align-items: center;

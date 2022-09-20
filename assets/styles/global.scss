@@ -1,12 +1,10 @@
 //colors
-$yellow : #fd0;
-$light-grey : #E8E8E8;
+$yellow-balesin: #fd0;
+$light-grey: #E8E8E8;
 $smoke: #E8E8E8;
-$blue : #206AEC;
-$green: #009900;
-$red: #CC0000;
-
-
+$blue-balesin: #206AEC;
+$green-balesin: #009900;
+$red-balesin: #CC0000;
 
 body,
 button,
@@ -24,7 +22,7 @@ p {
 }
 
 .text-red {
-    color: $red;
+    color: $red-balesin;
 }
 
 .font-light {
@@ -73,7 +71,7 @@ p.title,
 p.title-blue {
     font-size: 14px;
     font-weight: 600;
-    color: $blue;
+    color: $blue-balesin;
     margin-bottom: 16px;
     margin-top: 5px;
 }
@@ -85,7 +83,7 @@ p.prodtitle {
 }
 
 .bt-primary {
-    background-color: $yellow;
+    background-color: $yellow-balesin;
     text-transform: capitalize !important;
     border-radius: 100px;
     font-size: 12px;

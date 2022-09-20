@@ -6,8 +6,6 @@ import NuxtError from '../layouts/error.vue'
 
 import '../node_modules/@fortawesome/fontawesome-svg-core/styles.css'
 
-import '../node_modules/vuetify/dist/vuetify.css'
-
 import _6f6c098b from '../layouts/default.vue'
 import _77430317 from '../layouts/empty.vue'
 import _9ae2b81a from '../layouts/emptyV2.vue'
@@ -165,10 +163,6 @@ export default {
     },
 
     setLayout (layout) {
-      if(layout && typeof layout !== 'string') {
-        throw new Error('[nuxt] Avoid using non-string value as layout property.')
-      }
-
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

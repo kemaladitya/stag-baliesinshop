@@ -7,9 +7,9 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<General>` | `<general>` (components/General.js)
-- `<Cart>` | `<cart>` (components/Cart/index.vue)
 - `<BottomSheetMiniCart>` | `<bottom-sheet-mini-cart>` (components/Bottom-Sheet/mini-cart.vue)
 - `<BottomSheetRegLoading>` | `<bottom-sheet-reg-loading>` (components/Bottom-Sheet/reg_loading.vue)
+- `<Cart>` | `<cart>` (components/Cart/index.vue)
 - `<CheckoutV2>` | `<checkout-v2>` (components/Checkout/CheckoutV2.vue)
 - `<Checkout>` | `<checkout>` (components/Checkout/index.vue)
 - `<DialogsFailedMessage>` | `<dialogs-failed-message>` (components/Dialogs/failed-message.vue)

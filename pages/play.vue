@@ -175,7 +175,7 @@ export default {
         padding: 14px 16px;
 
         .voucherbut {
-            background-color: $red;
+            background-color: $red-balesin;
             border-radius: 100px;
             height: 50px;
             display: flex;
@@ -221,7 +221,7 @@ export default {
 
     .text-blue {
         cursor: pointer;
-        color: $blue;
+        color: $blue-balesin;
         font-size: 12px;
         font-weight: 700;
     }

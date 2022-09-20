@@ -297,7 +297,7 @@ export default {
 
 .text-blue {
   cursor: pointer;
-  color: $blue;
+  color: $blue-balesin;
   font-size: 12px;
   font-weight: 700;
 }
