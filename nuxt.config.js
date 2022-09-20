@@ -1,6 +1,6 @@
 /* eslint-disable nuxt/no-cjs-in-config */
 // const pkg = require("./package")
-
+const path = require('path')
 const { base, host, port } = require("./config.json");
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
