@@ -2,6 +2,9 @@
 // const pkg = require("./package")
 
 const { base, host, port } = require("./config.json");
+function resolve(dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = {
   mode: "universal",
