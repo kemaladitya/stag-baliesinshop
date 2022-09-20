@@ -340,15 +340,20 @@ module.exports = {
     theme: { dark: false, themes: {} },
   },
 
+  // build: {
+  //   friendlyErrors: false,
+  //   babel: {
+  //     plugins: [["@babel/plugin-proposal-private-methods", "@babel/plugin-proposal-private-property-in-object", { loose: true }]],
+  //   },
+  // },
+
   build: {
     friendlyErrors: false,
     babel: {
       plugins: [
-        // '@babel/plugin-proposal-class-properties',
-        // '@babel/plugin-proposal-private-methods',
-
-        // or with JUST the line below 
-        ['@babel/plugin-proposal-class-properties', '@babel/plugin-proposal-private-methods', '@babel/plugin-proposal-private-property-in-object', { loose: true }]
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-private-methods',
+        '@babel/plugin-proposal-private-property-in-object', { loose: true }
       ],
     },
   },
